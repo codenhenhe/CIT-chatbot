@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ctu-graphrag-backend
+    ports:
+      - "8000:8000"
+    environment:
+      NEO4J_URI: ${NEO4J_URI}
+      NEO4J_USERNAME: ${NEO4J_USERNAME:-neo4j}
+      NEO4J_PASSWORD: ${NEO4J_PASSWORD:-password}
+      NEO4J_DATABASE: ${NEO4J_DATABASE:-neo4j}
+      HF_TOKEN: ${HF_TOKEN:-}
+      LLAMA_INDEX_CACHE_DIR: /opt/backend/.cache/llama_index
+      OLLAMA_HOST: http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    volumes:
+      - ./backend/app:/opt/backend/app
+      - ./backend/uploads:/opt/backend/uploads
+      - hf_cache:/opt/backend/.cache/huggingface
+      - torch_cache:/opt/backend/.cache/torch
+
+volumes:
+  hf_cache:
+  torch_cache:

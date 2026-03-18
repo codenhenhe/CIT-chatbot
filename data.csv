@@ -1,0 +1,13 @@
+Nguồn (Source),Quan hệ (Relationship),Đích (Target),Ý nghĩa & Dữ liệu tham chiếu
+(:DonVi),[:QUAN_LY],(:ChuongTrinh),"Đơn vị quản lý chương trình (VD: Khoa Mạng MT&TT)"
+(:ChuongTrinh),[:GOM_NHOM],(:NhomKienThuc),"Chương trình gồm các khối kiến thức (VD: Đại cương, Cơ sở ngành)"
+(:NhomKienThuc),[:CHUA_MON],(:HocPhan),"Khối kiến thức chứa môn học cụ thể"
+(:HocPhan),[:TIEN_QUYET_CUA],(:HocPhan),"Môn A phải học trước môn B (Logic tiên quyết)"
+(:HocPhan),[:SONG_HANH_VOI],(:HocPhan),"Hai môn học cùng lúc hoặc hỗ trợ nhau"
+(:ChuongTrinh),[:HUONG_DEN],(:MucTieu),"Hướng tới Mục tiêu đào tạo (PEOs)"
+(:ChuongTrinh),[:CAM_KET],(:ChuanDauRa),"Cam kết đạt Chuẩn đầu ra (PLOs)"
+(:HocPhan),[:DONG_GOP],(:ChuanDauRa),"Môn học đóng góp cho PLO (Ma trận kỹ năng)"
+(:ChuongTrinh),[:MO_RA_CO_HOI],(:ViTriViecLam),"Cơ hội việc làm (VD: Chuyên viên bảo mật)"
+(:ChuongTrinh),[:TAO_NEN_TANG],(:CoHoiHocTap),"Cơ hội học lên cao (Thạc sĩ, Tiến sĩ)"
+(:ChuongTrinh),[:TUAN_THU],(:VanBanPhapQuy),"Tuân thủ Thông tư/Quyết định (VD: 08/2021/TT-BGDĐT)"
+(:ChuongTrinh),[:THAM_CHIEU],(:ChuanThamKhao),"Tham chiếu chuẩn quốc tế (VD: ACM, AUN-QA)"

@@ -1,0 +1,47 @@
+# VCS and local metadata
+.git
+.gitignore
+
+# Python cache and artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment files
+.env
+.env.*
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Logs and temp
+*.log
+*.tmp
+*.temp
+
+# Runtime uploads and large local datasets
+uploads/
+data/
+my_model_weights/
+
+# Keep dependency lock files optional for this image strategy
+Pipfile
+Pipfile.lock
+poetry.lock
