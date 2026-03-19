@@ -33,19 +33,30 @@ class GraphRAGChatbot:
         self.llm_model = "qwen2.5-coder:3b-instruct"
         self.client = ollama.AsyncClient()
 
-    # def _call_llm(self, prompt: str, system_prompt: str = "") -> str:
-    #     """Hàm gọi Ollama API với temperature thấp để đảm bảo tính ổn định"""
-    #     payload = {
-    #         "model": self.llm_model,
-    #         "prompt": f"System: {system_prompt}\nUser: {prompt}\nAssistant:",
-    #         "stream": False,
-    #         "options": {"temperature": 0.0} 
-    #     }
-    #     try:
-    #         response = requests.post(self.ollama_url, json=payload)
-    #         return response.json().get("response", "").strip()
-    #     except Exception as e:
-    #         return f"Lỗi gọi LLM: {str(e)}"
+    def extract_intent_entity(self, query: str):
+        query_lower = query.lower()
+
+        # intent
+        if "tiên quyết" in query_lower:
+            intent = "prerequisite"
+        elif "học phí" in query_lower:
+            intent = "tuition"
+        elif "tín chỉ" in query_lower:
+            intent = "credit"
+        else:
+            intent = "general"
+
+        # entity (đơn giản trước)
+        entity = None
+        match = re.search(r"(ct\d+)", query_lower)
+        if match:
+            entity = match.group()
+
+        # hoặc tên môn
+        if not entity:
+            entity = query
+
+        return intent, entity
         
     async def _call_llm(self, prompt: str, system_prompt: str = "") -> str:
         """Sử dụng AsyncClient để gọi Ollama không chặn luồng"""
@@ -61,61 +72,120 @@ class GraphRAGChatbot:
             return f"Lỗi gọi LLM: {str(e)}"
 
     # --- TẦNG 1: TRUY VẤN SEMANTIC (Tìm kiếm Vector toàn cục) ---   
-    async def layer_1_semantic_search(self, query: str):
+    # async def layer_1_semantic_search(self, query: str):
+    #     query_vec = self.embed_service.get_embedding_batch([query])[0]
+    #     cypher = """
+    #     CALL db.index.vector.queryNodes('global_knowledge_index', 3, $vector)
+    #     YIELD node, score
+    #     WHERE score > 0.7
+    #     RETURN node.text as context, labels(node)[0] as type
+    #     ORDER BY score DESC LIMIT 2
+    #     """
+        
+    #     try:
+    #         # Sử dụng async session từ connector mới
+    #         async with self.db.driver.session() as session:
+    #             result = await session.run(cypher, vector=query_vec)
+    #             records = await result.data()
+    #             results = [f"[{r['type']}]: {r['context']}" for r in records]
+    #             return "\n".join(results) if results else None
+    #     except Exception as e:
+    #         print(f"Lỗi Tầng 1: {e}")
+    #     return None
+
+    # TẦNG 2: HYBRID RETRIEVAL 
+    # async def layer_2_hybrid_retrieval(self, query: str) -> Optional[str]:
+    #     system_prompt = (
+    #         "Bạn là trợ lý trích xuất thực thể từ câu hỏi. "
+    #         "Nhiệm vụ: Trích xuất tên môn học hoặc mã môn học (Ví dụ: 'An ninh mạng', 'CT101'). "
+    #         "Nếu hỏi về điều kiện học hoặc môn tiên quyết, đặt intent là 'tien_quyet'. "
+    #         "Trả về duy nhất định dạng JSON: {'entity': '...', 'intent': '...'}. "
+    #         "Nếu không thấy thực thể, trả về {'entity': null}."
+    #     )
+    #     response = await self._call_llm(query, system_prompt)
+        
+    #     try:
+    #         match = re.search(r'\{.*\}', response, re.DOTALL)
+    #         if not match: return None
+    #         data = json.loads(match.group())
+    #         entity = data.get("entity")
+            
+    #         if entity and data.get("intent") == "tien_quyet":
+    #             # Tìm kiếm mờ (Fuzzy Search) bằng CONTAINS và toLower
+    #             cypher = """
+    #             MATCH (h:HocPhan)-[:YEU_CAU_TIEN_QUYET]->(pre)
+    #             WHERE toLower(h.ten_hp) CONTAINS toLower($id) OR h.ma_hp = $id
+    #             RETURN DISTINCT h.ten_hp as target, collect(pre.ten_hp) as pres
+    #             """
+    #             async with self.db.driver.session() as session:
+    #                 result = await session.run(cypher, id=entity)
+    #                 res = await result.single()
+    #                 if res:
+    #                     return f"Dữ liệu đồ thị xác nhận: Môn {res['target']} yêu cầu phải học xong các môn tiên quyết sau: {', '.join(res['pres'])}."
+    #     except:
+    #         pass
+    #     return None
+
+    async def vector_search(self, query: str):
         query_vec = self.embed_service.get_embedding_batch([query])[0]
+
         cypher = """
         CALL db.index.vector.queryNodes('global_knowledge_index', 3, $vector)
         YIELD node, score
-        WHERE score > 0.7
-        RETURN node.text as context, labels(node)[0] as type
+        WHERE score > 0.8
+        RETURN node.text as context
         ORDER BY score DESC LIMIT 2
         """
-        
+
+        async with self.db.driver.session() as session:
+            result = await session.run(cypher, vector=query_vec)
+            records = await result.data()
+
+        return "\n".join([r["context"] for r in records]) if records else None
+
+    async def query_graph(self, intent: str, entity: str):
         try:
-            # Sử dụng async session từ connector mới
             async with self.db.driver.session() as session:
-                result = await session.run(cypher, vector=query_vec)
-                records = await result.data()
-                results = [f"[{r['type']}]: {r['context']}" for r in records]
-                return "\n".join(results) if results else None
+
+                if intent == "PREREQUISITE":
+                    cypher = """
+                    MATCH (h:HocPhan)-[:YEU_CAU_TIEN_QUYET]->(pre)
+                    WHERE toLower(h.ten_hp) CONTAINS toLower($name)
+                    RETURN h.ten_hp as course, collect(pre.ten_hp) as prerequisites
+                    """
+                    result = await session.run(cypher, name=entity)
+                    data = await result.single()
+                    if data:
+                        return f"Môn {data['course']} cần học trước: {', '.join(data['prerequisites'])}"
+
+                elif intent == "CREDIT":
+                    cypher = """
+                    MATCH (h:HocPhan)
+                    WHERE toLower(h.ten_hp) CONTAINS toLower($name)
+                    RETURN h.ten_hp as course, h.so_tin_chi as credits
+                    """
+                    result = await session.run(cypher, name=entity)
+                    data = await result.single()
+                    if data:
+                        return f"Môn {data['course']} có {data['credits']} tín chỉ"
+
         except Exception as e:
-            print(f"Lỗi Tầng 1: {e}")
-        return None
+            print(f"Lỗi Graph: {e}")
 
-    # --- TẦNG 2: HYBRID RETRIEVAL (Dùng Template cho nghiệp vụ quan trọng) ---
-    async def layer_2_hybrid_retrieval(self, query: str) -> Optional[str]:
-        system_prompt = (
-            "Bạn là trợ lý trích xuất thực thể từ câu hỏi. "
-            "Nhiệm vụ: Trích xuất tên môn học hoặc mã môn học (Ví dụ: 'An ninh mạng', 'CT101'). "
-            "Nếu hỏi về điều kiện học hoặc môn tiên quyết, đặt intent là 'tien_quyet'. "
-            "Trả về duy nhất định dạng JSON: {'entity': '...', 'intent': '...'}. "
-            "Nếu không thấy thực thể, trả về {'entity': null}."
-        )
-        response = await self._call_llm(query, system_prompt)
-        
-        try:
-            match = re.search(r'\{.*\}', response, re.DOTALL)
-            if not match: return None
-            data = json.loads(match.group())
-            entity = data.get("entity")
-            
-            if entity and data.get("intent") == "tien_quyet":
-                # Tìm kiếm mờ (Fuzzy Search) bằng CONTAINS và toLower
-                cypher = """
-                MATCH (h:HocPhan)-[:YEU_CAU_TIEN_QUYET]->(pre)
-                WHERE toLower(h.ten_hp) CONTAINS toLower($id) OR h.ma_hp = $id
-                RETURN DISTINCT h.ten_hp as target, collect(pre.ten_hp) as pres
-                """
-                async with self.db.driver.session() as session:
-                    result = await session.run(cypher, id=entity)
-                    res = await result.single()
-                    if res:
-                        return f"Dữ liệu đồ thị xác nhận: Môn {res['target']} yêu cầu phải học xong các môn tiên quyết sau: {', '.join(res['pres'])}."
-        except:
-            pass
         return None
+    
+    def build_context(self, graph_data, vector_data):
+        context = ""
 
-    # --- TẦNG 3: DYNAMIC CYPHER (Suy luận đồ thị linh hoạt) ---
+        if graph_data:
+            context += f"[GRAPH]\n{graph_data}\n"
+
+        if vector_data:
+            context += f"[VECTOR]\n{vector_data}\n"
+
+        return context.strip()
+
+    # TẦNG 3: DYNAMIC CYPHER
     async def layer_3_graph_reasoning(self, query: str) -> str:
         schema = (
             "Nodes:\n"
@@ -216,43 +286,136 @@ class GraphRAGChatbot:
                 return f"Lỗi truy vấn đồ thị: {e}"
         return "Hiện chưa tìm thấy thông tin chi tiết trong đồ thị đào tạo."
 
-    # --- TỔNG HỢP CÂU TRẢ LỜI ---
-    async def final_synthesis(self, query: str, context: str) -> str:
-        system_prompt = (
-            "Bạn là chuyên viên tư vấn đào tạo của Đại học Cần Thơ. "
-            "Dựa trên ngữ cảnh cung cấp từ đồ thị, hãy trả lời sinh viên một cách thân thiện. "
-            "Ưu tiên liệt kê thông tin từ đồ thị. Nếu dữ liệu rỗng, hãy khuyên sinh viên liên hệ văn phòng Khoa."
-        )
-        return await self._call_llm(f"Context: {context}\n\nCâu hỏi: {query}", system_prompt)
+    # TỔNG HỢP CÂU TRẢ LỜI
+    # async def final_synthesis(self, query: str, context: str) -> str:
+    #     system_prompt = (
+    #         "Bạn là chuyên viên tư vấn đào tạo của Đại học Cần Thơ. "
+    #         "Dựa trên ngữ cảnh cung cấp từ đồ thị, hãy trả lời sinh viên một cách thân thiện. "
+    #         "Ưu tiên liệt kê thông tin từ đồ thị. Nếu dữ liệu rỗng, hãy khuyên sinh viên liên hệ văn phòng Khoa."
+    #     )
+    #     return await self._call_llm(f"Context: {context}\n\nCâu hỏi: {query}", system_prompt)
 
-    async def ask(self, query: str):
+    # async def ask(self, query: str):
+    #     print(f"\n[Hỏi]: {query}")
+        
+    #     # Thứ tự ưu tiên: Tầng 2 (Chính xác nhất cho môn học) -> Tầng 1 (Thông tin rộng) -> Tầng 3 (Logic phức tạp)
+        
+    #     context = await self.layer_2_hybrid_retrieval(query)
+    #     if context:
+    #         print("-> Tầng 2: Đã trích xuất thực thể và dùng Template thành công.")
+    #         return await self.final_synthesis(query, context)
+            
+    #     context = await self.layer_1_semantic_search(query)
+    #     if context:
+    #         print("-> Tầng 1: Tìm thấy ngữ cảnh tương đồng từ Vector Search.")
+    #         return await self.final_synthesis(query, context)
+            
+    #     print("-> Tầng 3: Đang thực hiện suy luận logic trên đồ thị...")
+    #     context = await self.layer_3_graph_reasoning(query)
+    #     return await self.final_synthesis(query, context)
+
+    def detect_intent(self, query: str):
+        q = query.lower()
+
+        # 1. greeting
+        if any(x in q for x in ["xin chào", "hello", "hi", "chào", "hey"]):
+            return "GREETING"
+
+        # 2. cảm ơn
+        if any(x in q for x in ["cảm ơn", "thanks", "thank"]):
+            return "THANKS"
+
+        # 3. học phí
+        if "học phí" in q:
+            return "TUITION"
+
+        # 4. tín chỉ
+        if "tín chỉ" in q:
+            return "CREDIT"
+
+        # 5. môn tiên quyết
+        if any(x in q for x in ["tiên quyết", "học trước"]):
+            return "PREREQUISITE"
+
+        # 6. chương trình đào tạo
+        if any(x in q for x in ["chương trình", "ctdt", "khung chương trình"]):
+            return "PROGRAM"
+
+        # 7. mô tả ngành
+        if any(x in q for x in ["ngành", "học gì", "mô tả", "giới thiệu"]):
+            return "MAJOR_INFO"
+
+        # 8. cơ hội việc làm
+        if any(x in q for x in ["việc làm", "nghề", "ra trường", "làm gì"]):
+            return "CAREER"
+
+        # 9. chuẩn đầu ra
+        if any(x in q for x in ["chuẩn đầu ra", "plo"]):
+            return "OUTCOME"
+
+        # 10. hình thức đào tạo
+        if any(x in q for x in ["chính quy", "tại chức", "online"]):
+            return "TRAINING_FORM"
+
+        # 11. thời gian học
+        if any(x in q for x in ["bao lâu", "mấy năm", "thời gian học"]):
+            return "DURATION"
+
+        # 12. khoa / bộ môn
+        if any(x in q for x in ["khoa", "bộ môn"]):
+            return "FACULTY"
+
+        # 13. văn bằng
+        if any(x in q for x in ["bằng gì", "văn bằng"]):
+            return "DEGREE"
+
+        # 14. học tiếp
+        if any(x in q for x in ["học tiếp", "cao học", "thạc sĩ"]):
+            return "FURTHER_STUDY"
+
+        # 15. fallback
+        return "GENERAL"
+
+    async def get_context(self, query: str):
+        query = query.strip()
+
         print(f"\n[Hỏi]: {query}")
+
+        if len(query) < 5:
+            return None
         
-        # Thứ tự ưu tiên: Tầng 2 (Chính xác nhất cho môn học) -> Tầng 1 (Thông tin rộng) -> Tầng 3 (Logic phức tạp)
-        
-        context = await self.layer_2_hybrid_retrieval(query)
-        if context:
-            print("-> Tầng 2: Đã trích xuất thực thể và dùng Template thành công.")
-            return await self.final_synthesis(query, context)
-            
-        context = await self.layer_1_semantic_search(query)
-        if context:
-            print("-> Tầng 1: Tìm thấy ngữ cảnh tương đồng từ Vector Search.")
-            return await self.final_synthesis(query, context)
-            
-        print("-> Tầng 3: Đang thực hiện suy luận logic trên đồ thị...")
-        context = await self.layer_3_graph_reasoning(query)
-        return await self.final_synthesis(query, context)
+        intent = self.detect_intent(query)
+
+        # nếu không phải query học thuật → bỏ RAG
+        if intent in ["GREETING", "THANKS"]:
+            return None
+
+        # 1. intent + entity
+        _, entity = self.extract_intent_entity(query)
+
+        # 2. query graph (ưu tiên)
+        graph_data = await self.query_graph(intent, entity)
+
+        # 3. nếu graph fail → vector
+        vector_data = None
+        if not graph_data:
+            vector_data = await self.vector_search(query)
+
+        # 4. build context
+        context = self.build_context(graph_data, vector_data)
+
+        return context if context else None
+
+        # 5. gọi LLM
+        # return await self.final_synthesis(query, context)
 
 if __name__ == "__main__":
     bot = GraphRAGChatbot()
     try:
-        # Để chạy async trong __main__, bạn nên dùng asyncio.run()
         async def main():
-            ans = await bot.ask("Môn An ninh mạng cần học môn nào trước?")
-            print(f"[BOT]: {ans}")
+            context = await bot.get_context("Môn An ninh mạng cần học môn nào trước?")
+            print(f"[BOT]: {context}")
         
         asyncio.run(main())
     finally:
-        # Phải await việc đóng driver
         asyncio.run(bot.db.close())
