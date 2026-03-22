@@ -1,0 +1,1725 @@
+{
+  "metadata": {
+    "ten_file": "QCDT_TuXa_20260322_105117_976045d8.pdf"
+  },
+  "quyet_dinh_ban_hanh": {
+    "can_cu": [],
+    "cac_dieu": [
+      {
+        "id": "Điều 1",
+        "tieu_de": "Ban hành kèm theo Quyềt định này Quy chế đào tạo trình độ đại học hình thức đào tạo từ xa của Trường Đại học Cẩn Thơ.",
+        "full_path": "Điều 1",
+        "noi_dung": "",
+        "cac_khoan": []
+      },
+      {
+        "id": "Điều 2",
+        "tieu_de": "Quyết định này có hiệu lực từ học kỳ 1, năm học 2024-2025 và thay thế quyết định sổ 319/QĐ-ĐHCT ngày 02 tháng 02 năm 2018 của Hiệu trưởng Trường",
+        "full_path": "Điều 2",
+        "noi_dung": " Đại học Cần Thơ ban hành quy định về công tác học vụ dành cho sinh viên bậc đại học hình thức đào tạo từ xa.",
+        "cac_khoan": []
+      },
+      {
+        "id": "Điều 3",
+        "tieu_de": "Chánh Văn phòng Trường, Giám độc Trung tâm Liên kêt Đào tạo, Thủ trưởng các đơn vị, viên chức và sinh viên có liên quan chịu trách nhiệm thi hành Quyết",
+        "full_path": "Điều 3",
+        "noi_dung": " dịnh này/ Nơi nhận: - Như Điều 3; - Công bổ trên Website; - Lưu: VT, LKĐT. Sục HỊỆU TRƯỞNG TRƯỜNG CÂN THỞ BO C AO Trần Trung Tính BỘ GIÁO DỤC VÀ ĐÀO TẠO CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM TRƯỜNG ĐẠI HỌC CẦN THƠ Độc lập - Tự do - Hạnh phúc QUY CHE Đào tạo trình độ đại học hình thức đào tạo từ xa (Kèm theo Quyết định số 34.86../0Đ-ĐHCT ngày 23 tháng 8 năm 2024 của Hiệu trưởng Trường Đại học Cần Thơ)",
+        "cac_khoan": []
+      }
+    ]
+  },
+  "quy_dinh_chi_tiet": [
+    {
+      "chuong": "Chương I",
+      "ten": "Chương I: NHỮNG QUY ĐỊNH CHUNG",
+      "cac_dieu": [
+        {
+          "id": "Điều 1",
+          "tieu_de": "Phạm vi điều chỉnh và đổi tượng áp dụng",
+          "full_path": "Chương I > Điều 1",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Quy chế này quy định về tổ chức, quản lý đào tạo và cấp văn bằng trình độ đại học hình thức đào tạo từ xa (ĐTTX) của Trường Đại học Cần Thơ (ĐHCТ).",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Quy chề này áp dụng dỗi với các đơn vị, giảng viên (GV), cán bộ quản lý (CBQL), cán bộ hỗ trợ học tập (CBHTHT), sinh viên (SV) tham gia học hình thức ĐTTX trình độ đại học của Trường ĐHCT; các cơ sở phôi hợp ĐTTX với Trường ĐHCT.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 2",
+          "tieu_de": "Giải thích từ ngữ",
+          "full_path": "Chương I > Điều 2",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Hình thức ĐTTX của Trường ĐHCT là hình thức đào tạo có 50% tổng khối lượng của chương trình đào tạo trở lên được thực hiện theo một hoặc kết hợp giữa phương thức Mạng máy tính và viễn thông và phương thức Thư tín.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Phương thức Mạng máy tính và viễn thông sử dụng công nghệ thông tin và truyền thông, chủ yều là máy tính, thiết bị di động và mạng internet hoặc mạng viễn thông đê truyên tải thông tin và tạo môi trường cho GV và người học tương tác.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Phương thức Thư tín sử dụng thư tín hoặc bưu điện để truyền tải thông tin giữa GV và người học.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Sinh viên ĐTTX là người học đang học tập theo hình thức ĐTTX của Trường ĐHCT. cua",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "Giảng viên tham gia giảng dạy ĐTTX của Trường ĐHCT bao gồm GV cơ hữu Trường ĐHCT hoặc GV dược Trường ĐHCT thỉnh giảng theo quy định, quy chế của Trường ĐHCT.",
+              "cac_diem": []
+            },
+            {
+              "so": "6",
+              "noi_dung": "Cán bộ hỗ trợ học tập, cán bộ quản lý hình thức ĐTTX của Trường ĐHCT là viên chức, người lao động của Trường ĐHCT và các đơn vị phối hợp đào tạo được giao nhiệm vụ quản lý và hỗ trợ SV trong quá trình học tập.",
+              "cac_diem": []
+            },
+            {
+              "so": "7",
+              "noi_dung": "Cơ sở phổi hợp đào tạo với Trường ĐHCT là các cơ sở giáo dục đại học, trường cao đăng, trường trung cấp, trung tâm giáo dục thường xuyên, trung tâm giáo dục nghể nghiệp - giáo dục thường xuyên, trường của cơ quan nhà nước, tổ chức chính trị, tổ chức chính trị - xã hội, lực lượng vũ trang nhân dân có dủ điều kiện bảo đảm các yêu cầu về môi trường sư phạm, cơ sở vật chất, thiết bị, thư viện, thiết bị thí nghiệm, thực hành, thực cán bộ quần lý để thực hiện chương trình ĐTTX. tập,",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 3",
+          "tieu_de": "Chương trình đào tạo",
+          "full_path": "Chương I > Điều 3",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Chương trình đào tạo (CTĐT) từ xa là chương trình đào tạo đang áp dụng cho hình thức chính quy ngành đào tạo tương ứng được điểu chỉnh và mô tả cụ thể trong đề cương chỉ tiết của mỗi học phần cho phù hợp với hình thức ĐTTX về phương pháp dạy - học, thời lượng dạy - học, học liệu, đánh giá kêt quả học tập trong đó sử dụng chủ yếu phương thức Mạng máy tính và viễn thông.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "CTĐT của mỗi ngành học được xây dựng theo dơn vị tín chỉ (TC), cấu trúc từ các học phần, trong đó có dủ các học phần bắt buộc và đáp ứng chuẩn CTĐT theo quy định hiện hành của Bộ Giáo dục và Đào tạo. SV phải tích lũy đủ các học phần và khối lượng TC tối thiều theo yêu cấu của CTĐT để được xét cấp bằng tốt nghiệp.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Bản mô tả chương trình đào tạo và chương trình dạy học được xây dựng căn cứ vào CTĐT, gồm các nội dung: thông tin chung về CTĐT; thông tin về đối sánh giữa CTĐT với các chương trình tương tự trong và ngoài nước; thông tin về kết quả đánh giá hoặc kiểm định chất lượng CTĐT; mục tiêu đào tạo của CTĐT; chuẩn đầu ra của CTĐT; ma trận tương thích giữa mục tiêu đào tạo và chuẩn đầu ra của CTĐT; ma trận tương thích giữa các học phần trong chương trình dạy học và chuần đầu ra của CTĐT; tiêu chí tuyên sinh; vị trí việc làm; câu trúc chương trình dạy học; khung CTĐT (là CTĐT với các học phần được bố trí theo khối kiển thức); kế hoạch dạy học (là CTĐT với các học phần được bố trí theo học kỳ trong thời gian thiết kế của CTĐT; sau đây gọi là kế hoạch học tập chuẩn toàn khóa); tóm tắt các học phần (đính kèm đề cương chi tiết các học phân); phương pháp giảng dạy và học tập; phương pháp đánh giá.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Các học phần trong CTĐT có thể được tổ chức bằng những phương thức khác nhau hoặc kết hợp nhiều phương thức ĐTTX.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "Chương trình ĐTTX được công khai đối với SV trước khi tuyển sinh và khi bắt đầu khóa học; những thay đổi, điều chỉnh liên quan đến CTĐT được thực hiện theo quy định hiện hành và công bố trước khi áp dụng, không gây tác động bất lợi cho SV. Hăng năm, Trường ĐHCT tổ chức rà soát, đánh giá và cập nhật chương trình ĐTTX.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 4",
+          "tieu_de": "Kê hoạch học tập",
+          "full_path": "Chương I > Điều 4",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Kế hoạch học tập chuẩn toàn khóa do Đơn vị đào tạo xây dựng trên cơ sở CTĐT của ngành tương ứng và thời gian đào tạo trong kế hoạch học tập chuẩn toàn khóa không ngăn hơn so với hình thức đào tạo chính quy.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Căn cứ kế hoạch học tập chuẩn toàn khóa, Đơn vị dào tạo thiết kể kế hoạch học tập toàn khóa cho SV theo từng học kỳ gồm các học phần bắt buộc và các học phân tự chọn phù hợp với hình thức ĐTTX.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Kê hoạch học tập toàn khóa là cơ sở để SV đăng ký học phần trong mỗi học kỳ. Kế hoạch học tập toàn khóa có thể thay đổi trong quá trình học.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 5",
+          "tieu_de": "Thời gian đào tạo",
+          "full_path": "Chương I > Điều 5",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Thời gian học tập tối đa cho phép để SV hoàn thành CTĐT được xác định theo bảng sau: Thời gian học tập tôi đa Thời gian thiết kế của CTĐТ để SV hoàn thành CTĐT 4 năm 4,5 năm 5 năm 8 năm 9 năm 10 năm",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV học liên thông (người đã có băng tôt nghiệp trình độ đại học; người có bằng tốt nghiệp trình độ cao đẳng; người có bằng tốt nghiệp trình độ trung cấp) và SV có kết quả học tập đã tích lũy từ một trình độ đào tạo khác, một ngành đào tạo hoặc một CTĐT khác, một khóa học khác hoặc từ một cơ sở đào tạo khác được xem xét công nhận, chuyền đổi sang TC của những học phần trong CTĐT theo Quy định xét miễn và công nhận điểm học phần trong CTĐT trình độ đại học hình thức ĐTTX của Trường. Khối lượng TC tổi đa được công nhận, chuyền đồi không vượt quá 50% khối lượng học tập tối thiểu của CTĐT và thời gian tối đa đê những SV này hoàn thành khóa học được xác định trên cơ sở thời gian theo kể hoạch học tập chuẩn toàn khóa giảm tương ứng với khối lượng TC được miễn trừ.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 6",
+          "tieu_de": "Học kỳ và số học kỳ",
+          "full_path": "Chương I > Điều 6",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Mỗi năm học được tổ chức thành 03 học kỳ (HK) gọi là học kỳ 1, học kỳ 2 và học kỳ 3.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Mỗi học kỳ kéo dài 15 tuẩn, trong đó gồm có 11 tuần dạy và học, 01 tuẩn dự trữ và 3 tuần tổ chức thi.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Học kỳ 1 bắt đầu từ tuẩn thứ 37 đến tuần thứ 51 của năm; học kỳ 2 bắt đầu từ tuần thứ 01 đến tuần thứ 17 của năm (bao gồm 2 tuần nghỉ tết Nguyên đán); học kỷ 3 bắt đầu từ tuần thứ 20 đến tuần thứ 34 của năm. Tuần nghỉ giữa các học kỳ là tuần thứ 18, 19, 35, 36, 52 và tuần thứ 53 (nếu có) của năm.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 7",
+          "tieu_de": "Học phần",
+          "full_path": "Chương I > Điều 7",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Học phần là khối lượng kiến thức tương đối trọn vẹn được dạy trong 1 học kỳ. Mỗi học phần có tên riêng và được ký hiệu bằng một mã số.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Học phần bắt buộc là học phần SV phải tích lũy.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Học phần tự chọn là học phần SV tự chọn để tích lũy.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Học phần tiên quyết của học phần HPxxx là học phần mà SV phải tích lũy mới được đăng ký học phẩn HPxxx.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "Học phần song hành của học phần HPxxx là học phần mà SV phải học trước hoặc học cùng lúc với học phần HPxxх.",
+              "cac_diem": []
+            },
+            {
+              "so": "6",
+              "noi_dung": "Học phần điều kiện (bao gồm các học phần Giáo dục Quốc phòng và An ninh (GDQP&AN), Giáo dục thể chất (GDTC), Ngoại ngữ căn bản, Tin học căn bản) là học phần mà SV phải hoàn thành nhưng kết quả học phần không dùng đê tính điêm trung bình chung tích lũy (ĐTBCTL); ngoài ra, điểm học phần GDTC không dùng để tính điểm trung bình chung học kỳ (ĐTBCHK)và điểm trung bình chung năm học (ĐTBCNH).",
+              "cac_diem": []
+            },
+            {
+              "so": "7",
+              "noi_dung": "Lớp học phần là lớp bao gồm những SV đăng ký học cùng thời khóa biểu của một học phần trong học kỳ. Trong một học kỳ, mỗi học phần có thể có nhiều lớp học phần được đặt mã số khác nhau, được xếp thời khóa biểu và được phân công giảng viên phụ trách.",
+              "cac_diem": []
+            },
+            {
+              "so": "8",
+              "noi_dung": "Lớp chuyên ngành là lớp được hình thành từ đầu khóa học cho đến cuổi khóa học. Tổ chức lớp chuyên ngành để duy trì những hoạt động đoàn thể, xét khen thưởng, phố biển những thông tin của Trường, đơn vị đào tạo đến SV. Mỗi lớp chuyên ngành có mã số riêng và được bố trí một CBHTHT để tư vẫn và hỗ trợ SV. xác yêu",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 8",
+          "tieu_de": "Khổi lượng học tập, tín chỉ và giờ giảng dạy",
+          "full_path": "Chương I > Điều 8",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Khối lượng học tập của mỗi CTĐT hoặc của mỗi học phần trong CTĐT được định bằng số TC. Khổi lượng học tập tổi thiều của một CTĐT phải phù hợp với cấu của Khung trình độ quốc gia Việt Nam.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Tín chỉ là đơn vị dùng đê đo lường mức độ học tập, một (01) tín chỉ được tính tương đương 50 giờ học tập định mức của SV, bao gôm cả thời gian dự giờ giảng, giờ học có hướng dẫn, tự học, nghiên cứu, trải nghiệm và dự kiểm tra, đánh giá.",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Đối với hoạt động dạy học trên lớp, một tín chỉ yêu cầu thực hiện tối thiểu 15 giờ giảng trên lớp (và 30 giờ tự học, chuẩn bị cả nhân có hướng dân) hoặc 30 giờ thực hành, thí nghiệm, thảo luận (và 15 giờ tự học, chuẩn bị cá nhân có hướng dẫn)."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Ngoài ra, một tín chỉ yêu cầu thực hiện tối thiểu 45 giờ cho các hoạt động thực tập tại cơ sở, làm tiểu luận, bài tập lớn, đồ án, niên luận, tiểu luận tốt nghiệp, luận văn tốt nghiệp."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Một giờ giảng trên lớp (sau đây gọi là tiết) được tính bằng 50 phút.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 9",
+          "tieu_de": "Giờ lên lớp",
+          "full_path": "Chương I > Điều 9",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "SV phải dự 100% số tiết đối với các học phần thực hành, thí nghiệm, thực tập tại cơ sở, GDQP&AN, GDTC; phải tham dự tối thiểu 80% số tiết đối với các học phần lý thuyểt. SV văng tham gia lớp nhiều hơn thời gian quy định sẽ bị cẩm thi. GV giảng dạy học phần đề nghị Đơn vị đào tạo duyệt danh sách SV bị cẩm thi và cho điểm F vào bảng điêm.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Vào buổi học đầu tiên, GV thông báo cho SV biết để cương chi tiết học phần (nội dung và chuẩn đầu ra của học phẳn, phương pháp giảng dạy, hình thức kiểm tra, đánh giá, cách tính điêm, v.v.).",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Giờ lên lớp được thực hiện đa dạng, linh hoạt vào các buổi học: sáng, chiều và tôi của tất cả các ngày trong tuần với tiết học, giờ học và thời gian nghi giữa những tiết học được trình bày trong bảng sau: Buổi học Tiết học Giờ học Thời gian nghỉ 07:10- 08:00 Không 08:00-08:50 Không Sáng 08:50-09:40 10 phút 09:50-10:40 Không 10:40-11:30 13:10-14:00 Không 14:00- 14:50 Không Chiểu 14:50-15:40 10 phút 15:50-16:40 Không 16:40-17:30 18:30-19:20 Không Tối 19:20-20:10 10 phút 20:20-21:10",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 10",
+          "tieu_de": "Học phí và thời gian thu học phí",
+          "full_path": "Chương I > Điều 10",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Học phí được thu theo học kỳ và được tính theo tổng số TC mà SV đã đăng ký học ở học kỳ đó. Mức học phí do Hiệu trưởng quyết định và được thông báo công khai hàng năm. Thời gian thu học phí sẽ dược thông báo chi tiết vào đầu học kỳ.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV không đóng học phí sẽ không được tham gia thi kết thúc học phần. Trường hợp SV không đóng học phí, nếu có điểm thị thì điểm thi sẽ không được cập nhật vào bảng điểm. SV chỉ được cập nhật điểm thi học phần khi đã hoàn thành học phí. SV có hoàn cảnh khó khăn được phép gia hạn học phí của 01 học kỳ (trừ học kỳ đầu tiên và học kỳ cuổi cùng của khóa học) và thời gian được phép gia hạn tôi da 04 tuân kê từ ngày kết thúc thu học phí của học kỳ. Thủ tục gia hạn học phí, SV phải làm đơn theo mẫu và gửi về Trung tâm Liên kết Đào tạo (TTLKĐT) trước ngày kết thúc thu học phí của học kỳ. Đơn được phép gia hạn học phí phải được sự đồng ý của Trường ĐHCT.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "SV nợ học phí của học kỳ đầu tiên của khóa học được xem như không hoàn tất thủ tục nhập học và bị buộc thôi học theo quy chể này.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "SV đóng thừa học phí do chuyển nhầm hoặc do được miễn học phần trong học kỳ đang học phải làm đơn đề nghị chuyển học phí đã đóng thừa sang học kỳ tiếp theo trước khi kết thúc kỳ thi của học kỳ đóng thừa học phí. Khi học kỳ đã kết thúc, Trường ĐHCT sẽ không giải quyết các đơn đề nghị chuyền học phí đã đóng thừa. Trường hợp SV đang học học kỳ cuổi khi đóng thừa học phí thì làm đơn đê nghị hoàn lại học phí bằng cách nhận tiền mặt hoặc chuyển khoản.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "SV không thể tham gia học, có thể làm Đơn xin hoàn lại học phí do rút học phần đã đăng ký hoặc xin chuyển học phí đã đóng sang học kỳ tiếp theo chậm nhất là tuần lễ thứ hai của học kỳ. Sau thời gian hai tuần, Trường sẽ không giải quyết hoàn trả học phí.",
+              "cac_diem": []
+            },
+            {
+              "so": "6",
+              "noi_dung": "SV không đóng học phí hai học kỳ liên tiêp sẽ bị buộc thôi học.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 11",
+          "tieu_de": "Bảo hiểm y tế, bảo hiểm tai nạn và tín dụng SV",
+          "full_path": "Chương I > Điều 11",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Bảo hiểm y tế (BHYT): Tất cả SV phải tham gia BHYT bắt buộc, các trường hợp đã tham gia đóng BHYT tại cơ quan, đơn vị đang công tác hoặc địa phương, phải cung cấp bản sao thẻ BHYT hoặc giấy tờ có liên quan.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Bảo hiểm tai nạn (BHTN): Trường khuyến khích SV tham gia BHTN.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Tín dụng SV: SV có thể xin vay tín dụng từ các Ngân hàng Chính sách xã hội tại địa phương nơi gia đình SV cư trú. Trường sẽ cấp giấy xác nhận để SV bổ sung hồ sơ xin vay vốn.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 12",
+          "tieu_de": "Nghỉ học tạm thời, xin thôi học, đình chỉ học tập và buộc thôi học",
+          "full_path": "Chương I > Điều 12",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "SV có thể làm đơn xin phép nghỉ học tạm thời trong các trường hợp sau đây:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Được điều động vào các lực lượng vũ trang;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Bị ổm, thai sản hoặc tai nạn phải điều trị trong thời gian dài có chứng nhận của cơ sở khám bệnh, chữa bệnh có thẩm quyền theo quy định của Bộ Y tế;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Được cơ quan có thẩm quyền điều động, đại diện quốc gia tham gia các kỳ thi. giải đầu quốc tế;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Vì lý do cá nhân (hoàn cảnh gia đình neo đơn, việc riêng.v.v.). Trường hợp này chỉ giải quyết khi SV đã học ít nhất một học kỳ ở Trường ĐHCT, không rơi vào tình trạng bị buộc thôi học hoặc xem xét kỷ luật. Thời gian nghi học tạm thời trong trường hợp này được tính vào quỹ thời gian để hoàn thành CTĐT. Nếu được chấp thuận, SV sẽ được nhận quyết định cho phép nghỉ học của Hiệu trưởng. Khi hêt thời gian nghỉ học tạm thời và chậm nhất là 02 tuần trước khi học kỳ mới bắt đầu, SV phải nộp hồ sơ xin nhập học lại. Nếu đủ điều kiện theo quy định, Hiệu trưởng sẽ có quyết định thu nhận SV học lại."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV bị đình chỉ học tập 1 HK trong các trường hợp bị kỷ luật ở mức đình chỉ học tập 1 НК. tập.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "SV bị đình chỉ học tập 1 năm trong trường hợp bị kỷ luật ở mức đình chỉ học",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "SV bị buộc thôi học trong các trường hợp:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Bị kỷ luật ở mức buộc thôi học;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Nghỉ học tạm thời quá thời hạn cho phép;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Không đăng ký học trong 2 HK liên tiếp mà không được sự cho phép của Hiệu trưởng;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Không đóng học phí 2 HK liên tiếp;"
+                },
+                {
+                  "ky_hieu": "đ",
+                  "noi_dung": "Thời gian học tập vượt quá thời hạn theo quy định tại Điều 5 của Quy chê này;"
+                },
+                {
+                  "ky_hieu": "e",
+                  "noi_dung": "Người học sử dụng hỗ sơ, văn bằng, chứng chỉ giả làm điều kiện trúng tuyển hoặc điều kiện tốt nghiệp; văn bằng tốt nghiệp nếu đã được cấp sẽ bị thu hổi, hủy bỏ."
+                }
+              ]
+            },
+            {
+              "so": "5",
+              "noi_dung": "Sinh viên có thê xin thôi học vì lý do cá nhân, trừ trường hợp bị xem xét buộc thôi học hoặc xem xét kỷ luật. Những SV này muốn quay trở lại học phải dự tuyền đầu vào.",
+              "cac_diem": []
+            },
+            {
+              "so": "6",
+              "noi_dung": "Sinh viên được bảo lưu kết quả học tập đã tích lũy trong trường hợp bị buộc thôi học hoặc được thôi học vì lý do cá nhân.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 13",
+          "tieu_de": "Thủ tục xét xử lý kỷ luật sinh viên",
+          "full_path": "Chương I > Điều 13",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "SV vi phạm các quy định của Trường, các cơ sở phôi hợp đào tạo và các quy định pháp luật, tùy theo mức độ nặng nhẹ sẽ bị xử lý kỷ luật từ khiển trách đến buộc thôi học. luật.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Thủ tục xét kỷ luật:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "SV có hành vi vi phạm phải làm bản Tự kiểm điểm và tự nhận hình thức kỷ Trong trường hợp SV không chấp hành làm bản Tự kiểm điểm thì Hội đồng kỷ luật SV vẫn họp để xử lý trên cơ sở các chứng cứ thu thập được;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "TTLKĐT, Đơn vị dào tạo và đơn vị phối hợp đào tạo (nễu có) chủ trì họp với tập thể lớp SV, phân tích và để nghị hình thức kỷ luật;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "TTLKĐT và Đơn vị đào tạo xem xét, đề nghị Hội đồng kỷ luật SV của Trường;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Hội đồng kỷ luật SV tổ chức họp để xét kỷ luật, thành phần bao gồm: các thành viên của Hội đồng, đại diện tập thể lớp có SV vi phạm và SV có hành vi vi phạm. SV vi phạm kỷ luật đã được mời mà không đến dự (nểu không có lý do chính đáng), không có bản Tự kiểm điểm thì Hội đồng vẫn tiến hành họp và xét thêm khuyết điểm thiểu ý thức tổ chức kỷ luật. Hội đồng kiển nghị áp dụng hình thức kỷ luật, để nghị Hiệu trưởng ra quyết định kỷ luật bằng văn bản."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Hồ sơ xử lý kỷ luật của SV:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Bản Tự kiểm điểm (nếu có);"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Biên bản của tập thể lớp SV họp kiểm điểm SV có hành vi vi phạm;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Biên bản của Đơn vị đào tạo hoặc đơn vị phụ trách;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Các tài liệu có liên quan. Trường sẽ gửi thông báo về địa phương và gia đình các trường hợp SV bị đình chỉ học tập hoặc buộc thôi học. SV được bảo lưu kết quả học tập đã tích lũy trong trường hợp buộc thôi học và đình chỉ học tập có thời hạn."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Điều 14",
+          "tieu_de": "Chuyển ngành, chuyển trường, chuyển địa điểm học",
+          "full_path": "Chương I > Điều 14",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Việc chuyển ngành, chuyển trường, chuyển địa điểm học đối với SV theo học hình thức ĐTTX được áp dụng trong cùng hình thức ĐTTX.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV được chuyển ngành (hoặc chuyên ngành) nếu có nguyện vọng, SV phải thực hiện thủ tục chuyển ngành theo quy định của Trường và phải được Hiệu trưởng đồng ý.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "SV được chuyển trường (cùng ngành học) nếu gia đình chuyển nơi cư trú, chuyển nơi làm việc hoặc SV có hoàn cảnh gia đình khó khăn cần phải chuyển đến trường gần nơi cư trú để thuận tiện cho việc học tập, làm việc và phải được sự đồng ý của Hiệu trưởng trường xin đi và trường xin chuyển đến.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "SV được chuyển địa điểm học nếu gia đình chuyển nơi cư trú, nơi làm việc hoặc SV có hoàn cảnh gia đình khó khăn cần phải chuyển đến nơi học gần nơi cư trú để thuận tiện cho việc học tập, làm việc và phải được sự đồng ý của Hiệu trưởng/Giám đốc đơn vị đang theo học và đơn vị xin chuyển đến.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "SV không được phép chuyển trường trong các trường hợp sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "SV năm thứ nhất và năm cuổi khóa;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "SV dang chịu mức kỷ luật từ cảnh cáo cấp trường trở lên;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "SV thuộc diện bị xem xét buộc thôi học."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Điều 15",
+          "tieu_de": "Công nhận kết quả học tập và chuyển đổi số tín chỉ",
+          "full_path": "Chương I > Điều 15",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Kết quả học tập của SV đã tích lũy từ một trình độ dào tạo khác, một ngành đào tạo hoặc một CTĐT khác, một khóa học khác hoặc từ một cơ sở đào tạo khác được Trường xem xét công nhận, chuyền đổi sang TC của những học phần trong CTĐT theo học.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Hội đồng xét miễn và công nhận điểm học phẩn xem xét công nhận, chuyển đổi TC trên cơ sở đổi sánh chuẩn đầu ra, nội dung và khối lượng học tập, cách thức đánh giá học phần và các điều kiện bảo đảm chất lượng thực hiện chương trình. Khối lượng tổi đa được công nhận, chuyển đổi không vượt quá 50% khối lượng học tập tối thiều của СТĐТ.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 16",
+          "tieu_de": "Quy trình, thủ tục quyết định chủ trương và phê duyệt để án đào tạo từ xa",
+          "full_path": "Chương I > Điều 16",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "TTLKĐT phối hợp với các Đơn vị đào tạo xây dựng để án mở ngành ĐTTX. Đề án được mô tả chi tiết về sự cần thiết mở ngành ĐTTX; việc chuẩn bị đầy đủ các yêu cầu tối thiều để thực hiện ĐTTX, giải pháp và lộ trình triển khai theo quy định; phương án phòng ngừa và xử lý rủi ro có thể xảy ra đề bảo vệ quyền lợi cho SV, GV, Trường và các bên liên quan.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Hiệu trưởng quyết định phê duyệt để án và quyết định ĐTTX trên cơ sở ý kiển thẩm định, đánh giá mức độ đáp ứng của thực tế so với yêu cầu tối thiều để thực hiện ĐTTX của Hội đông Khoa học và Đào tạo Trường và Quyết nghị của Hội dồng Trường.",
+              "cac_diem": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chuong": "Chương II",
+      "ten": "Chương II: ĐĂNG KÝ HỌC PHẦN",
+      "cac_dieu": [
+        {
+          "id": "Điều 17",
+          "tieu_de": "Trách nhiệm của Trường và sinh viên trong đăng ký học phần",
+          "full_path": "Chương II > Điều 17",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Trước mỗi học kỳ, Trường công bố kế hoạch đăng ký học phần và tổ chức giảng dạy các học phần, danh sách các học phần tổ chức giảng dạy trong học kỳ và thời gian đăng ký học phần.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV phải đăng ký lớp học phần sẽ học trong học kỳ bao gồm những học phần mới, một số học phần chưa đạt (để học lại) và một số học phần đã đạt (đế cải thiện điểm, nếu có) dựa trên danh sách học phần được mở và điều kiện đăng ký của mỗi học phần của học kỳ.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 18",
+          "tieu_de": "Số tín chỉ đăng ký trong một học kỳ",
+          "full_path": "Chương II > Điều 18",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "SV được đăng ký học tối đa 17 TC/học kỳ, bao gồm TC của những học phần mới, học phần chưa đạt (để học lại) và học phần đã đạt nhưng để cải thiện điểm (nếu có).",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Tùy theo năng lực học tập và điều kiện cá nhân, SV nên đăng ký học với số TC phù hợp để đạt kết quả học tập tốt.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 19",
+          "tieu_de": "Đăng ký học phần",
+          "full_path": "Chương II > Điều 19",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "SV đăng ký học phần theo kế hoạch giảng dạy và học tập năm học.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV có thê đăng ký trên hệ thống quản lý hoặc đăng ký thông qua ứng dụng di động của Trường.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "SV đăng ký học phần bằng việc xác nhận các học phần tham gia học trong học kỳ và chịu trách nhiệm với kết quả đăng ký của mình.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Học phần đã đăng ký nhưng SV không theo học hoặc không đóng học phí theo quy định hoặc không tham gia thi sẽ nhận điểm F.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "Học phần đã đăng ký nhưng không thể tham gia học, SV có thể đề nghị rút học phần trong 02 tuần đầu tiên của học kỳ. Học phần đề nghị rút trong thời gian quy định sẽ không tính học phí. Quá thời gian quy định SV sẽ không được giải quyết rút học phần và phải hoàn thành học phí.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 20",
+          "tieu_de": "Đăng ký học lại, học cải thiện điểm",
+          "full_path": "Chương II > Điều 20",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Học phần có điểm F sẽ không được tích lũy, SV phải đăng ký học lại những học phần này.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV có thể đăng ký học lại để cải thiện kết quả học phần. Điểm tích lũy cuổi cùng của học phần sẽ là điểm cao nhất trong các lần học. Số tín chỉ của học phần học cải thiện bị điểm F sẽ không tính giảm một mức hạng tốt nghiệp theo Điểm a, Khoản 3, Điều 31 của quy chể này.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Tín chỉ các học phần đăng ký học lại, học cải thiện điểm được tính vào tổng số TC của học kỳ mà SV đăng ký học.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Đối với học phần tự chọn, nếu SV tích lũy số TC nhiều hơn yêu cầu của nhóm học phần tự chọn, khi xét tốt nghiệp SV có thể lựa chọn học phần có điểm cao để tính vào ĐTBCTL.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "SV đăng ký học lại, học cải thiện điểm thực hiện theo Điều 19 của Quy chế này.",
+              "cac_diem": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chuong": "Chương III",
+      "ten": "Chương III: ĐÁNH GIÁ KẾT QUẢ HỌC TẬP",
+      "cac_dieu": [
+        {
+          "id": "Điều 21",
+          "tieu_de": "Đánh giá học phần",
+          "full_path": "Chương III > Điều 21",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Mỗi học phần được đánh giá qua tối thiểu hai điểm thành phần, đối với các học phần có khối lượng nhỏ hơn 02 TC có thể chỉ có một điểm đánh giá. Các điêm thành phần được đánh giá theo thang điểm 10. Phương pháp đánh giá, hình thức đánh giá và trọng sô của mỗi điêm thành phần được quy định trong đê cương chỉ tiêt ca mỗi học phần. Hình thức đánh giá trực tuyển được áp dụng khi đảm bảo trung thực, công bằng và khách quan như đánh giá trực tiếp, đồng thời đóng góp không quá 50% trọng số điểm học phần; riêng việc tổ chức bảo vệ và đánh giá đồ án, khóa luận được thực hiện trực tuyên với trọng sô cao hơn khi đáp ứng thêm các điều kiện sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Việc đánh giá được thực hiện thông qua một Hội đông chuyên môn gôm ít nhất 03 thành viên;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Hình thức bảo vệ và đánh giá trực tuyển được sự đồng thuận của các thành viên Hội đồng và SV;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Diễn biển của buổi bảo vệ trực tuyển được ghi hình, ghi âm đầy đủ và lưu trữ."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV văng mặt trong buổi thi, đánh giá không có lý do chính đáng phải nhận điểm F. SV hoãn thi thực hiện theo Điểu 23 của quy chế này.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Phương pháp đánh giá, hình thức đánh giá học phần, trọng số các điểm thành phần do GV đề xuất, trưởng bộ môn (thuộc Khoa, Viện, Trung tâm), Trưởng Đơn vị đào tạo quản lý học phần duyệt và công bổ trong đề cương chỉ tiết học phần tại trang thông tin điện tử của Trường ĐНСТ.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 22",
+          "tieu_de": "Điểm học phần",
+          "full_path": "Chương III > Điều 22",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Điểm đánh giá thành phần và điểm thi kết thúc học phần được chấm theo thang điểm 10 (từ 0 đến 10), làm tròn đến một chữ số thập phân.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Điểm học phần là tổng số điểm của tất cả các điểm đánh giá thành phần của học phần nhân với trọng số tương ứng. Điểm học phần được tính theo thang điểm 10 và làm tròn đến một chữ số thập phân. GV phụ trách học phần nhập điểm vào hệ thống quản lý, hệ thống quy đổi sang điểm chữ và điểm số theo thang điểm 4. Học phần chỉ được tính tích lũy khi đạt từ điểm D trở lên. Cách quy đổi điểm học phần được thực hiện theo bảng dưới đây: Điểm số theo thang điểm 10 9,0-10,0 8,0-8,9 Điểm chũ Điểm số theo thang điểm 4 A 4,0 B+ 3,5 Π 7,0-7,9 B 3,0 6,5-6,9 C+ 2,5 5,55-6,4 C 2,0 5,0- 5,4 D+ 1,5 4,0-4,9 D 1,0 nhỏ hơn 4,0 F 0.0",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Điểm học phần sẽ được công bố và ghi nhận với điểm số theo thang điểm điểm chữ. Điểm chữ được quy đổi sang điểm số theo thang điểm 4 để tính ĐTBCHK và ĐTBCTL. và",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Các điểm học phần khác:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Điểm M (tương đương điểm R quy định trong TT08/2021/TT-BGDĐT): Dùng để xác nhận học phần SV được miễn học do đã tích lũy được bằng các hình thức khác. Điểm M không được tính vào ĐTBCHK và ĐTBCTL. Số TC của học phần có điểm M dược tính vào tổng số TC tích lũy. Để nhận điểm M, SV phải làm đơn xét miễn học phần và phải được Trường xem xét theo quy trình về xét miễn học phần;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Điểm I: Dành cho các trường hợp SV đã hoàn thành học phí nhưng chưa hoàn thành đẩy đủ yêu cấu của học phần (SV đã dự học, dự các lần kiểm tra giữa học kỳ, đã thực hiện các hoạt động liên quan đến học phần như thí nghiệm, thực hành nhưng vì lý do bắt khả kháng như ốm đau, tai nạn... đã vắng mặt trong buổi thi kết thúc học phản). Điểm I không được tính vào ĐTBCHK ở học kỳ đó. Để nhận được điểm I, SV phải làm đơn kèm theo hồ sơ hợp lệ nộp cho TTLKĐT duyệt. Học phí học phần nhận điểm I sẽ được chuyên sang học kỳ tiêp theo;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Điểm W: Dành cho các học phần mà SV được phép rút theo quy định. Điểm W không tính vào ĐTBCHK và ĐTBCTL."
+                }
+              ]
+            },
+            {
+              "so": "5",
+              "noi_dung": "Học phần GDTC, GDQP&AN, Ngoại ngữ căn bản và Tin học căn bản là học phần điều kiện, SV có thể nộp chứng chỉ theo quy định hiện hành của Trường. SV phải nộp chứng chỉ của các học phần này trước khi xét tổt nghiệp.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 23",
+          "tieu_de": "Tổ chức thi, số lần thi, văng thi, đăng ký địa điểm thi",
+          "full_path": "Chương III > Điều 23",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Việc thi, kiểm tra kết thúc học phần sẽ được tổ chức theo lớp học, theo học phần hoặc theo đơn vị. Mỗi học phần SV chỉ được phép thi một lần, trường hợp không đạt, SV đăng ký học và thi lại theo quy định của Trường ĐHCT. SV không tham gia thi sẽ nhận điểm F (vắng thi) cho học phần đó. Hình thức đánh giá trực tuyến đóng góp không quá 50% trọng số điểm học phần. Hình thức đánh giá kết thúc học phần được quy dịnh trong đề cương chỉ tiết học phần.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Tổ chức thi, đánh giá kết thúc học phần theo hình thức trực tiếp tại cơ sở đào tạo của Trường hoặc các cơ sở phối hợp đào tạo của Trường tại các địa phương. Lịch thi kết thúc học phần được thông báo trên thời khóa biểu đầu học kỳ.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "SV có thể làm đơn xin tạm hoãn thi trước ngày thi một tuẩn nếu có lý do chính đáng không thể dự thi và được sự chấp thuận của Trường ĐHCT. Những trường hợp đặc biệt khác (như ôm đau, tai nạn, v.v.) diễn ra trong giai đoạn tô chức thi, Trường sẽ xem xét từng trường hợp cụ thể. Khi được hoãn thi, sinh viên sẽ nhận điểm I cho học phân trong học kỳ xin hoãn, học phí học phần xin hoãn thi sẽ được chuyền sang học kỳ kế tiếp. SV phải đăng ký học và thi lại học phần điểm I ở các học kỳ tiếp theo.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 24",
+          "tieu_de": "Điểm trung bình chung học kỳ, trung bình chung tích lũy và xếp loại học lực",
+          "full_path": "Chương III > Điều 24",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Học phần đã tích lũy là học phần có kết quả đạt từ điểm D trở lên. Các học phần có điểm F sẽ không được tích lũy.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Số TC tích lũy là tổng số TC của các học phần đã tích lũy.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Điểm trung bình chung học kỳ (ĐTBCHK) là trung bình có trọng số của điểm các học phần mà SV đã thi trong học kỳ (kể cả các học phần bị điểm F và học phẩn điều kiện) với trọng số là số TC của các học phẩn dó. ĐTBCHK là cơ sở để đánh giá kết quả học tập, được tính theo công thức tính như sau: Σ1αχ ĐTBCHK = a Trong đó: xi là điểm học phần thứ i; a; là số TC của học phần thứ i; n là số học phần SV đăng ký học trong học kỳ.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Điểm trung bình chung tích lũy (ĐTBCTL) là trung bình có trọng số của điểm các học phần đã tích lũy tính đến thời điểm xét (không bao gồm các học phần điều kiện và các học phần bị điểm F). Cách tính ĐTBCTL tương tự như tính ĐTBCHK. ĐTBCTL là cơ sở để đánh giá kết quả học tập trong suốt thời gian học, xếp hạng học lực và xếp hạng tốt nghiệp.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "SV được xếp loại học lực theo ĐTBCHK hoặc ĐTBCTL như sau: Xếp loại ĐTBCHK/ĐTBCTL Xuất sắc 3,60 - 4,00 3,20-3,59 Giỏi Khá 2,50-3,19 Trung bình 2,00-2,49 Yểu 1,00 - 1,99 Kém <1,00",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 25",
+          "tieu_de": "Quy định về thi và kiểm tra",
+          "full_path": "Chương III > Điều 25",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "SV dự thi và kiểm tra có trách nhiệm sau đây:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Thực hiện đúng lịch thi, kiểm tra của Trường. Nếu đến trễ sau khi mở đề phút, SV sẽ không được dự thi và xem như văng thi không lý do, sẽ nhận điêm F cho học phần đó;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "SV phải mang bảng tên hoặc thẻ SV hoặc các giấy tờ tùy thân có dán ảnh khi vào phòng thi. Tuyệt đối chấp hành sự kiểm tra, quản lý và hướng dẫn của cán bộ coi thi (CBCT). Các vật dụng không được sử dụng trong quá trình thi phải để tập trung đúng nơi quy định. Trong thời gian thi, SV chỉ được ra ngoài phòng thi nều có lý do chính đáng, được CBCT đồng ý và lập biên bản;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Bài thi phải làm trên giấy thi thống nhất, viết rõ ràng, sạch sẽ. Được s dụng bút mực hoặc bút bi màu xanh dương, đen hoặc tím; thước kẻ; thước tính; máy tỉnh điện tử không có thẻ nhớ và không soạn thảo được văn bản; giấy nháp có chữ ký của СВСТ;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Trong giờ thi, SV phải giữ im lặng, nghiêm túc làm bài và bảo vệ bài làm của mình. SV không được đưa để thi ra ngoài nhờ người khác làm hộ hoặc nhận bài giải từ ngoài vào phòng thi. SV không được: nhìn bài của người khác; trao đổi, thảo luận với người khác, trao đổi giấy nháp cho nhau; chép bài của người khác hoặc để cho người khác chép bài của mình. SV phải phục tùng sự quản lý, nhắc nhở của CBCT, không được có hành động gây rồi hoặc đe dọa CBCT hoặc đổi với SV khác. Nếu thắc mc phải hỏi công khai. Nếu có tình huống bất thường phải báo cáo để CBCT giải quyết."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "Những bài thi sau đây là không hợp lệ và không được chấm điểm:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Làm trên giấy thi khác với giấy thi quy định;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Không có chữ ký của СВСТ;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Viết bằng bút chì, mực đỏ (trừ hình vẽ có thể vẽ bằng bút chì);"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Các bài làm giống nhau;"
+                },
+                {
+                  "ky_hieu": "e",
+                  "noi_dung": "Viết, vẽ vào bài thi những nội dung không liên quan đến nội dung thi."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Hết giờ làm bài, SV phải ngừng viết, để bài làm trước mặt và im lặng chờ CBCT thu bài. Khi nộp bài phải ghi rõ số tờ giấy thi đã nộp và ký tên vào danh sách dự thi.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "SV vi phạm các quy định tại Khoản 1, 2, 3 của Điều này tùy mức độ nặng nhẹ sẽ bị CBCT lập biên bản xử lý theo Điều 26 của quy chế này.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 26",
+          "tieu_de": "Các hình thức xử lý sinh viên vi phạm quy chế thi",
+          "full_path": "Chương III > Điều 26",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Khiển trách khi SV phạm một trong các lỗi:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Nhìn bài của người khác;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Trao đôi, thảo luận với người khác. SV bị khiền trách sẽ bị trừ 25% điểm số của lần thi/kiểm tra đó. SV bị khiến trách thi hai lần trong một năm học sẽ bị kỷ luật cảnh cáo và công bố cấp Đơn vị đào tạo và đơn vị phôi hợp đào tạo nơi sinh viên đăng ký theo học."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "Cảnh cáo khi SV phạm một trong các lồi sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Đã bị khiên trách một lần nhưng vẫn tiếp tục vi phạm trong một buôi thi;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Trao đổi giấy nháp cho nhau nhưng chưa sử dụng (xử lý cả hai SV);"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Chép bài của người khác hoặc để cho người khác chép bài của mình;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Không chấp hành sự quản lý, nhắc nhở của CBCT hoặc có thái độ thiều tôn trọng, vô lễ đổi với CBСТ. SV bị cảnh cáo sẽ bị trừ 50% điểm số của học phần đó. SV bị cảnh cáo thi hai lần trong một năm học sẽ bị kỷ luật cảnh cáo và công bộ cấp Trường ĐHCT."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Đình chỉ thi khi SV phạm một trong các lồi sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Đã bị cảnh cáo một lân nhưng vẫn tiếp tục vi phạm trong một buổi thi;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Sau khi mở đề thi bị phát hiện vẫn còn mang theo trên người (hoặc nơi ngồi của mình) những vật dụng không được phép mang theo;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Sử dụng giây nháp hoặc bài làm của người khác (xử lý cả hai SV);"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Đưa đề thi ra ngoài nhờ người khác làm hộ hoặc nhận bài giải từ ngoài vào phòng thi;"
+                },
+                {
+                  "ky_hieu": "e",
+                  "noi_dung": "Có hành động gây rôi hoặc đe dọa CBCT, hoặc đối với SV khác."
+                }
+              ]
+            },
+            {
+              "so": "4",
+              "noi_dung": "SV bị dình chỉ thi bị nhận điểm 0 cho học phần đó. SV bị đình chỉ thi hai lấn trong một năm học sẽ bị đình chỉ học tập một năm sau đó. Nếu tái phạm sẽ bị buộc thôi học.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "Xử lý thi hộ: Áp dụng cho cả người thi hộ và người nhờ thi hộ:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Vi phạm lần thứ nhất: Người nhờ thi hộ nhận điểm 0 học phần đó và bị đình chỉ học tập một năm; Người thi hộ bị đình chỉ học tập một năm;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Vi phạm lần thứ hai (trong toàn khóa học): Buộc thôi học. Các trường hợp vi phạm khác tùy mức độ nặng nhẹ sẽ do Hội đồng kỷ luật của Trường xử lý."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Điều 27",
+          "tieu_de": "Để thi, bài thi, kết quả thi",
+          "full_path": "Chương III > Điều 27",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Để thi và đáp án đề thi kết thúc học phần thực hiện theo hướng dẫn và quy định hiện hành của Trường ĐHCT. Đề thi gửi về TTLKĐT (photocopy đủ số lượng SV) trong tuần lễ kết thúc học phần.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Công tác giao nhận bài thi, kết quả thi kết thúc học phân được thực hiện theo kể hoạch giảng dạy và học tập học kỳ.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Đơn vị quản lý học phần lưu giữ các bài thi viết, tiểu luận ít nhất là 05 năm kể từ ngày thi hoặc ngày nộp tiêu luận.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 28",
+          "tieu_de": "Thông báo kêt quả học tập",
+          "full_path": "Chương III > Điều 28",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Giảng viên chịu trách nhiệm: giải đáp thắc mắc (nễu có) của SV về kết quả học tập của học phần; nhập điểm học phần vào hệ thống quản lý trực tuyến và in hai (02) bản điêm, ký tên, gửi Đơn vị đào tạo quản lý học phần. Đơn vị đào tạo quản lý học phần lưu một (01) bản và gửi về Trung tâm Liên kết Đào tạo Trường ĐHCT một (01) bản chậm nhất là 10 ngày kể từ ngày kết thúc kể hoạch nhập điểm của HK. Trưởng Đơn vị đào tạo quản lý học phần ký duyệt bảng diểm và xử lý tất cả khiếu nại liên quan đên kêt quả học tập của học phần do Đơn vị đào tạo quản lý và chỉ thực hiện trong thời gian 1 tuần kể từ ngày công bố điểm.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV xem kết quả học tập trên hệ thống quản lý hoặc ứng dụng di động của Trường bằng tài khoản máy tính Trường cấp cho SV vào đầu khóa học. Những thắc mắc về kết quả học tập của học phần (nếu có), SV liên hệ GV giảng dạy học phần để được giải đáp. Trường hợp, SV vẫn tiếp tục khiều nại điêm học phân khi đã được GV giải đáp thắc mắc, SV có thể làm đơn gởi về TTLKĐT, TTLKĐT chịu trách nhiệm nhận đơn và phản hồi hết quả cho SV và Đơn vị đào tạo quản lý học phần chịu trách nhiệm giải quyết đơn khiều nại của SV.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Trong quá trình học tập, SV có thể để nghị cấp bảng điểm cá nhân theo cầu riêng và mức phí thực hiện theo quy định.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Trường cấp phụ lục văn bằng tốt nghiệp cho SV được công nhận tốt nghiệp.",
+              "cac_diem": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chuong": "Chương IV",
+      "ten": "Chương IV: XÉT VÀ CÔNG NHẬN TÓT NGHIỆP",
+      "cac_dieu": [
+        {
+          "id": "Điều 29",
+          "tieu_de": "Tích lũy tín chỉ tốt nghiệp và tiểu luận tốt nghiệp nhu",
+          "full_path": "Chương IV > Điều 29",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Tích lũy TC tốt nghiệp: để tích lũy đủ số TC theo yêu cầu của CTĐT, tùy theo ngành đào tạo, cuối khóa học SV được hưởng dẫn thực hiện tiểu luận tốt nghiệp và học thêm một số học phần hoặc học các học phần tự chọn.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV thực hiện tiểu luận tốt nghiệp theo kể hoạch và được sự hướng dẫn của cán bộ hướng dẫn. Tiều luận tốt nghiệp không phải bảo vệ trước hội đồng. Chẩm tiểu luận tốt nghiệp được thực hiện bởi hai cán bộ gôm cán bộ hướng dẫn và một cán bộ khác do Thủ trưởng Đơn vị đào tạo quyết định.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 30",
+          "tieu_de": "Điểu kiện tốt nghiệp và công nhận tốt nghiệp",
+          "full_path": "Chương IV > Điều 30",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "SV có đủ các điều kiện sau đây được quyền để nghị công nhận tốt nghiệp:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Tích lũy đủ học phần và số TC quy định trong chương trình đào tạo và có ĐTBCTL của các học phần đạt từ 2,00 trở lên (theo thang điểm 4), đạt chuẩn đầu ra của CTĐT (kể cả chuẩn đầu ra về ngoại ngữ và công nghệ thông tin);"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Hoàn thành các học phần điều kiện. Ngoài ra, điểm trung bình chung các học phần GDQP&AN phải đạt từ 5,0 trở lên (theo thang điểm 10);"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Tại thời điểm xét tốt nghiệp không bị truy cứu trách nhiệm hình sự, không đang trong thời gian bị kỷ luật ở mức đình chỉ học tập;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Hoàn tất thủ tục thanh toán ra trường tại Trung tâm Liên kết Đào tạo sau khi có kết quả xét tốt nghiệp."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "Xét tốt nghiệp cho SV được thực hiện theo kế hoạch xét và công nhận tốt nghiệp hằng năm của hình thức ĐTTX. Dựa trên kết quả biên bản xét tốt nghiệp của Hội đồng xét tốt nghiệp, Hiệu trưởng ký quyết định công nhận tốt nghiệp cho những đủ điều kiện tốt nghiệp. SV được nhận bằng tốt nghiệp 30 ngày kể từ ngày có quyết định công nhận tôt nghiệp. SV",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Trường tô chức lễ trao bằng tốt nghiệp cho SV theo học hình thức ĐTTX tại Trường vào tháng 05 và tháng 11 hàng năm; riêng đơn vị phồi hợp đào tạo có nhu cấu chức lễ trao bằng tốt nghiệp tại đơn vị, Trường và đơn vị phối hợp đào tạo sẽ tổ tổ chức tại đơn vị.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "SV đủ điều kiện tốt nghiệp được nhận quyết định công nhận tốt nghiệp, bằng tốt nghiệp và phụ lục văn bằng tốt nghiệp. Sinh viên phải nộp chi phí thực hiện bản sao bằng tốt nghiệp do Trường ĐHCT quy định (nếu có yêu cầu).",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 31",
+          "tieu_de": "Bằng tốt nghiệp, hạng tốt nghiệp và khen thưởng",
+          "full_path": "Chương IV > Điều 31",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Bằng tốt nghiệp đại học được cấp theo ngành đào tạo và chỉ cấp một lần. Trường hợp bằng bị mất hoặc bị hỏng, SV nộp đơn cho TTLKĐT để được cấp bản sao bằng tốt nghiệp.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Hạng tốt nghiệp được xác định căn cứ vào ĐTBCTL của các học phần quy định cho ngành đào tạo và phân loại như sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Loại Xuất sắc: ĐTBCTL tử 3,60 đến 4,00;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Loại Giỏi: ĐTBCTL từ 3,20 đến 3,59;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Loại Khá: ĐTBCTL từ 2,50 đển 3,19;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Loại Trung bình: ĐTBCTL từ 2,00 đến 2,49."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Hạng tôt nghiệp xuất sắc và giỏi sẽ bị giảm một mức nếu rơi vào một trong các trường hợp sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Có khối lượng của các học phần bị điểm F vượt quá 5% tổng số TC của CТЭТ (không tính khối lượng học phân học cải thiện điểm bị điểm F);"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Đã bị kỷ luật từ mức cảnh cáo trở lên trong thời gian học."
+                }
+              ]
+            },
+            {
+              "so": "4",
+              "noi_dung": "SV được khen thưởng cuổi khóa học khi tốt nghiệp đúng hoặc trước thời gian thiết kế của CTĐT trong những trường hợp sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Tất cả SV tốt nghiệp có kết quả hạng tốt nghiệp loại xuất sắc và loại giỏi được Trường cấp giây khen và phần thưởng theo quy định của Trường;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "SV từ 60 tuổi trở lên được Trường tặng giấy khen."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Điều 32",
+          "tieu_de": "Xử lý SV quá hạn thời gian đào tạo",
+          "full_path": "Chương IV > Điều 32",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Khi hết thời gian học tập tối đa theo quy định (xem Điều 5), những SV không đủ điều kiện tốt nghiệp sẽ bị buộc thôi học.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV không đủ điều kiện tốt nghiệp sẽ được Trường bảo lưu, công nhận kết quả học tập đã tích lũy và cấp bảng điểm các học phần đã tích lũy.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "SV đã hết thời gian học tập tối đa theo quy định nhưng chưa đủ điều kiện tốt nghiệp do chưa hoàn thành những học phần GDQP&AN hoặc GDTC, trong thời hạn 05 năm tính từ khi thôi học SV được phép trở về Trường để hoàn thiện các học phần điều kiện còn thiếu và đề nghị xét công nhận tốt nghiệp. Đối với SV từ khóa tuyển sinh năm 2021 trở về sau, SV đã hết thời gian học tập tôi đa theo quy định nhưng chưa đủ điều kiện tốt nghiệp do chưa hoàn thành những học phần GDQP&AN, GDTC hoặc chưa đạt chuẩn đầu ra về ngoại ngữ, công nghệ thông tin, trong thời hạn 3 năm tính từ khi thôi học SV được phép trở về Trường ĐHCT để hoàn thiện các điều kiện còn thiều và để nghị xét công nhận tốt nghiệp.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Tiếp nhận SV quá hạn thời gian đào tạo hình thức chính quy và vừa làm vừa học có nguyện vọng chuyển sang hình thức ĐTTX.",
+              "cac_diem": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chuong": "Chương V",
+      "ten": "Chương V: QUYỆN VÀ TRÁCH NHIỆM CỦA SINH VIÊN, GIẢNG VIÊN, CÁN BỘ",
+      "cac_dieu": [
+        {
+          "id": "Điều 33",
+          "tieu_de": "Quyền và trách nhiệm của sinh viên",
+          "full_path": "Chương V > Điều 33",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Quyền của SV:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Được tôn trọng và đối xử bình dăng; được Trường ĐHCT cung cấp đầy đủ thông tin về chương trình đào tạo, kể hoạch học tập toàn khóa, kể hoạch học tập từng học kỳ, tài liệu học tập liên quan đến học phần, được công nhận giá trị chuyển đổi kết quả học tập theo quy dịnh của Trường;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Được quyền tham gia học tập các TC cùng với hình thức đào tạo chính quy và vừa làm vừa học theo quy định của Trường ĐHCT đối với các học phần không còn tổ chức giảng dạy ở hình thức ĐTTX;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Mỗi SV khi nhập học được Trường cấp một mã số SV, thẻ SV, địa chỉ thư điện tử (email) và tài khoản để truy cập vào hệ thống quản lý của Trường trong suốt quá trình học tập;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Được hưởng các quyền lợi khác theo quy định của pháp luật và quy chế, quy định của Trường ĐНСТ."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "Trách nhiệm của SV:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "SV có trách nhiệm chấp hành đúng các quy định pháp luật và quy định của Trường, của đơn vị thuộc Trường và quy định của đơn vị phối hợp đào tạo nơi SV đăng ký theo học;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "SV có trách nhiệm tôn trọng GV, viên chức và người học, ngôn ngữ và hành vi ứng xử phải lễ độ, nghiêm chỉnh và chuân mực; tuân thủ nghiêm chỉnh sự hướng dẫn, hỗ trợ học tập của GV, viên chức trong giờ học; không được gây mất trật tự và làm việc riêng trong giờ học;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "SV phải đóng học phí đây đủ, đúng thời gian quy định;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Khi vào Trường, đơn vị, nơi theo học, và trên lớp học, SV phải mang bảng tên, trang phục sạch sẽ, gọn gàng, kín đáo; phải mặc đồng phục khi tham dự những buổi học có yêu cầu;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "SV phải giữ vệ sinh chung, trật tự và không được có hành động gây rồi ảnh hưởng đến lớp học;"
+                },
+                {
+                  "ky_hieu": "e",
+                  "noi_dung": "SV không được xúc phạm nhân phẩm, danh dự, xâm phạm thân thể GV, CBQL, nhân viên và người khác;"
+                },
+                {
+                  "ky_hieu": "g",
+                  "noi_dung": "SV phải chủ động liên lạc với GV hoặc CBHTHT trong quá trình học để được hướng dẫn, hỗ trợ."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "SV tham gia lớp học trực tuyến phải thực hiện theo quy định về đào tạo trực tuyển của Trường ĐHCT.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 34",
+          "tieu_de": "Quyển và trách nhiệm của giảng viên, cán bộ hỗ trợ học tập, cán bộ quản lý",
+          "full_path": "Chương V > Điều 34",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Quyển và trách nhiệm của GV tham gia giảng dạy từ xa như sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Được hưởng các quyền lợi chung và phụ cấp do Nhà nước quy định đổi với GV và các chể độ theo quy định của Trường ĐHCT;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Trong quá trình tổ chức giảng dạy, GV, được quyền quản lý, điều hành lớp học và mời ra khỏi lớp các trường hợp SV không thực hiện trách nhiệm của SV được quy định theo Quy chế này;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Được tập huẩn nghiệp vụ về giảng dạy và xây dựng học liệu ĐTTX;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Được đảm bảo cơ sở vật chất cho việc giảng dạy ĐTTX; được hỗ trợ, tạo diều kiện áp dụng các phương pháp và công nghệ dạy học tiên tiến trong điều kiện của Trường và phù hợp với phương thức ĐTTX; duyệt;"
+                },
+                {
+                  "ky_hieu": "đ",
+                  "noi_dung": "Sử dụng giáo trình và các tài liệu tham khảo đã được Trường ĐHCT phê"
+                },
+                {
+                  "ky_hieu": "e",
+                  "noi_dung": "Thực hiện giảng dạy đúng đề cương đã công bố và có bài giảng theo quy định của Trường ĐHCT;"
+                },
+                {
+                  "ky_hieu": "g",
+                  "noi_dung": "Thực hiện đúng thời khóa biểu đã xếp; mọi điều chỉnh đột xuất về thời khóa biểu giảng dạy phải báo cáo cho đơn vị quản lý ngành và TTLKĐT chậm nhất là 03 ngày trước khi thực hiện;"
+                },
+                {
+                  "ky_hieu": "h",
+                  "noi_dung": "Gửi đề thi cho TTLKĐT đã photocopy đủ số lượng SV trong tuần lễ kết thúc học phẩn;"
+                },
+                {
+                  "ky_hieu": "i",
+                  "noi_dung": "Tiếp nhận, chấm bài, nhập điểm thi, công bô kết quả thi, giải đáp thắc mắc (nếu có) của SV về kết quả đánh giá học phần, nộp một bảng điêm thi và danh sách SV dự thi về TTLKĐT theo kể hoạch giảng dạy và học tập học kỳ; Thực hiện theo quy trình lưu trữ bài thi, kết quả thi theo quy định của Đơn vị đào tạo;"
+                },
+                {
+                  "ky_hieu": "j",
+                  "noi_dung": "GV tham gia giảng dạy trực tuyến hình thức ĐTTX thực hiện theo quy dịnh về đào tạo trực tuyền của Trường ĐHCТ."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "СВНТНT, CBQL có quyền và trách nhiệm như sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Được hưởng thù lao cho công tác hỗ trợ học tập cho SV theo quy chế, quy định của Trường ĐHCТ;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Tham gia các lớp tập huấn, bồi dưỡng nghiệp vụ dành cho СВНТНТ, СBQL (nếu có);"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Được cung cấp đầy dủ các tài liệu, phương tiện cho việc quân lý, tư vấn, hướng dẫn, hỗ trợ học tập cho SV;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Nghiên cứu nắm vững CTĐT, các quy định liên quan đến công tác đào tạo từ xa, chể độ chính sách đổi với SV để có thể tư vấn, hỗ trợ giúp đỡ cho SV trong quá trình học tập, rèn luyện và các vấn đề khác có liên quan;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Năm rõ danh sách SV của lớp được phân công quản lý, hỗ trợ học tập, tóm tắt thông tin cá nhân SV; cử hoặc tổ chức bầu Ban cán sự lớp;"
+                },
+                {
+                  "ky_hieu": "e",
+                  "noi_dung": "Tư vần cho SV xây dựng kể hoạch học tập toàn khóa; hướng dân SV đăng ký học phân ở từng học kỳ đê hoàn thành kê hoạch học tập và tham gia các hoạt động học thuật khác;"
+                },
+                {
+                  "ky_hieu": "g",
+                  "noi_dung": "Theo dõi kết quả học tập từng SV được phân công phụ trách ở mối học kỳ;"
+                },
+                {
+                  "ky_hieu": "h",
+                  "noi_dung": "Phối hợp với các cá nhân, đơn vị có trách nhiệm để xử lý các vấn đề liên quan đến SV;"
+                },
+                {
+                  "ky_hieu": "i",
+                  "noi_dung": "Ghi nhận và báo cáo tình hình của SV cho Lãnh đạo phụ trách."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Điều 35",
+          "tieu_de": "Quyền và trách nhiệm của cơ sở phối hợp đào tạo",
+          "full_path": "Chương V > Điều 35",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Cơ sở phổi hợp đào tạo có quyền lợi và trách nhiệm được ghi chi tiết trong hợp đồng hợp tác đào tạo.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Cơ sở phối hợp đào tạo có các quyền lợi và nghĩa vụ cơ bản như sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Được hưởng tỷ lệ phần trăm theo quy định của Trường từ nguồn tiền thu học phí của SV đăng ký học từ xa do đơn vị phôi hợp đào tạo tư vẫn và tuyên sinh;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Được Trường ĐHCT chỉ trả các khoản chỉ khác theo quy định của Trường ĐHCT và thỏa thuận trong hợp đồng hợp tác đào tạo;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Ký kết hợp đồng hợp tác đào tạo với Trường ĐHCT."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Chịu trách nhiệm trước pháp luật về việc thực hiện hợp đồng hợp tác đào tạo; thực hiện các quy chể về tuyển sinh, đào tạo; bảo đảm quyền lợi chính đáng cho GV, SV trong suốt quá trình thực hiện hoạt động đào tạo.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 36",
+          "tieu_de": "Quyền và trách nhiệm của Đơn vị đào tạo",
+          "full_path": "Chương V > Điều 36",
+          "noi_dung": " Đơn vị đào tạo có quyền lợi và trách nhiệm sau:",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Được hưởng các quyền lợi theo quy định của Trường.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Xác định các chương trình ĐTTX; phối hợp xây dựng để án ĐTTX do Dơn vị đào tạo quản lý.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Triển khai tự đánh giá và đăng ký tham gia kiểm định chất lượng chương trình ĐTTX do đơn vị phụ trách.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Phối hợp với các đơn vị trong Trường trong công tác tổ chức thẩm định các điều kiện bảo đảm chất lượng của cơ sở phối hợp đào tạo.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "Phân công GV tham gia giảng dạy, CBHTHT; quản lý quá trình dạy học, bảo đảm chất lượng đào tạo và thực hiện các quy định liên quan đến chương trình ĐTTX do dơn vị phụ trách.",
+              "cac_diem": []
+            },
+            {
+              "so": "6",
+              "noi_dung": "Phân công cán bộ tham gia Hội đổng thi kết thúc học phần, Hội đồng xét miễn và công nhận điểm học phần cho chương trình ĐTTX và các hội đồng khác theo sự phân công của Trường.",
+              "cac_diem": []
+            },
+            {
+              "so": "7",
+              "noi_dung": "Lưu trữ bài thi, kết quả thi kết thúc học phần theo quy định; thực hiện các quy định về đào tạo trực tuyền của Trường ĐHCT và các quy định khác.",
+              "cac_diem": []
+            },
+            {
+              "so": "8",
+              "noi_dung": "Tổ chức tập huẩn về phương pháp và kỹ năng cần thiết cho GV, trợ giảng để có thê tham gia giảng dạy ĐTTX.",
+              "cac_diem": []
+            },
+            {
+              "so": "9",
+              "noi_dung": "Tham gia các hoạt động tư vấn tuyển sinh, khai giảng, trao bằng tốt nghiệp và các hoạt động khác của hình thức ĐTTX.",
+              "cac_diem": []
+            },
+            {
+              "so": "10",
+              "noi_dung": "Thực hiện điều chỉnh và mô tả cụ thể đề cương chỉ tiết học phẩn cho phù hợp với hình thức ĐTTX về phương pháp dạy - học, thời lượng dạy - học, học liệu, đánh giá kết quả học tập.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 37",
+          "tieu_de": "Quyền và trách nhiệm của các đơn vị quản lý, hỗ trợ ĐTTX",
+          "full_path": "Chương V > Điều 37",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Được hưởng các quyền lợi theo quy định của Trường.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Phổi hợp cùng các Đơn vị đào tạo và các đơn vị liên quan trong công tác tổ chức ĐTTX.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Thực hiện nhiệm vụ được phân công trong công tác ĐTTX.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 38",
+          "tieu_de": "Trách nhiệm của Trường Đại học Cần Thơ Trường ĐHCT chịu trách nhiệm:",
+          "full_path": "Chương V > Điều 38",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Tổ chức thực hiện Quy chể này.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Ban hành các quyết định thực hiện chương trình ĐTTX bảo đảm đây đủ các yêu cầu theo quy định. Trong đó phải ghi rõ tên CTĐT, phương thức ĐTTX, đôi tượng, địa điêm đào tạo, cơ sở phôi hợp đào tạo và các thông tin khác có liên quan. Trong thời hạn 10 ngày làm việc kể từ ngày ra quyết định ĐTTX, cập nhật thông tin về đê án ĐTTX, quyết định ĐTTX lên hệ thống cơ sở dữ liệu quốc gia về giáo dục đại học và gửi quyết định ĐTTX kèm theo để án ĐTTX về Bộ Giáo dục và Đào tạo.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Thực hiện trách nhiệm trong công tác bảo đảm chất lượng giáo dục theo quy định.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Tăng cường liêm chính học thuật; giám sát và kiểm soát việc chống sao chép; bảo đảm tính trung thực của nội dung tiểu luận, đồ án, khóa luận và những báo cáo chuyên đề khác; xây dựng chế tài, nghiêm túc xử lý khi có vi phạm. khi",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "Chuẩn bị đẩy đủ các yêu cầu tối thiều để thực hiện chương trình ĐTTX trước tổ chức tuyền sinh. Hằng năm, rà soát các yêu cầu tối thiểu để thực hiện ĐTTX theo quy định.",
+              "cac_diem": []
+            },
+            {
+              "so": "6",
+              "noi_dung": "Phổ biến, hướng dẫn cho SV quy chế của Trường và các quy định liên quan đến quá trình học tập, các quy định về nghĩa vụ và quyển lợi của SV khi bắt đầu khóa học.",
+              "cac_diem": []
+            },
+            {
+              "so": "7",
+              "noi_dung": "Tổ chức đào tạo, bồi dưỡng về phương pháp và kỹ năng cần thiết cho đội ngũ GV, CBHTHT, CBQL.",
+              "cac_diem": []
+            },
+            {
+              "so": "8",
+              "noi_dung": "Tổ chức kiểm tra, thanh tra nội bộ việc thực hiện các quy định và Quy chế này.",
+              "cac_diem": []
+            },
+            {
+              "so": "9",
+              "noi_dung": "Duy trì và phát triển hệ thống ĐTTX; cập nhật và hiện đại hoá công nghệ, phương tiện kỹ thuật đê nâng cao hiệu quả, chất lượng ĐTTX theo hướng hội nhập quốc tế.",
+              "cac_diem": []
+            },
+            {
+              "so": "10",
+              "noi_dung": "Thực hiện các quy định có liên quan đến hình thức ĐTTX.",
+              "cac_diem": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chuong": "Chương VI",
+      "ten": "Chương VI: ĐẢM BẢO CHÁT LƯỢNG ĐÀO TẠO",
+      "cac_dieu": [
+        {
+          "id": "Điều 39",
+          "tieu_de": "Kiểm tra, giám sát nội bộ Các đơn vị được giao nhiệm vụ, thực hiện kiểm tra, giám sát như sau:",
+          "full_path": "Chương VI > Điều 39",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "TTLKĐT thực hiện kiểm tra, giám sát các hoạt động liên quan đến ĐTTX như việc thực hiện kể hoạch, chương trình, nội dung, quy chể đào tạo, quy chể thi, cấp văn bằng và các hoạt động khác liên quan đến ĐTTX.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Trưởng Đơn vị đào tạo tổ chức thực hiện việc kiểm tra, giám sát các quy định về ĐTTX thuộc phạm vi thẩm quyền.",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Kiểm tra, giám sát việc dạy học, đánh giá kết quả học tập của sinh viên theo đề cương chi tiết học phần và việc bảo đảm các điều kiện tổ chức thực hiện đào tạo;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Tổ chức thực hiện thu thập dữ liệu định kỳ để đo lường tiển độ thực hiện CTĐT, phân công nhân sự phụ trách và xác định cụ thể các loại dữ liệu cần thu thập."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "TTLKĐT, Đơn vị đào tạo, Phòng Thanh tra pháp chê, Đơn vị phôi hợp đào tạo thực hiện giám sát về hoạt động tổ chức dạy - học, hỗ trợ SV và công tác thi, kiểm tra, đánh giá học phẩn; các điều kiện cần thiết khác đảm bảo chất lượng ĐTTX.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "TTLKĐT, Đơn vị đào tạo, Phòng Quản trị thiêt bị, Trung tâm Thông tin và Quản trị mạng thực hiện giám sát kiểm tra việc chuẩn bị các điều kiện cần thiết phục vụ cho hoạt động ĐTTX như cơ sở vật chất, trang thiết bị - dụng cụ, vật tư.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 40",
+          "tieu_de": "Lấy ý kiến phản hồi từ sinh viên và các bên liên quan",
+          "full_path": "Chương VI > Điều 40",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Trường ĐHCT tổ chức lây ý kiển từ SV, các bên liên quan để nâng cao chất lượng đào tạo và phục vụ. Những nội dung lấy ý kiển bao gồm: hoạt động giảng dạy của GV; hoạt dộng kiêm tra đánh giá; hoạt động phục vụ giảng dạy và phục vụ SV; cơ sở vật chất phục vụ giảng dạy học phần; mức độ hải lòng của SV về học phẩn; mức độ hài lòng của SV về GV; nội dung cần cải tiến của học phần; các nội dung khác để đảm bảo chất lượng đào tạo.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Trường tổ chức lấy ý kiển SV và các bên liên quan theo quy định băng hình thức trực tiếp hoặc trực tuyền vào khoảng thời gian phù hợp của học kỳ, năm học. ха.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 41",
+          "tieu_de": "Đảm bảo chất lượng chương trình đào tạo từ xa",
+          "full_path": "Chương VI > Điều 41",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Trường tổ chức thực hiện tự đánh giá, cải tiền, nâng cao chất lượng CTĐT từ",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Định kỳ đăng ký kiểm định CTĐT từ xa.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Các Đơn vị đào tạo và TTLKĐT có trách nhiệm xác định cụ thể các CTĐT từ xa cần thực hiện kiểm định chất lượng và báo cáo cho Hiệu trưởng thông qua Trung tâm Quản lý Chất lượng để đưa vào kế hoạch thực hiện chung của Trường hằng năm.",
+              "cac_diem": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chuong": "Chương VII",
+      "ten": "Chương VII: CHẾ ĐỘ BÁO CÁO, LƯU TRỮ, BẢO MẶT",
+      "cac_dieu": [
+        {
+          "id": "Điều 42",
+          "tieu_de": "Chể độ báo cáo Chế độ báo cáo được thực hiện trước ngày 31 tháng 12 hằng năm cụ thể như sau:",
+          "full_path": "Chương VII > Điều 42",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Trường ĐHCT báo cáo Bộ Giáo dục và Đào tạo, Ủy ban nhân dân cấp tỉnh và cơ quan quản lý trực tiếp theo hình thức trực tiếp hoặc trực tuyển về công tác tổ chức quản lý ĐTTX và các điều kiện bảo đảm chât lượng ĐTTX theo quy định (Mâu báo cáo tại Phụ lục I, Thông tư số 28/2023/TT-BGDĐT ban hành ngày 28 tháng 12 năm 2023 của Bộ trưởng Bộ Giáo dục và Đào tạo về việc ban hành Quy chê ĐTTX trình độ đại học).",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Trường ĐHCT cập nhật đầy đủ, chính xác dữ liệu về ĐTTX vào hệ thống cơ sở dữ liệu quốc gia về giáo dục đại học theo quy định của Bộ Giáo dục và Đào tạo.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Cơ sở phối hợp đào tạo báo cáo Bộ Giáo dục và Đào tạo, Ủy ban nhân dân cấp tỉnh, cấp huyện nơi tổ chức hoạt động đào tạo theo hình thức trực tiếp hoặc trực tuyển về tình hình tuyển sinh và đào tạo tại địa phương theo quy định (Mâu báo cáo tại Phụ lục II, Thông tư số 28/2023/TT-BGDĐT ban hành ngày 28 tháng 12 năm 2023 của Bộ trưởng Bộ Giáo dục và Đào tạo về việc ban hành Quy chể ĐTTX trình độ đại học).",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 43",
+          "tieu_de": "Chể độ lưu trữ và công khai",
+          "full_path": "Chương VII > Điều 43",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Việc lưu trữ, bảo quản hồ sơ và dữ liệu sổ về ĐTTX thực hiện theo quy định của Bộ Giáo dục và Đào tạo và các văn bản pháp luật khác có liên quan.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Trường thực hiện công khai trên trang thông tin điện tử của Trường trước khi tổ chức ĐTTX các nội dung về:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Quy chê ĐTTX cơ sở đào tạo và các quy định có liên quan tới ĐTTX;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Quyết định ĐTTX;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Chương trình ĐTTX;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Các điều kiện bảo đảm chất lượng cho ĐTTX (bao gồm thông tin về trình độ, kinh nghiệm của GV, cán bộ hỗ trợ, cán bộ quản lý);"
+                },
+                {
+                  "ky_hieu": "đ",
+                  "noi_dung": "Thông báo tuyên sinh theo quy chể tuyền sinh hiện hành."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Trường cung cấp và duy trì thông tin trên môi trường học tập, hỗ trợ SV, thường xuyên cập nhật thông tin công khai trên trang thông tin điện tử của Trường tối thiều các nội dung sau: này;",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Các thông tin quy định tại các điểm a, điểm b, diểm c và điểm d khoản 2 Điều"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Số lượng trúng tuyển, đang học, thôi học và tốt nghiệp theo từng khóa, từng chương trình ĐTTX;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Các dữ liệu minh chứng vê việc các chương trình ĐTTX đáp ứng chuân CTĐТ do Bộ trưởng Bộ Giáo dục và Đào tạo ban hành;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Các dữ liệu minh chứng về việc đáp ứng các yêu cầu tối thiểu để thực hiện ĐTTX theo quy định."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Điều 44",
+          "tieu_de": "Bảo vệ thông tin cá nhân và dữ liệu học tập Thông tin cá nhân và dữ liệu học tập của SV, được lưu trữ và bảo vệ trên hệ thống quản lý đào tạo và kho lưu trữ hồ sơ của Trường./. G G",
+          "full_path": "Chương VII > Điều 44",
+          "noi_dung": " DUC HIỆU TRƯỞNG TRƯỜNG CẦNH HO Trần Trung Tính",
+          "cac_khoan": []
+        }
+      ]
+    }
+  ]
+}

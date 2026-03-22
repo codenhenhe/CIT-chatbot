@@ -137,6 +137,7 @@ class Neo4jConnector:
 # neo4j_username = os.getenv("NEO4J_USERNAME")
 # neo4j_password = os.getenv("NEO4J_PASSWORD")
 # neo4j_uri = os.getenv("NEO4J_URI")
+# PDF_FILE = "data/pdf/ChuyenNganh_DaoTao/pdf/66_7480201_CongNgheThongTin.signed.signed.signed.signed.pdf"
 # PDF_FILE = "data/pdf/ChuyenNganh_DaoTao/pdf/64_7480202_AnToanThongTin.signed.signed.signed.signed.signed.pdf"
 # # PDF_FILE = "data/pdf/ChuyenNganh_DaoTao/pdf/73_7480101_KhoaHocMayTinh.signed.signed.signed.signed.signed.pdf"
 
@@ -163,8 +164,8 @@ class Neo4jConnector:
 #     db.add_edges(etl.edges)
 #     db.create_vector_index()
 
-# # except Exception as e:
-# #     print(f"Có lỗi xảy ra: {e}")
+# except Exception as e:
+#     print(f"Có lỗi xảy ra: {e}")
 # finally:
 #     if db:
 #         db.close()

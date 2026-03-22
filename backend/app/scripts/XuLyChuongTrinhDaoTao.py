@@ -1,8 +1,13 @@
 from ast import pattern
+import io
+import importlib
 import unicodedata
 import pymupdf4llm
+import fitz
 import re
 import pandas as pd
+from pypdf import PdfReader
+from PIL import Image
 from app.scripts.table_extractor import extract_curriculum
 from llama_index.core.schema import TextNode
 from app.scripts.schema import LegalDocProps, MajorProps, DepartmentProps, ProgramProps, FacultyProps, DegreeProps, LevelProps, RefDocProps, TrainingFormProps, TrainingMethodProps, CourseProps, ObjectivesProps, StudyOpportunitiesProps, OutcomeProps
@@ -20,6 +25,10 @@ class CurriculumETL:
         self.ma_nganh = "UNKNOWN"
         self.ten_nganh = "UNKNOWN"
         self.loai_hinh_dao_tao = "UNKNOWN"
+        self.extraction_source = "unknown"
+        self.extracted_text_length = 0
+        self.section_count = 0
+        self.extracted_preview = ""
 
         self.SECTION_CONCEPTS = {
             "MUC_TIEU": ["mục tiêu", "objectives", "goal"],
@@ -30,14 +39,118 @@ class CurriculumETL:
             "THAM_KHAO": ["tài liệu tham khảo", "tham khảo", "tham chiếu", "căn cứ pháp lý"],
             "THONG_TIN_CHUNG": ["thông tin chung", "tổng quan"]
         }
+
+        # Chuẩn hóa keyword để vẫn match được khi header không dấu hoặc OCR kém.
+        self.SECTION_CONCEPTS_NORMALIZED = {
+            concept_type: [self._normalize_text_for_match(kw) for kw in keywords]
+            for concept_type, keywords in self.SECTION_CONCEPTS.items()
+        }
+
+    def _normalize_text_for_match(self, text):
+        text = text.lower()
+        text = unicodedata.normalize('NFD', text)
+        text = ''.join(ch for ch in text if unicodedata.category(ch) != 'Mn')
+        text = text.replace('đ', 'd')
+        text = re.sub(r'\s+', ' ', text).strip()
+        return text
+
+    def _safe_int(self, value, default=0):
+        try:
+            return int(str(value).strip())
+        except Exception:
+            return default
+
+    def _safe_float(self, value, default=0.0):
+        try:
+            return float(str(value).replace(',', '.').strip())
+        except Exception:
+            return default
+
+    def _extract_text_with_pymupdf(self):
+        """Fallback khi pymupdf4llm không trích được markdown."""
+        texts = []
+        try:
+            doc = fitz.open(self.pdf_path)
+            for page in doc:
+                page_text = page.get_text("text")
+                if page_text and page_text.strip():
+                    texts.append(page_text.strip())
+            doc.close()
+        except Exception as e:
+            print(f"Lỗi fallback PyMuPDF: {e}")
+            return ""
+
+        return "\n\n".join(texts)
+
+    def _extract_text_with_pypdf(self):
+        """Fallback bổ sung cho một số PDF có text layer đặc thù (ký số/chèn object)."""
+        texts = []
+        try:
+            reader = PdfReader(self.pdf_path)
+
+            if reader.is_encrypted:
+                # Thử mật khẩu rỗng cho các file chỉ bị đánh dấu encrypted.
+                try:
+                    reader.decrypt("")
+                except Exception:
+                    pass
+
+            for page in reader.pages:
+                page_text = page.extract_text() or ""
+                if page_text.strip():
+                    texts.append(page_text.strip())
+        except Exception as e:
+            print(f"Lỗi fallback pypdf: {e}")
+            return ""
+
+        return "\n\n".join(texts)
+
+    def _extract_text_with_ocr(self):
+        """Fallback OCR cho PDF scan/image-only bằng Tesseract."""
+        try:
+            pytesseract = importlib.import_module("pytesseract")
+            tesseract_not_found_error = getattr(pytesseract, "TesseractNotFoundError", RuntimeError)
+        except Exception as e:
+            raise RuntimeError(
+                "Chua cai package pytesseract trong Python environment. "
+                "Vui long cai dependencies backend."
+            ) from e
+
+        texts = []
+        try:
+            doc = fitz.open(self.pdf_path)
+            for page in doc:
+                pix = page.get_pixmap(dpi=220)
+                img_bytes = pix.tobytes("png")
+                image = Image.open(io.BytesIO(img_bytes))
+
+                try:
+                    page_text = pytesseract.image_to_string(image, lang="vie+eng")
+                except Exception:
+                    # Fallback nếu máy chưa có gói ngôn ngữ tiếng Việt.
+                    page_text = pytesseract.image_to_string(image, lang="eng")
+
+                if page_text and page_text.strip():
+                    texts.append(page_text.strip())
+            doc.close()
+        except tesseract_not_found_error:
+            raise RuntimeError(
+                "Tesseract OCR chua duoc cai dat tren he thong. "
+                "Vui long cai 'tesseract-ocr' (va goi ngon ngu 'vie')."
+            )
+        except Exception as e:
+            print(f"Lỗi fallback OCR: {e}")
+            return ""
+
+        return "\n\n".join(texts)
     
     def _classify_header(self, header_text):
         """Phân loại tiêu đề dựa trên Concept Dictionary"""
-        header_lower = header_text.lower()
+        header_normalized = self._normalize_text_for_match(header_text)
         
-        for concept_type, keywords in self.SECTION_CONCEPTS.items():
+        for concept_type, keywords in self.SECTION_CONCEPTS_NORMALIZED.items():
             # Check xem tiêu đề có chứa bất kỳ từ khóa nào của concept này không
-            if any(kw in header_lower for kw in keywords):
+            if any(kw in header_normalized for kw in keywords):
                 return concept_type
         
         return "UNKNOWN" # Không nhận diện được
@@ -416,7 +529,10 @@ class CurriculumETL:
             d, m, y = ngay_word_match.group(1), ngay_word_match.group(2), ngay_word_match.group(3)
         else:
             ngay_num_match = re.search(r"(\d{1,2})[/-](\d{1,2})[/-](\d{4})", text)
-            d, m, y = ngay_num_match.group(1), ngay_num_match.group(2), ngay_num_match.group(3)
+            if ngay_num_match:
+                d, m, y = ngay_num_match.group(1), ngay_num_match.group(2), ngay_num_match.group(3)
+            else:
+                d, m, y = "01", "01", "1900"
 
         vbpl_id = self._normalize_id(so_match.group(1).strip()) if so_match else "UNKNOWN"
         node = TextNode(
@@ -444,7 +560,7 @@ class CurriculumETL:
         pattern = r'TRÌNH\s+ĐỘ\s+([A-ZÀ-Ỹ\s]+?)(?=\s*\(|\s*$)'
         m = re.search(pattern, text, re.IGNORECASE)
 
-        trinh_do = m.group(1).strip() if m else None
+        trinh_do = m.group(1).strip() if m else "Unknown"
         id_trinh_do = self._normalize_id(trinh_do)
 
         level_node = TextNode(
@@ -476,9 +592,13 @@ class CurriculumETL:
         # Ngành
         ten_nganh_match = re.search(r'(Ngành|Ngành học):\s*([^\(]+?\s*\([^\)]+\))', cleaned_content, re.IGNORECASE)
         ten_nganh = ten_nganh_match.group(2).strip() if ten_nganh_match else "Unknown"
-        vi, en = re.match(r'(.+?)\s*\((.+)\)', ten_nganh).groups()
-        ten_nganh_vi = vi.strip()
-        ten_nganh_en = en.strip()
+        ten_nganh_pair = re.match(r'(.+?)\s*\((.+)\)', ten_nganh)
+        if ten_nganh_pair:
+            ten_nganh_vi = ten_nganh_pair.group(1).strip()
+            ten_nganh_en = ten_nganh_pair.group(2).strip()
+        else:
+            ten_nganh_vi = ten_nganh
+            ten_nganh_en = "Unknown"
         self.ten_nganh = f"{ten_nganh_vi} ({ten_nganh_en})"
 
         node = TextNode(
@@ -513,7 +633,7 @@ class CurriculumETL:
           
         else:
             khoa = re.search(r'Khoa\s+([^,\n-]+)', ten_don_vi, re.IGNORECASE)
-            subunit = khoa.group(1).strip()
+            subunit = khoa.group(1).strip() if khoa else "Unknown"
             ma_don_vi = self._normalize_id(subunit)
             node = TextNode(
                 text=f"Ngành {self.ten_nganh} thuộc Khoa: {subunit}",
@@ -538,7 +658,7 @@ class CurriculumETL:
         # Khóa
         nam_match = re.search(r'năm\s+(\d{4})', full_text, re.IGNORECASE)
         nam = nam_match.group(1) if nam_match else None
-        k = int(nam) - 1974
+        k = self._safe_int(nam, 1974) - 1974
 
         if "chất lượng cao" in full_text.lower():
             loai_hinh = "Chất lượng cao"
@@ -553,11 +673,11 @@ class CurriculumETL:
 
         # Số tín chỉ
         so_tin_chi_match = re.search(r'(Số lượng tín chỉ|Tổng cộng)[:-]\s*(\d+)', content, re.IGNORECASE)
-        so_tin_chi = so_tin_chi_match.group(2).strip() if so_tin_chi_match else "Unknown"
+        so_tin_chi = so_tin_chi_match.group(2).strip() if so_tin_chi_match else "0"
 
         # Thời gian đào tạo
         thoi_gian_dao_tao_match = re.search(r'Thời gian đào tạo:\s*([\d.,]+)', content, re.IGNORECASE)
-        thoi_gian_dao_tao = thoi_gian_dao_tao_match.group(1).strip() if thoi_gian_dao_tao_match else "Unknown"
+        thoi_gian_dao_tao = thoi_gian_dao_tao_match.group(1).strip() if thoi_gian_dao_tao_match else "0"
         thoi_gian_dao_tao = thoi_gian_dao_tao.replace(",", ".")
 
         # Loại văn bằng
@@ -588,8 +708,8 @@ class CurriculumETL:
                 ProgramProps.KHOA_HOC: k,
                 ProgramProps.LOAI_HINH: loai_hinh,
                 ProgramProps.NGON_NGU: ngon_ngu,
-                ProgramProps.TONG_TIN_CHI: int(so_tin_chi),
-                ProgramProps.THOI_GIAN: float(thoi_gian_dao_tao),
+                ProgramProps.TONG_TIN_CHI: self._safe_int(so_tin_chi, 0),
+                ProgramProps.THOI_GIAN: self._safe_float(thoi_gian_dao_tao, 0.0),
             }
         )
 
@@ -1079,6 +1199,31 @@ class CurriculumETL:
 
         print("Đang đọc PDF...")
         raw_md = pymupdf4llm.to_markdown(self.pdf_path)
+        self.extraction_source = "pymupdf4llm"
+
+        if not raw_md or not raw_md.strip():
+            print("pymupdf4llm không trích được markdown, thử fallback bằng PyMuPDF...")
+            raw_md = self._extract_text_with_pymupdf()
+            self.extraction_source = "pymupdf"
+
+        if not raw_md or not raw_md.strip():
+            print("PyMuPDF không trích được text, thử fallback bằng pypdf...")
+            raw_md = self._extract_text_with_pypdf()
+            self.extraction_source = "pypdf"
+
+        if not raw_md or not raw_md.strip():
+            print("pypdf không trích được text, thử fallback OCR bằng Tesseract...")
+            raw_md = self._extract_text_with_ocr()
+            self.extraction_source = "ocr_tesseract"
+
+        if not raw_md or not raw_md.strip():
+            raise ValueError(
+                "Khong trich xuat duoc noi dung text tu PDF. "
+                "Da thu pymupdf4llm + PyMuPDF + pypdf + OCR nhung deu rong."
+            )
+
+        self.extracted_text_length = len(raw_md)
+        self.extracted_preview = raw_md[:12000].replace("\n", " ").strip()
         
         print("Đang xử lý lại Header...")
         # refined_md = self._upgrade_markdown_headers(raw_md)
@@ -1101,7 +1246,13 @@ class CurriculumETL:
         input_doc = Document(text=refined_md)
         
         nodes = parser.get_nodes_from_documents([input_doc])
+        if not nodes:
+            raise ValueError("Khong phan ra duoc section tu noi dung PDF sau khi parse Markdown.")
+
         sections = self._group_nodes(nodes)
+        if not sections:
+            raise ValueError("Khong tao duoc section nao de ETL xu ly.")
+        self.section_count = len(sections)
 
         for section in sections:
             # Tách tiêu đề và nội dung
@@ -1143,6 +1294,12 @@ class CurriculumETL:
         quyet_dinh = sections[0].text.strip() if sections else ""
         if quyet_dinh:
             self._parse_quyet_dinh_ban_hanh(quyet_dinh, refined_md)
+
+        if not self.nodes:
+            raise ValueError(
+                "ETL khong tao ra node nao. "
+                "Can kiem tra cau truc tieu de/section cua PDF va bo tu khoa phan loai."
+            )
 
         self.generate_embeddings()
 
