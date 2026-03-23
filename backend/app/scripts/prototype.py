@@ -18,9 +18,9 @@ class GraphRAGChatbot:
     def __init__(self):
         print("--- Đang khởi tạo Embedding Model (BGE-M3)... ---")
         self.embed_service = EmbeddingModel(
-            model_name="BAAI/bge-m3",
-            device="cpu"
+            model_name="BAAI/bge-m3"
         )
+        print(f"[Startup] Embedding runtime device: {self.embed_service.device}")
         
         uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
         user = os.getenv("NEO4J_USERNAME", "neo4j")
@@ -29,9 +29,24 @@ class GraphRAGChatbot:
         print("--- Đang kết nối tới Neo4j... ---")
         self.db = Neo4jConnector(uri, user, password)
         
-        self.ollama_url = "http://localhost:11434/api/generate"
-        self.llm_model = "qwen2.5-coder:3b-instruct"
-        self.client = ollama.AsyncClient()
+        self.ollama_url = os.getenv("OLLAMA_GENERATE_URL", "http://localhost:11434/api/generate")
+        self.ollama_host = os.getenv("OLLAMA_HOST")
+        self.ollama_num_gpu = os.getenv("OLLAMA_NUM_GPU")
+        # self.llm_model = "qwen2.5-coder:3b-instruct"
+        self.llm_model = "qwen2.5-coder:7b"
+        self.client = ollama.AsyncClient(host=self.ollama_host) if self.ollama_host else ollama.AsyncClient()
+        print(
+            "[Startup] Ollama config | "
+            f"host={self.ollama_host or 'default(localhost:11434)'} | "
+            f"model={self.llm_model} | "
+            f"num_gpu={self.ollama_num_gpu if self.ollama_num_gpu not in (None, '') else 'default(server)'}"
+        )
+
+    def _build_ollama_options(self, temperature: float = 0.0) -> Dict[str, Any]:
+        options: Dict[str, Any] = {"temperature": temperature}
+        if self.ollama_num_gpu is not None and self.ollama_num_gpu != "":
+            options["num_gpu"] = int(self.ollama_num_gpu)
+        return options
 
     def extract_intent_entity(self, query: str):
         query_lower = query.lower()
@@ -65,7 +80,7 @@ class GraphRAGChatbot:
                 model=self.llm_model,
                 system=system_prompt,
                 prompt=prompt,
-                options={"temperature": 0.0}
+                options=self._build_ollama_options(temperature=0.0)
             )
             return response['response'].strip()
         except Exception as e:

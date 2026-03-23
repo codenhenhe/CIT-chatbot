@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 import re
+import os
 from app.scripts.prototype import GraphRAGChatbot
 from pydantic import BaseModel
 from typing import List, Optional
@@ -26,7 +27,16 @@ class ChatRequest(BaseModel):
     trigger: Optional[str] = None
 
 ROUTER_MODEL = "qwen2.5-coder:1.5b"  
-FINAL_MODEL = "qwen2.5-coder:3b-instruct" 
+# FINAL_MODEL = "qwen2.5-coder:3b-instruct" 
+FINAL_MODEL = "qwen2.5-coder:7b" 
+
+
+def build_ollama_options():
+    options = {"temperature": 0.0}
+    num_gpu = os.getenv("OLLAMA_NUM_GPU")
+    if num_gpu is not None and num_gpu != "":
+        options["num_gpu"] = int(num_gpu)
+    return options
 
 def detect_intent(query: str):
     q = query.lower().strip()
@@ -76,7 +86,7 @@ def detect_intent(query: str):
     # ===== fallback =====
     return "RAG"
 
-async def rewrite_query(client, history, query):
+async def rewrite_query(client, history, query, ollama_options):
     # chặn câu quá ngắn
     if len(query.strip()) < 5:
         return query
@@ -95,6 +105,7 @@ async def rewrite_query(client, history, query):
     resp = await client.chat(
         model=ROUTER_MODEL,
         messages=[{"role": "system", "content": prompt}] + messages,
+        options=ollama_options,
     )
 
     rewritten = resp['message']['content'].strip()
@@ -115,7 +126,9 @@ async def chat_endpoint(body: ChatRequest):
     intent = detect_intent(user_query)
     print(intent)
 
-    client = ollama.AsyncClient()
+    ollama_host = os.getenv("OLLAMA_HOST")
+    ollama_options = build_ollama_options()
+    client = ollama.AsyncClient(host=ollama_host) if ollama_host else ollama.AsyncClient()
 
     history = [
         {"role": m.role, "content": m.parts[0].text}
@@ -131,7 +144,7 @@ async def chat_endpoint(body: ChatRequest):
 
     # Rewrite query nếu là RAG
     if intent == "RAG":
-        rewritten_query = await rewrite_query(client, history, user_query)
+        rewritten_query = await rewrite_query(client, history, user_query, ollama_options)
     else:
         rewritten_query = user_query
     print("Rewrite:", rewritten_query)
@@ -188,6 +201,7 @@ async def chat_endpoint(body: ChatRequest):
             messages=[{"role": "system", "content": system_prompt}]
                      + history
                      + [{"role": "user", "content": rewritten_query}],
+            options=ollama_options,
             stream=True,
         ):
             content = part['message']['content']

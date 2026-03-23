@@ -9,17 +9,33 @@ from dotenv import load_dotenv
 load_dotenv(".env")
 # cache_folder="../my_model_weights/bge_m3",
 class EmbeddingModel:
-    def __init__(self, model_name="BAAI/bge-m3", cache_folder="../my_model_weights/bge_m3", device="cpu", embed_batch_size=2):
+    def __init__(self, model_name="BAAI/bge-m3", cache_folder="../my_model_weights/bge_m3", device=None, embed_batch_size=2):
+        # Ưu tiên GPU nếu có, fallback về CPU để tránh crash khi không có CUDA/MPS
+        resolved_device = device or os.getenv("EMBEDDING_DEVICE") or self._detect_best_device()
+        self.device = resolved_device
+        self.model_name = model_name
+        self.cache_folder = cache_folder
         self.model = HuggingFaceEmbedding(
             model_name=model_name,
             cache_folder=cache_folder, 
-            device=device,
+            device=resolved_device,
             embed_batch_size=embed_batch_size,
             token = os.getenv("HF_TOKEN") 
         )
         
         # Cập nhật Settings toàn cục để các hàm khác của LlamaIndex dùng chung
         Settings.embed_model = self.model
+        print(
+            f"[Startup] Embedding initialized | model={self.model_name} | device={self.device} | cache_folder={self.cache_folder}"
+        )
+
+    @staticmethod
+    def _detect_best_device() -> str:
+        if torch.cuda.is_available():
+            return "cuda"
+        if hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+            return "mps"
+        return "cpu"
 
     def get_embedding_batch(self, texts: Union[str, List[str]]):
         if isinstance(texts, str):
