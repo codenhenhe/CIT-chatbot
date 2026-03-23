@@ -10,7 +10,7 @@ attrs==25.4.0
 backports.asyncio.runner==1.2.0
 banks==2.3.0
 beautifulsoup4==4.14.3
-Bottleneck @ file:///home/task_176193794808509/conda-bld/bottleneck_1761937988290/work
+Bottleneck
 certifi==2026.1.4
 cffi==2.0.0
 charset-normalizer==3.4.4
@@ -25,7 +25,7 @@ Deprecated==1.2.18
 dirtyjson==1.0.8
 distro==1.9.0
 ecdsa==0.19.1
-et_xmlfile @ file:///croot/et_xmlfile_1756462486635/work
+et_xmlfile
 exceptiongroup==1.3.1
 fastapi==0.135.1
 filelock==3.25.0
@@ -69,8 +69,8 @@ MarkupSafe==3.0.3
 marshmallow==3.26.2
 mdurl==0.1.2
 mkl-service==2.5.2
-mkl_fft @ file:///home/task_176159252575002/conda-bld/mkl_fft_1761592901585/work
-mkl_random @ file:///home/task_176159293813909/conda-bld/mkl_random_1761592952512/work
+mkl_fft
+mkl_random
 mpmath==1.3.0
 multidict==6.7.1
 mypy_extensions==1.1.0
@@ -78,8 +78,8 @@ neo4j==5.28.3
 nest-asyncio==1.6.0
 networkx==3.4.2
 nltk==3.9.3
-numexpr @ file:///home/task_176216559424661/conda-bld/numexpr_1762165604917/work
-numpy @ file:///home/task_176157872663408/conda-bld/numpy_and_numpy_base_1761579342634/work/dist/numpy-2.2.5-cp310-cp310-linux_x86_64.whl#sha256=fb5b85b589f86e6404be6a37347b98be70b32c4ae837bb26e1180e9f9a7fb718
+numexpr
+numpy
 nvidia-cublas-cu12==12.8.4.1
 nvidia-cuda-cupti-cu12==12.8.90
 nvidia-cuda-nvrtc-cu12==12.8.93
@@ -99,8 +99,7 @@ ollama==0.6.1
 openai==2.29.0
 openpyxl==3.1.5
 packaging==26.0
-pandas @ file:///home/task_176233228161209/conda-bld/pandas_1762332325727/work/dist/pandas-2.3.3-cp310-cp310-linux_x86_64.whl#sha256=cd4241f338dbf9922b2bc5a62ff6267574e607e9e9ea8b5efbba07b037c96f8f
-pdfminer.six==20251230
+pandas
 pdfplumber==0.11.9
 pillow==12.1.0
 platformdirs==4.5.1
@@ -117,12 +116,12 @@ pypdf==6.9.1
 pypdfium2==5.6.0
 pytest==9.0.2
 pytest-asyncio==1.3.0
-python-dateutil @ file:///croot/python-dateutil_1716495738603/work
+python-dateutil
 python-dotenv==1.2.1
 python-jose==3.5.0
 python-multipart==0.0.20
 pytesseract==0.3.13
-pytz @ file:///croot/pytz_1752135852232/work
+pytz
 PyYAML==6.0.3
 regex==2026.1.15
 requests==2.32.5
@@ -133,7 +132,7 @@ scikit-learn==1.7.2
 scipy==1.15.3
 sentence-transformers==5.2.3
 shellingham==1.5.4
-six @ file:///croot/six_1744271502820/work
+six
 sniffio==1.3.1
 soupsieve==2.8.3
 SQLAlchemy==2.0.48
@@ -156,7 +155,7 @@ typer-slim==0.24.0
 typing-inspect==0.9.0
 typing-inspection==0.4.2
 typing_extensions==4.15.0
-tzdata @ file:///croot/python-tzdata_1746123641790/work
+tzdata
 urllib3==2.6.3
 uvicorn==0.41.0
 uvloop==0.22.1

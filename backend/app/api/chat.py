@@ -1,6 +1,8 @@
 from fastapi import APIRouter
 import re
 import os
+import asyncio
+import time
 from app.scripts.prototype import GraphRAGChatbot
 from pydantic import BaseModel
 from typing import List, Optional
@@ -26,17 +28,34 @@ class ChatRequest(BaseModel):
     messages: List[MessageItem]
     trigger: Optional[str] = None
 
-ROUTER_MODEL = "qwen2.5-coder:1.5b"  
-# FINAL_MODEL = "qwen2.5-coder:3b-instruct" 
-FINAL_MODEL = "qwen2.5-coder:7b" 
+ROUTER_MODEL = os.getenv("ROUTER_MODEL", "qwen2.5-coder:1.5b-instruct")
+FINAL_PRIMARY_MODEL = os.getenv("FINAL_PRIMARY_MODEL", "qwen2.5-coder:7b-instruct")
+FINAL_FALLBACK_MODEL = os.getenv("FINAL_FALLBACK_MODEL", "qwen2.5-coder:3b-instruct")
+FIRST_TOKEN_TIMEOUT_SECONDS = float(os.getenv("FIRST_TOKEN_TIMEOUT_SECONDS", "12"))
 
 
-def build_ollama_options():
-    options = {"temperature": 0.0}
-    num_gpu = os.getenv("OLLAMA_NUM_GPU")
-    if num_gpu is not None and num_gpu != "":
-        options["num_gpu"] = int(num_gpu)
-    return options
+async def _stream_chat_with_first_token_timeout(client, model: str, messages: list, first_token_timeout: float):
+    """
+    Stream từ Ollama và timeout nếu token đầu tiên trả về quá chậm.
+    Mục tiêu là phát hiện model bị nghẽn tải để fallback sớm.
+    """
+    stream = await client.chat(
+        model=model,
+        messages=messages,
+        stream=True,
+    )
+
+    first_token = True
+    while True:
+        try:
+            if first_token:
+                part = await asyncio.wait_for(anext(stream), timeout=first_token_timeout)
+                first_token = False
+            else:
+                part = await anext(stream)
+        except StopAsyncIteration:
+            break
+        yield part
 
 def detect_intent(query: str):
     q = query.lower().strip()
@@ -86,7 +105,46 @@ def detect_intent(query: str):
     # ===== fallback =====
     return "RAG"
 
-async def rewrite_query(client, history, query, ollama_options):
+
+def build_greeting_response(user_query: str, history: List[dict]) -> str:
+    """Sinh phản hồi greeting linh hoạt bằng rule-based để giữ latency thấp."""
+    q = user_query.lower().strip()
+    prior_turns = len(history)
+
+    asks_major = any(x in q for x in ["ngành", "chuyên ngành", "ctdt", "chương trình"])
+    asks_course = any(x in q for x in ["môn", "học phần", "tín chỉ", "tiên quyết"])
+    asks_rule = any(x in q for x in ["quy chế", "điều kiện", "gpa", "học vụ"])
+
+    if prior_turns > 0:
+        prefix_pool = ["Chào bạn quay lại!", "Rất vui được gặp lại bạn!", "Chào mừng bạn trở lại!"]
+        prefix = prefix_pool[int(time.time()) % len(prefix_pool)]
+    elif any(x in q for x in ["buổi sáng", "sáng"]):
+        prefix = "Chào buổi sáng!"
+    elif any(x in q for x in ["buổi chiều", "chiều"]):
+        prefix = "Chào buổi chiều!"
+    elif any(x in q for x in ["buổi tối", "tối"]):
+        prefix = "Chào buổi tối!"
+    else:
+        prefix_pool = ["Xin chào!", "Chào bạn!", "Chào bạn nhe!", "Rất vui được hỗ trợ bạn!"]
+        prefix = prefix_pool[int(time.time()) % len(prefix_pool)]
+
+    if asks_major:
+        hint = "Mình có thể hỗ trợ thông tin ngành, khung CTĐT, thời gian học và văn bằng. Bạn muốn xem tổng quan hay chi tiết từng ngành?"
+    elif asks_course:
+        hint = "Mình có thể tra tín chỉ, môn tiên quyết, và thông tin học phần cụ thể. Bạn có mã môn hoặc tên môn không?"
+    elif asks_rule:
+        hint = "Mình có thể tra quy chế học vụ, điều kiện học và các mốc học tập quan trọng. Bạn muốn tra mục nào trước?"
+    else:
+        hint_pool = [
+            "Bạn muốn tra cứu ngành, học phần hay quy chế học vụ trước?",
+            "Mình có thể hỗ trợ ngành đào tạo, học phần và quy chế học vụ. Bạn muốn bắt đầu từ phần nào?",
+            "Bạn cần mình tra nhanh số tín chỉ, danh sách ngành hay môn tiên quyết?",
+        ]
+        hint = hint_pool[(int(time.time()) + prior_turns) % len(hint_pool)]
+
+    return f"{prefix} {hint}"
+
+async def rewrite_query(client, history, query):
     # chặn câu quá ngắn
     if len(query.strip()) < 5:
         return query
@@ -123,53 +181,84 @@ async def chat_endpoint(body: ChatRequest):
 
     print(f"\n=== USER: {user_query} ===")
 
-    intent = detect_intent(user_query)
-    print(intent)
-
-    ollama_host = os.getenv("OLLAMA_HOST")
-    ollama_options = build_ollama_options()
-    client = ollama.AsyncClient(host=ollama_host) if ollama_host else ollama.AsyncClient()
-
     history = [
         {"role": m.role, "content": m.parts[0].text}
         for m in body.messages[:-1]
     ]
     print("History:", history)
 
-    if intent == "CORRECTION":
-        if history:
-            rewritten_query = history[-1]["content"]
-        else:
-            rewritten_query = user_query
+    # Rule-based greeting nhanh để giảm tải model
+    if detect_intent(user_query) == "GREETING":
+        greeting_text = build_greeting_response(user_query, history)
 
-    # Rewrite query nếu là RAG
-    if intent == "RAG":
-        rewritten_query = await rewrite_query(client, history, user_query, ollama_options)
-    else:
-        rewritten_query = user_query
-    print("Rewrite:", rewritten_query)
-    if intent == "GREETING":
         async def stream_results():
-            yield f'0:{json.dumps("Xin chào! Mình có thể giúp gì cho bạn về chương trình đào tạo CTU?")}\n'
+            yield f'0:{json.dumps(greeting_text)}\n'
 
         return StreamingResponse(
             stream_results(),
             media_type="text/plain",
             headers={"X-Vercel-AI-Data-Stream": "v1"}
         )
-    
-    # BƯỚC 1: GỌI PIPELINE CHÍNH
+
+    # Main pipeline: rewrite -> intent -> cypher -> graph/vector -> context
     try:
-        context = await bot.get_context(rewritten_query)
+        pipeline_out = await bot.run_main_pipeline(user_query, history=history[-5:])
     except Exception as e:
-        print("ERROR get_context:", e)
-        context = None
+        print("ERROR run_main_pipeline:", e)
+        pipeline_out = {
+            "rewritten_query": user_query,
+            "intent_type": "factual_graph",
+            "context": "",
+            "cypher": None,
+        }
+
+    rewritten_query = pipeline_out.get("rewritten_query", user_query)
+    intent_type = pipeline_out.get("intent_type", "factual_graph")
+    context = pipeline_out.get("context", "")
+    cypher = pipeline_out.get("cypher")
+    graph_rows = pipeline_out.get("graph_rows", [])
+    stage_metrics = pipeline_out.get("metrics", {})
+    metrics_summary = pipeline_out.get("metrics_summary", {})
+
+    print(f"IntentType: {intent_type}")
+    print(f"Rewrite: {rewritten_query}")
+    print(f"Cypher: {cypher}")
+    print(f"GraphRowsCount: {len(graph_rows)}")
+    if graph_rows:
+        print(f"GraphRowsPreview: {graph_rows[:2]}")
+    print(
+        "StageMetrics:",
+        {
+            "rewrite_ms": stage_metrics.get("rewrite_ms"),
+            "graph_ms": stage_metrics.get("graph_ms"),
+            "cypher_generated": stage_metrics.get("cypher_generated"),
+            "cypher_source": stage_metrics.get("cypher_source"),
+            "graph_hit": stage_metrics.get("graph_hit"),
+            "graph_rows_count": stage_metrics.get("graph_rows_count"),
+            "fallback": stage_metrics.get("fallback"),
+        },
+    )
+    print(
+        "Rates:",
+        {
+            "cypher_hit_rate": metrics_summary.get("cypher_hit_rate"),
+            "template_hit_rate": metrics_summary.get("template_hit_rate"),
+            "llm_cypher_hit_rate": metrics_summary.get("llm_cypher_hit_rate"),
+            "template_share_in_cypher": metrics_summary.get("template_share_in_cypher"),
+            "llm_share_in_cypher": metrics_summary.get("llm_share_in_cypher"),
+            "graph_hit_rate": metrics_summary.get("graph_hit_rate"),
+            "fallback_rate": metrics_summary.get("fallback_rate"),
+            "avg_rewrite_ms": metrics_summary.get("avg_rewrite_ms"),
+            "avg_graph_ms": metrics_summary.get("avg_graph_ms"),
+        },
+    )
 
     print(f"=== CONTEXT: {context} ===")
 
-    if not context:
+    if intent_type in ["factual_graph", "explanation"] and not context:
+        no_data_msg = bot.build_no_data_reply(rewritten_query, context="")
         async def stream_results():
-            yield f'0:{json.dumps("Mình không tìm thấy thông tin chính xác trong hệ thống.")}\n'
+            yield f'0:{json.dumps(no_data_msg)}\n'
 
         return StreamingResponse(
             stream_results(),
@@ -177,39 +266,37 @@ async def chat_endpoint(body: ChatRequest):
             headers={"X-Vercel-AI-Data-Stream": "v1"}
         )
 
-    # BƯỚC 2: STREAM RESPONSE
+    # BƯỚC 2: ANSWER GENERATION (strict grounded) + stream chunk
     async def stream_results():
-        history = [
-            {"role": m.role, "content": m.parts[0].text}
-            for m in body.messages[:-1]
-        ]
+        if intent_type == "chitchat":
+            q_norm = bot._normalize_text(user_query)
+            if any(x in q_norm for x in ["tra loi bang tieng viet", "trả lời bằng tiếng việt", "noi tieng viet", "nói tiếng việt"]):
+                yield f'0:{json.dumps("Được bạn, từ bây giờ mình sẽ trả lời bằng tiếng Việt. Bạn muốn tra cứu nội dung nào của CTU?")}\n'
+                return
 
-        system_prompt = (
-            "Bạn là chatbot tư vấn Đại học Cần Thơ (CTU).\n"
-            "Chỉ trả lời dựa trên dữ liệu được cung cấp.\n"
-            "Hãy trả lời sinh viên một cách thân thiện.\n"
-            "Không được tự bịa.\n"
-            "Nếu không có dữ liệu → trả lời: 'Mình không tìm thấy thông tin chính xác.'\n"
-        )
+            client = ollama.AsyncClient()
+            prompt = (
+                "Bạn là trợ lý thân thiện của CTU. "
+                "Luôn trả lời bằng tiếng Việt, ngắn gọn, lịch sự, không dùng tiếng Anh nếu không được yêu cầu."
+            )
+            try:
+                resp = await client.chat(
+                    model=ROUTER_MODEL,
+                    messages=[
+                        {"role": "system", "content": prompt},
+                        {"role": "user", "content": rewritten_query},
+                    ],
+                )
+                answer = (resp.get("message", {}).get("content") or "Xin chào, mình có thể hỗ trợ gì thêm?").strip()
+            except Exception:
+                answer = "Xin chào, mình có thể hỗ trợ gì thêm?"
+            yield f'0:{json.dumps(answer)}\n'
+            return
 
-        # inject context
-        if context:
-            system_prompt += f"\nDữ liệu:\n{context}\n"
-
-        async for part in await client.chat(
-            model=FINAL_MODEL,
-            messages=[{"role": "system", "content": system_prompt}]
-                     + history
-                     + [{"role": "user", "content": rewritten_query}],
-            options=ollama_options,
-            stream=True,
-        ):
-            content = part['message']['content']
-            # if not context:
-            #     context = "Không tìm thấy dữ liệu phù hợp trong hệ thống."
-            if content:
-                yield f'0:{json.dumps(content)}\n'
-                print(f"Trả lời: {content}")
+        answer = await bot.answer_generator(rewritten_query, context, history=history[-5:])
+        if not answer:
+            answer = "Không tìm thấy thông tin"
+        yield f'0:{json.dumps(answer)}\n'
 
     return StreamingResponse(
         stream_results(),
