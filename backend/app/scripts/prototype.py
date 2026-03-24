@@ -155,6 +155,9 @@ class GraphRAGChatbot:
         q_norm = self._normalize_text(q)
 
         result = {
+            "nganh": None,
+            "attribute": None,
+            "intent": "unknown",
             "major": None,
             "major_normalized": None,
             "loai_hinh": None,
@@ -186,6 +189,7 @@ class GraphRAGChatbot:
         )
         if major_match:
             raw_major = major_match.group(1).strip()
+            result["nganh"] = raw_major
             result["major"] = raw_major
             result["major_normalized"] = self._normalize_text(raw_major)
 
@@ -195,6 +199,16 @@ class GraphRAGChatbot:
         elif any(x in q_norm for x in ["dai tra", "đại trà"]):
             result["loai_hinh"] = "đại trà"
 
+        # 4b. Extract requested attribute (strict normalized labels)
+        if any(x in q_norm for x in ["tin chi", "tín chỉ"]):
+            result["attribute"] = "tin_chi"
+        elif any(x in q_norm for x in ["thoi gian", "thời gian", "bao lau", "mấy năm", "may nam"]):
+            result["attribute"] = "thoi_gian"
+        elif any(x in q_norm for x in ["muc tieu", "mục tiêu"]):
+            result["attribute"] = "muc_tieu"
+        elif any(x in q_norm for x in ["hoc phan", "học phần", "mon hoc", "môn học", "ma hoc phan", "mã học phần"]):
+            result["attribute"] = "hoc_phan"
+
         # 5. Extract khóa học
         khoa_match = re.search(r"kh[oó]a\s*(\d{1,2})", q, re.IGNORECASE)
         if khoa_match:
@@ -203,16 +217,28 @@ class GraphRAGChatbot:
         # 6. Infer query intent from question patterns
         if any(x in q_norm for x in ["bao nhieu tin chi", "so tin chi", "tong tin chi"]):
             result["query_intent"] = "ask_credit"
+            result["intent"] = "ask_credit"
         elif any(x in q_norm for x in ["chuong trinh dao tao", "ctdt", "chương trình"]):
             result["query_intent"] = "ask_program"
+            result["intent"] = "ask_program"
         elif any(x in q_norm for x in ["clc", "chat luong cao", "dai tra", "loai hinh"]):
             result["query_intent"] = "ask_program_type"
+            result["intent"] = "ask_program_type"
         elif any(x in q_norm for x in ["co may nganh", "bao nhieu nganh", "nhung nganh"]):
             result["query_intent"] = "ask_major_list"
+            result["intent"] = "ask_major_list"
         elif any(x in q_norm for x in ["ti[eê]n quy[eế]t"]):
             result["query_intent"] = "ask_prerequisite"
+            result["intent"] = "ask_prerequisite"
+        elif any(x in q_norm for x in ["thoi gian", "thời gian", "mấy năm", "may nam"]):
+            result["query_intent"] = "ask_duration"
+            result["intent"] = "ask_duration"
         else:
             result["query_intent"] = "ask_info"
+            result["intent"] = "ask_info"
+
+        if not result.get("nganh") and result.get("major"):
+            result["nganh"] = result.get("major")
 
         return result
 
@@ -308,62 +334,6 @@ class GraphRAGChatbot:
             "summary": {"row_count": len(graph_rows)},
             "success": len(graph_rows) > 0,
         }
-
-
-    # --- TẦNG 1: TRUY VẤN SEMANTIC (Tìm kiếm Vector toàn cục) ---   
-    # async def layer_1_semantic_search(self, query: str):
-    #     query_vec = self.embed_service.get_embedding_batch([query])[0]
-    #     cypher = """
-    #     CALL db.index.vector.queryNodes('global_knowledge_index', 3, $vector)
-    #     YIELD node, score
-    #     WHERE score > 0.7
-    #     RETURN node.text as context, labels(node)[0] as type
-    #     ORDER BY score DESC LIMIT 2
-    #     """
-        
-    #     try:
-    #         # Sử dụng async session từ connector mới
-    #         async with self.db.driver.session() as session:
-    #             result = await session.run(cypher, vector=query_vec)
-    #             records = await result.data()
-    #             results = [f"[{r['type']}]: {r['context']}" for r in records]
-    #             return "\n".join(results) if results else None
-    #     except Exception as e:
-    #         print(f"Lỗi Tầng 1: {e}")
-    #     return None
-
-    # TẦNG 2: HYBRID RETRIEVAL 
-    # async def layer_2_hybrid_retrieval(self, query: str) -> Optional[str]:
-    #     system_prompt = (
-    #         "Bạn là trợ lý trích xuất thực thể từ câu hỏi. "
-    #         "Nhiệm vụ: Trích xuất tên môn học hoặc mã môn học (Ví dụ: 'An ninh mạng', 'CT101'). "
-    #         "Nếu hỏi về điều kiện học hoặc môn tiên quyết, đặt intent là 'tien_quyet'. "
-    #         "Trả về duy nhất định dạng JSON: {'entity': '...', 'intent': '...'}. "
-    #         "Nếu không thấy thực thể, trả về {'entity': null}."
-    #     )
-    #     response = await self._call_llm(query, system_prompt)
-        
-    #     try:
-    #         match = re.search(r'\{.*\}', response, re.DOTALL)
-    #         if not match: return None
-    #         data = json.loads(match.group())
-    #         entity = data.get("entity")
-            
-    #         if entity and data.get("intent") == "tien_quyet":
-    #             # Tìm kiếm mờ (Fuzzy Search) bằng CONTAINS và toLower
-    #             cypher = """
-    #             MATCH (h:HocPhan)-[:YEU_CAU_TIEN_QUYET]->(pre)
-    #             WHERE toLower(h.ten_hp) CONTAINS toLower($id) OR h.ma_hp = $id
-    #             RETURN DISTINCT h.ten_hp as target, collect(pre.ten_hp) as pres
-    #             """
-    #             async with self.db.driver.session() as session:
-    #                 result = await session.run(cypher, id=entity)
-    #                 res = await result.single()
-    #                 if res:
-    #                     return f"Dữ liệu đồ thị xác nhận: Môn {res['target']} yêu cầu phải học xong các môn tiên quyết sau: {', '.join(res['pres'])}."
-    #     except:
-    #         pass
-    #     return None
 
     def _get_query_embedding(self, query: str):
         cached = self._embedding_cache.get(query)
@@ -622,6 +592,10 @@ class GraphRAGChatbot:
             if any(x in history_text for x in ["ctu co may nganh", "ctu co mấy ngành", "co 9 nganh", "so_nganh"]):
                 return "Liệt kê các ngành đào tạo của CTU"
 
+        # Rewrite ngắn mang tính xác nhận nhưng không rõ ngữ nghĩa.
+        if raw_norm_early in ["co", "có"]:
+            return "Người dùng xác nhận yêu cầu trước đó"
+
         # Fast-path: câu đã rõ nghĩa, không có đồng tham chiếu => giữ nguyên để giảm latency.
         raw_norm = self._normalize_text(raw)
         has_coref = any(x in raw_norm.split() for x in ["no", "cai", "do", "nay", "kia", "ấy", "đó"])
@@ -635,12 +609,19 @@ class GraphRAGChatbot:
             return cached
 
         prompt = (
-            "Nhiệm vụ: Viết lại câu hỏi người dùng để rõ nghĩa trong bối cảnh tư vấn CTDT/quy chế học vụ.\n"
-            "Yêu cầu:\n"
-            "1. Resolve đồng tham chiếu (nó, cái đó, môn đó, ngành đó) dựa vào lịch sử.\n"
-            "2. Giữ nguyên ý định gốc, KHÔNG trả lời câu hỏi.\n"
-            "3. KHÔNG thêm dữ kiện mới ngoài lịch sử.\n"
-            "4. Output duy nhất 1 câu hỏi rewrite ngắn gọn.\n"
+            "STRICT CONTROL PROMPT FOR GRAPHRAG PIPELINE\n"
+            "Bạn là một thành phần deterministic.\n"
+            "GLOBAL RULES:\n"
+            "- KHÔNG trả lời người dùng.\n"
+            "- KHÔNG giải thích.\n"
+            "- KHÔNG hallucinate dữ liệu.\n"
+            "- Chỉ được rewrite câu hỏi.\n\n"
+            "TASK 1: QUERY REWRITE\n"
+            "- Giữ nguyên ý nghĩa gốc tuyệt đối.\n"
+            "- Không paraphrase khi câu đã rõ.\n"
+            "- Nếu mơ hồ (nó, có, vậy, cái đó) thì mở rộng từ lịch sử.\n"
+            "- Output duy nhất là câu query đã rewrite, không markdown.\n"
+            "- Nếu không chắc, trả lại câu gốc.\n"
         )
         messages = history[-5:] + [{"role": "user", "content": raw}]
         try:
@@ -656,7 +637,7 @@ class GraphRAGChatbot:
 
         # Guard: nếu rewrite có dấu hiệu trả lời/đưa facts mới thì bỏ, dùng query gốc.
         rw_norm = self._normalize_text(rewritten)
-        suspicious_prefixes = ["ban can", "ctu co", "la", "bao gom", "co hon", "duoc", "hay", "vui long", "vui lòng"]
+        suspicious_prefixes = ["ban can", "ctu co", "la", "bao gom", "co hon", "duoc", "hay", "vui long", "vui lòng", "tra loi", "cau tra loi"]
         if any(rw_norm.startswith(p) for p in suspicious_prefixes):
             rewritten = raw
 
@@ -774,11 +755,11 @@ class GraphRAGChatbot:
         Generate Cypher queries using extracted entities, NOT full user query.
         Returns: (cypher_string, params_dict) or None
         """
-        major = entities.get("major") or entities.get("major_normalized") or ""
+        major = entities.get("nganh") or entities.get("major") or entities.get("major_normalized") or ""
         major_norm = entities.get("major_normalized") or self._normalize_text(major)
         loai_hinh = entities.get("loai_hinh")
         khoa_hoc = entities.get("khoa_hoc")
-        query_intent = entities.get("query_intent")
+        query_intent = entities.get("query_intent") or entities.get("intent")
         code = entities.get("course_code")
 
         # Remove accents for database matching
@@ -836,7 +817,7 @@ ORDER BY nganh LIMIT 20
 """.strip()
 
         # Query 5: Count majors
-        elif any(x in self._normalize_text(query) for x in ["co may nganh", "bao nhieu nganh"]):
+        elif query_intent == "ask_major_list":
             return """
 MATCH (n:Nganh)
 RETURN count(DISTINCT n) as so_nganh LIMIT 1
@@ -971,14 +952,31 @@ LIMIT 3
         if cached is not None:
             return cached
 
+        entities = self.extract_entities(rewritten_query)
+        strict_payload = {
+            "nganh": entities.get("nganh"),
+            "loai_hinh": entities.get("loai_hinh"),
+            "attribute": entities.get("attribute"),
+            "intent": entities.get("intent"),
+        }
+
         prompt = (
-            "Bạn là chuyên gia tạo Cypher cho Neo4j.\n"
+            "STRICT CONTROL PROMPT FOR GRAPHRAG PIPELINE\n"
+            "GLOBAL RULES:\n"
+            "- KHÔNG trả lời user, KHÔNG giải thích.\n"
+            "- KHÔNG tạo schema/quan hệ/thuộc tính mới.\n"
+            "- Chỉ dùng schema được cung cấp.\n"
+            "- Nếu không chắc hoặc không hỗ trợ bởi schema, trả: null\n\n"
+            "TASK 3: CYPHER GENERATION\n"
             f"Schema:\n{self._graph_schema_prompt()}\n\n"
-            "Yêu cầu bắt buộc:\n"
-            "1. Chỉ trả về duy nhất Cypher query.\n"
-            "2. MATCH và WHERE phải cụ thể, ưu tiên toLower(... ) CONTAINS toLower(...).\n"
-            "3. BẮT BUỘC có LIMIT <= 10.\n"
-            "4. Không giải thích, không markdown."
+            "Input entities JSON:\n"
+            f"{json.dumps(strict_payload, ensure_ascii=False)}\n\n"
+            "Rules:\n"
+            "1. Chỉ output duy nhất câu Cypher hoặc null.\n"
+            "2. Tuyệt đối không dùng toàn bộ user query trong CONTAINS.\n"
+            "3. Chỉ dùng entity đã extract.\n"
+            "4. Cypher phải read-only, có LIMIT <= 10.\n"
+            "5. Nếu entity invalid/schema mismatch -> null."
         )
 
         try:
@@ -990,6 +988,8 @@ LIMIT 3
                 ],
             )
             text = (resp.get("message", {}).get("content") or "").strip()
+            if text.lower() == "null":
+                return None
             match = re.search(r"```cypher(.*?)```", text, re.DOTALL | re.IGNORECASE)
             cypher = match.group(1).strip() if match else text
             if not cypher or "MATCH" not in cypher.upper():
@@ -1205,7 +1205,7 @@ LIMIT 3
             
             # Stage 4: Graph Retrieval
             cypher_params = {
-                "major": entities.get("major"),
+                "major": entities.get("nganh") or entities.get("major"),
                 "loai_hinh": entities.get("loai_hinh"),
                 "code": entities.get("course_code"),
             }
@@ -1357,34 +1357,6 @@ LIMIT 3
             except Exception as e:
                 return f"Lỗi truy vấn đồ thị: {e}"
         return "Hiện chưa tìm thấy thông tin chi tiết trong đồ thị đào tạo."
-
-    # TỔNG HỢP CÂU TRẢ LỜI
-    # async def final_synthesis(self, query: str, context: str) -> str:
-    #     system_prompt = (
-    #         "Bạn là chuyên viên tư vấn đào tạo của Đại học Cần Thơ. "
-    #         "Dựa trên ngữ cảnh cung cấp từ đồ thị, hãy trả lời sinh viên một cách thân thiện. "
-    #         "Ưu tiên liệt kê thông tin từ đồ thị. Nếu dữ liệu rỗng, hãy khuyên sinh viên liên hệ văn phòng Khoa."
-    #     )
-    #     return await self._call_llm(f"Context: {context}\n\nCâu hỏi: {query}", system_prompt)
-
-    # async def ask(self, query: str):
-    #     print(f"\n[Hỏi]: {query}")
-        
-    #     # Thứ tự ưu tiên: Tầng 2 (Chính xác nhất cho môn học) -> Tầng 1 (Thông tin rộng) -> Tầng 3 (Logic phức tạp)
-        
-    #     context = await self.layer_2_hybrid_retrieval(query)
-    #     if context:
-    #         print("-> Tầng 2: Đã trích xuất thực thể và dùng Template thành công.")
-    #         return await self.final_synthesis(query, context)
-            
-    #     context = await self.layer_1_semantic_search(query)
-    #     if context:
-    #         print("-> Tầng 1: Tìm thấy ngữ cảnh tương đồng từ Vector Search.")
-    #         return await self.final_synthesis(query, context)
-            
-    #     print("-> Tầng 3: Đang thực hiện suy luận logic trên đồ thị...")
-    #     context = await self.layer_3_graph_reasoning(query)
-    #     return await self.final_synthesis(query, context)
 
     def detect_intent(self, query: str):
         q = query.lower()
