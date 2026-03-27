@@ -71,38 +71,18 @@ class ReferenceExtractor:
 
 class Neo4jGraphBuilder:
 
-    def __init__(self, uri, user, password, database):
-        self.driver = GraphDatabase.driver(uri, auth=(user, password))
-        self.db = database
+    def __init__(self, db_connector: "Neo4jConnector"):
+        self.driver = db_connector.driver
         self.ref = ReferenceExtractor()
         self.emb = EmbeddingModel(device="cpu")
 
-    def build_text(self, vb, chuong=None, dieu=None, khoan=None, diem=None, content=""):
-        parts = [vb]
+    async def build(self, document: QuyCheDocument):
+        async with self.driver.session() as s:
+            await s.execute_write(self._build_tx, document)
 
-        if chuong:
-            parts.append(chuong)
-        if dieu:
-            parts.append(f"Điều {dieu}")
-        if khoan:
-            parts.append(f"Khoản {khoan}")
-        if diem:
-            parts.append(f"Điểm {diem}")
+    async def _delete_graph(self, tx, vb_id):
 
-        prefix = " - ".join(parts)
-
-        return f"{prefix}: {content}"
-
-    def close(self):
-        self.driver.close()
-
-    def build(self, document: QuyCheDocument):
-        with self.driver.session(database=self.db) as s:
-            s.execute_write(self._build_tx, document)
-
-    def _delete_graph(self, tx, vb_id):
-
-        tx.run("""
+        await tx.run("""
         MATCH (v:VanBan {id:$id})
         OPTIONAL MATCH (v)-[:co_chuong]->(c)
         OPTIONAL MATCH (c)-[:co_dieu]->(d)
