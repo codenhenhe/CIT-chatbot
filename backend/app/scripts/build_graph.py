@@ -3,6 +3,7 @@ import re
 import os
 from dotenv import load_dotenv
 from typing import TYPE_CHECKING
+from app.scripts.Embedding import EmbeddingModel
 
 if TYPE_CHECKING:
     from app.scripts.neo4j_class import Neo4jConnector
@@ -70,17 +71,38 @@ class ReferenceExtractor:
 
 class Neo4jGraphBuilder:
 
-    def __init__(self, db_connector: "Neo4jConnector"):
-        self.driver = db_connector.driver
+    def __init__(self, uri, user, password, database):
+        self.driver = GraphDatabase.driver(uri, auth=(user, password))
+        self.db = database
         self.ref = ReferenceExtractor()
+        self.emb = EmbeddingModel(device="cpu")
 
-    async def build(self, document: QuyCheDocument):
-        async with self.driver.session() as s:
-            await s.execute_write(self._build_tx, document)
+    def build_text(self, vb, chuong=None, dieu=None, khoan=None, diem=None, content=""):
+        parts = [vb]
 
-    async def _delete_graph(self, tx, vb_id):
+        if chuong:
+            parts.append(chuong)
+        if dieu:
+            parts.append(f"Điều {dieu}")
+        if khoan:
+            parts.append(f"Khoản {khoan}")
+        if diem:
+            parts.append(f"Điểm {diem}")
 
-        await tx.run("""
+        prefix = " - ".join(parts)
+
+        return f"{prefix}: {content}"
+
+    def close(self):
+        self.driver.close()
+
+    def build(self, document: QuyCheDocument):
+        with self.driver.session(database=self.db) as s:
+            s.execute_write(self._build_tx, document)
+
+    def _delete_graph(self, tx, vb_id):
+
+        tx.run("""
         MATCH (v:VanBan {id:$id})
         OPTIONAL MATCH (v)-[:co_chuong]->(c)
         OPTIONAL MATCH (c)-[:co_dieu]->(d)
@@ -90,14 +112,14 @@ class Neo4jGraphBuilder:
         """, id=vb_id)
 
     # Build graph
-    async def _build_tx(self, tx, doc: QuyCheDocument):
+    def _build_tx(self, tx, doc: QuyCheDocument):
 
         vb_id = doc.get_vanban_id()
         vb_name = doc.get_vanban_name()
         src = doc.metadata.get("ten_file")
 
         # Nếu tồn tại thì xoá subtree cũ
-        await self._delete_graph(tx, vb_id)
+        self._delete_graph(tx, vb_id)
 
         # index local
         dieu_index = {}
@@ -106,7 +128,7 @@ class Neo4jGraphBuilder:
 
         # Tạo node Văn Bản
 
-        await tx.run("""
+        tx.run("""
         CREATE (:VanBan {
             id:$id,
             ten:$ten,
@@ -120,11 +142,25 @@ class Neo4jGraphBuilder:
 
             cid = f"{vb_id}_{chuong['chuong'].replace(' ', '')}"
 
-            await tx.run("""
+            text_embed = self.build_text(
+                vb_name,
+                chuong=chuong["chuong"],
+                content=chuong["ten"]
+            )
+
+            vecs = self.emb.get_embedding_batch(text_embed)
+            vec = vecs[0] if vecs else None
+
+            tx.run("""
             MATCH (v:VanBan {id:$vid})
-            MERGE (c:Chuong {id:$id, ten:$ten})
+            MERGE (c:Chuong {
+                id:$id,
+                ten:$ten,
+                text_embed:$text,
+                embedding:$vec
+            })
             MERGE (v)-[:co_chuong]->(c)
-            """, vid=vb_id, id=cid, ten=chuong["ten"])
+            """, vid=vb_id, id=cid, ten=chuong["ten"], text=text_embed, vec=vec)
 
             for dieu in chuong["cac_dieu"]:
 
@@ -132,11 +168,27 @@ class Neo4jGraphBuilder:
                 did = f"{cid}_Dieu{dso}"
                 dieu_index[dso] = did
 
-                await tx.run("""
+                text_embed = self.build_text(
+                    vb_name,
+                    chuong=chuong["chuong"],
+                    dieu=dso,
+                    content=dieu["tieu_de"]
+                )
+
+                vecs = self.emb.get_embedding_batch(text_embed)
+                vec = vecs[0] if vecs else None
+
+                tx.run("""
                 MATCH (c:Chuong {id:$cid})
-                MERGE (d:Dieu {id:$id, so:$so, tieu_de:$td})
+                MERGE (d:Dieu {
+                    id:$id,
+                    so:$so,
+                    tieu_de:$td,
+                    text_embed:$text,
+                    embedding:$vec
+                })
                 MERGE (c)-[:co_dieu]->(d)
-                """, cid=cid, id=did, so=dso, td=dieu["tieu_de"])
+                """, cid=cid, id=did, so=dso, td=dieu["tieu_de"], text=text_embed, vec=vec)
 
                 for k in dieu.get("cac_khoan", []):
 
@@ -144,11 +196,28 @@ class Neo4jGraphBuilder:
                     kid = f"{did}_Khoan{kso}"
                     khoan_index[(dso, kso)] = kid
 
-                    await tx.run("""
+                    text_embed = self.build_text(
+                        vb_name,
+                        chuong=chuong["chuong"],
+                        dieu=dso,
+                        khoan=kso,
+                        content=k["noi_dung"]
+                    )
+
+                    vecs = self.emb.get_embedding_batch(text_embed)
+                    vec = vecs[0] if vecs else None
+
+                    tx.run("""
                     MATCH (d:Dieu {id:$did})
-                    MERGE (k:Khoan {id:$id, so:$so, noi_dung:$nd})
+                    MERGE (k:Khoan {
+                        id:$id,
+                        so:$so,
+                        noi_dung:$nd,
+                        text_embed:$text,
+                        embedding:$vec
+                    })
                     MERGE (d)-[:co_khoan]->(k)
-                    """, did=did, id=kid, so=kso, nd=k["noi_dung"])
+                    """, did=did, id=kid, so=kso, nd=k["noi_dung"], text=text_embed, vec=vec)
 
                     for dm in k.get("cac_diem", []):
 
@@ -156,14 +225,31 @@ class Neo4jGraphBuilder:
                         mid = f"{kid}_Diem{ky}"
                         diem_index[(dso, kso, ky)] = mid
 
-                        await tx.run("""
+                        text_embed = self.build_text(
+                            vb_name,
+                            chuong=chuong["chuong"],
+                            dieu=dso,
+                            khoan=kso,
+                            diem=ky,
+                            content=dm["noi_dung"]
+                        )
+
+                        vecs = self.emb.get_embedding_batch(text_embed)
+                        vec = vecs[0] if vecs else None
+
+                        tx.run("""
                         MATCH (k:Khoan {id:$kid})
-                        MERGE (m:Diem {id:$id, ky_hieu:$ky, noi_dung:$nd})
+                        MERGE (m:Diem {
+                            id:$id,
+                            ky_hieu:$ky,
+                            noi_dung:$nd,
+                            text_embed:$text,
+                            embedding:$vec
+                        })
                         MERGE (k)-[:co_diem]->(m)
-                        """, kid=kid, id=mid, ky=ky, nd=dm["noi_dung"])
+                        """, kid=kid, id=mid, ky=ky, nd=dm["noi_dung"], text=text_embed, vec=vec)
 
         # Tạo các tham chiếu
-
         for chuong in doc.raw["quy_dinh_chi_tiet"]:
             for dieu in chuong["cac_dieu"]:
 
@@ -182,7 +268,7 @@ class Neo4jGraphBuilder:
                         )
 
                         if tgt:
-                            await tx.run("""
+                            tx.run("""
                             MATCH (a:Dieu {id:$a}), (b {id:$b})
                             MERGE (a)-[:tham_chieu]->(b)
                             """, a=did, b=tgt)
@@ -201,7 +287,7 @@ class Neo4jGraphBuilder:
                         )
 
                         if tgt:
-                            await tx.run("""
+                            tx.run("""
                             MATCH (a:Khoan {id:$a}), (b {id:$b})
                             MERGE (a)-[:tham_chieu]->(b)
                             """, a=kid, b=tgt)
@@ -220,7 +306,7 @@ class Neo4jGraphBuilder:
                             )
 
                             if tgt:
-                                await tx.run("""
+                                tx.run("""
                                 MATCH (a:Diem {id:$a}), (b {id:$b})
                                 MERGE (a)-[:tham_chieu]->(b)
                                 """, a=mid, b=tgt)
