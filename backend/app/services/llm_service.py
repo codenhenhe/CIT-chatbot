@@ -61,7 +61,7 @@ def _extract_json_object(text: str) -> Dict[str, Any]:
     return {}
 
 
-async def call_model(model: str, prompt: str):
+async def call_model(model: str, prompt: str, temperature: float = 0.3):
     async with httpx.AsyncClient(timeout=DEFAULT_TIMEOUT_SECONDS) as client:
         try:
             # Preferred endpoint for prompt-style calls.
@@ -71,6 +71,9 @@ async def call_model(model: str, prompt: str):
                     "model": model,
                     "prompt": prompt,
                     "stream": False,
+                    "temperature": temperature,
+                    "top_p": 0.9,
+                    "top_k": 40,
                 },
             )
             if res.status_code == 404:
@@ -89,6 +92,8 @@ async def call_model(model: str, prompt: str):
                         "model": model,
                         "messages": [{"role": "user", "content": prompt}],
                         "stream": False,
+                        "temperature": temperature,
+                        "top_p": 0.9,
                     },
                 )
                 chat_res.raise_for_status()
@@ -101,16 +106,16 @@ async def call_model(model: str, prompt: str):
 
 
 async def call_model_json(model: str, prompt: str) -> Dict[str, Any]:
-    text = await call_model(model, prompt)
+    text = await call_model(model, prompt, temperature=0.3)
     return _extract_json_object(text)
 
 
 async def call_model_3b(prompt: str):
-    return await call_model(MODEL_3B, prompt)
+    return await call_model(MODEL_3B, prompt, temperature=0.3)
 
 
-async def call_model_7b(prompt: str):
-    return await call_model(MODEL_7B, prompt)
+async def call_model_7b(prompt: str, temperature: float = 0.3):
+    return await call_model(MODEL_7B, prompt, temperature=temperature)
 
 
 async def call_model_3b_json(prompt: str) -> Dict[str, Any]:
