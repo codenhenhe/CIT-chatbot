@@ -147,4 +147,4 @@ vite.config.ts.timestamp-*
 my_model_weights/
 
 # Data pdfs
-data/pdf/
+# data/pdf/
