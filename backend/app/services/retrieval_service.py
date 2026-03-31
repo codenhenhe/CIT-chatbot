@@ -68,6 +68,9 @@ Cypher: MATCH (n:Nganh)<-[:THUOC_VE]-(ctdt:ChuongTrinhDaoTao)-[:CO_CO_HOI_VIEC_L
 User: "Học phần tiên quyết của môn Giải tích 1?"
 Cypher: MATCH (h1:HocPhan)-[:YEU_CAU_TIEN_QUYET]->(h2:HocPhan) WHERE toLower(h2.ten) CONTAINS toLower('Giải tích 1') RETURN h1.ten as hoc_phan_tien_quyet LIMIT 5
 
+User: "CTU có những chương trình đào tạo khóa 51 nào?"
+Cypher: MATCH (ctdt:ChuongTrinhDaoTao {khoa: 51})-[:THUOC_VE]->(n:Nganh) RETURN n.ten_nganh_vi as ten_nganh, ctdt.loai_hinh as loai_hinh LIMIT 20
+
 User: "Ngành Khoa học máy tính hệ chất lượng cao cần học tổng cộng bao nhiêu tín chỉ?"
 Cypher: MATCH (ctdt:ChuongTrinhDaoTao {{loai_hinh: 'Chất lượng cao'}})-[:THUOC_VE]->(n:Nganh) WHERE toLower(n.ten_nganh_vi) CONTAINS toLower('Khoa học máy tính') RETURN n.ten_nganh_vi, ctdt.loai_hinh, ctdt.tong_tin_chi LIMIT 1
 
@@ -82,12 +85,6 @@ Cypher: MATCH (n:Nganh)<-[:THUOC_VE]-(ctdt:ChuongTrinhDaoTao)-[:DAT_CHUAN_DAU_RA
 
 User: "Ngành Kỹ thuật phần mềm thuộc khoa nào quản lý?"
 Cypher: MATCH (khoa:Khoa)<-[:THUOC_VE]-(n:Nganh) WHERE toLower(n.ten_nganh_vi) CONTAINS toLower('Kỹ thuật phần mềm') RETURN n.ten_nganh_vi, khoa.ten_khoa LIMIT 1
-
-User: "Những chương trình đào tạo khóa 51 là gì?"
-Cypher: MATCH (ctdt:ChuongTrinhDaoTao {khoa: 51})-[:THUOC_VE]->(n:Nganh) RETURN n.ten_nganh_vi as ten_nganh, ctdt.loai_hinh as loai_hinh LIMIT 20
-
-User: "CTU có những chương trình đào tạo khóa 51 nào?"
-Cypher: MATCH (ctdt:ChuongTrinhDaoTao {khoa: 51})-[:THUOC_VE]->(n:Nganh) RETURN n.ten_nganh_vi as ten_nganh, ctdt.loai_hinh as loai_hinh LIMIT 20
 
 User: "Khóa 50 có những ngành đào tạo gì?"
 Cypher: MATCH (ctdt:ChuongTrinhDaoTao {khoa: 50})-[:THUOC_VE]->(n:Nganh) RETURN n.ten_nganh_vi, ctdt.loai_hinh LIMIT 15
