@@ -6,7 +6,7 @@ của Hiệu trưởng Trường Đại học Cân Tho)
 
 Ngành: An toàn thông tin (Information Security) Mã ngành: 7480202
 Sô lượng tin chi: 161 TC Thời gian đào tao: 4,5 năm Loại văn băng: Kỹ sư
-Hình thức đào tạo: Chính quy, Vừa làm vừa học, Đào tạo từ xa Ộ
+Hình thức đào tạo: Chính quy, Vừa làm vừa học, Đào tạo từ xa
 Don vi quan lý: Khoa Mạng máy tính va TT, Trường Công nghệ Thông tin và Truyén thông
 ## 1 Mục tiêu đào tạo
 ### 1.1 Mục tiêu đào tao chung
