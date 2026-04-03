@@ -148,3 +148,14 @@ my_model_weights/
 
 # Data pdfs
 data/pdf/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# virtual env
+venv/
+.venv/
+env/
