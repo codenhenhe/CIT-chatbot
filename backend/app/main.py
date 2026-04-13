@@ -24,8 +24,11 @@ app.add_middleware(
 @app.on_event("startup")
 async def startup_event():
     try:
-        await asyncio.to_thread(warmup_embedding_model)
-        print("[Startup] BGE embedding model warmed up")
+        warmed_up = await asyncio.to_thread(warmup_embedding_model)
+        if warmed_up:
+            print("[Startup] BGE embedding model warmed up")
+        else:
+            print("[Startup] Embedding warmup skipped due to initialization error")
     except Exception as e:
         print(f"[Startup] Embedding warmup skipped: {e}")
 

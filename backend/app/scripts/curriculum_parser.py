@@ -1,4 +1,5 @@
 import json
+import os
 import re
 from statistics import median
 
@@ -103,7 +104,13 @@ class PDFParser:
 
     def build_sections(self, blocks):
         """Build a heading tree and keep each heading content as one compact text field."""
-        root = {"title": "ROOT", "level": 0, "content": "", "children": []}
+        root = {
+            "title": "ROOT",
+            "level": 0,
+            "source": os.path.basename(self.pdf_path),
+            "content": "",
+            "children": [],
+        }
         stack = [root]
 
         for block in blocks:
@@ -295,6 +302,8 @@ def save_sections(sections, path="debug_sections.json"):
 
 if __name__ == "__main__":
     pdf_file = "data/pdf/ChuyenNganh_DaoTao/pdf/k51/64_7480202_AnToanThongTin.signed.signed.signed.signed.signed.pdf"
+    # pdf_file = "data/2024_MT_KHMT.pdf"
+    # pdf_file = "data/2019_MT_KTM.pdf"
     parser = PDFParser(pdf_file)
     sections = parser.parse_to_sections()
     save_sections(sections)

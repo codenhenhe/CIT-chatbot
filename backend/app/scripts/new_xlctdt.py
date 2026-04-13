@@ -11,7 +11,7 @@ if __package__ in (None, ""):
 	if str(backend_root) not in sys.path:
 		sys.path.append(str(backend_root))
 
-from app.services.llm_service import call_model_7b
+from app.services.llm_service import call_model_9b
 
 
 NODE_FIELD_SCHEMAS: Dict[str, List[str]] = {
@@ -163,24 +163,50 @@ Mỗi item gồm đúng các thuộc tính: so, ten, loai, ngay_ban_hanh, co_qua
 Không đổi tên thuộc tính. Không thêm thuộc tính khác.
 """,
 		"TrinhDo": """
-Trích xuất node TrinhDo.
+Trích xuất node TrinhDo (trình độ đào tạo: Đại học, Thạc sĩ, Tiến sĩ, v.v).
+Tìm kiếm từ khóa: "trình độ [đại học|thạc sĩ|tiến sĩ]", "bậc [đại học|thạc sĩ|...]", hoặc từ title chương trình nếu có.
 JSON bắt buộc: {"node_type":"TrinhDo","items":[{"ten_trinh_do":"..."}]}
+Nếu tìm thấy one of [Đại học, Thạc sĩ, Tiến sĩ, v.v] => thêm vào items, nếu không tìm thấy => items: []
 
 Few-shot example:
-- Trình độ đại học => {"node_type":"TrinhDo","items":[{"ten_trinh_do":"Đại học"}]}
-- Trình độ thạc sĩ => {"node_type":"TrinhDo","items":[{"ten_trinh_do":"Thạc sĩ"}]}
+- "Chương trình đào tạo trình độ Đại học ngành An toàn thông tin"
+  => {"node_type":"TrinhDo","items":[{"ten_trinh_do":"Đại học"}]}
+- "Khoá luận trình độ Thạc sĩ"
+  => {"node_type":"TrinhDo","items":[{"ten_trinh_do":"Thạc sĩ"}]}
+- "Chương trình bậc Đại học"
+  => {"node_type":"TrinhDo","items":[{"ten_trinh_do":"Đại học"}]}
 """,
 		"Nganh": """
-Trích xuất node Nganh.
-Mỗi item có đúng: ma_nganh, ten_nganh_vi, ten_nganh_en.
+Trích xuất node Nganh (chuyên ngành/ngành học: "An toàn thông tin", "Mạng máy tính", "Công nghệ phần mềm", v.v).
+Mỗi item có đúng 3 field: ma_nganh (mã ngành như 7480202), ten_nganh_vi (tên Việt), ten_nganh_en (tên Anh).
+Nếu tìm thấy mã ngành + tên (Việt + Anh) => trích xuất, không trích xuất nếu thiếu bất kỳ field nào.
+JSON bắt buộc: {"node_type":"Nganh","items":[{"ma_nganh":"...", "ten_nganh_vi":"...", "ten_nganh_en":"..."}]}
+
+Few-shot example:
+- "Chương trình đào tạo ngành An toàn thông tin (Information Security) - mã ngành 7480202"
+  => {"node_type":"Nganh","items":[{"ma_nganh":"7480202","ten_nganh_vi":"An toàn thông tin","ten_nganh_en":"Information Security"}]}
+- "Ngành Mạng máy tính và truyền thông (Computer Networks and Communications) - mã 7480201"
+  => {"node_type":"Nganh","items":[{"ma_nganh":"7480201","ten_nganh_vi":"Mạng máy tính và truyền thông","ten_nganh_en":"Computer Networks and Communications"}]}
 """,
-		"Khoa": """
-Trích xuất đơn vị quản lý dạng Khoa.
+	"Khoa": """
+Trích xuất Khoa (đơn vị quản lý cấp cao, là khối lớn của trường/họ học).
+Khác BoMon - Khoa là cấp cao (ví dụ Trường/Khoa CNTT), BoMon là cấp dưới.
 Mỗi item có đúng: ten_khoa.
+VD: "Khoa Công nghệ Thông tin", "Trường Công nghệ Thông tin và Truyền thông"
+
+Few-shot example:
+- Đơn vị quản lý: Khoa Mạng máy tính và TT, Trường Công nghệ Thông tin và Truyền thông
+  => {"node_type":"Khoa","items":[{"ten_khoa":"Khoa Mạng máy tính và TT, Trường Công nghệ Thông tin và Truyền thông"}]}
 """,
-		"BoMon": """
-Trích xuất đơn vị quản lý dạng BoMon.
+	"BoMon": """
+Trích xuất BoMon (bộ môn cấp dưới Khoa, quản lý chuyên môn cụ thể).
+Khác Khoa - BoMon là cấp thấp hơn, chuyên môn (ví dụ Bộ môn Lập trình), không phải tên Khoa/Trường.
 Mỗi item có đúng: ten_bo_mon.
+VD: "Bộ môn An toàn Mạng", "Bộ môn Lập trình", "Bộ môn Cơ sở dữ liệu"
+
+Few-shot example:
+- Bộ môn chuyên môn: Bộ môn An toàn Thông tin
+  => {"node_type":"BoMon","items":[{"ten_bo_mon":"Bộ môn An toàn Thông tin"}]}
 """,
 		"ChuongTrinhDaoTao": """
 Trích xuất node ChuongTrinhDaoTao.
@@ -200,46 +226,118 @@ Few-shot example:
 - Bằng kỹ sư công nghệ thông tin => {"node_type":"LoaiVanBang","items":[{"loai_van_bang":"Kỹ sư"}]}
 """,
 		"HinhThucDaoTao": """
-Trích xuất node HinhThucDaoTao với thuộc tính ten_hinh_thuc.
+Trích xuất HinhThucDaoTao (hình thức đào tạo - cách tổ chức thời gian học).
+Mỗi item có đúng: ten_hinh_thuc.
+VD: "Chính quy", "Vừa làm vừa học", "Đào tạo từ xa"
+
+Few-shot example:
+- Hình thức đào tạo: Chính quy, Vừa làm vừa học, Đào tạo từ xa
+  => {"node_type":"HinhThucDaoTao","items":[{"ten_hinh_thuc":"Chính quy"},{"ten_hinh_thuc":"Vừa làm vừa học"},{"ten_hinh_thuc":"Đào tạo từ xa"}]}
 """,
 		"PhuongThucDaoTao": """
-Trích xuất node PhuongThucDaoTao với thuộc tính ten_phuong_thuc.
+Trích xuất PhuongThucDaoTao (phương thức tổ chức giảng dạy - hình thức triển khai, delivery method).
+Tìm kiếm: "phương thức", "cách tổ chức", "delivery", hoặc các từ chỉ phương thức: "trực tiếp" (offline), "trực tuyến" (online), "blended" (kết hợp).
+JSON bắt buộc: {"node_type":"PhuongThucDaoTao","items":[{"ten_phuong_thuc":"..."}]}
+Nếu tìm thấy => thêm vào items, nếu không tìm thấy => items: []
+
+Few-shot example:
+- "Phương thức đào tạo: Trực tiếp và Trực tuyến"
+  => {"node_type":"PhuongThucDaoTao","items":[{"ten_phuong_thuc":"Trực tiếp"},{"ten_phuong_thuc":"Trực tuyến"}]}
+- "Hình thức tổ chức: Blended (kết hợp trực tiếp và trực tuyến)"
+  => {"node_type":"PhuongThucDaoTao","items":[{"ten_phuong_thuc":"Blended"}]}
+- "Lớp học trực tiếp offline"
+  => {"node_type":"PhuongThucDaoTao","items":[{"ten_phuong_thuc":"Trực tiếp"}]}
 """,
 		"MucTieuDaoTao": """
-Trích xuất node MucTieuDaoTao.
-Mỗi item gồm đúng: loai, noi_dung. Giá trị loai ưu tiên: "chung" hoặc "cu_the".
+Trích xuất node MucTieuDaoTao (Mục tiêu đào tạo: định hướng về kỹ năng, kiến thức, năng lực).
+JSON bắt buộc: {"node_type":"MucTieuDaoTao","items":[{"loai":"...", "noi_dung":"..."}]}
+loai có thể: "chung" (mục tiêu chung), "cu_the" (cụ thể)
+
+Quy tắc:
+- Nếu tài liệu có heading Mục tiêu đào tạo/Mục tiêu chung/Mục tiêu cụ thể, hãy lấy đúng từng ý bên dưới.
+- Tách theo bullet, số thứ tự, dấu chấm phẩy, hoặc dòng riêng; bỏ qua OCR rác, ký tự đơn lẻ, và phần nhắc lặp.
+- Nếu chỉ có một đoạn mô tả chung, trả về một item duy nhất với loai="chung".
+
+Few-shot example:
+- Mục tiêu chung: Đào tạo kỹ sư CNTT có khả năng => {"node_type":"MucTieuDaoTao","items":[{"loai":"chung","noi_dung":"Đào tạo kỹ sư CNTT có khả năng"}]}
+- Mục tiêu cụ thể: Sinh viên có thể thiết kế hệ thống => {"node_type":"MucTieuDaoTao","items":[{"loai":"cu_the","noi_dung":"Sinh viên có thể thiết kế hệ thống"}]}
 """,
 		"ViTriViecLam": """
-Trích xuất node ViTriViecLam với thuộc tính noi_dung.
+Trích xuất node ViTriViecLam (Vị trí việc làm: công việc mà sinh viên có thể làm sau tốt nghiệp).
+JSON bắt buộc: {"node_type":"ViTriViecLam","items":[{"noi_dung":"..."}]}
+
+Quy tắc:
+- Nếu tài liệu có heading Vị trí việc làm/Cơ hội việc làm/Sau khi tốt nghiệp, hãy lấy từng vị trí riêng biệt.
+- Tách theo dấu chấm phẩy, dấu phẩy, bullet, hoặc danh sách số thứ tự.
+- Loại bỏ chuỗi OCR rác, mục trùng lặp, và mô tả quá ngắn không phải vị trí thực sự.
+
+Few-shot example:
+- Kỹ sư phần mềm => {"node_type":"ViTriViecLam","items":[{"noi_dung":"Kỹ sư phần mềm"}]}
+- Quản lý dự án CNTT, Tư vấn hệ thống => {"node_type":"ViTriViecLam","items":[{"noi_dung":"Quản lý dự án CNTT"},{"noi_dung":"Tư vấn hệ thống"}]}
 """,
 		"ChuanThamKhao": """
-Trích xuất node ChuanThamKhao.
-Mỗi item gồm đúng: noi_dung, link, noi_dung_goc.
+Trích xuất node ChuanThamKhao (Chuẩn tham khảo: tài liệu, tiêu chuẩn quốc tế, chuẩn ngành tham khảo).
+JSON bắt buộc: {"node_type":"ChuanThamKhao","items":[{"noi_dung":"...", "link":"...", "noi_dung_goc":"..."}]}
+
+Few-shot example:
+- ISO 27001 (An toàn thông tin) => {"node_type":"ChuanThamKhao","items":[{"noi_dung":"ISO 27001","link":"ISO 27001","noi_dung_goc":"ISO 27001"}]}
+- Chuẩn CDIO (kỹ sư toàn cầu) => {"node_type":"ChuanThamKhao","items":[{"noi_dung":"Chuẩn CDIO","link":"CDIO","noi_dung_goc":"CDIO Framework"}]}
 """,
 		"KhaNangHocTap": """
-Trích xuất node KhaNangHocTap với thuộc tính noi_dung.
+Trích xuất node KhaNangHocTap (Khả năng học tập suốt đời: học tập, phát triển chuyên môn liên tục).
+JSON bắt buộc: {"node_type":"KhaNangHocTap","items":[{"noi_dung":"..."}]}
+
+Few-shot example:
+- Khả năng học tập liên tục => {"node_type":"KhaNangHocTap","items":[{"noi_dung":"Khả năng học tập liên tục"}]}
+- Cập nhật kiến thức công nghệ mới => {"node_type":"KhaNangHocTap","items":[{"noi_dung":"Cập nhật kiến thức công nghệ mới"}]}
 """,
 		"ChuanDauRa": """
-Trích xuất node ChuanDauRa.
-Mỗi item gồm đúng:  ma_chuan, nhom, loai, noi_dung.
-Nếu có mã PLO/CDR thì đặt vào ma_chuan.
+Trích xuất node ChuanDauRa (Chuẩn đầu ra: PLO/CDR - kỹ năng/kiến thức mong đợi).
+JSON bắt buộc: {"node_type":"ChuanDauRa","items":[{"ma_chuan":"...", "nhom":"...", "loai":"...", "noi_dung":"..."}]}
+ma_chuan là mã PLO/CDR (ví dụ PLO1, CDR.Eng1), nhom là loại (kỹ thuật, xã hội...), loai có thể "chung" hay "chi_tiet".
+
+Quy tắc:
+- Nếu tài liệu có heading Chuẩn đầu ra/learning outcomes/PLO/CDR, hãy tách từng chuẩn riêng nếu có.
+- Giữ nguyên mã chuẩn nếu thấy; nếu không thấy mã thì để ma_chuan=null.
+- Ưu tiên nội dung có cấu trúc bullet/numbered list; bỏ qua OCR rời rạc hoặc dòng lặp.
+
+Few-shot example:
+- PLO1: Áp dụng kiến thức => {"node_type":"ChuanDauRa","items":[{"ma_chuan":"PLO1","nhom":"Kiến thức","loai":"chung","noi_dung":"Áp dụng kiến thức toán học"}]}
+- CDR.Eng3: Công nghệ => {"node_type":"ChuanDauRa","items":[{"ma_chuan":"CDR.Eng3","nhom":"Kỹ thuật","loai":"chi_tiet","noi_dung":"Sử dụng công nghệ tối tân"}]}
 """,
 		"KhoiKienThuc": """
-Trích xuất node KhoiKienThuc trong khung chương trình.
-Mỗi item gồm đúng: ma_khoi, ten_khoi, tong_tin_chi, tin_chi_bat_buoc, tin_chi_tu_chon.
+Trích xuất node KhoiKienThuc (Khối kiến thức trong khung chương trình: Toán, Khoa học, Chuyên ngành...).
+JSON bắt buộc: {"node_type":"KhoiKienThuc","items":[{"ma_khoi":"...", "ten_khoi":"...", "tong_tin_chi":"...", "tin_chi_bat_buoc":"...", "tin_chi_tu_chon":"..."}]}
+
+Few-shot example:
+- Khối Toán Cao cấp: 10 TC (8 bắt buộc + 2 tự chọn) => {"node_type":"KhoiKienThuc","items":[{"ma_khoi":"KK1","ten_khoi":"Khối Toán Cao cấp","tong_tin_chi":"10","tin_chi_bat_buoc":"8","tin_chi_tu_chon":"2"}]}
+- Khối Chuyên ngành: 50 TC => {"node_type":"KhoiKienThuc","items":[{"ma_khoi":"KK3","ten_khoi":"Khối Chuyên ngành","tong_tin_chi":"50","tin_chi_bat_buoc":"50","tin_chi_tu_chon":"0"}]}
 """,
 		"YeuCauTuChon": """
-Trích xuất node YeuCauTuChon thuộc các khối kiến thức.
-Mỗi item gồm đúng: noi_dung_yeu_cau, so_tin_chi_yeu_cau.
+Trích xuất node YeuCauTuChon (Yêu cầu tự chọn: số TC tối thiểu từ khối/ngành tự chọn).
+JSON bắt buộc: {"node_type":"YeuCauTuChon","items":[{"noi_dung_yeu_cau":"...", "so_tin_chi_yeu_cau":"..."}]}
+
+Few-shot example:
+- Tối thiểu 10 TC các môn học tự chọn từ khối Chuyên ngành => {"node_type":"YeuCauTuChon","items":[{"noi_dung_yeu_cau":"Khối Chuyên ngành","so_tin_chi_yeu_cau":"10"}]}
+- Tối thiểu 5 TC tự chọn Anh Văn hoặc Pháp Văn => {"node_type":"YeuCauTuChon","items":[{"noi_dung_yeu_cau":"Anh Văn hoặc Pháp Văn","so_tin_chi_yeu_cau":"5"}]}
 """,
 		"NhomHocPhanTuChon": """
-Trích xuất node NhomHocPhanTuChon (nhóm thành phần như AV, PV...).
-Mỗi item gồm đúng: ten_nhom.
+Trích xuất node NhomHocPhanTuChon (Nhóm học phần tự chọn: AV, PV, AV/PV...).
+JSON bắt buộc: {"node_type":"NhomHocPhanTuChon","items":[{"ten_nhom":"..."}]}
+
+Few-shot example:
+- Anh Văn (AV) => {"node_type":"NhomHocPhanTuChon","items":[{"ten_nhom":"AV"}]}
+- Pháp Văn (PV) => {"node_type":"NhomHocPhanTuChon","items":[{"ten_nhom":"PV"}]}
+- Anh Văn hoặc Pháp Văn => {"node_type":"NhomHocPhanTuChon","items":[{"ten_nhom":"AV/PV"}]}
 """,
 		"HocPhan": """
-Trích xuất node HocPhan.
-Mỗi item gồm đúng: ma_hp, ten_hp, so_tin_chi, so_tiet_ly_thuyet, so_tiet_thuc_hanh, bat_buoc.
-bat_buoc chỉ nhận true/false/null.
+Trích xuất node HocPhan (Học phần/môn học: thành phần học tập của chương trình).
+JSON bắt buộc: {"node_type":"HocPhan","items":[{"ma_hp":"...", "ten_hp":"...", "so_tin_chi":"...", "so_tiet_ly_thuyet":"...", "so_tiet_thuc_hanh":"...", "bat_buoc":true/false}]}
+bat_buoc: true = bắt buộc, false = tự chọn. Lấy từ bảng, nếu cột ghi "bắt buộc" thì true.
+
+Few-shot example:
+- XH032: Toán cao cấp 1, 3 TC, 30 LT, 0 TH, bắt buộc => {"node_type":"HocPhan","items":[{"ma_hp":"XH032","ten_hp":"Toán cao cấp 1","so_tin_chi":"3","so_tiet_ly_thuyet":"30","so_tiet_thuc_hanh":"0","bat_buoc":true}]}
+- XH120: Lập trình Python 2, 4 TC, 30 LT, 30 TH, tự chọn => {"node_type":"HocPhan","items":[{"ma_hp":"XH120","ten_hp":"Lập trình Python","so_tin_chi":"4","so_tiet_ly_thuyet":"30","so_tiet_thuc_hanh":"30","bat_buoc":false}]}
 """,
 	}
 
@@ -447,7 +545,7 @@ YÊU CẦU TRÍCH XUẤT:
 		last_error_text = ""
 		for attempt in range(llm_retries + 1):
 			try:
-				return await call_model_7b(llm_prompt, temperature=temperature)
+				return await call_model_9b(llm_prompt, temperature=temperature)
 			except Exception as e:
 				last_error = e
 				last_error_text = f"{type(e).__name__}: {repr(e)}"

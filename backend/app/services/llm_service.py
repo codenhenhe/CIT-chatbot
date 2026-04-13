@@ -1,7 +1,9 @@
 import httpx
 import json
+import logging
 import os
 import re
+import time
 from pathlib import Path
 from typing import Any, Dict
 
@@ -29,8 +31,11 @@ OLLAMA_BASE_URL = _get_env("OLLAMA_BASE_URL", "OLLAMA_HOST", default="http://loc
 OLLAMA_GENERATE_URL = os.getenv("OLLAMA_GENERATE_URL", f"{OLLAMA_BASE_URL}/api/generate")
 OLLAMA_CHAT_URL = os.getenv("OLLAMA_CHAT_URL", f"{OLLAMA_BASE_URL}/api/chat")
 DEFAULT_TIMEOUT_SECONDS = int(os.getenv("OLLAMA_TIMEOUT_SECONDS", "180"))
-MODEL_3B = os.getenv("OLLAMA_MODEL_3B", "llama3:3b")
-MODEL_7B = os.getenv("OLLAMA_MODEL_7B", "llama3:7b")
+MODEL_PRIMARY_9B = _get_env("QWEN3_5_MODEL_9B", "OLLAMA_MODEL_9B", default="qwen3.5:9b")
+MODEL_AUX_7B = _get_env("QWEN2_5_MODEL_7B", "OLLAMA_MODEL_7B", default="qwen2.5-coder:7b-instruct")
+MODEL_AUX_4B = _get_env("QWEN3_5_MODEL_4B", "OLLAMA_MODEL_4B", default="qwen3.5:4b")
+
+logger = logging.getLogger("app.llm")
 
 
 def _extract_json_object(text: str) -> Dict[str, Any]:
@@ -111,12 +116,353 @@ async def call_model_json(model: str, prompt: str) -> Dict[str, Any]:
 
 
 async def call_model_3b(prompt: str):
-    return await call_model(MODEL_3B, prompt, temperature=0.3)
+    # Backward-compatible alias kept for existing imports.
+    return await call_model(MODEL_AUX_4B, prompt, temperature=0.3)
 
 
 async def call_model_7b(prompt: str, temperature: float = 0.3):
-    return await call_model(MODEL_7B, prompt, temperature=temperature)
+    return await call_model(MODEL_AUX_7B, prompt, temperature=temperature)
 
 
 async def call_model_3b_json(prompt: str) -> Dict[str, Any]:
-    return await call_model_json(MODEL_3B, prompt)
+    # Backward-compatible alias kept for existing imports.
+    return await call_model_json(MODEL_AUX_4B, prompt)
+
+
+async def call_model_4b_json(prompt: str) -> Dict[str, Any]:
+    return await call_model_json(MODEL_AUX_4B, prompt)
+
+
+async def call_model_9b(prompt: str, temperature: float = 0.3):
+    return await call_model(MODEL_PRIMARY_9B, prompt, temperature=temperature)
+
+
+class LLMService:
+    """High-level LLM wrapper used by orchestration services."""
+
+    def __init__(self) -> None:
+        self.cache_ttl_seconds = int(os.getenv("LLM_CACHE_TTL_SECONDS", "120"))
+        self.fast_routing = os.getenv("FAST_ROUTING", "true").strip().lower() in {"1", "true", "yes"}
+        self._cache: Dict[str, tuple[float, Any]] = {}
+
+    def _cache_key(self, method: str, payload: Dict[str, Any]) -> str:
+        return json.dumps({"method": method, "payload": payload}, ensure_ascii=False, sort_keys=True)
+
+    def _get_cache(self, key: str) -> Any:
+        item = self._cache.get(key)
+        if not item:
+            return None
+        ts, value = item
+        if (time.time() - ts) > self.cache_ttl_seconds:
+            self._cache.pop(key, None)
+            return None
+        return value
+
+    def _set_cache(self, key: str, value: Any) -> None:
+        self._cache[key] = (time.time(), value)
+        if len(self._cache) > 1000:
+            now = time.time()
+            expired = [k for k, (ts, _) in self._cache.items() if (now - ts) > self.cache_ttl_seconds]
+            for k in expired:
+                self._cache.pop(k, None)
+
+    async def should_query(self, query: str, history: str = "") -> Dict[str, Any]:
+        cache_key = self._cache_key("should_query", {"query": query, "history": history[-500:]})
+        cached = self._get_cache(cache_key)
+        if cached is not None:
+            logger.info("[llm][cache] hit should_query")
+            return cached
+
+        prompt = (
+            "Bạn là bộ điều phối truy vấn cho chatbot CTDT. "
+            "Hãy quyết định có cần truy vấn dữ liệu (Neo4j/Vector) hay không. "
+            "need_query=true khi câu hỏi cần tra cứu dữ liệu học vụ/ctdt/quy định cụ thể. "
+            "need_query=false khi câu hỏi xã giao, cảm ơn, chào hỏi, hoặc hội thoại không cần dữ liệu. "
+            "Chỉ trả về JSON {\"need_query\": true/false, \"reason\": \"...\"}."
+            f"\nHistory: {history or '[empty]'}"
+            f"\nQuery: {query}"
+        )
+        data = await call_model_json(MODEL_AUX_4B, prompt)
+        if not data:
+            data = await call_model_json(MODEL_AUX_7B, prompt)
+        if not data:
+            return {"need_query": True, "reason": "fallback_true"}
+
+        result = {
+            "need_query": bool(data.get("need_query", True)),
+            "reason": str(data.get("reason", "")).strip() or "llm_decision",
+        }
+        self._set_cache(cache_key, result)
+        return result
+
+    async def generate_without_query(self, query: str, history: str = "") -> str:
+        prompt = f"""
+            Bạn là trợ lý tư vấn đào tạo thân thiện và ngắn gọn cho Đại học Cần Thơ (CTU).
+
+            ## Nhiệm vụ
+            Trả lời các câu KHÔNG cần truy vấn dữ liệu, ví dụ:
+            - chào hỏi
+            - cảm ơn
+            - hỏi bạn là ai
+            - hỏi khả năng của hệ thống
+            - câu hỏi chung chung không yêu cầu thông tin cụ thể
+
+            ## Nguyên tắc
+            - Trả lời tự nhiên, thân thiện, ngắn gọn (1–3 câu)
+            - KHÔNG bịa thông tin chuyên môn (quy chế, môn học, tín chỉ...)
+            - Nếu câu hỏi cần dữ liệu cụ thể → nói rõ rằng cần kiểm tra dữ liệu
+            - Không suy diễn hoặc tự tạo thông tin
+
+            ## History (nếu có)
+            {history or "[empty]"}
+
+            ## User
+            {query}
+
+            ## Assistant
+        """
+        answer = await call_model_9b(prompt, temperature=0.4)
+        return (answer or "").strip()
+
+    async def rewrite(self, query: str, feedback: str = "") -> str:
+        prompt = f"""
+            Bạn là hệ thống REWRITE truy vấn cho chatbot chương trình đào tạo.
+
+            ## Nhiệm vụ
+            Viết lại câu hỏi của người dùng sao cho:
+            - Ngắn gọn
+            - Rõ ràng
+            - Dễ hiểu hơn cho hệ thống truy vấn
+
+            ## Nguyên tắc BẮT BUỘC
+            - GIỮ NGUYÊN ý nghĩa câu hỏi
+            - KHÔNG thêm thông tin mới
+            - KHÔNG suy diễn
+            - PHẢI giữ nguyên các thực thể quan trọng:
+            - mã môn (ví dụ: INT2201)
+            - tên môn
+            - ngành học
+            - KHÔNG được làm mất hoặc thay đổi các thực thể này
+
+            ## Khi có feedback từ hệ thống:
+            {f"- {feedback}" if feedback else "- Không có"}
+
+            Hãy sửa câu hỏi để khắc phục vấn đề trong feedback (nếu có).
+
+            ## Output
+            - Chỉ trả về DUY NHẤT câu hỏi đã viết lại
+            - Không giải thích
+
+            ## Câu hỏi gốc
+            {query}
+
+            ## Câu hỏi viết lại
+        """
+        rewritten = await call_model_9b(prompt, temperature=0.2)
+        return (rewritten or query).strip()
+
+    async def generate(self, query: str, context: str) -> str:
+        prompt = f"""
+            Bạn là trợ lý tư vấn đào tạo Đại học Cần Thơ (CTU).
+
+            ## Nhiệm vụ
+            Trả lời câu hỏi của người dùng CHỈ dựa trên thông tin trong Context.
+
+            ## Nguyên tắc BẮT BUỘC
+            - CHỈ sử dụng thông tin có trong Context
+            - KHÔNG thêm kiến thức bên ngoài
+            - KHÔNG suy đoán
+            - Nếu Context KHÔNG đủ:
+            - Nói rõ là chưa đủ thông tin
+            - Gợi ý người dùng hỏi rõ hơn
+
+            ## Cách trả lời
+            - Trả lời trực tiếp vào câu hỏi
+            - Nếu có nhiều ý → dùng bullet
+
+            ## Context
+            {context or "[Không có context]"}
+
+            ## Câu hỏi
+            {query}
+
+            ## Trả lời
+        """
+        answer = await call_model_9b(prompt, temperature=0.2)
+        return (answer or "").strip()
+
+    async def classify_domain(self, query: str) -> str:
+        cache_key = self._cache_key("classify_domain", {"query": query})
+        cached = self._get_cache(cache_key)
+        if cached is not None:
+            logger.info("[llm][cache] hit classify_domain")
+            return str(cached)
+
+        prompt = f"""
+            Phân loại domain của câu hỏi thành 1 trong 2:
+            - ctdt: hỏi về môn học, chương trình đào tạo, ngành, tín chỉ
+            - quy_che: hỏi về quy định, điều kiện, có được hay không
+
+            Nguyên tắc:
+            - Chỉ chọn 1 domain
+            - Ưu tiên "quy_che" nếu câu hỏi liên quan đến điều kiện hoặc quy định
+
+            Output JSON:
+            {{"domain": "ctdt | quy_che"}}
+
+            Query: {query}
+        """
+        model_order = [MODEL_AUX_4B, MODEL_AUX_7B, MODEL_PRIMARY_9B] if self.fast_routing else [MODEL_PRIMARY_9B, MODEL_AUX_7B, MODEL_AUX_4B]
+        data: Dict[str, Any] = {}
+        for model in model_order:
+            data = await call_model_json(model, prompt)
+            if data:
+                break
+        result = str(data.get("domain", "ctdt")).strip().lower()
+        self._set_cache(cache_key, result)
+        return result
+
+    async def classify_intent(self, query: str) -> str:
+        cache_key = self._cache_key("classify_intent", {"query": query})
+        cached = self._get_cache(cache_key)
+        if cached is not None:
+            logger.info("[llm][cache] hit classify_intent")
+            return str(cached)
+
+        prompt = f"""
+            Bạn là hệ thống phân loại intent cho chatbot giáo dục.
+
+            ## Nhiệm vụ
+            Phân loại câu hỏi của người dùng vào 1 trong 3 loại:
+
+            ### 1. factual
+            - Hỏi thông tin cụ thể, trực tiếp
+            - Không yêu cầu suy luận nhiều
+
+            Ví dụ:
+            - "Môn AI có bao nhiêu tín chỉ?"
+            - "INT2201 là môn gì?"
+
+            ### 2. relational
+            - Hỏi về mối quan hệ giữa các thực thể
+            - Ví dụ: tiên quyết, thuộc ngành, liên quan
+
+            Ví dụ:
+            - "Môn nào là tiên quyết của AI?"
+            - "AI thuộc ngành nào?"
+
+            ### 3. rule
+            - Hỏi về quy định, điều kiện, có được hay không
+            - Thường chứa: "có được", "khi nào", "điều kiện"
+
+            Ví dụ:
+            - "Có được học khi thiếu tiên quyết không?"
+            - "Khi nào bị cảnh cáo học vụ?"
+
+            ## Nguyên tắc
+            - Chỉ chọn 1 loại DUY NHẤT
+            - Ưu tiên "rule" nếu câu hỏi liên quan đến điều kiện hoặc quy định
+            - Không giải thích
+
+            ## Output
+            Chỉ trả về JSON đúng format:
+            {{"intent": "factual | relational | rule"}}
+
+            ## Query
+            {query}
+        """
+        model_order = [MODEL_AUX_7B, MODEL_AUX_4B, MODEL_PRIMARY_9B] if self.fast_routing else [MODEL_PRIMARY_9B, MODEL_AUX_7B, MODEL_AUX_4B]
+        data: Dict[str, Any] = {}
+        for model in model_order:
+            data = await call_model_json(model, prompt)
+            if data:
+                break
+        result = str(data.get("intent", "factual")).strip().lower()
+        self._set_cache(cache_key, result)
+        return result
+
+    async def extract_entities(self, query: str) -> Dict[str, Any]:
+        cache_key = self._cache_key("extract_entities", {"query": query})
+        cached = self._get_cache(cache_key)
+        if cached is not None:
+            logger.info("[llm][cache] hit extract_entities")
+            return cached
+
+        prompt = f"""
+            Bạn là hệ thống phân tích câu hỏi cho chatbot đào tạo.
+
+            ## Nhiệm vụ
+            Trích xuất thông tin quan trọng từ câu hỏi gồm:
+            - mentions
+            - intent_hint
+            - relation
+
+            1. mentions:
+            - Các thực thể xuất hiện trong câu (giữ nguyên text)
+
+            2. intent_hint:
+            - Người dùng đang hỏi gì?
+            - Ví dụ: "tín chỉ", "tiên quyết", "học lại", "điều kiện", "thuộc ngành"
+
+            3. relation (nếu có):
+            - Mối quan hệ giữa các thực thể
+            - Ví dụ:
+            - "prerequisite"
+            - "belong_to"
+            - "requirement"
+
+            ## Nguyên tắc
+            - KHÔNG suy đoán
+            - CHỈ dùng thông tin có trong câu
+            - Nếu không có:
+            - mentions = []
+            - intent_hint = ""
+            - relation = null
+
+            ## Output
+            JSON:
+            {{
+            "mentions": ["..."],
+            "intent_hint": "...",
+            "relation": "..." 
+            }}
+
+            ## Query
+            {query}
+        """
+
+        data = await call_model_json(MODEL_PRIMARY_9B, prompt)
+        if not data:
+            data = await call_model_json(MODEL_AUX_7B, prompt)
+        if not data:
+            data = await call_model_4b_json(prompt)
+
+        # fallback nếu model trả lỗi
+        if not isinstance(data, dict):
+            data = {}
+
+        # validate + normalize
+        mentions = data.get("mentions", [])
+        if not isinstance(mentions, list):
+            mentions = []
+
+        mentions = [str(m).strip() for m in mentions if str(m).strip()]
+
+        intent_hint = data.get("intent_hint", "")
+        if not isinstance(intent_hint, str):
+            intent_hint = ""
+        intent_hint = intent_hint.strip()
+
+        relation = data.get("relation")
+        if not isinstance(relation, str):
+            relation = None
+        else:
+            relation = relation.strip() or None
+
+        result: Dict[str, Any] = {
+            "mentions": mentions,
+            "intent_hint": intent_hint,
+            "relation": relation,
+        }
+        self._set_cache(cache_key, result)
+        return result

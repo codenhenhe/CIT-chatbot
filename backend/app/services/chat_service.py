@@ -1,22 +1,39 @@
-import json
 import logging
-import re
+from dataclasses import dataclass, field
 from typing import Any, Dict, List
 
-from app.services.llm_service import call_model_7b
-from app.services.retrieval_service import retrieve_graph_context
+from app.services.classifier_service import IntentClassifierService
+from app.services.domain_service import DomainService
+from app.services.entity_service import EntityService
+from app.services.evaluator_service import EvaluatorService
+from app.services.llm_service import LLMService
+from app.services.retrieval_service import RetrievalResult, RetrievalService
+from app.services.strategy_service import StrategyService
 
 logger = logging.getLogger("app.chat")
 
-def _truncate_text(text: str, limit: int = 1200) -> str:
-    """Cắt bớt text dài để tránh tràn log hoặc context."""
+
+@dataclass
+class ChatPipelineState:
+    query: str
+    needs_query: bool = True
+    query_gate_reason: str = ""
+    domain: str = ""
+    intent: str = ""
+    entities: Dict[str, str] = field(default_factory=dict)
+    strategy: str = ""
+    top_k: int = 4
+    rewritten_query: str = ""
+    context: str = ""
+    retries: int = 0
+    max_retries: int = 2
+
+
+def _truncate_text(text: str, limit: int = 240) -> str:
     value = (text or "").strip()
-    if len(value) <= limit:
-        return value
-    return value[:limit] + "...<truncated>"
+    return value if len(value) <= limit else value[:limit] + "...<truncated>"
 
 def _sanitize_history(history: List[Dict[str, Any]]) -> List[Dict[str, str]]:
-    """Làm sạch và giữ lại 8 tin nhắn gần nhất để duy trì ngữ cảnh."""
     cleaned = []
     for msg in (history or [])[-8:]:
         role = str(msg.get("role", "user")).strip().lower()
@@ -27,140 +44,150 @@ def _sanitize_history(history: List[Dict[str, Any]]) -> List[Dict[str, str]]:
             cleaned.append({"role": role, "content": content})
     return cleaned
 
-async def analyze_and_route(question: str, history: List[Dict[str, str]]) -> Dict[str, Any]:
-    """
-    Sử dụng model 7B làm Router:
-    1. Viết lại câu hỏi (kế thừa thực thể từ lịch sử).
-    2. Xác định xem có cần truy vấn Graph/Vector DB hay không (thay thế bước classify cũ).
-    """
-    # Nếu câu hỏi quá ngắn mà mang tính xác nhận, giữ nguyên
-    if len(question.strip()) < 3 or question.strip().lower() in ["có", "đúng", "ok", "không"]:
-        return {"rewritten_query": question, "needs_rag": False}
 
-    history_text = "\n".join([f"{m['role']}: {m['content']}" for m in history[-4:]])
-    
-    prompt = f"""
-Bạn là bộ não điều phối (Router) của Chatbot Tư vấn đào tạo Đại học Cần Thơ (CTU).
-Hệ thống cơ sở dữ liệu của bạn chứa các thông tin về: Chương trình đào tạo, Môn học (Học phần), Tín chỉ, Ngành học, Khoa, Chuẩn đầu ra, Vị trí việc làm, và Văn bản pháp lý quy chế.
+class ChatService:
+    """Main orchestration service for chatbot request pipeline."""
 
-Nhiệm vụ của bạn:
-1. "rewritten_query": Viết lại câu hỏi của người dùng cho thật rõ nghĩa, tự đóng gói (self-contained). Nếu người dùng dùng đại từ "nó", "ngành đó", hãy thay thế bằng tên thực thể cụ thể có trong Lịch sử hội thoại.
-2. "needs_rag": Trả về `true` nếu câu hỏi liên quan đến tra cứu thông tin học vụ, quy chế, điểm số, chương trình đào tạo như mô tả ở trên. Trả về `false` nếu chỉ là câu hỏi xã giao, cảm ơn, hỏi thăm sức khỏe hoặc câu hỏi kiến thức chung không liên quan đến đại học.
+    def __init__(self) -> None:
+        self.llm_service = LLMService()
+        self.domain_service = DomainService(self.llm_service)
+        self.entity_service = EntityService(self.llm_service)
+        self.intent_service = IntentClassifierService(self.llm_service)
+        self.strategy_service = StrategyService()
+        self.retrieval_service = RetrievalService()
+        self.evaluator_service = EvaluatorService()
 
-Lịch sử hội thoại gần đây:
-{history_text if history_text else "Không có"}
+    async def handle_query(self, query: str, history: List[Dict[str, Any]]) -> Dict[str, Any]:
+        clean_history = _sanitize_history(history or [])
+        state = ChatPipelineState(query=(query or "").strip())
+        logger.info("[chat][step] request_received query=%s", _truncate_text(state.query))
 
-Câu hỏi hiện tại của người dùng: "{question}"
+        if not state.query:
+            return {
+                "answer": "Bạn vui lòng nhập câu hỏi cụ thể để mình hỗ trợ.",
+                "state": state.__dict__,
+            }
 
-Bạn CHỈ ĐƯỢC PHÉP trả về kết quả dưới dạng JSON hợp lệ, không giải thích gì thêm:
-{{
-  "rewritten_query": "câu hỏi đã viết lại",
-  "needs_rag": true hoặc false
-}}
-"""
+        logger.info("[chat][step] query_gate")
+        history_text = "\n".join(f"{m['role']}: {m['content']}" for m in clean_history[-6:])
+        gate = await self.llm_service.should_query(state.query, history_text)
+        state.needs_query = bool(gate.get("need_query", True))
+        state.query_gate_reason = str(gate.get("reason", ""))
+        logger.info("[chat][step] query_gate need_query=%s reason=%s", state.needs_query, state.query_gate_reason)
+
+        if not state.needs_query:
+            logger.info("[chat][step] skip_retrieval_pipeline")
+            answer = await self.llm_service.generate_without_query(state.query, history_text)
+            return {
+                "answer": answer or "Mình luôn sẵn sàng hỗ trợ bạn khi cần tra cứu thông tin đào tạo.",
+                "state": state.__dict__,
+            }
+
+        logger.info("[chat][step] classify_domain")
+        state.domain = await self.domain_service.classify(state.query)
+        logger.info("[chat][step] domain=%s", state.domain)
+
+        if state.domain == "quy_che":
+            logger.info("[chat][step] route_to_quy_che_stub")
+            answer = await self.handle_quy_che_stub(state, clean_history)
+            return {"answer": answer, "state": state.__dict__}
+
+        logger.info("[chat][step] route_to_ctdt_pipeline")
+        answer = await self._run_ctdt_pipeline(state, clean_history)
+        return {"answer": answer, "state": state.__dict__}
+
+    async def handle_quy_che_stub(self, state: ChatPipelineState, history: List[Dict[str, str]]) -> str:
+        # Stub branch by requirement: can be replaced with dedicated regulation pipeline.
+        _ = history
+        return (
+            "Pipeline Quy chế học vụ đang ở chế độ stub. "
+            "Hiện tại hệ thống đã nhận diện đúng domain và sẽ tích hợp luồng riêng ở bước tiếp theo."
+        )
+
+    async def _run_ctdt_pipeline(self, state: ChatPipelineState, history: List[Dict[str, str]]) -> str:
+        _ = history
+        logger.info("[chat][step] rewrite_query")
+        state.rewritten_query = await self.llm_service.rewrite(state.query)
+        logger.info("[chat][step] rewritten=%s", _truncate_text(state.rewritten_query))
+
+        logger.info("[chat][step] extract_entities")
+        state.entities = await self.entity_service.extract(state.rewritten_query)
+        logger.info("[chat][step] entities=%s", state.entities)
+
+        logger.info("[chat][step] classify_intent")
+        state.intent = await self.intent_service.classify(
+            query=state.rewritten_query,
+            entities=state.entities,
+            domain=state.domain,
+        )
+        logger.info("[chat][step] intent=%s", state.intent)
+
+        logger.info("[chat][step] select_strategy")
+        state.strategy = await self.strategy_service.select(state.domain, state.intent)
+        logger.info("[chat][step] strategy=%s top_k=%s", state.strategy, state.top_k)
+
+        last_retrieval: RetrievalResult | None = None
+        while state.retries <= state.max_retries:
+            logger.info("[chat][step] retrieval attempt=%s", state.retries + 1)
+            last_retrieval = await self.retrieval_service.execute(
+                strategy=state.strategy,
+                query=state.rewritten_query,
+                entities=state.entities,
+                top_k=state.top_k,
+            )
+            state.context = last_retrieval.context
+            logger.info("[chat][step] retrieval_done strategy=%s context_len=%s", state.strategy, len(state.context or ""))
+
+            logger.info("[chat][step] evaluate_context")
+            evaluation = await self.evaluator_service.check(state.context)
+            logger.info("[chat][step] evaluation is_enough=%s action=%s reason=%s", evaluation.is_enough, evaluation.action, evaluation.reason)
+            if evaluation.is_enough:
+                break
+
+            if state.retries == state.max_retries:
+                break
+
+            if await self.evaluator_service.need_more_context(evaluation):
+                state.top_k += 2
+                logger.info("[chat][retry] increase_top_k=%s", state.top_k)
+            elif await self.evaluator_service.need_rewrite(evaluation):
+                logger.info("[chat][retry] rewrite_pipeline")
+                state.rewritten_query = await self.llm_service.rewrite(state.rewritten_query, feedback=evaluation.reason)
+                state.entities = await self.entity_service.extract(state.rewritten_query)
+                state.intent = await self.intent_service.classify(
+                    query=state.rewritten_query,
+                    entities=state.entities,
+                    domain=state.domain,
+                )
+                state.strategy = await self.strategy_service.select(state.domain, state.intent)
+            elif await self.evaluator_service.need_switch(evaluation):
+                state.strategy = await self.strategy_service.switch(state.strategy)
+                logger.info("[chat][retry] switch_strategy=%s", state.strategy)
+            else:
+                state.top_k += 1
+                logger.info("[chat][retry] conservative_top_k=%s", state.top_k)
+
+            state.retries += 1
+
+        final_context = state.context
+        if not final_context and last_retrieval:
+            final_context = last_retrieval.context
+
+        logger.info("[chat][step] generate_answer")
+        answer = await self.llm_service.generate(state.rewritten_query or state.query, final_context)
+        logger.info("[chat][step] generation_done answer_len=%s", len(answer or ""))
+        if not answer:
+            return "Mình chưa tìm được đủ dữ liệu để trả lời chính xác. Bạn có thể mô tả chi tiết hơn không?"
+        return answer
+
+
+chat_service = ChatService()
+
+
+async def chat_handler(question: str, history: List[Dict[str, Any]]) -> str:
     try:
-        # Temperature 0.6 cho JSON generation - cần balance giữa creativity và structure
-        response = await call_model_7b(prompt, temperature=0.6)
-        # Trích xuất đoạn JSON từ phản hồi đề phòng model trả thêm text rác
-        match = re.search(r'\{.*\}', response, re.DOTALL)
-        if match:
-            return json.loads(match.group())
-    except Exception as e:
-        logger.error(f"[chat][route] Lỗi khi phân tích và định tuyến: {e}")
-    
-    # Fallback an toàn: Nếu lỗi xử lý, mặc định cần RAG để không bỏ sót yêu cầu
-    return {"rewritten_query": question, "needs_rag": True}
-
-def build_final_prompt(question: str, context: str, history: List[Dict[str, str]]) -> str:
-    """Xây dựng Prompt cuối cùng để sinh câu trả lời."""
-    history_text = "\n".join([f"{m['role']}: {m['content']}" for m in history]) if history else ""
-    
-    has_context = bool(context and context.strip())
-    
-    if has_context:
-        # When data is available: Force model to use it
-        return f"""Bạn là Trợ lý tư vấn đào tạo của Đại học Cần Thơ (CTU).
-
-BƯỚC 1: ĐỌC DỮ LIỆU BẮTBUỘC
-Dữ liệu dưới đây là DỮ LIỆU CHÍNH THỨC từ cơ sở dữ liệu Neo4j CTU. BẠN PHẢI DÙNG dữ liệu này để trả lời.
-
-DỮ LIỆU TỪ CTU:
-{context}
-
-BƯỚC 2: TRÍCH XUẤT TỪ DỮ LIỆU
-- Đọc từng dòng dữ liệu trên.
-- Tóm tắt và liệt kê thông tin cụ thể từ dữ liệu.
-- KHÔNG bịa chuyện hoặc thêm thông tin ngoài dữ liệu.
-
-BƯỚC 3: TRẢ LỜI
-Câu hỏi: {question}
-Câu trả lời (PHẢI dùng dữ liệu trên):"""
-    else:
-        # When data is empty: Allow fallback
-        return f"""Bạn là Trợ lý tư vấn đào tạo của Đại học Cần Thơ (CTU).
-
-Lịch sử:
-{history_text if history_text else "(Trống)"}
-
-Dữ liệu từ hệ thống: [Không có dữ liệu phù hợp]
-
-Câu hỏi: {question}
-
-Câu trả lời: Tôi không tìm thấy thông tin này trong hệ thống."""
-
-async def chat_handler(question: str, history: List[Dict[str, Any]]):
-    """Pipeline chính xử lý yêu cầu chat."""
-    
-    clean_history = _sanitize_history(history or [])
-    logger.info(f"[chat][request] question={_truncate_text(question, 200)} history_len={len(clean_history)}")
-
-    # --- BƯỚC 1: FAST-TRACK (Ngắt mạch cho câu xã giao) ---
-    q_norm = question.strip().lower()
-    social_keywords = ["chào", "hi", "hello", "cảm ơn", "thanks", "tạm biệt", "bye", "chúc ngủ ngon"]
-    if len(q_norm) < 15 and any(kw in q_norm for kw in social_keywords):
-        logger.info("[chat][fast-track] Phát hiện câu hỏi xã giao ngắn.")
-        fast_prompt = f"Người dùng nói: '{question}'. Bạn là chatbot của Đại học Cần Thơ, hãy trả lời xã giao thật ngắn gọn, thân thiện."
-        try:
-            # Temperature thấp cho greeting (0.4)
-            return await call_model_7b(fast_prompt, temperature=0.4)
-        except Exception:
-            return "Chào bạn! Mình có thể giúp gì cho bạn về chương trình đào tạo của CTU?"
-
-    # --- BƯỚC 2: ROUTER & REWRITE (Sử dụng 7B) ---
-    analysis = await analyze_and_route(question, clean_history)
-    rewritten_query = analysis.get("rewritten_query", question)
-    needs_rag = analysis.get("needs_rag", True)
-    
-    logger.info(f"[chat][router] needs_rag={needs_rag} rewritten={_truncate_text(rewritten_query, 200)}")
-
-    # --- BƯỚC 3: RETRIEVAL (Truy xuất Neo4j/Vector nếu cần) ---
-    context = ""
-    if needs_rag:
-        try:
-            context = await retrieve_graph_context(rewritten_query)
-            logger.info(f"[chat][retrieval] Lấy được context: {context}")
-        except Exception as e:
-            logger.error(f"[chat][retrieval] Lỗi khi lấy context: {e}")
-
-    # --- BƯỚC 4: SINH CÂU TRẢ LỜI (Sử dụng 7B) ---
-    final_prompt = build_final_prompt(rewritten_query, context, clean_history)
-    
-    try:
-        logger.info("[chat][model] Đang gọi model 7B để sinh câu trả lời...")
-        # Temperature rất thấp (0.2) để model tập trung 100% vào data và tuân thủ instruction
-        answer = await call_model_7b(final_prompt, temperature=0.2)
-        answer = (answer or "").strip()
-    except Exception as e:
-        logger.exception("[chat][model] Lỗi gọi mô hình sinh phản hồi")
-        return "Hệ thống tạm thời không phản hồi được. Vui lòng thử lại sau ít phút."
-
-    # --- BƯỚC 5: POST-GUARD CHECK (Kiểm tra chặn ảo giác) ---
-    # Nếu cần RAG nhưng không có context, và mô hình cố tình trả lời dài dòng/mơ hồ thay vì từ chối.
-    if needs_rag and not context:
-        uncertain_patterns = ["có thể", "thường thì", "tôi nghĩ", "khó xác định", "không chắc"]
-        if not answer or any(p in answer.lower() for p in uncertain_patterns):
-            logger.info("[chat][guard] Fallback được kích hoạt do thiếu context và câu trả lời mơ hồ.")
-            return "Xin lỗi, hiện tại tôi không tìm thấy thông tin chính xác về vấn đề này trong hệ thống quy chế đào tạo."
-
-    logger.info(f"[chat][result] answer={_truncate_text(answer, 200)}")
-    return answer or "Không tìm thấy thông tin."
+        result = await chat_service.handle_query(question, history)
+        return str(result.get("answer", "Không tìm thấy thông tin."))
+    except Exception:
+        logger.exception("[chat] unhandled pipeline error")
+        return "Hệ thống đang bận hoặc truy vấn quá lâu. Bạn vui lòng thử lại với câu hỏi ngắn gọn hơn."

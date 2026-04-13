@@ -4,6 +4,7 @@ import logging
 import os
 import threading
 import time
+from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple
 import re
 
@@ -111,9 +112,8 @@ def _get_embed_model() -> EmbeddingModel:
 
     with _embed_model_lock:
         if _embed_model is None:
-            model_name = os.getenv("EMBEDDING_MODEL_NAME", "BAAI/bge-m3")
-            cache_folder = os.getenv("EMBEDDING_CACHE_FOLDER", "../my_model_weights/bge_m3")
-            _embed_model = EmbeddingModel(model_name=model_name, cache_folder=cache_folder)
+            device = os.getenv("EMBEDDING_DEVICE")
+            _embed_model = EmbeddingModel(device=device)
     return _embed_model
 
 def _is_safe_cypher(cypher: str) -> bool:
@@ -298,7 +298,7 @@ async def retrieve_graph_context(question: str) -> str:
     
     return final_context.strip()
 
-def warmup_embedding_model() -> None:
+def warmup_embedding_model() -> bool:
     """Khởi động model embedding để tránh độ trễ (cold-start) ở request đầu tiên."""
     logger.info("[retrieval] Bắt đầu warmup embedding model...")
     try:
@@ -308,5 +308,127 @@ def warmup_embedding_model() -> None:
         if vectors:
             _embedding_cache["warmup_query_ctu"] = vectors[0]
         logger.info("[retrieval] Warmup embedding model thành công!")
+        return True
     except Exception as e:
         logger.error(f"[retrieval] Lỗi khi warmup embedding model: {e}")
+        return False
+
+
+@dataclass
+class RetrievalResult:
+    strategy: str
+    context: str
+    sources: List[str]
+
+
+class RetrievalService:
+    """Execute retrieval by strategy. Heavy integrations can be replaced later."""
+
+    def __init__(self) -> None:
+        self.cache_ttl_seconds = int(os.getenv("RETRIEVAL_CACHE_TTL_SECONDS", "180"))
+        self._cache: Dict[str, Tuple[float, RetrievalResult]] = {}
+
+    async def execute(
+        self,
+        strategy: str,
+        query: str,
+        entities: Dict[str, str],
+        top_k: int = 5,
+    ) -> RetrievalResult:
+        strategy = (strategy or "hybrid").lower()
+        cache_key = self._build_cache_key(strategy, query, entities, top_k)
+        cached = self._get_cached(cache_key)
+        if cached:
+            logger.info("[retrieval][cache] hit strategy=%s top_k=%s", strategy, top_k)
+            return cached
+
+        logger.info("[retrieval][step] execute strategy=%s top_k=%s", strategy, top_k)
+
+        if strategy == "vector":
+            context = await self._vector_search(query, entities, top_k)
+            result = RetrievalResult("vector", context, ["vector"])
+            self._set_cached(cache_key, result)
+            return result
+
+        if strategy == "graph":
+            context = await self._graph_search(query, entities, top_k)
+            result = RetrievalResult("graph", context, ["neo4j"])
+            self._set_cached(cache_key, result)
+            return result
+
+        if strategy == "bm25":
+            context = await self._bm25_search(query, top_k)
+            result = RetrievalResult("bm25", context, ["bm25"])
+            self._set_cached(cache_key, result)
+            return result
+
+        graph_context = await self._graph_search(query, entities, top_k)
+        vector_context = await self._vector_search(query, entities, top_k)
+        combined = "\n\n".join([part for part in [graph_context, vector_context] if part])
+        result = RetrievalResult("hybrid", combined, ["neo4j", "vector"])
+        self._set_cached(cache_key, result)
+        return result
+
+    async def _graph_search(self, query: str, entities: Dict[str, Any], top_k: int) -> str:
+        _ = entities
+        try:
+            context = await retrieve_graph_context(query)
+            return self._limit_lines(context, top_k)
+        except Exception as exc:
+            logger.error("[retrieval] graph search failed: %s", exc)
+            return ""
+
+    async def _vector_search(self, query: str, entities: Dict[str, Any], top_k: int) -> str:
+        # Mock vector retrieval for architecture demo. Replace with real vector DB call.
+        mentions = entities.get("mentions", []) if isinstance(entities, dict) else []
+        mention_text = ", ".join(str(m).strip() for m in mentions if str(m).strip())
+        intent_hint = str(entities.get("intent_hint", "")).strip() if isinstance(entities, dict) else ""
+        snippets = [
+            f"Vector hit 1: thông tin tổng quan phù hợp cho truy vấn '{query}'.",
+            f"Vector hit 2: thực thể liên quan '{mention_text or 'không xác định'}'.",
+            f"Vector hit 3: ý định truy vấn '{intent_hint or 'không xác định'}'.",
+        ]
+        return "\n".join(snippets[: max(top_k, 1)])
+
+    async def _bm25_search(self, query: str, top_k: int) -> str:
+        # Mock BM25 retrieval for architecture demo.
+        lines = [f"BM25 hit {i}: tài liệu text-match cho '{query}'." for i in range(1, max(top_k, 1) + 1)]
+        return "\n".join(lines)
+
+    @staticmethod
+    def _limit_lines(text: str, top_k: int) -> str:
+        if not text:
+            return ""
+        lines = [line for line in text.splitlines() if line.strip()]
+        return "\n".join(lines[: max(top_k, 1)])
+
+    @staticmethod
+    def _build_cache_key(strategy: str, query: str, entities: Dict[str, str], top_k: int) -> str:
+        payload = {
+            "strategy": strategy,
+            "query": (query or "").strip(),
+            "entities": entities or {},
+            "top_k": int(top_k),
+        }
+        return json.dumps(payload, ensure_ascii=False, sort_keys=True)
+
+    def _get_cached(self, key: str) -> Optional[RetrievalResult]:
+        item = self._cache.get(key)
+        if not item:
+            return None
+        ts, value = item
+        if (time.time() - ts) > self.cache_ttl_seconds:
+            self._cache.pop(key, None)
+            return None
+        return value
+
+    def _set_cached(self, key: str, value: RetrievalResult) -> None:
+        self._cache[key] = (time.time(), value)
+        if len(self._cache) > 1000:
+            self._cleanup_cache()
+
+    def _cleanup_cache(self) -> None:
+        now = time.time()
+        expired = [k for k, (ts, _) in self._cache.items() if (now - ts) > self.cache_ttl_seconds]
+        for k in expired:
+            self._cache.pop(k, None)
