@@ -18,23 +18,26 @@ type UploadJob = {
     extracted_text_length?: number;
     section_count?: number;
     extracted_preview?: string;
+    json_path?: string;
   } | null;
   error?: string | null;
 };
 
-type ItemStatus = "ready" | "uploading" | "queued" | "processing" | "success" | "stored" | "error";
+type ItemStatus = "ready" | "uploading" | "queued" | "processing" | "review" | "success" | "stored" | "error";
 
 type UploadItem = {
   localId: string;
   key: string;
   file: File;
   status: ItemStatus;
+  syncState?: "idle" | "syncing" | "synced";
   message: string;
   jobId?: string;
   extractionSource?: string;
   extractedTextLength?: number;
   sectionCount?: number;
   extractedPreview?: string;
+  jsonPath?: string;
 };
 
 type UploadCategory =
@@ -76,6 +79,14 @@ export default function AdminKnowledgeManager() {
   const [pageMessage, setPageMessage] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<UploadCategory | "">("");
   const [selectedDetailItem, setSelectedDetailItem] = useState<UploadItem | null>(null);
+  const [jsonEditorText, setJsonEditorText] = useState("");
+  const [jsonEditorLoading, setJsonEditorLoading] = useState(false);
+  const [jsonEditorDirty, setJsonEditorDirty] = useState(false);
+  const [jsonEditorInfo, setJsonEditorInfo] = useState("");
+  const [jsonEditorError, setJsonEditorError] = useState("");
+  const [jsonConfirmLoading, setJsonConfirmLoading] = useState(false);
+  const [jsonConfirmInfo, setJsonConfirmInfo] = useState("");
+  const [jsonConfirmError, setJsonConfirmError] = useState("");
   const pollingRef = useRef<Record<string, number>>({});
 
   const isBusy = useMemo(
@@ -89,6 +100,7 @@ export default function AdminKnowledgeManager() {
       uploading: 0,
       queued: 0,
       processing: 0,
+      review: 0,
       success: 0,
       stored: 0,
       error: 0,
@@ -117,6 +129,11 @@ export default function AdminKnowledgeManager() {
 
   const updateItem = (localId: string, patch: Partial<UploadItem>) => {
     setUploadItems((prev) => prev.map((item) => (item.localId === localId ? { ...item, ...patch } : item)));
+  };
+
+  const patchItemEverywhere = (localId: string, patch: Partial<UploadItem>) => {
+    updateItem(localId, patch);
+    setSelectedDetailItem((prev) => (prev && prev.localId === localId ? { ...prev, ...patch } : prev));
   };
 
   const clearPolling = (localId: string) => {
@@ -153,6 +170,7 @@ export default function AdminKnowledgeManager() {
         if (data.status === "queued") {
           updateItem(localId, {
             status: "queued",
+            syncState: "idle",
             message: `Job ${jobId.slice(0, 8)} (${catLabel}) đang chờ trong hàng đợi.`,
           });
           return;
@@ -161,6 +179,7 @@ export default function AdminKnowledgeManager() {
         if (data.status === "processing") {
           updateItem(localId, {
             status: "processing",
+            syncState: "idle",
             message: `Job ${jobId.slice(0, 8)} (${catLabel}) đang xử lý.`,
           });
           return;
@@ -169,8 +188,14 @@ export default function AdminKnowledgeManager() {
         if (data.status === "completed") {
           if (data.result?.ingestion_applied === false) {
             updateItem(localId, {
-              status: "stored",
-              message: data.result?.message ?? "Đã lưu file, chưa có pipeline ingestion cho thể loại này.",
+              status: "review",
+              syncState: "idle",
+              message: data.result?.message ?? "Đã trích xuất JSON, chờ admin xác nhận.",
+              extractionSource: data.result?.extraction_source,
+              extractedTextLength: data.result?.extracted_text_length,
+              sectionCount: data.result?.section_count,
+              extractedPreview: data.result?.extracted_preview,
+              jsonPath: data.result?.json_path,
             });
             clearPolling(localId);
             return;
@@ -179,20 +204,24 @@ export default function AdminKnowledgeManager() {
           if (typeof data.result?.nodes === "number" && typeof data.result?.edges === "number") {
             updateItem(localId, {
               status: "success",
+              syncState: "synced",
               message: `Xong: ${data.result.nodes} nodes, ${data.result.edges} edges.`,
               extractionSource: data.result?.extraction_source,
               extractedTextLength: data.result?.extracted_text_length,
               sectionCount: data.result?.section_count,
               extractedPreview: data.result?.extracted_preview,
+              jsonPath: data.result?.json_path,
             });
           } else {
             updateItem(localId, {
               status: "success",
+              syncState: "synced",
               message: data.result?.message ?? "Upload hoàn tất.",
               extractionSource: data.result?.extraction_source,
               extractedTextLength: data.result?.extracted_text_length,
               sectionCount: data.result?.section_count,
               extractedPreview: data.result?.extracted_preview,
+              jsonPath: data.result?.json_path,
             });
           }
           clearPolling(localId);
@@ -237,6 +266,7 @@ export default function AdminKnowledgeManager() {
           key,
           file: f,
           status: "ready",
+          syncState: "idle",
           message: "Sẵn sàng upload.",
         });
       });
@@ -275,6 +305,151 @@ export default function AdminKnowledgeManager() {
     setUploadItems((prev) => prev.filter((item) => item.localId !== localId));
   };
 
+  const openItemDetails = async (item: UploadItem) => {
+    setSelectedDetailItem(item);
+    setJsonEditorText("");
+    setJsonEditorDirty(false);
+    setJsonEditorInfo("");
+    setJsonEditorError("");
+    setJsonConfirmLoading(false);
+    setJsonConfirmInfo("");
+    setJsonConfirmError("");
+
+    if (!item.jobId || !["success", "stored", "review"].includes(item.status)) {
+      return;
+    }
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setJsonEditorError("Phiên đăng nhập hết hạn. Vui lòng đăng nhập lại.");
+      return;
+    }
+
+    setJsonEditorLoading(true);
+    try {
+      const response = await fetch(`${API_BASE_URL}/graph/upload/json/${item.jobId}`, {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData?.detail || "Không thể tải JSON trích xuất.");
+      }
+
+      const payload = await response.json();
+      const jsonText = JSON.stringify(payload.data ?? {}, null, 2);
+      setJsonEditorText(jsonText);
+      setJsonEditorInfo(`Đã tải JSON từ: ${payload.json_path}`);
+      setJsonConfirmInfo(item.status === "review" ? "JSON đã sẵn sàng. Sửa xong thì lưu, rồi bấm xác nhận để nạp Neo4j." : "JSON đã sẵn sàng để xem hoặc lưu lại.");
+
+      patchItemEverywhere(item.localId, { jsonPath: payload.json_path });
+    } catch (error) {
+      setJsonEditorError(error instanceof Error ? error.message : "Không thể tải JSON.");
+    } finally {
+      setJsonEditorLoading(false);
+    }
+  };
+
+  const saveJsonEdits = async () => {
+    if (!selectedDetailItem?.jobId) {
+      setJsonEditorError("Không tìm thấy job_id để lưu JSON.");
+      return;
+    }
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setJsonEditorError("Phiên đăng nhập hết hạn. Vui lòng đăng nhập lại.");
+      return;
+    }
+
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(jsonEditorText);
+    } catch {
+      setJsonEditorError("JSON không hợp lệ. Vui lòng kiểm tra lại cú pháp.");
+      return;
+    }
+
+    setJsonEditorLoading(true);
+    setJsonEditorError("");
+    setJsonEditorInfo("");
+    try {
+      const response = await fetch(`${API_BASE_URL}/graph/upload/json/${selectedDetailItem.jobId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ data: parsed }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData?.detail || "Không thể lưu JSON đã chỉnh sửa.");
+      }
+
+      const payload = await response.json();
+      setJsonEditorDirty(false);
+      setJsonEditorInfo(`Đã lưu thành công: ${payload.json_path}. Bây giờ có thể nhấn xác nhận để nạp Neo4j.`);
+      setJsonConfirmInfo("JSON đã được lưu. Nhấn xác nhận để bắt đầu nạp Neo4j.");
+    } catch (error) {
+      setJsonEditorError(error instanceof Error ? error.message : "Lưu JSON thất bại.");
+    } finally {
+      setJsonEditorLoading(false);
+    }
+  };
+
+  const confirmNeo4jImport = async () => {
+    if (!selectedDetailItem?.jobId) {
+      setJsonConfirmError("Không tìm thấy job_id để xác nhận nạp Neo4j.");
+      return;
+    }
+
+    if (jsonEditorDirty) {
+      setJsonConfirmError("Bạn cần lưu JSON trước khi xác nhận nạp Neo4j.");
+      return;
+    }
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setJsonConfirmError("Phiên đăng nhập hết hạn. Vui lòng đăng nhập lại.");
+      return;
+    }
+
+    setJsonConfirmLoading(true);
+    setJsonConfirmInfo("");
+    setJsonConfirmError("");
+    patchItemEverywhere(selectedDetailItem.localId, { syncState: "syncing" });
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/graph/upload/confirm/${selectedDetailItem.jobId}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData?.detail || "Không thể xác nhận nạp Neo4j.");
+      }
+
+      const payload = await response.json();
+      setJsonConfirmInfo(payload.message ?? "Đã nạp Neo4j thành công.");
+      patchItemEverywhere(selectedDetailItem.localId, {
+        status: "success",
+        syncState: "synced",
+        message: payload.message ?? selectedDetailItem.message,
+      });
+    } catch (error) {
+      patchItemEverywhere(selectedDetailItem.localId, { syncState: "idle" });
+      setJsonConfirmError(error instanceof Error ? error.message : "Xác nhận nạp Neo4j thất bại.");
+    } finally {
+      setJsonConfirmLoading(false);
+    }
+  };
+
   const uploadSingleFile = async (item: UploadItem, token: string) => {
     updateItem(item.localId, { status: "uploading", message: "Đang upload file..." });
 
@@ -308,6 +483,7 @@ export default function AdminKnowledgeManager() {
 
     updateItem(item.localId, {
       status: "queued",
+      syncState: "idle",
       jobId: returnedJobId,
       message: `Đã upload, đang chờ xử lý (Job ${returnedJobId.slice(0, 8)}).`,
     });
@@ -365,6 +541,7 @@ export default function AdminKnowledgeManager() {
   const getStatusBadge = (status: ItemStatus) => {
     if (status === "success") return "bg-green-100 text-green-700";
     if (status === "stored") return "bg-slate-100 text-slate-700";
+    if (status === "review") return "bg-amber-100 text-amber-700";
     if (status === "error") return "bg-red-100 text-red-700";
     if (status === "processing") return "bg-blue-100 text-blue-700";
     if (status === "queued") return "bg-amber-100 text-amber-700";
@@ -377,9 +554,26 @@ export default function AdminKnowledgeManager() {
     if (status === "uploading") return "Đang upload";
     if (status === "queued") return "Đang xếp hàng";
     if (status === "processing") return "Đang xử lý";
+    if (status === "review") return "Chờ xác nhận";
     if (status === "success") return "Thành công";
     if (status === "stored") return "Đã lưu";
     return "Lỗi";
+  };
+
+  const getSyncBadge = (syncState?: UploadItem["syncState"]) => {
+    if (syncState === "syncing") {
+      return {
+        label: "Đang đồng bộ",
+        className: "bg-blue-50 text-blue-700 border-blue-200",
+      };
+    }
+    if (syncState === "synced") {
+      return {
+        label: "Đã đồng bộ",
+        className: "bg-emerald-50 text-emerald-700 border-emerald-200",
+      };
+    }
+    return null;
   };
 
   return (
@@ -468,7 +662,7 @@ export default function AdminKnowledgeManager() {
                   <div key={item.localId} className="rounded-xl border border-slate-200 bg-white px-4 py-3">
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0">
-                        <p className="font-medium text-slate-900 truncate">{item.file.name}</p>
+                        <p className="font-medium text-slate-900 break-all leading-snug">{item.file.name}</p>
                         <p className="text-xs text-slate-500 mt-1">{formatBytes(item.file.size)}</p>
                       </div>
 
@@ -476,6 +670,13 @@ export default function AdminKnowledgeManager() {
                         <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${getStatusBadge(item.status)}`}>
                           {getStatusLabel(item.status)}
                         </span>
+                        {getSyncBadge(item.syncState) && (
+                          <span
+                            className={`text-[10px] px-2 py-1 rounded-full border font-medium ${getSyncBadge(item.syncState)?.className}`}
+                          >
+                            {getSyncBadge(item.syncState)?.label}
+                          </span>
+                        )}
                         {item.status !== "uploading" && item.status !== "queued" && item.status !== "processing" && (
                           <button onClick={() => handleRemoveItem(item.localId)} className="text-slate-400 hover:text-slate-700" aria-label="Remove file">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
@@ -486,7 +687,7 @@ export default function AdminKnowledgeManager() {
 
                     <p className="text-xs text-slate-500 mt-2 truncate">{item.message}</p>
 
-                    {(item.extractionSource || typeof item.extractedTextLength === "number") && (
+                    {(item.status === "success" || item.status === "stored" || item.status === "review") && (
                       <div className="mt-3 rounded-lg border border-slate-200 bg-slate-50 p-3">
                         <p className="text-[11px] font-semibold text-slate-700 mb-2">Thông tin trích xuất</p>
                         <div className="flex flex-wrap gap-2 text-[11px]">
@@ -508,10 +709,13 @@ export default function AdminKnowledgeManager() {
                           </div>
                         )}
 
-                        <div className="mt-2 flex justify-end">
+                        <div className="mt-2 flex items-center justify-between gap-2">
+                          <p className="text-[11px] text-slate-500">
+                            {item.jsonPath ? "Có JSON để mở, chỉnh sửa và xác nhận nạp Neo4j." : "Chưa có JSON để mở trực tiếp."}
+                          </p>
                           <button
                             type="button"
-                            onClick={() => setSelectedDetailItem(item)}
+                            onClick={() => openItemDetails(item)}
                             className="text-xs px-3 py-1.5 rounded-md bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
                           >
                             Xem chi tiết
@@ -580,6 +784,10 @@ export default function AdminKnowledgeManager() {
                   <p className="text-slate-700">Đã lưu</p>
                   <p className="font-semibold text-slate-900">{summary.stored}</p>
                 </div>
+                <div className="rounded-lg bg-amber-50 border border-amber-200 px-3 py-2">
+                  <p className="text-amber-700">Chờ xác nhận</p>
+                  <p className="font-semibold text-amber-900">{summary.review}</p>
+                </div>
                 <div className="rounded-lg bg-red-50 border border-red-200 px-3 py-2">
                   <p className="text-red-700">Lỗi</p>
                   <p className="font-semibold text-red-900">{summary.error}</p>
@@ -600,13 +808,13 @@ export default function AdminKnowledgeManager() {
           onClick={() => setSelectedDetailItem(null)}
         >
           <div
-            className="w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-200"
+            className="w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-200"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200">
               <div>
                 <h3 className="text-lg font-semibold text-slate-900">Chi tiết trích xuất</h3>
-                <p className="text-xs text-slate-500 mt-0.5 truncate max-w-130">{selectedDetailItem.file.name}</p>
+                <p className="text-xs text-slate-500 mt-0.5 break-all leading-snug">{selectedDetailItem.file.name}</p>
               </div>
               <button
                 type="button"
@@ -618,36 +826,97 @@ export default function AdminKnowledgeManager() {
               </button>
             </div>
 
-            <div className="p-5 overflow-y-auto max-h-[calc(85vh-70px)] space-y-4">
-              <div className="grid grid-cols-2 gap-3 text-sm">
-                <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                  <p className="text-slate-500 text-xs">Trạng thái</p>
-                  <p className="font-semibold text-slate-900">{getStatusLabel(selectedDetailItem.status)}</p>
-                </div>
-                <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                  <p className="text-slate-500 text-xs">Kích thước</p>
-                  <p className="font-semibold text-slate-900">{formatBytes(selectedDetailItem.file.size)}</p>
-                </div>
-                <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                  <p className="text-slate-500 text-xs">Nguồn trích xuất</p>
-                  <p className="font-semibold text-slate-900">{selectedDetailItem.extractionSource ?? "unknown"}</p>
-                </div>
-                <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                  <p className="text-slate-500 text-xs">Số ký tự / Section</p>
-                  <p className="font-semibold text-slate-900">{selectedDetailItem.extractedTextLength ?? 0} / {selectedDetailItem.sectionCount ?? 0}</p>
-                </div>
-              </div>
+            <div className="p-5 overflow-y-auto max-h-[calc(90vh-70px)]">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                <div className="lg:col-span-7 rounded-lg border border-slate-200 bg-white p-3 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-slate-500">JSON trích xuất (có thể chỉnh sửa)</p>
+                  </div>
 
-              <div className="rounded-lg border border-slate-200 bg-white p-3">
-                <p className="text-xs text-slate-500 mb-2">Thông báo xử lý</p>
-                <p className="text-sm text-slate-800 whitespace-pre-wrap">{selectedDetailItem.message}</p>
-              </div>
+                  {jsonEditorInfo && <p className="text-xs text-emerald-700">{jsonEditorInfo}</p>}
+                  {jsonEditorError && <p className="text-xs text-red-600">{jsonEditorError}</p>}
+                  {jsonConfirmInfo && <p className="text-xs text-blue-700">{jsonConfirmInfo}</p>}
+                  {jsonConfirmError && <p className="text-xs text-red-600">{jsonConfirmError}</p>}
 
-              <div className="rounded-lg border border-slate-200 bg-white p-3">
-                <p className="text-xs text-slate-500 mb-2">Nội dung trích xuất (preview)</p>
-                <pre className="text-xs text-slate-800 whitespace-pre-wrap leading-relaxed max-h-[45vh] overflow-auto">
+                  {jsonEditorLoading && !jsonEditorText ? (
+                    <p className="text-xs text-slate-500">Đang tải JSON...</p>
+                  ) : (
+                    <textarea
+                      value={jsonEditorText}
+                      onChange={(e) => {
+                        setJsonEditorText(e.target.value);
+                        setJsonEditorDirty(true);
+                        setJsonEditorInfo("");
+                        setJsonEditorError("");
+                        if (selectedDetailItem?.localId) {
+                          patchItemEverywhere(selectedDetailItem.localId, { syncState: "idle" });
+                        }
+                      }}
+                      className="w-full min-h-[520px] rounded-md border border-slate-300 p-3 text-xs font-mono text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="JSON sẽ hiển thị ở đây khi job hoàn tất."
+                    />
+                  )}
+
+                  <div className="flex items-center justify-end gap-2">
+                    <button
+                      type="button"
+                      onClick={saveJsonEdits}
+                      disabled={jsonEditorLoading || !jsonEditorDirty}
+                      className={`text-xs px-3 py-1.5 rounded-md text-white ${
+                        jsonEditorLoading || !jsonEditorDirty
+                          ? "bg-slate-400 cursor-not-allowed"
+                          : "bg-emerald-600 hover:bg-emerald-700"
+                      }`}
+                    >
+                      {jsonEditorLoading ? "Đang lưu..." : "Lưu JSON"}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={confirmNeo4jImport}
+                      disabled={jsonConfirmLoading || jsonEditorDirty || selectedDetailItem?.status === "success"}
+                      className={`text-xs px-3 py-1.5 rounded-md text-white ${
+                        jsonConfirmLoading || jsonEditorDirty || selectedDetailItem?.status === "success"
+                          ? "bg-slate-400 cursor-not-allowed"
+                          : "bg-blue-600 hover:bg-blue-700"
+                      }`}
+                    >
+                      {jsonConfirmLoading ? "Đang xác nhận..." : "Xác nhận nạp Neo4j"}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 space-y-4">
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                      <p className="text-slate-500 text-xs">Trạng thái</p>
+                      <p className="font-semibold text-slate-900">{getStatusLabel(selectedDetailItem.status)}</p>
+                    </div>
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                      <p className="text-slate-500 text-xs">Kích thước</p>
+                      <p className="font-semibold text-slate-900">{formatBytes(selectedDetailItem.file.size)}</p>
+                    </div>
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                      <p className="text-slate-500 text-xs">Nguồn trích xuất</p>
+                      <p className="font-semibold text-slate-900">{selectedDetailItem.extractionSource ?? "unknown"}</p>
+                    </div>
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                      <p className="text-slate-500 text-xs">Số ký tự / Section</p>
+                      <p className="font-semibold text-slate-900">{selectedDetailItem.extractedTextLength ?? 0} / {selectedDetailItem.sectionCount ?? 0}</p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-lg border border-slate-200 bg-white p-3">
+                    <p className="text-xs text-slate-500 mb-2">Thông báo xử lý</p>
+                    <p className="text-sm text-slate-800 whitespace-pre-wrap">{selectedDetailItem.message}</p>
+                  </div>
+
+                  <div className="rounded-lg border border-slate-200 bg-white p-3">
+                    <p className="text-xs text-slate-500 mb-2">Nội dung trích xuất (preview)</p>
+                    <pre className="text-xs text-slate-800 whitespace-pre-wrap leading-relaxed max-h-[320px] overflow-auto">
 {selectedDetailItem.extractedPreview || "Chưa có dữ liệu preview."}
-                </pre>
+                    </pre>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

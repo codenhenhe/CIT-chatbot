@@ -1,0 +1,2746 @@
+{
+  "source": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+  "parser_output": {
+    "source": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+    "section_count": 4
+  },
+  "table_output": {
+    "table_count": 7,
+    "table_preview": [
+      {
+        "page": 1,
+        "table_index": 1,
+        "text": "STT | Mã học phần | Tên học phần | Tín chỉ | Học phần tiên quyết/song hành | Ghi chú ; No. | (Course ID) | (Course Title) | (Credits) | (Prerequisites) | (Notes) ; A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB] | 30 ; 1 | MT1003 | Giải tích 1 | 4 ; Calculus 1 ; 2 | MT1005 | Giải "
+      },
+      {
+        "page": 2,
+        "table_index": 1,
+        "text": "5 | SP1037 | Tư tưởng Hồ Chí Minh | 2 | SP1039(KN) ; Ho Chi Minh Ideology ; 6 | SP1039 | Lịch sử Đảng Cộng sản Việt Nam | 2 | SP1035(KN) ; History of VieTNamese Communist Party ; B.2 . Giáo dục chung khác (Other general education) [BB] | 9 ; B.2.1. Nhập môn (Introduction) [BB] | 3 ; 1 | CO1005 | Nhậ"
+      },
+      {
+        "page": 3,
+        "table_index": 1,
+        "text": "E. . Tự chọn ngành (Elective Major Courses) [BB] | 2 ; E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB] | 1 ; 1 | CO3101 | Đồ án Tổng hợp - Hướng Trí tuệ Nhân tạo | 1 | x ; Programming Intergration Project ; 2 | CO3103 | Đồ án Tổng hợp - hướng Công nghệ Phần mềm | 1 | x ; Programming In"
+      },
+      {
+        "page": 4,
+        "table_index": 1,
+        "text": "8 | CO3049 | Lập trình Web | 3 ; Web Programming ; 9 | CO3135 | Lập trình cho Trí tuệ nhân tạo và Khoa học dữ liệu | 3 DS) | CO2003(TQ), CO1027(TQ) ; Programming for Artificial Intelligence and Data Science (P4AI- ; F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC] | 15 ; 1 | C"
+      },
+      {
+        "page": 5,
+        "table_index": 1,
+        "text": "29 | CO3133 | Học sâu và Ứng dụng | 3 | CO3061(KN) ; Deep Learning and Its Applications ; 30 | CO3085 | Xử lý Ngôn ngữ Tự nhiên | 3 ; Natural Language Processing ; 31 | CO3057 | Xử lý Ảnh số và Thị giác Máy tính | 3 ; Digital Image Processing and Computer Vision ; 32 | CO3045 | Lập trình Game | 3 ; "
+      }
+    ]
+  },
+  "batch_plan": [],
+  "results": {
+    "KhoiKienThuc": {
+      "node_type": "KhoiKienThuc",
+      "items": [
+        {
+          "ma_khoi": "A",
+          "ten_khoi": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+          "tong_tin_chi": 30,
+          "tin_chi_bat_buoc": 30,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "B",
+          "ten_khoi": "Giáo dục chung (General education)",
+          "tong_tin_chi": 30,
+          "tin_chi_bat_buoc": 30,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "B.1",
+          "ten_khoi": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
+          "tong_tin_chi": 13,
+          "tin_chi_bat_buoc": 13,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "B.2",
+          "ten_khoi": "Giáo dục chung khác (Other general education)",
+          "tong_tin_chi": 9,
+          "tin_chi_bat_buoc": 9,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "B.2.1",
+          "ten_khoi": "Nhập môn (Introduction)",
+          "tong_tin_chi": 3,
+          "tin_chi_bat_buoc": 3,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "B.2.2",
+          "ten_khoi": "Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills)",
+          "tong_tin_chi": 3,
+          "tin_chi_bat_buoc": 3,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "B.2.3",
+          "ten_khoi": "Quản lý (tự chọn 3 tc) (Management)",
+          "tong_tin_chi": 3,
+          "tin_chi_bat_buoc": 3,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "B.3",
+          "ten_khoi": "Ngoại ngữ (Foreign Languages)",
+          "tong_tin_chi": 8,
+          "tin_chi_bat_buoc": 8,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "C",
+          "ten_khoi": "Cơ sở ngành (Core Courses)",
+          "tong_tin_chi": 21,
+          "tin_chi_bat_buoc": 21,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "D",
+          "ten_khoi": "Ngành (Compulsory Major Subjects)",
+          "tong_tin_chi": 13,
+          "tin_chi_bat_buoc": 13,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "E",
+          "ten_khoi": "Tự chọn ngành (Elective Major Courses)",
+          "tong_tin_chi": 2,
+          "tin_chi_bat_buoc": 2,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "E.1",
+          "ten_khoi": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
+          "tong_tin_chi": 1,
+          "tin_chi_bat_buoc": 1,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "E.2",
+          "ten_khoi": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
+          "tong_tin_chi": 1,
+          "tin_chi_bat_buoc": 1,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "F",
+          "ten_khoi": "Chuyên ngành (Speciality Courses)",
+          "tong_tin_chi": 15,
+          "tin_chi_bat_buoc": 15,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "F.1",
+          "ten_khoi": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+          "tong_tin_chi": 1,
+          "tin_chi_bat_buoc": 1,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "F.2",
+          "ten_khoi": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+          "tong_tin_chi": 15,
+          "tin_chi_bat_buoc": 15,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "F.3",
+          "ten_khoi": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+          "tong_tin_chi": 15,
+          "tin_chi_bat_buoc": 15,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "F.4",
+          "ten_khoi": "Chuyên ngành: An ninh hệ thống và mạng (Specialty: System and Network Security)",
+          "tong_tin_chi": 15,
+          "tin_chi_bat_buoc": 15,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "F.5",
+          "ten_khoi": "Chuyên ngành: Trí tuệ nhân tạo (Specialty: Artificial Intelligence)",
+          "tong_tin_chi": 15,
+          "tin_chi_bat_buoc": 15,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "G",
+          "ten_khoi": "Tự chọn tự do (Free elective courses)",
+          "tong_tin_chi": 9,
+          "tin_chi_bat_buoc": 9,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "H",
+          "ten_khoi": "Học phần tốt nghiệp (Graduation module courses)",
+          "tong_tin_chi": 8,
+          "tin_chi_bat_buoc": 8,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "I",
+          "ten_khoi": "Giáo dục quốc phòng (National defense education)",
+          "tong_tin_chi": 0,
+          "tin_chi_bat_buoc": 0,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "J",
+          "ten_khoi": "Giáo dục thể chất (Physical education)",
+          "tong_tin_chi": 0,
+          "tin_chi_bat_buoc": 0,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "J.1",
+          "ten_khoi": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+          "tong_tin_chi": 0,
+          "tin_chi_bat_buoc": 0,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "J.2",
+          "ten_khoi": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+          "tong_tin_chi": 0,
+          "tin_chi_bat_buoc": 0,
+          "tin_chi_tu_chon": 0
+        },
+        {
+          "ma_khoi": "K",
+          "ten_khoi": "Điều kiện tốt nghiệp (Graduation requirements)",
+          "tong_tin_chi": 0,
+          "tin_chi_bat_buoc": 0,
+          "tin_chi_tu_chon": 0
+        }
+      ]
+    },
+    "YeuCauTuChon": {
+      "node_type": "YeuCauTuChon",
+      "items": [
+        {
+          "noi_dung_yeu_cau": "Quản lý",
+          "so_tin_chi_yeu_cau": 3
+        },
+        {
+          "noi_dung_yeu_cau": "Tự chọn ngành",
+          "so_tin_chi_yeu_cau": 2
+        },
+        {
+          "noi_dung_yeu_cau": "Tự chọn ngành- nhóm A",
+          "so_tin_chi_yeu_cau": 1
+        },
+        {
+          "noi_dung_yeu_cau": "Tự chọn ngành- nhóm B",
+          "so_tin_chi_yeu_cau": 1
+        },
+        {
+          "noi_dung_yeu_cau": "Tự chọn tự do",
+          "so_tin_chi_yeu_cau": 9
+        }
+      ]
+    },
+    "NhomHocPhanTuChon": {
+      "node_type": "NhomHocPhanTuChon",
+      "items": [
+        {
+          "ten_nhom": "A"
+        },
+        {
+          "ten_nhom": "B"
+        }
+      ]
+    },
+    "HocPhan": {
+      "node_type": "HocPhan",
+      "items": [
+        {
+          "ma_hp": "(COURSEID)",
+          "ten_hp": "(Course Title)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "MT1003",
+          "ten_hp": "Giải tích 1",
+          "so_tin_chi": 4,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "MT1005",
+          "ten_hp": "Giải tích 2",
+          "so_tin_chi": 4,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "MT1007",
+          "ten_hp": "Đại số Tuyến tính",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "MT2013",
+          "ten_hp": "Xác suất và Thống kê",
+          "so_tin_chi": 4,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CH1003",
+          "ten_hp": "Hóa đại cương",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PH1003",
+          "ten_hp": "Vật lý 1",
+          "so_tin_chi": 4,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PH1007",
+          "ten_hp": "Thí nghiệm Vật lý",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO1007",
+          "ten_hp": "Cấu trúc Rời rạc cho Khoa học Máy tính",
+          "so_tin_chi": 4,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO2011",
+          "ten_hp": "Mô hình hóa Toán học",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "SP1007",
+          "ten_hp": "Pháp luật Việt Nam Đại cương",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "SP1031",
+          "ten_hp": "Triết học Mác - Lênin",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "SP1033",
+          "ten_hp": "Kinh tế Chính trị Mác - Lênin",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "SP1035",
+          "ten_hp": "Chủ nghĩa Xã hội Khoa học",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "SP1037",
+          "ten_hp": "Tư tưởng Hồ Chí Minh",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "SP1039",
+          "ten_hp": "Lịch sử Đảng Cộng sản Việt Nam",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO1005",
+          "ten_hp": "Nhập môn Điện toán",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO2001",
+          "ten_hp": "Kỹ năng Chuyên nghiệp cho Kỹ sư",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "IM1013",
+          "ten_hp": "Kinh tế học Đại cương",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "IM1023",
+          "ten_hp": "Quản lý Sản xuất cho Kỹ sư",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "IM1025",
+          "ten_hp": "Quản lý Dự án cho Kỹ sư",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "IM1027",
+          "ten_hp": "Kinh tế Kỹ thuật",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "IM3001",
+          "ten_hp": "Quản trị Kinh doanh cho Kỹ sư",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "IM1031",
+          "ten_hp": "Khởi nghiệp và đổi mới sáng tạo",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "ME1019",
+          "ten_hp": "Quản lý năng suất và chất lượng",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "LA1003",
+          "ten_hp": "Anh văn 1",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "LA1005",
+          "ten_hp": "Anh văn 2",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "LA1007",
+          "ten_hp": "Anh văn 3",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "LA1009",
+          "ten_hp": "Anh văn 4",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO1023",
+          "ten_hp": "Hệ thống số",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO1027",
+          "ten_hp": "Kỹ thuật Lập trình",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO2003",
+          "ten_hp": "Cấu trúc Dữ liệu và Giải Thuật",
+          "so_tin_chi": 4,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO2007",
+          "ten_hp": "Kiến trúc Máy tính",
+          "so_tin_chi": 4,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO2013",
+          "ten_hp": "Hệ cơ sở Dữ liệu",
+          "so_tin_chi": 4,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO2039",
+          "ten_hp": "Lập trình Nâng cao",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO2017",
+          "ten_hp": "Hệ điều hành",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3001",
+          "ten_hp": "Công nghệ Phần mềm",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO3005",
+          "ten_hp": "Nguyên lý Ngôn ngữ Lập trình",
+          "so_tin_chi": 4,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO3093",
+          "ten_hp": "Mạng máy tính",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3101",
+          "ten_hp": "Đồ án Tổng hợp - Hướng Trí tuệ Nhân tạo",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3103",
+          "ten_hp": "Đồ án Tổng hợp - hướng Công nghệ Phần mềm",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3105",
+          "ten_hp": "Đồ án Tổng hợp - Hướng Hệ thống Thông tin",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3127",
+          "ten_hp": "Đồ án tổng hợp - hướng kỹ thuật dữ liệu",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3119",
+          "ten_hp": "Đồ án Mạng máy tính",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3107",
+          "ten_hp": "Thực tập Đồ án môn học Đa ngành - Hướng Trí tuệ Nhân tạo",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3109",
+          "ten_hp": "Thực tập Đồ án môn học Đa ngành - Hướng công Nghệ phần mề",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3111",
+          "ten_hp": "Thực tập Đồ án môn học Đa ngành - hướng Hệ thống Thông tin",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3021",
+          "ten_hp": "Hệ Quản trị Cơ sở Dữ Liệu",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO3027",
+          "ten_hp": "Thương mại Điện tử",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3029",
+          "ten_hp": "Khai phá Dữ liệu",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3033",
+          "ten_hp": "Bảo mật Hệ thống Thông tin",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO3115",
+          "ten_hp": "Phân tích và Thiết kế Hệ thống",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO4031",
+          "ten_hp": "Kho dữ Liệu và Hệ hỗ trợ Quyết định",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO4033",
+          "ten_hp": "Phân tích Dữ liệu lớn và Trí tuệ Kinh doanh",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO4035",
+          "ten_hp": "Hệ hoạch Định tài Nguyên tổ chức",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO4037",
+          "ten_hp": "Hệ thống thông tin quản lý",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO4039",
+          "ten_hp": "Bảo mật sinh trắc",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3139",
+          "ten_hp": "Chuyển đổi số",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3137",
+          "ten_hp": "Dữ liệu lớn",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO3011",
+          "ten_hp": "Quản lý Dự án Phần mềm",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3129",
+          "ten_hp": "Bảo mật Phần mềm",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3131",
+          "ten_hp": "Công nghệ Phần mềm thế hệ mới",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3015",
+          "ten_hp": "Kiểm tra Phần mềm",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO3017",
+          "ten_hp": "Kiến trúc Phần mềm",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3065",
+          "ten_hp": "Công nghệ Phần mềm Nâng cao",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3041",
+          "ten_hp": "Hệ thống Thông minh",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO3049",
+          "ten_hp": "Lập trình Web",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3135",
+          "ten_hp": "Lập trình cho Trí tuệ nhân tạo và Khoa học dữ liệu",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO3089",
+          "ten_hp": "Những Chủ đề Nâng cao trong Khoa học Máy tính",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3151",
+          "ten_hp": "Quản trị mạng",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3051",
+          "ten_hp": "Hệ thống thiết bị di động",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3069",
+          "ten_hp": "Mật mã và An ninh mạng",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3153",
+          "ten_hp": "Đánh giá an toàn mạng máy tính",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3061",
+          "ten_hp": "Nhập môn Trí tuệ Nhân tạo",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3117",
+          "ten_hp": "Học máy",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3133",
+          "ten_hp": "Học sâu và Ứng dụng",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO3085",
+          "ten_hp": "Xử lý Ngôn ngữ Tự nhiên",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3057",
+          "ten_hp": "Xử lý Ảnh số và Thị giác Máy tính",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3045",
+          "ten_hp": "Lập trình Game",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3059",
+          "ten_hp": "Đồ họa Máy tính",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3067",
+          "ten_hp": "Tính toán Song song",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3037",
+          "ten_hp": "Phát triển Ứng dụng Internet of Things",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3043",
+          "ten_hp": "Phát triển Ứng dụng trên Thiết bị Di động",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO3335",
+          "ten_hp": "Thực tập Ngoài trường",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CO4029",
+          "ten_hp": "Đồ án Chuyên ngành",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "CO4337",
+          "ten_hp": "Đồ án Tốt nghiệp (Khoa học Máy tính)",
+          "so_tin_chi": 4,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
+        {
+          "ma_hp": "MI1003",
+          "ten_hp": "Giáo dục Quốc phòng",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1009",
+          "ten_hp": "Bóng đá (Học phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1011",
+          "ten_hp": "Bóng chuyền (Học phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1013",
+          "ten_hp": "Bóng bàn (Học phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1015",
+          "ten_hp": "Bóng rổ (Học phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1017",
+          "ten_hp": "Cầu lông (Học phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1019",
+          "ten_hp": "Bơi (học Phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1021",
+          "ten_hp": "Aerobic (học Phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1025",
+          "ten_hp": "Điền kinh (Học phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1027",
+          "ten_hp": "Quần vợt (Học phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1053",
+          "ten_hp": "Cờ vua (Học phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1057",
+          "ten_hp": "Bowling (học phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1061",
+          "ten_hp": "Pickleball (học phần 1)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1033",
+          "ten_hp": "Bóng đá (Học phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1035",
+          "ten_hp": "Bóng chuyền (Học phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1037",
+          "ten_hp": "Bóng bàn (Học phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1039",
+          "ten_hp": "Bóng rổ (Học phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1041",
+          "ten_hp": "Cầu lông (Học phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1043",
+          "ten_hp": "Bơi (học Phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1045",
+          "ten_hp": "Aerobic (học Phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1049",
+          "ten_hp": "Điền kinh (học phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1051",
+          "ten_hp": "Quần vợt (Học phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1059",
+          "ten_hp": "Bowling (học phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "PE1063",
+          "ten_hp": "Pickleball (học phần 2)",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "SA4001",
+          "ten_hp": "Hoạt động sinh viên",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "ENG_GC",
+          "ten_hp": "Điều kiện tiếng Anh tốt nghiệp",
+          "so_tin_chi": 0,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": null
+        }
+      ]
+    },
+    "VanBanPhapLy": {
+      "node_type": "VanBanPhapLy",
+      "items": [
+        {
+          "so": "460/QĐ-ĐHBK",
+          "ten": "Quyết định số 460/QĐ-ĐHBK ngày 18/02/2025",
+          "loai": "Quyết định",
+          "ngay_ban_hanh": "18/02/2025",
+          "co_quan_ban_hanh": "KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH",
+          "noi_dung_goc": "(Ban hành kèm theo quyết định số 460/QĐ-ĐHBK - ngày 18 tháng 02 năm 2025)"
+        }
+      ]
+    },
+    "TrinhDo": {
+      "node_type": "TrinhDo",
+      "items": [
+        {
+          "ten_trinh_do": "Cử nhân"
+        }
+      ]
+    },
+    "Nganh": {
+      "node_type": "Nganh",
+      "items": [
+        {
+          "ma_nganh": null,
+          "ten_nganh_vi": "Khoa học Máy tính",
+          "ten_nganh_en": "Computer Science"
+        }
+      ]
+    },
+    "Khoa": {
+      "node_type": "Khoa",
+      "items": [
+        {
+          "ten_khoa": "KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH"
+        }
+      ]
+    },
+    "LoaiVanBang": {
+      "node_type": "LoaiVanBang",
+      "items": [
+        {
+          "loai_van_bang": "Cử nhân"
+        }
+      ]
+    },
+    "ChuongTrinhDaoTao": {
+      "node_type": "ChuongTrinhDaoTao",
+      "items": [
+        {
+          "ma_chuong_trinh": null,
+          "khoa": 2024,
+          "he": "Đại trà",
+          "ngon_ngu": "Tiếng Việt",
+          "tong_tin_chi": 230,
+          "thoi_gian_dao_tao": null
+        }
+      ]
+    },
+    "MucTieuDaoTao": {
+      "node_type": "MucTieuDaoTao",
+      "items": []
+    },
+    "ViTriViecLam": {
+      "node_type": "ViTriViecLam",
+      "items": []
+    },
+    "ChuanThamKhao": {
+      "node_type": "ChuanThamKhao",
+      "items": []
+    },
+    "KhaNangHocTap": {
+      "node_type": "KhaNangHocTap",
+      "items": []
+    },
+    "ChuanDauRa": {
+      "node_type": "ChuanDauRa",
+      "items": []
+    },
+    "BoMon": {
+      "node_type": "BoMon",
+      "items": []
+    },
+    "HinhThucDaoTao": {
+      "node_type": "HinhThucDaoTao",
+      "items": []
+    },
+    "PhuongThucDaoTao": {
+      "node_type": "PhuongThucDaoTao",
+      "items": []
+    }
+  },
+  "relationships": [
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "evidence": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "evidence": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "MT1003",
+      "evidence": "Giải tích 1"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "MT1005",
+      "evidence": "Giải tích 2"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "MT1007",
+      "evidence": "Đại số Tuyến tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "MT2013",
+      "evidence": "Xác suất và Thống kê"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CH1003",
+      "evidence": "Hóa đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PH1003",
+      "evidence": "Vật lý 1"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PH1007",
+      "evidence": "Thí nghiệm Vật lý"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO1007",
+      "evidence": "Cấu trúc Rời rạc cho Khoa học Máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2011",
+      "evidence": "Mô hình hóa Toán học"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Giáo dục chung (General education)",
+      "evidence": "B. Giáo dục chung (General education) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
+      "evidence": "B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
+      "evidence": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1007",
+      "evidence": "Pháp luật Việt Nam Đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1031",
+      "evidence": "Triết học Mác - Lênin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1033",
+      "evidence": "Kinh tế Chính trị Mác - Lênin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1035",
+      "evidence": "Chủ nghĩa Xã hội Khoa học"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1037",
+      "evidence": "Tư tưởng Hồ Chí Minh"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1039",
+      "evidence": "Lịch sử Đảng Cộng sản Việt Nam"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Giáo dục chung khác (Other general education)",
+      "evidence": "B.2 . Giáo dục chung khác (Other general education) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Nhập môn (Introduction)",
+      "evidence": "B.2.1. Nhập môn (Introduction) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Nhập môn (Introduction)",
+      "evidence": "Nhập môn (Introduction)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Nhập môn (Introduction)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO1005",
+      "evidence": "Nhập môn Điện toán"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills)",
+      "evidence": "B.2.2. Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills)",
+      "evidence": "Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2001",
+      "evidence": "Kỹ năng Chuyên nghiệp cho Kỹ sư"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Quản lý (tự chọn 3 tc) (Management)",
+      "evidence": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
+      "rel_type": "CO_YEU_CAU_TU_CHON",
+      "target_node_type": "YeuCauTuChon",
+      "target_match": "Quản lý",
+      "evidence": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Quản lý (tự chọn 3 tc) (Management)",
+      "evidence": "Quản lý (tự chọn 3 tc) (Management)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1013",
+      "evidence": "Kinh tế học Đại cương"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Quản lý",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1013",
+      "evidence": "Kinh tế học Đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1023",
+      "evidence": "Quản lý Sản xuất cho Kỹ sư"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Quản lý",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1023",
+      "evidence": "Quản lý Sản xuất cho Kỹ sư"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1025",
+      "evidence": "Quản lý Dự án cho Kỹ sư"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Quản lý",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1025",
+      "evidence": "Quản lý Dự án cho Kỹ sư"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1027",
+      "evidence": "Kinh tế Kỹ thuật"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Quản lý",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1027",
+      "evidence": "Kinh tế Kỹ thuật"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM3001",
+      "evidence": "Quản trị Kinh doanh cho Kỹ sư"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Quản lý",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM3001",
+      "evidence": "Quản trị Kinh doanh cho Kỹ sư"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1031",
+      "evidence": "Khởi nghiệp và đổi mới sáng tạo"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Quản lý",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1031",
+      "evidence": "Khởi nghiệp và đổi mới sáng tạo"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ME1019",
+      "evidence": "Quản lý năng suất và chất lượng"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Quản lý",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ME1019",
+      "evidence": "Quản lý năng suất và chất lượng"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Ngoại ngữ (Foreign Languages)",
+      "evidence": "B.3 . Ngoại ngữ (Foreign Languages) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Ngoại ngữ (Foreign Languages)",
+      "evidence": "Ngoại ngữ (Foreign Languages)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Ngoại ngữ (Foreign Languages)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "LA1003",
+      "evidence": "Anh văn 1"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Ngoại ngữ (Foreign Languages)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "LA1005",
+      "evidence": "Anh văn 2"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Ngoại ngữ (Foreign Languages)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "LA1007",
+      "evidence": "Anh văn 3"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Ngoại ngữ (Foreign Languages)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "LA1009",
+      "evidence": "Anh văn 4"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Cơ sở ngành (Core Courses)",
+      "evidence": "C. Cơ sở ngành (Core Courses) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Cơ sở ngành (Core Courses)",
+      "evidence": "Cơ sở ngành (Core Courses)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Cơ sở ngành (Core Courses)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO1023",
+      "evidence": "Hệ thống số"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Cơ sở ngành (Core Courses)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO1027",
+      "evidence": "Kỹ thuật Lập trình"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Cơ sở ngành (Core Courses)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2003",
+      "evidence": "Cấu trúc Dữ liệu và Giải Thuật"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Cơ sở ngành (Core Courses)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2007",
+      "evidence": "Kiến trúc Máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Cơ sở ngành (Core Courses)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2013",
+      "evidence": "Hệ cơ sở Dữ liệu"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Cơ sở ngành (Core Courses)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2039",
+      "evidence": "Lập trình Nâng cao"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Ngành (Compulsory Major Subjects)",
+      "evidence": "D. Ngành (Compulsory Major Subjects) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Ngành (Compulsory Major Subjects)",
+      "evidence": "Ngành (Compulsory Major Subjects)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Ngành (Compulsory Major Subjects)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2017",
+      "evidence": "Hệ điều hành"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Ngành (Compulsory Major Subjects)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3001",
+      "evidence": "Công nghệ Phần mềm"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Ngành (Compulsory Major Subjects)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3005",
+      "evidence": "Nguyên lý Ngôn ngữ Lập trình"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Ngành (Compulsory Major Subjects)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3093",
+      "evidence": "Mạng máy tính"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Tự chọn ngành (Elective Major Courses)",
+      "evidence": "E. . Tự chọn ngành (Elective Major Courses) [BB]"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành (Elective Major Courses)",
+      "rel_type": "CO_YEU_CAU_TU_CHON",
+      "target_node_type": "YeuCauTuChon",
+      "target_match": "Tự chọn ngành",
+      "evidence": "E. . Tự chọn ngành (Elective Major Courses) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
+      "evidence": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
+      "rel_type": "CO_YEU_CAU_TU_CHON",
+      "target_node_type": "YeuCauTuChon",
+      "target_match": "Tự chọn ngành- nhóm A",
+      "evidence": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Tự chọn ngành- nhóm A",
+      "rel_type": "CO_NHOM_THANH_PHAN",
+      "target_node_type": "NhomHocPhanTuChon",
+      "target_match": "A",
+      "evidence": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
+      "evidence": "Tự chọn ngành- nhóm A (Elective Courses - Group A )"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3101",
+      "evidence": "Đồ án Tổng hợp - Hướng Trí tuệ Nhân tạo"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Tự chọn ngành- nhóm A",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3101",
+      "evidence": "Đồ án Tổng hợp - Hướng Trí tuệ Nhân tạo"
+    },
+    {
+      "source_node_type": "NhomHocPhanTuChon",
+      "source_match": "A",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3101",
+      "evidence": "Đồ án Tổng hợp - Hướng Trí tuệ Nhân tạo"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3103",
+      "evidence": "Đồ án Tổng hợp - hướng Công nghệ Phần mềm"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Tự chọn ngành- nhóm A",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3103",
+      "evidence": "Đồ án Tổng hợp - hướng Công nghệ Phần mềm"
+    },
+    {
+      "source_node_type": "NhomHocPhanTuChon",
+      "source_match": "A",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3103",
+      "evidence": "Đồ án Tổng hợp - hướng Công nghệ Phần mềm"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3105",
+      "evidence": "Đồ án Tổng hợp - Hướng Hệ thống Thông tin"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Tự chọn ngành- nhóm A",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3105",
+      "evidence": "Đồ án Tổng hợp - Hướng Hệ thống Thông tin"
+    },
+    {
+      "source_node_type": "NhomHocPhanTuChon",
+      "source_match": "A",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3105",
+      "evidence": "Đồ án Tổng hợp - Hướng Hệ thống Thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3127",
+      "evidence": "Đồ án tổng hợp - hướng kỹ thuật dữ liệu"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Tự chọn ngành- nhóm A",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3127",
+      "evidence": "Đồ án tổng hợp - hướng kỹ thuật dữ liệu"
+    },
+    {
+      "source_node_type": "NhomHocPhanTuChon",
+      "source_match": "A",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3127",
+      "evidence": "Đồ án tổng hợp - hướng kỹ thuật dữ liệu"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3119",
+      "evidence": "Đồ án Mạng máy tính"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Tự chọn ngành- nhóm A",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3119",
+      "evidence": "Đồ án Mạng máy tính"
+    },
+    {
+      "source_node_type": "NhomHocPhanTuChon",
+      "source_match": "A",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3119",
+      "evidence": "Đồ án Mạng máy tính"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
+      "evidence": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
+      "rel_type": "CO_YEU_CAU_TU_CHON",
+      "target_node_type": "YeuCauTuChon",
+      "target_match": "Tự chọn ngành- nhóm B",
+      "evidence": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Tự chọn ngành- nhóm B",
+      "rel_type": "CO_NHOM_THANH_PHAN",
+      "target_node_type": "NhomHocPhanTuChon",
+      "target_match": "B",
+      "evidence": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
+      "evidence": "Tự chọn ngành- nhóm B (Elective Courses - Group B )"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3107",
+      "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng Trí tuệ Nhân tạo"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Tự chọn ngành- nhóm B",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3107",
+      "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng Trí tuệ Nhân tạo"
+    },
+    {
+      "source_node_type": "NhomHocPhanTuChon",
+      "source_match": "B",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3107",
+      "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng Trí tuệ Nhân tạo"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3109",
+      "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng công Nghệ phần mề"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Tự chọn ngành- nhóm B",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3109",
+      "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng công Nghệ phần mề"
+    },
+    {
+      "source_node_type": "NhomHocPhanTuChon",
+      "source_match": "B",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3109",
+      "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng công Nghệ phần mề"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3111",
+      "evidence": "Thực tập Đồ án môn học Đa ngành - hướng Hệ thống Thông tin"
+    },
+    {
+      "source_node_type": "YeuCauTuChon",
+      "source_match": "Tự chọn ngành- nhóm B",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3111",
+      "evidence": "Thực tập Đồ án môn học Đa ngành - hướng Hệ thống Thông tin"
+    },
+    {
+      "source_node_type": "NhomHocPhanTuChon",
+      "source_match": "B",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3111",
+      "evidence": "Thực tập Đồ án môn học Đa ngành - hướng Hệ thống Thông tin"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Chuyên ngành (Speciality Courses)",
+      "evidence": "F.. Chuyên ngành (Speciality Courses) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "evidence": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "evidence": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3021",
+      "evidence": "Hệ Quản trị Cơ sở Dữ Liệu"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3027",
+      "evidence": "Thương mại Điện tử"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3029",
+      "evidence": "Khai phá Dữ liệu"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3033",
+      "evidence": "Bảo mật Hệ thống Thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3115",
+      "evidence": "Phân tích và Thiết kế Hệ thống"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4031",
+      "evidence": "Kho dữ Liệu và Hệ hỗ trợ Quyết định"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4033",
+      "evidence": "Phân tích Dữ liệu lớn và Trí tuệ Kinh doanh"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4035",
+      "evidence": "Hệ hoạch Định tài Nguyên tổ chức"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4037",
+      "evidence": "Hệ thống thông tin quản lý"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4039",
+      "evidence": "Bảo mật sinh trắc"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3139",
+      "evidence": "Chuyển đổi số"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3137",
+      "evidence": "Dữ liệu lớn"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "evidence": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "evidence": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3011",
+      "evidence": "Quản lý Dự án Phần mềm"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3129",
+      "evidence": "Bảo mật Phần mềm"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3131",
+      "evidence": "Công nghệ Phần mềm thế hệ mới"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3015",
+      "evidence": "Kiểm tra Phần mềm"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3017",
+      "evidence": "Kiến trúc Phần mềm"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3065",
+      "evidence": "Công nghệ Phần mềm Nâng cao"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3041",
+      "evidence": "Hệ thống Thông minh"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3049",
+      "evidence": "Lập trình Web"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3135",
+      "evidence": "Lập trình cho Trí tuệ nhân tạo và Khoa học dữ liệu"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "evidence": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "evidence": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3089",
+      "evidence": "Những Chủ đề Nâng cao trong Khoa học Máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3151",
+      "evidence": "Quản trị mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3051",
+      "evidence": "Hệ thống thiết bị di động"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3069",
+      "evidence": "Mật mã và An ninh mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3153",
+      "evidence": "Đánh giá an toàn mạng máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3061",
+      "evidence": "Nhập môn Trí tuệ Nhân tạo"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3117",
+      "evidence": "Học máy"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3133",
+      "evidence": "Học sâu và Ứng dụng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3085",
+      "evidence": "Xử lý Ngôn ngữ Tự nhiên"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3057",
+      "evidence": "Xử lý Ảnh số và Thị giác Máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3045",
+      "evidence": "Lập trình Game"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3059",
+      "evidence": "Đồ họa Máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3067",
+      "evidence": "Tính toán Song song"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3037",
+      "evidence": "Phát triển Ứng dụng Internet of Things"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3043",
+      "evidence": "Phát triển Ứng dụng trên Thiết bị Di động"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Chuyên ngành: An ninh hệ thống và mạng (Specialty: System and Network Security)",
+      "evidence": "F.4. Chuyên ngành: An ninh hệ thống và mạng (Specialty: System and Network Security)"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Chuyên ngành: Trí tuệ nhân tạo (Specialty: Artificial Intelligence)",
+      "evidence": "F.5. Chuyên ngành: Trí tuệ nhân tạo (Specialty: Artificial Intelligence) [TC]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Tự chọn tự do (Free elective courses)",
+      "evidence": "G. Tự chọn tự do (Free elective courses) [BB]"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Tự chọn tự do (Free elective courses)",
+      "rel_type": "CO_YEU_CAU_TU_CHON",
+      "target_node_type": "YeuCauTuChon",
+      "target_match": "Tự chọn tự do",
+      "evidence": "G. Tự chọn tự do (Free elective courses) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Học phần tốt nghiệp (Graduation module courses)",
+      "evidence": "H. Học phần tốt nghiệp (Graduation module courses) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Học phần tốt nghiệp (Graduation module courses)",
+      "evidence": "Học phần tốt nghiệp (Graduation module courses)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Học phần tốt nghiệp (Graduation module courses)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3335",
+      "evidence": "Thực tập Ngoài trường"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Học phần tốt nghiệp (Graduation module courses)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4029",
+      "evidence": "Đồ án Chuyên ngành"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Học phần tốt nghiệp (Graduation module courses)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4337",
+      "evidence": "Đồ án Tốt nghiệp (Khoa học Máy tính)"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Giáo dục quốc phòng (National defense education)",
+      "evidence": "I. Giáo dục quốc phòng (National defense education) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Giáo dục quốc phòng (National defense education)",
+      "evidence": "Giáo dục quốc phòng (National defense education)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục quốc phòng (National defense education)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "MI1003",
+      "evidence": "Giáo dục Quốc phòng"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Giáo dục thể chất (Physical education)",
+      "evidence": "J. Giáo dục thể chất (Physical education) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "evidence": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "evidence": "Giáo dục thể chất học phần 1 (Physical education part 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1009",
+      "evidence": "Bóng đá (Học phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1011",
+      "evidence": "Bóng chuyền (Học phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1013",
+      "evidence": "Bóng bàn (Học phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1015",
+      "evidence": "Bóng rổ (Học phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1017",
+      "evidence": "Cầu lông (Học phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1019",
+      "evidence": "Bơi (học Phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1021",
+      "evidence": "Aerobic (học Phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1025",
+      "evidence": "Điền kinh (Học phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1027",
+      "evidence": "Quần vợt (Học phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1053",
+      "evidence": "Cờ vua (Học phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1057",
+      "evidence": "Bowling (học phần 1)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1061",
+      "evidence": "Pickleball (học phần 1)"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "evidence": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "evidence": "Giáo dục thể chất học phần 2 (Physical education part 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1033",
+      "evidence": "Bóng đá (Học phần 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1035",
+      "evidence": "Bóng chuyền (Học phần 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1037",
+      "evidence": "Bóng bàn (Học phần 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1039",
+      "evidence": "Bóng rổ (Học phần 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1041",
+      "evidence": "Cầu lông (Học phần 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1043",
+      "evidence": "Bơi (học Phần 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1045",
+      "evidence": "Aerobic (học Phần 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1049",
+      "evidence": "Điền kinh (học phần 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1051",
+      "evidence": "Quần vợt (Học phần 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1059",
+      "evidence": "Bowling (học phần 2)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1063",
+      "evidence": "Pickleball (học phần 2)"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Điều kiện tốt nghiệp (Graduation requirements)",
+      "evidence": "K. Điều kiện tốt nghiệp (Graduation requirements) [BB]"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "2024_MT_KHMT_20260404_080212_0e34f0f4.pdf",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Điều kiện tốt nghiệp (Graduation requirements)",
+      "evidence": "Điều kiện tốt nghiệp (Graduation requirements)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Điều kiện tốt nghiệp (Graduation requirements)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "SA4001",
+      "evidence": "Hoạt động sinh viên"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Điều kiện tốt nghiệp (Graduation requirements)",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ENG_GC",
+      "evidence": "Điều kiện tiếng Anh tốt nghiệp"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CHƯƠNG TRÌNH ĐÀO TẠO CỬ NHÂN KHÓA 2024 16/05/2025 BACHELOR PROGRAM - YEAR 2024 KHOA: KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH FACUL",
+      "rel_type": "DAO_TAO_TRINH_DO",
+      "target_node_type": "TrinhDo",
+      "target_match": "Cử nhân",
+      "evidence": "CHƯƠNG TRÌNH ĐÀO TẠO CỬ NHÂN KHÓA 2024 16/05/2025 BACHELOR PROGRAM - YEAR 2024 KHOA: KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH FACUL"
+    }
+  ]
+}

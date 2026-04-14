@@ -147,15 +147,7 @@ vite.config.ts.timestamp-*
 my_model_weights/
 
 # Data pdfs
-data/pdf/
+# data/pdf/
 
-# python
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-
-# virtual env
-venv/
-.venv/
-env/

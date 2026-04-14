@@ -204,16 +204,18 @@ export default function Chat() {
                   </div>
                   
                   <div className={`flex flex-col gap-2 max-w-[85%] ${m.role === "user" ? "items-end" : "items-start"}`}>
-                    <div className={`p-4 rounded-2xl text-[15px] leading-relaxed transition-all ${
+                    <div className={`p-4 rounded-2xl text-[15px] leading-7 transition-all ${
                       m.role === "user" 
                         ? "bg-blue-600 text-white shadow-blue-100 shadow-lg rounded-tr-none" 
                         : "bg-white border border-slate-200 text-slate-800 shadow-sm rounded-tl-none hover:border-slate-300"
                     }`}>
                       {/* Markdown Rendering for Professional Look */}
                       <article className={`prose prose-sm max-w-none ${m.role === 'user' ? 'prose-invert' : 'prose-slate'}`}>
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                          {m.parts?.[0]?.text}
-                        </ReactMarkdown>
+                        <div className="whitespace-pre-wrap break-words [&_p]:mb-2">
+                          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                            {m.parts?.[0]?.text}
+                          </ReactMarkdown>
+                        </div>
                       </article>
                     </div>
                     

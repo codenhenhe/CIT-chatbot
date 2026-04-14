@@ -1,25 +1,93 @@
-from typing import List, Union
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from typing import List, Union, Optional
 from llama_index.core import Settings
-from sentence_transformers import util
+from sentence_transformers import SentenceTransformer, util
 import torch
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv(".env")
-# cache_folder="../my_model_weights/bge_m3",
+
+# Global embedding model instance - khởi tạo 1 lần
+_embedding_model: Optional['EmbeddingModel'] = None
+
+
+def _find_model_path() -> str:
+    """Tìm đường dẫn model local"""
+    script_dir = Path(__file__).resolve().parent
+    project_root = script_dir.parents[2]
+    model_root = project_root / "my_model_weights" / "bge_m3" / "models--BAAI--bge-m3"
+    snapshots_dir = model_root / "snapshots"
+
+    def _is_valid_snapshot(snapshot_dir: Path) -> bool:
+        config_path = snapshot_dir / "config.json"
+        modules_path = snapshot_dir / "modules.json"
+        weights_path = snapshot_dir / "pytorch_model.bin"
+        if not (config_path.exists() and modules_path.exists() and weights_path.exists()):
+            return False
+        try:
+            import json
+            with open(config_path, "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+            return bool(cfg.get("model_type"))
+        except Exception:
+            return False
+
+    # Ưu tiên commit hash trong refs/main (đúng snapshot mà HF cache đang trỏ tới)
+    refs_main = model_root / "refs" / "main"
+    if refs_main.exists():
+        snapshot_id = refs_main.read_text(encoding="utf-8").strip()
+        candidate = snapshots_dir / snapshot_id
+        if _is_valid_snapshot(candidate):
+            return str(candidate)
+
+    if snapshots_dir.exists():
+        valid_snapshots = [p for p in snapshots_dir.glob("*") if _is_valid_snapshot(p)]
+        if valid_snapshots:
+            return str(sorted(valid_snapshots)[-1])
+
+    raise RuntimeError(
+        f"No valid local model snapshot found under {snapshots_dir}. "
+        "Please verify bge-m3 files are complete."
+    )
+
+
+def get_embedding_model() -> 'EmbeddingModel':
+    """Lấy global embedding model instance (tạo 1 lần duy nhất)"""
+    global _embedding_model
+    if _embedding_model is None:
+        _embedding_model = EmbeddingModel()
+    return _embedding_model
+
+
 class EmbeddingModel:
-    def __init__(self, model_name="BAAI/bge-m3", cache_folder="../my_model_weights/bge_m3", device="cpu", embed_batch_size=2):
-        self.model = HuggingFaceEmbedding(
-            model_name=model_name,
-            cache_folder=cache_folder, 
-            device=device,
-            embed_batch_size=embed_batch_size,
-            token = os.getenv("HF_TOKEN") 
-        )
+    def __init__(self, device=None):
+        # Tìm đường dẫn model local
+        model_path = _find_model_path()
         
-        # Cập nhật Settings toàn cục để các hàm khác của LlamaIndex dùng chung
-        Settings.embed_model = self.model
+        resolved_device = device or os.getenv("EMBEDDING_DEVICE") or self._detect_best_device()
+        self.device = resolved_device
+        self.model_name = "BAAI/bge-m3"
+        self.model_path = model_path
+        
+        # Load model từ đường dẫn local dùng SentenceTransformer
+        self.model = SentenceTransformer(
+            model_path,
+            device=resolved_device,
+            trust_remote_code=True,
+            local_files_only=True,
+        )
+        print(
+            f"[Startup] Embedding initialized | model={self.model_name} | device={self.device} | path={self.model_path}"
+        )
+
+    @staticmethod
+    def _detect_best_device() -> str:
+        if torch.cuda.is_available():
+            return "cuda"
+        if hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+            return "mps"
+        return "cpu"
 
     def get_embedding_batch(self, texts: Union[str, List[str]]):
         if isinstance(texts, str):
@@ -29,7 +97,8 @@ class EmbeddingModel:
         if not cleaned_texts:
             return []
 
-        return self.model.get_text_embedding_batch(cleaned_texts)
+        embeddings = self.model.encode(cleaned_texts, convert_to_tensor=False)
+        return [list(emb) if hasattr(emb, '__iter__') else emb for emb in embeddings]
     
     def get_similarity(self, text_a: str, text_b: str):
         """So sánh nhanh 2 câu văn bản"""

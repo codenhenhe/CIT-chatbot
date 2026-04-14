@@ -1,4 +1,5 @@
 import asyncio
+import json
 import os
 from datetime import datetime, timezone
 from pathlib import Path
@@ -6,10 +7,12 @@ from typing import Dict
 from uuid import uuid4
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
+from pydantic import BaseModel
 from dotenv import load_dotenv
 from app.api.deps import require_admin
-from app.scripts.XuLyChuongTrinhDaoTao import CurriculumETL
+from app.scripts.curriculum_graph import import_json_to_neo4j
 from app.scripts.neo4j_class import Neo4jConnector
+from app.scripts.curriculum_main import run_curriculum_etl
 from app.scripts.run import process_quy_che_hoc_vu
 
 router = APIRouter()
@@ -60,37 +63,22 @@ class BaseCategoryProcessor:
 
 class ChuyenNganhDaoTaoProcessor(BaseCategoryProcessor):
     async def process(self, file_path: str) -> dict:
-        neo4j_uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
-        neo4j_user = os.getenv("NEO4J_USERNAME", "neo4j")
-        neo4j_password = os.getenv("NEO4J_PASSWORD")
+        from app.scripts.curriculum_graph import _default_json_path_from_pdf
 
-        if not neo4j_password:
-            raise RuntimeError("Missing NEO4J_PASSWORD in backend .env")
+        json_path = _default_json_path_from_pdf(file_path)
+        extracted = await run_curriculum_etl(pdf_path=file_path, output_json=json_path)
 
-        etl = CurriculumETL(file_path)
-        # ETL parse + embedding là công việc blocking.
-        await asyncio.to_thread(etl.process)
-
-        db = None
-        try:
-            db = Neo4jConnector(neo4j_uri, neo4j_user, neo4j_password)
-            await db.create_constraints(LABELS_TO_INDEX)
-            await db.add_nodes(etl.nodes)
-            await db.add_edges(etl.edges)
-            await db.create_vector_index()
-        finally:
-            if db:
-                await db.close()
+        parser_output = extracted.get("parser_output", {}) if isinstance(extracted, dict) else {}
+        raw_preview = ""
+        if isinstance(extracted, dict):
+            raw_preview = json.dumps(extracted, ensure_ascii=False)[:12000]
 
         return {
-            "message": "Ingestion Neo4j thanh cong",
-            "ingestion_applied": True,
-            "nodes": len(etl.nodes),
-            "edges": len(etl.edges),
-            "extraction_source": etl.extraction_source,
-            "extracted_text_length": etl.extracted_text_length,
-            "section_count": etl.section_count,
-            "extracted_preview": etl.extracted_preview,
+            "message": "Da trich xuat JSON, cho admin xac nhan truoc khi nap Neo4j",
+            "ingestion_applied": False,
+            "json_path": json_path,
+            "section_count": parser_output.get("section_count"),
+            "extracted_preview": raw_preview,
         }
 
 
@@ -198,6 +186,19 @@ async def stop_ingestion_worker() -> None:
             pass
     ingestion_worker_task = None
 
+
+class JsonUpdatePayload(BaseModel):
+    data: dict
+
+
+class ConfirmImportResponse(BaseModel):
+    job_id: str
+    json_path: str
+    message: str
+    ingestion_applied: bool
+    nodes: int
+    edges: int
+
 @router.post("/upload")
 async def upload(
     file: UploadFile = File(...),
@@ -263,3 +264,88 @@ async def upload_status(job_id: str, user=Depends(require_admin)):
     if not job:
         raise HTTPException(status_code=404, detail="Job not found")
     return job
+
+
+def _get_job_json_path(job: dict) -> Path:
+    result = job.get("result") or {}
+    json_path = result.get("json_path")
+    if not json_path:
+        raise HTTPException(status_code=404, detail="No extracted JSON for this job")
+
+    path = Path(json_path).resolve()
+    allowed_root = (BACKEND_ROOT / "processed_data" / "json").resolve()
+    if allowed_root not in path.parents and path != allowed_root:
+        raise HTTPException(status_code=400, detail="Invalid JSON path")
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="Extracted JSON file not found")
+    return path
+
+
+@router.get("/upload/json/{job_id}")
+async def get_extracted_json(job_id: str, user=Depends(require_admin)):
+    job = ingestion_jobs.get(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    path = _get_job_json_path(job)
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    return {
+        "job_id": job_id,
+        "json_path": str(path),
+        "data": data,
+    }
+
+
+@router.put("/upload/json/{job_id}")
+async def update_extracted_json(job_id: str, payload: JsonUpdatePayload, user=Depends(require_admin)):
+    job = ingestion_jobs.get(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    path = _get_job_json_path(job)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload.data, f, ensure_ascii=False, indent=2)
+
+    return {
+        "job_id": job_id,
+        "json_path": str(path),
+        "message": "Updated extracted JSON successfully",
+    }
+
+
+@router.post("/upload/confirm/{job_id}", response_model=ConfirmImportResponse)
+async def confirm_json_and_import(job_id: str, user=Depends(require_admin)):
+    job = ingestion_jobs.get(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    if job.get("category") != "chuyen_nganh_dao_tao":
+        raise HTTPException(status_code=400, detail="Category does not support Neo4j confirmation import")
+
+    path = _get_job_json_path(job)
+    import_summary = await import_json_to_neo4j(str(path))
+
+    current_result = job.get("result") or {}
+    current_result.update(
+        {
+            "ingestion_applied": True,
+            "message": "Da xac nhan va nap du lieu vao Neo4j thanh cong",
+            "nodes": import_summary.get("node_count", 0),
+            "edges": import_summary.get("edge_count", 0),
+            "json_path": import_summary.get("json_path", str(path)),
+        }
+    )
+    job["result"] = current_result
+    job["status"] = "completed"
+    job["confirmed_at"] = _utc_now_iso()
+
+    return {
+        "job_id": job_id,
+        "json_path": str(path),
+        "message": "Đã xác nhận và nạp Neo4j thành công",
+        "ingestion_applied": True,
+        "nodes": import_summary.get("node_count", 0),
+        "edges": import_summary.get("edge_count", 0),
+    }

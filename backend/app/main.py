@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import asyncio
 from app.api import auth, chat, graph
+from app.services.retrieval_service import warmup_embedding_model
 
 
 app = FastAPI(title="CTU GraphRAG Assistant API")
@@ -21,6 +23,15 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup_event():
+    try:
+        warmed_up = await asyncio.to_thread(warmup_embedding_model)
+        if warmed_up:
+            print("[Startup] BGE embedding model warmed up")
+        else:
+            print("[Startup] Embedding warmup skipped due to initialization error")
+    except Exception as e:
+        print(f"[Startup] Embedding warmup skipped: {e}")
+
     await graph.start_ingestion_worker()
 
 
