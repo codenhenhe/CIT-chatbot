@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from neo4j import AsyncGraphDatabase
 import logging
-from app.scripts.XuLyChuongTrinhDaoTao import CurriculumETL
+# from app.scripts.XuLyChuongTrinhDaoTao import CurriculumETL
 from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)

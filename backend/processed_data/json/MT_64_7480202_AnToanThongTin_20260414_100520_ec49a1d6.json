@@ -1,0 +1,4235 @@
+{
+  "source": "MT_64_7480202_AnToanThongTin_20260414_100520_ec49a1d6.pdf",
+  "status": "pending_admin_review",
+  "created_at": "2026-04-14T10:05:37.455145+00:00",
+  "parser_output": {
+    "text_chars": 91581,
+    "preview": "TRƯỜNG ĐẠI HỌC CẦN THƠ\n\nTRƯỜNG CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG\n\nKHOA MẠNG MÁY TÍNH VÀ TRUYỀN THÔNG\n\nBẢN MÔ TẢ\n\nCHƯƠNG TRÌNH ĐÀO TA ̣ O\n\nVÀ CHƯƠNG TRÌNH DẠY HỌC\n\nTRÌNH ĐỘ ĐẠI HỌC\n\nNGÀNH AN TOÀN THÔNG TIN\n\nMã ngành: 7480202\n\n(Áp dụng từ Khóa 50)\n\nCần Thơ, tháng 8 năm 2024\n\nBỘ GIÁO DỤC VÀ ĐÀO TẠO\n\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n\nTRƯỜNG ĐẠI HỌC CẦN THƠ\n\nĐộc lập - Tự do - Hạnh phúc\n\nMÔ TẢ CHƯƠNG TRÌNH ĐÀO TẠO VÀ CHƯƠNG TRÌNH DẠY HỌC\n\nTRÌNH ĐỘ ĐẠI HỌC NGÀNH AN TOÀN THÔNG TIN\n\nI. MÔ TẢ CHƯƠNG TRÌNH ĐÀO TẠO Căn cứ Quyết định số 2606/QĐ-ĐHCT ngày 28 tháng 6 năm 2024của Hiệu trưởng Trường Đại học Cần Thơ về việc ban hành chương trình đào tạo trình độ đại học, Chương trình đào tạo ngành An toàn thông tin được mô tả như sau:\n\n1. Thông tin chung về chương trình đào tạo\n\nTên chương trình (tiếng Việt) | An toàn thông tin ; Tên chương trình (tiếng Anh) | Information Security ; Mã số ngành đào tạo | 7480202 ; Trường cấp bằng | Trường Đại học Cần Thơ ; Tên gọi văn bằng | Bằng Kỹ sư An toàn thông tin ; Trình độ đào tạo | Đại học ; Số tín chỉ yêu cầu | 161 tín chỉ ; Hình thức đào tạo | Chính quy ; Thời gian đào tạo | 4,5 năm ; Đối tượng tuyển sinh | - Người có bằng tốt nghiệp"
+  },
+  "table_output": {
+    "table_count": 16,
+    "preview": "ROW 1: Tên chương trình (tiếng Việt) | An toàn thông tin\nROW 2: Tên chương trình (tiếng Anh) | Information Security\nROW 3: Mã số ngành đào tạo | 7480202\nROW 4: Trường cấp bằng | Trường Đại học Cần Thơ\nROW 5: Tên gọi văn bằng | Bằng Kỹ sư An toàn thông tin\nROW 6: Trình độ đào tạo | Đại học\nROW 7: Số tín chỉ yêu cầu | 161 tín chỉ\nROW 8: Hình thức đào tạo | Chính quy\nROW 9: Thời gian đào tạo | 4,5 năm\nROW 10: Đối tượng tuyển sinh | - Người có bằng tốt nghiệp Trung học phổ thông hoặc tương đương; - Người đã tốt nghiệp trình độ cao đẳng liên thông lên trình độ đại học hình thức chính quy (người tốt nghiệp cao đẳng nghề không thuộc đối tượng này). - Người đã tốt nghiệp trình độ đại học, học liên thông để nhận thêm một bằng tốt nghiệp đại học hình thức chính quy.\nROW 11: Thang điểm đánh giá | Thang điểm 4\nROW 12: Điều kiện tốt nghiệp | - Tích lũy đủ các học phần và số tín chỉ quy định trong chương trình đào tạo; điểm trung bình chung tích lũy của toàn khóa học đạt từ 2,0 trở lên (theo thang điểm 4); đạt chuẩn đầu ra chương trình đào tạo (kể cả chuẩn đầu ra về ngoại ngữ và công nghệ thông tin). - Hoàn thành các học phần điều kiện. Ngoài ra, điểm trung bình chung các học phần Giáo dục quốc "
+  },
+  "results": {
+    "VanBanPhapLy": {
+      "node_type": "VanBanPhapLy",
+      "items": [
+        {
+          "so": "2606/QĐ-ĐHCT",
+          "ten": "Quyết định số 2606/QĐ-ĐHCT",
+          "loai": "Quyết định",
+          "ngay_ban_hanh": "28/06/2024",
+          "co_quan_ban_hanh": null,
+          "noi_dung_goc": "Quyết định số 2606/QĐ-ĐHCT ngày 28 tháng 6 năm 2024"
+        }
+      ]
+    },
+    "TrinhDo": {
+      "node_type": "TrinhDo",
+      "items": [
+        {
+          "ma_trinh_do": "TRINHDO_DAI_HOC",
+          "ten_trinh_do": "Đại học"
+        }
+      ]
+    },
+    "Nganh": {
+      "node_type": "Nganh",
+      "items": [
+        {
+          "ma_nganh": "7480202",
+          "ten_nganh_vi": "An toàn thông tin",
+          "ten_nganh_en": "Information Security"
+        }
+      ]
+    },
+    "Khoa": {
+      "node_type": "Khoa",
+      "items": [
+        {
+          "ma_khoa": "KHOA_MANG_MAY_TINH_VA_TRUYEN_THONG",
+          "ten_khoa": "MẠNG MÁY TÍNH VÀ TRUYỀN THÔNG"
+        }
+      ]
+    },
+    "BoMon": {
+      "node_type": "BoMon",
+      "items": []
+    },
+    "ChuongTrinhDaoTao": {
+      "node_type": "ChuongTrinhDaoTao",
+      "items": [
+        {
+          "ma_chuong_trinh": "7480202",
+          "khoa": 50,
+          "he": "Đại trà",
+          "ngon_ngu": "Tiếng Việt",
+          "tong_tin_chi": 161,
+          "thoi_gian_dao_tao": null,
+          "thang_diem": 4.0
+        }
+      ]
+    },
+    "LoaiVanBang": {
+      "node_type": "LoaiVanBang",
+      "items": [
+        {
+          "ma_loai": "VANBANG_KY_SU",
+          "loai_van_bang": "Kỹ sư"
+        }
+      ]
+    },
+    "HinhThucDaoTao": {
+      "node_type": "HinhThucDaoTao",
+      "items": [
+        {
+          "ma_hinh_thuc": "HINHTHUC_CHINH_QUY",
+          "ten_hinh_thuc": "Chính quy"
+        }
+      ]
+    },
+    "PhuongThucDaoTao": {
+      "node_type": "PhuongThucDaoTao",
+      "items": [
+        {
+          "ma_phuong_thuc": "PHUONGTHUC_TRUC_TUYEN",
+          "ten_phuong_thuc": "Trực tuyến"
+        },
+        {
+          "ma_phuong_thuc": "PHUONGTHUC_TRUC_TIEP",
+          "ten_phuong_thuc": "Trực tiếp"
+        }
+      ]
+    },
+    "DoiTuongTuyenSinh": {
+      "node_type": "DoiTuongTuyenSinh",
+      "items": [
+        {
+          "noi_dung": "- Người có bằng tốt nghiệp Trung học phổ thông hoặc tương đương; - Người đã tốt nghiệp trình độ cao đẳng liên thông lên trình độ đại học hình thức chính quy (người tốt nghiệp cao đẳng nghề không thuộc đối tượng này). - Người đã tốt nghiệp trình độ đại học, học liên thông để nhận thêm một bằng tốt nghiệp đại học hình thức chính quy."
+        }
+      ]
+    },
+    "DieuKienTotNghiep": {
+      "node_type": "DieuKienTotNghiep",
+      "items": [
+        {
+          "noi_dung": "- Tích lũy đủ các học phần và số tín chỉ quy định trong chương trình đào tạo; điểm trung bình chung tích lũy của toàn khóa học đạt từ 2,0 trở lên (theo thang điểm 4); đạt chuẩn đầu ra chương trình đào tạo (kể cả chuẩn đầu ra về ngoại ngữ và công nghệ thông tin). - Hoàn thành các học phần điều kiện. Ngoài ra, điểm trung bình chung các học phần Giáo dục quốc phòng và An ninh phải đạt từ 5,0 trở lên (theo thang điểm 10); - Tại thời điểm xét tốt nghiệp không bị truy cứu trách nhiệm hình sự, không bị kỷ luật ở mức đình chỉ học tập."
+        }
+      ]
+    },
+    "MucTieuDaoTao": {
+      "node_type": "MucTieuDaoTao",
+      "items": []
+    },
+    "ViTriViecLam": {
+      "node_type": "ViTriViecLam",
+      "items": []
+    },
+    "ChuanThamKhao": {
+      "node_type": "ChuanThamKhao",
+      "items": []
+    },
+    "DanhGiaKiemDinh": {
+      "node_type": "DanhGiaKiemDinh",
+      "items": []
+    },
+    "KhaNangHocTap": {
+      "node_type": "KhaNangHocTap",
+      "items": []
+    },
+    "ChuanDauRa": {
+      "node_type": "ChuanDauRa",
+      "items": []
+    },
+    "KhoiKienThuc": {
+      "node_type": "KhoiKienThuc",
+      "items": [
+        {
+          "ma_khoi": "Khối",
+          "ten_khoi": "Khối kiến thức giáo dục đại cương",
+          "tong_tin_chi": null,
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
+        },
+        {
+          "ma_khoi": "Khối",
+          "ten_khoi": "Khối kiến thức cơ sở ngành",
+          "tong_tin_chi": null,
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
+        },
+        {
+          "ma_khoi": "Khối",
+          "ten_khoi": "Khối kiến thức chuyên ngành",
+          "tong_tin_chi": null,
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
+        },
+        {
+          "ma_khoi": "Khối",
+          "ten_khoi": "Khối kiến thức Giáo dục đại cương",
+          "tong_tin_chi": null,
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
+        }
+      ]
+    },
+    "YeuCauTuChon": {
+      "node_type": "YeuCauTuChon",
+      "items": []
+    },
+    "NhomHocPhanTuChon": {
+      "node_type": "NhomHocPhanTuChon",
+      "items": []
+    },
+    "HocPhan": {
+      "node_type": "HocPhan",
+      "items": [
+        {
+          "ma_hp": "QP010E",
+          "ten_hp": "Giáo dục quốc phòng và An ninh 1 (*)",
+          "ten_hoc_phan": "Giáo dục quốc phòng và An ninh 1 (*)",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Giáo dục quốc phòng và An ninh 1 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "QP011E",
+          "ten_hp": "Giáo dục quốc phòng và An ninh 2 (*)",
+          "ten_hoc_phan": "Giáo dục quốc phòng và An ninh 2 (*)",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Giáo dục quốc phòng và An ninh 2 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "QP012",
+          "ten_hp": "Giáo dục quốc phòng và An ninh 3 (*)",
+          "ten_hoc_phan": "Giáo dục quốc phòng và An ninh 3 (*)",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Giáo dục quốc phòng và An ninh 3 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "QP013",
+          "ten_hp": "Giáo dục quốc phòng và An ninh 4 (*)",
+          "ten_hoc_phan": "Giáo dục quốc phòng và An ninh 4 (*)",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Giáo dục quốc phòng và An ninh 4 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "TC100",
+          "ten_hp": "Giáo dục thể chất 1+2+3 (*)",
+          "ten_hoc_phan": "Giáo dục thể chất 1+2+3 (*)",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Giáo dục thể chất 1+2+3 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "XH023",
+          "ten_hp": "Anh văn căn bản 1 (*)",
+          "ten_hoc_phan": "Anh văn căn bản 1 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Anh văn căn bản 1 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "XH024",
+          "ten_hp": "Anh văn căn bản 2 (*)",
+          "ten_hoc_phan": "Anh văn căn bản 2 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Anh văn căn bản 2 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "XH025",
+          "ten_hp": "Anh văn căn bản 3 (*)",
+          "ten_hoc_phan": "Anh văn căn bản 3 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Anh văn căn bản 3 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "XH031",
+          "ten_hp": "Anh văn tăng cường 1 (*)",
+          "ten_hoc_phan": "Anh văn tăng cường 1 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Anh văn tăng cường 1 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "XH032",
+          "ten_hp": "Anh văn tăng cường 2 (*)",
+          "ten_hoc_phan": "Anh văn tăng cường 2 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Anh văn tăng cường 2 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "XH033",
+          "ten_hp": "Anh văn tăng cường 3 (*)",
+          "ten_hoc_phan": "Anh văn tăng cường 3 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Anh văn tăng cường 3 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "FL001",
+          "ten_hp": "Pháp văn căn bản 1 (*)",
+          "ten_hoc_phan": "Pháp văn căn bản 1 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Pháp văn căn bản 1 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "FL002",
+          "ten_hp": "Pháp văn căn bản 2 (*)",
+          "ten_hoc_phan": "Pháp văn căn bản 2 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Pháp văn căn bản 2 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "FL003",
+          "ten_hp": "Pháp văn căn bản 3 (*)",
+          "ten_hoc_phan": "Pháp văn căn bản 3 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Pháp văn căn bản 3 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "FL007",
+          "ten_hp": "Pháp văn tăng cường 1 (*)",
+          "ten_hoc_phan": "Pháp văn tăng cường 1 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Pháp văn tăng cường 1 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "FL008",
+          "ten_hp": "Pháp văn tăng cường 2 (*)",
+          "ten_hoc_phan": "Pháp văn tăng cường 2 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Pháp văn tăng cường 2 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "FL009",
+          "ten_hp": "Pháp văn tăng cường 3 (*)",
+          "ten_hoc_phan": "Pháp văn tăng cường 3 (*)",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Pháp văn tăng cường 3 (*)",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "ML014",
+          "ten_hp": "Triết học Mác - Lênin",
+          "ten_hoc_phan": "Triết học Mác - Lênin",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Triết học Mác - Lênin",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "ML016",
+          "ten_hp": "Kinh tế chính trị Mác - Lênin",
+          "ten_hoc_phan": "Kinh tế chính trị Mác - Lênin",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Kinh tế chính trị Mác - Lênin",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "ML018",
+          "ten_hp": "Chủ nghĩa xã hội khoa học",
+          "ten_hoc_phan": "Chủ nghĩa xã hội khoa học",
+          "so_tin_chi": 1,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Chủ nghĩa xã hội khoa học",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "ML019",
+          "ten_hp": "Lịch sử Đảng Cộng sản Việt Nam",
+          "ten_hoc_phan": "Lịch sử Đảng Cộng sản Việt Nam",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Lịch sử Đảng Cộng sản Việt Nam",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "ML021",
+          "ten_hp": "Tư tưởng Hồ Chí Minh",
+          "ten_hoc_phan": "Tư tưởng Hồ Chí Minh",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Tư tưởng Hồ Chí Minh",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "KL001E",
+          "ten_hp": "Pháp luật đại cương",
+          "ten_hoc_phan": "Pháp luật đại cương",
+          "so_tin_chi": 3,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Pháp luật đại cương",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "ML007",
+          "ten_hp": "Logic học đại cương",
+          "ten_hoc_phan": "Logic học đại cương",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Logic học đại cương",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "XH028",
+          "ten_hp": "Xã hội học đại cương",
+          "ten_hoc_phan": "Xã hội học đại cương",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Xã hội học đại cương",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "XH011",
+          "ten_hp": "Cơ sở văn hóa Việt Nam",
+          "ten_hoc_phan": "Cơ sở văn hóa Việt Nam",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Cơ sở văn hóa Việt Nam",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "XH012",
+          "ten_hp": "Tiếng Việt thực hành",
+          "ten_hoc_phan": "Tiếng Việt thực hành",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Tiếng Việt thực hành",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "XH014",
+          "ten_hp": "Văn bản và lưu trữ học đại cương",
+          "ten_hoc_phan": "Văn bản và lưu trữ học đại cương",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Văn bản và lưu trữ học đại cương",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "KN001E",
+          "ten_hp": "Kỹ năng mềm",
+          "ten_hoc_phan": "Kỹ năng mềm",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Kỹ năng mềm",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "KN002E",
+          "ten_hp": "Đổi mới sáng tạo và khởi nghiệp",
+          "ten_hoc_phan": "Đổi mới sáng tạo và khởi nghiệp",
+          "so_tin_chi": 2,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Đổi mới sáng tạo và khởi nghiệp",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "TN001",
+          "ten_hp": "Vi - Tích phân A1",
+          "ten_hoc_phan": "Vi - Tích phân A1",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Vi - Tích phân A1",
+          "bat_buoc": true
+        },
+        {
+          "ma_hp": "TN002",
+          "ten_hp": "Vi - Tích phân A2",
+          "ten_hoc_phan": "Vi - Tích phân A2",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Vi - Tích phân A2",
+          "bat_buoc": true
+        },
+        {
+          "ma_hp": "TN010",
+          "ten_hp": "Xác suất thống kê",
+          "ten_hoc_phan": "Xác suất thống kê",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Xác suất thống kê",
+          "bat_buoc": true
+        },
+        {
+          "ma_hp": "TN012",
+          "ten_hp": "Đại số tuyến tính và hình học",
+          "ten_hoc_phan": "Đại số tuyến tính và hình học",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Đại số tuyến tính và hình học",
+          "bat_buoc": true
+        },
+        {
+          "ma_hp": "CT100",
+          "ten_hp": "Kỹ năng học đại học",
+          "ten_hoc_phan": "Kỹ năng học đại học",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Kỹ năng học đại học",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT200",
+          "ten_hp": "Nền tảng công nghệ thông tin",
+          "ten_hoc_phan": "Nền tảng công nghệ thông tin",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Nền tảng công nghệ thông tin",
+          "bat_buoc": true
+        },
+        {
+          "ma_hp": "CT172",
+          "ten_hp": "Toán rời rạc",
+          "ten_hoc_phan": "Toán rời rạc",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Toán rời rạc",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT101",
+          "ten_hp": "Lập trình căn bản A",
+          "ten_hoc_phan": "Lập trình căn bản A",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": 1,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Lập trình căn bản A",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT177",
+          "ten_hp": "Cấu trúc dữ liệu",
+          "ten_hoc_phan": "Cấu trúc dữ liệu",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Cấu trúc dữ liệu",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT175",
+          "ten_hp": "Lý thuyết đồ thị",
+          "ten_hoc_phan": "Lý thuyết đồ thị",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Lý thuyết đồ thị",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT174",
+          "ten_hp": "Phân tích và thiết kế thuật toán",
+          "ten_hoc_phan": "Phân tích và thiết kế thuật toán",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Phân tích và thiết kế thuật toán",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT180",
+          "ten_hp": "Cơ sở dữ liệu",
+          "ten_hoc_phan": "Cơ sở dữ liệu",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Cơ sở dữ liệu",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT173",
+          "ten_hp": "Kiến trúc máy tính",
+          "ten_hoc_phan": "Kiến trúc máy tính",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": 1,
+          "tom_tat": "Kiến trúc máy tính",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT178",
+          "ten_hp": "Nguyên lý hệ điều hành",
+          "ten_hoc_phan": "Nguyên lý hệ điều hành",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": 2,
+          "tom_tat": "Nguyên lý hệ điều hành",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT112",
+          "ten_hp": "Mạng máy tính",
+          "ten_hoc_phan": "Mạng máy tính",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": 3,
+          "tom_tat": "Mạng máy tính",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT176",
+          "ten_hp": "Lập trình hướng đối tượng",
+          "ten_hoc_phan": "Lập trình hướng đối tượng",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": 3,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Lập trình hướng đối tượng",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT296",
+          "ten_hp": "Phân tích và thiết kế hệ thống thông tin",
+          "ten_hoc_phan": "Phân tích và thiết kế hệ thống thông tin",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Phân tích và thiết kế hệ thống thông tin",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT182",
+          "ten_hp": "Ngôn ngữ mô hình hóa",
+          "ten_hoc_phan": "Ngôn ngữ mô hình hóa",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Ngôn ngữ mô hình hóa",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT179",
+          "ten_hp": "Quản trị hệ thống",
+          "ten_hoc_phan": "Quản trị hệ thống",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Quản trị hệ thống",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT188",
+          "ten_hp": "Nhập môn lập trình Web",
+          "ten_hoc_phan": "Nhập môn lập trình Web",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": 3,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Nhập môn lập trình Web",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT190",
+          "ten_hp": "Nhập môn trí tuệ nhân tạo",
+          "ten_hoc_phan": "Nhập môn trí tuệ nhân tạo",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Nhập môn trí tuệ nhân tạo",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT335",
+          "ten_hp": "Thiết kế và cài đặt mạng",
+          "ten_hoc_phan": "Thiết kế và cài đặt mạng",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Thiết kế và cài đặt mạng",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT428",
+          "ten_hp": "Lập trình Web",
+          "ten_hoc_phan": "Lập trình Web",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Lập trình Web",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT294",
+          "ten_hp": "Máy học ứng dụng",
+          "ten_hoc_phan": "Máy học ứng dụng",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Máy học ứng dụng",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT197",
+          "ten_hp": "Cơ sở lý thuyết mật mã",
+          "ten_hoc_phan": "Cơ sở lý thuyết mật mã",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Cơ sở lý thuyết mật mã",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT211",
+          "ten_hp": "An ninh mạng",
+          "ten_hoc_phan": "An ninh mạng",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "An ninh mạng",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT485",
+          "ten_hp": "Các kỹ thuật tấn công mạng",
+          "ten_hoc_phan": "Các kỹ thuật tấn công mạng",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Các kỹ thuật tấn công mạng",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT297",
+          "ten_hp": "Pháp y máy tính",
+          "ten_hoc_phan": "Pháp y máy tính",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Pháp y máy tính",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT486",
+          "ten_hp": "Phát hiện và phân tích mã độc",
+          "ten_hoc_phan": "Phát hiện và phân tích mã độc",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Phát hiện và phân tích mã độc",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT228",
+          "ten_hp": "Tường lửa",
+          "ten_hoc_phan": "Tường lửa",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Tường lửa",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT212",
+          "ten_hp": "Quản trị mạng",
+          "ten_hoc_phan": "Quản trị mạng",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Quản trị mạng",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT127",
+          "ten_hp": "Lý thuyết thông tin",
+          "ten_hoc_phan": "Lý thuyết thông tin",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Lý thuyết thông tin",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT344",
+          "ten_hp": "Giải quyết sự cố mạng",
+          "ten_hoc_phan": "Giải quyết sự cố mạng",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Giải quyết sự cố mạng",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT225",
+          "ten_hp": "Lập trình Python",
+          "ten_hoc_phan": "Lập trình Python",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Lập trình Python",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT221",
+          "ten_hp": "Lập trình mạng",
+          "ten_hoc_phan": "Lập trình mạng",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Lập trình mạng",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT274",
+          "ten_hp": "Lập trình cho thiết bị di động",
+          "ten_hoc_phan": "Lập trình cho thiết bị di động",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Lập trình cho thiết bị di động",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT279",
+          "ten_hp": "Blockchain",
+          "ten_hoc_phan": "Blockchain",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Blockchain",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT098",
+          "ten_hp": "Phát triển ứng dụng IoT",
+          "ten_hoc_phan": "Phát triển ứng dụng IoT",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Phát triển ứng dụng IoT",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT488",
+          "ten_hp": "Bảo mật hệ thống IoT",
+          "ten_hoc_phan": "Bảo mật hệ thống IoT",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Bảo mật hệ thống IoT",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT489",
+          "ten_hp": "Luật an ninh mạng và đạo đức trong lĩnh vực CNTT",
+          "ten_hoc_phan": "Luật an ninh mạng và đạo đức trong lĩnh vực CNTT",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Luật an ninh mạng và đạo đức trong lĩnh vực CNTT",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT490",
+          "ten_hp": "An ninh Web",
+          "ten_hoc_phan": "An ninh Web",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "An ninh Web",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT491E",
+          "ten_hp": "Niên luận cơ sở an toàn thông tin",
+          "ten_hoc_phan": "Niên luận cơ sở an toàn thông tin",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": 3,
+          "so_tiet_thuc_hanh": 3,
+          "tom_tat": "Niên luận cơ sở an toàn thông tin",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT492E",
+          "ten_hp": "Niên luận an toàn thông tin",
+          "ten_hoc_phan": "Niên luận an toàn thông tin",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Niên luận an toàn thông tin",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT493E",
+          "ten_hp": "Thực tập doanh nghiệp - An toàn thông tin",
+          "ten_hoc_phan": "Thực tập doanh nghiệp - An toàn thông tin",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Thực tập doanh nghiệp - An toàn thông tin",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT556E",
+          "ten_hp": "Luận văn tốt nghiệp - ATTT",
+          "ten_hoc_phan": "Luận văn tốt nghiệp - ATTT",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Luận văn tốt nghiệp - ATTT",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT520E",
+          "ten_hp": "Tiểu luận tốt nghiệp - ATTT",
+          "ten_hoc_phan": "Tiểu luận tốt nghiệp - ATTT",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Tiểu luận tốt nghiệp - ATTT",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT338",
+          "ten_hp": "Mạng không dây và di động",
+          "ten_hoc_phan": "Mạng không dây và di động",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Mạng không dây và di động",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT232",
+          "ten_hp": "Đánh giá hiệu năng mạng",
+          "ten_hoc_phan": "Đánh giá hiệu năng mạng",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Đánh giá hiệu năng mạng",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT233",
+          "ten_hp": "Điện toán đám mây",
+          "ten_hoc_phan": "Điện toán đám mây",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Điện toán đám mây",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT207",
+          "ten_hp": "Phát triển phần mềm mã nguồn mở",
+          "ten_hoc_phan": "Phát triển phần mềm mã nguồn mở",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Phát triển phần mềm mã nguồn mở",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT223",
+          "ten_hp": "Quản lý dự án phần mềm",
+          "ten_hoc_phan": "Quản lý dự án phần mềm",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Quản lý dự án phần mềm",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT235",
+          "ten_hp": "Quản trị mạng trên MS Windows",
+          "ten_hoc_phan": "Quản trị mạng trên MS Windows",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Quản trị mạng trên MS Windows",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT467",
+          "ten_hp": "Quản trị dữ liệu",
+          "ten_hoc_phan": "Quản trị dữ liệu",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Quản trị dữ liệu",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT251",
+          "ten_hp": "Phát triển ứng dụng trên Windows",
+          "ten_hoc_phan": "Phát triển ứng dụng trên Windows",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Phát triển ứng dụng trên Windows",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT206",
+          "ten_hp": "Phát triển ứng dụng trên Linux",
+          "ten_hoc_phan": "Phát triển ứng dụng trên Linux",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Phát triển ứng dụng trên Linux",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT230",
+          "ten_hp": "Phát triển ứng dụng hướng dịch vụ",
+          "ten_hoc_phan": "Phát triển ứng dụng hướng dịch vụ",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Phát triển ứng dụng hướng dịch vụ",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT238",
+          "ten_hp": "Phân lớp dữ liệu lớn",
+          "ten_hoc_phan": "Phân lớp dữ liệu lớn",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Phân lớp dữ liệu lớn",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT482",
+          "ten_hp": "Xử lý dữ liệu lớn",
+          "ten_hoc_phan": "Xử lý dữ liệu lớn",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Xử lý dữ liệu lớn",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT332",
+          "ten_hp": "Trí tuệ nhân tạo",
+          "ten_hoc_phan": "Trí tuệ nhân tạo",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Trí tuệ nhân tạo",
+          "bat_buoc": null
+        },
+        {
+          "ma_hp": "CT273",
+          "ten_hp": "Giao diện người - máy",
+          "ten_hoc_phan": "Giao diện người - máy",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "tom_tat": "Giao diện người - máy",
+          "bat_buoc": null
+        }
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "QP010E",
+      "evidence": "Giáo dục quốc phòng và An ninh 1 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "QP011E",
+      "evidence": "Giáo dục quốc phòng và An ninh 2 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "QP012",
+      "evidence": "Giáo dục quốc phòng và An ninh 3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "QP013",
+      "evidence": "Giáo dục quốc phòng và An ninh 4 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "TC100",
+      "evidence": "Giáo dục thể chất 1+2+3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH023",
+      "evidence": "Anh văn căn bản 1 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH024",
+      "evidence": "Anh văn căn bản 2 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH025",
+      "evidence": "Anh văn căn bản 3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH031",
+      "evidence": "Anh văn tăng cường 1 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH032",
+      "evidence": "Anh văn tăng cường 2 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH033",
+      "evidence": "Anh văn tăng cường 3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL001",
+      "evidence": "Pháp văn căn bản 1 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL002",
+      "evidence": "Pháp văn căn bản 2 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL003",
+      "evidence": "Pháp văn căn bản 3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL007",
+      "evidence": "Pháp văn tăng cường 1 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL008",
+      "evidence": "Pháp văn tăng cường 2 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL009",
+      "evidence": "Pháp văn tăng cường 3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML014",
+      "evidence": "Triết học Mác - Lênin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML016",
+      "evidence": "Kinh tế chính trị Mác - Lênin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML018",
+      "evidence": "Chủ nghĩa xã hội khoa học"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML019",
+      "evidence": "Lịch sử Đảng Cộng sản Việt Nam"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML021",
+      "evidence": "Tư tưởng Hồ Chí Minh"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "KL001E",
+      "evidence": "Pháp luật đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML007",
+      "evidence": "Logic học đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH028",
+      "evidence": "Xã hội học đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH011",
+      "evidence": "Cơ sở văn hóa Việt Nam"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH012",
+      "evidence": "Tiếng Việt thực hành"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH014",
+      "evidence": "Văn bản và lưu trữ học đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "KN001E",
+      "evidence": "Kỹ năng mềm"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "KN002E",
+      "evidence": "Đổi mới sáng tạo và khởi nghiệp"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "TN001",
+      "evidence": "Vi - Tích phân A1"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "TN002",
+      "evidence": "Vi - Tích phân A2"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "TN010",
+      "evidence": "Xác suất thống kê"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "TN012",
+      "evidence": "Đại số tuyến tính và hình học"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT100",
+      "evidence": "Kỹ năng học đại học"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT200",
+      "evidence": "Nền tảng công nghệ thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT172",
+      "evidence": "Toán rời rạc"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT101",
+      "evidence": "Lập trình căn bản A"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT177",
+      "evidence": "Cấu trúc dữ liệu"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT175",
+      "evidence": "Lý thuyết đồ thị"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT174",
+      "evidence": "Phân tích và thiết kế thuật toán"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT180",
+      "evidence": "Cơ sở dữ liệu"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT173",
+      "evidence": "Kiến trúc máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT178",
+      "evidence": "Nguyên lý hệ điều hành"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT112",
+      "evidence": "Mạng máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT176",
+      "evidence": "Lập trình hướng đối tượng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT296",
+      "evidence": "Phân tích và thiết kế hệ thống thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT182",
+      "evidence": "Ngôn ngữ mô hình hóa"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT179",
+      "evidence": "Quản trị hệ thống"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT188",
+      "evidence": "Nhập môn lập trình Web"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT190",
+      "evidence": "Nhập môn trí tuệ nhân tạo"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT335",
+      "evidence": "Thiết kế và cài đặt mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT428",
+      "evidence": "Lập trình Web"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT294",
+      "evidence": "Máy học ứng dụng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT197",
+      "evidence": "Cơ sở lý thuyết mật mã"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT211",
+      "evidence": "An ninh mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT485",
+      "evidence": "Các kỹ thuật tấn công mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT297",
+      "evidence": "Pháp y máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT486",
+      "evidence": "Phát hiện và phân tích mã độc"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT228",
+      "evidence": "Tường lửa"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT212",
+      "evidence": "Quản trị mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT127",
+      "evidence": "Lý thuyết thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT344",
+      "evidence": "Giải quyết sự cố mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT225",
+      "evidence": "Lập trình Python"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT221",
+      "evidence": "Lập trình mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT274",
+      "evidence": "Lập trình cho thiết bị di động"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT279",
+      "evidence": "Blockchain"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT098",
+      "evidence": "Phát triển ứng dụng IoT"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT488",
+      "evidence": "Bảo mật hệ thống IoT"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT489",
+      "evidence": "Luật an ninh mạng và đạo đức trong lĩnh vực CNTT"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT490",
+      "evidence": "An ninh Web"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT491E",
+      "evidence": "Niên luận cơ sở an toàn thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT492E",
+      "evidence": "Niên luận an toàn thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT493E",
+      "evidence": "Thực tập doanh nghiệp - An toàn thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT556E",
+      "evidence": "Luận văn tốt nghiệp - ATTT"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT520E",
+      "evidence": "Tiểu luận tốt nghiệp - ATTT"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT338",
+      "evidence": "Mạng không dây và di động"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT232",
+      "evidence": "Đánh giá hiệu năng mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT233",
+      "evidence": "Điện toán đám mây"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT207",
+      "evidence": "Phát triển phần mềm mã nguồn mở"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT223",
+      "evidence": "Quản lý dự án phần mềm"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT235",
+      "evidence": "Quản trị mạng trên MS Windows"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT467",
+      "evidence": "Quản trị dữ liệu"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT251",
+      "evidence": "Phát triển ứng dụng trên Windows"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT206",
+      "evidence": "Phát triển ứng dụng trên Linux"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT230",
+      "evidence": "Phát triển ứng dụng hướng dịch vụ"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT238",
+      "evidence": "Phân lớp dữ liệu lớn"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT482",
+      "evidence": "Xử lý dữ liệu lớn"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT332",
+      "evidence": "Trí tuệ nhân tạo"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT273",
+      "evidence": "Giao diện người - máy"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "THUOC_VE",
+      "target_node_type": "Nganh",
+      "target_match": "7480202",
+      "evidence": "header"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "DAO_TAO",
+      "target_node_type": "TrinhDo",
+      "target_match": "Đại học",
+      "evidence": "header"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "DAO_TAO_TRINH_DO",
+      "target_node_type": "TrinhDo",
+      "target_match": "Đại học",
+      "evidence": "header"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CAP",
+      "target_node_type": "LoaiVanBang",
+      "target_match": "Kỹ sư",
+      "evidence": "header"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO_LOAI_VAN_BANG",
+      "target_node_type": "LoaiVanBang",
+      "target_match": "Kỹ sư",
+      "evidence": "header"
+    },
+    {
+      "source_node_type": "Nganh",
+      "source_match": "7480202",
+      "rel_type": "THUOC_VE",
+      "target_node_type": "Khoa",
+      "target_match": "MẠNG MÁY TÍNH VÀ TRUYỀN THÔNG",
+      "evidence": "header"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO",
+      "target_node_type": "HinhThucDaoTao",
+      "target_match": "Chính quy",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "DAO_TAO_THEO_HINH_THUC",
+      "target_node_type": "HinhThucDaoTao",
+      "target_match": "Chính quy",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO",
+      "target_node_type": "PhuongThucDaoTao",
+      "target_match": "Trực tuyến",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO",
+      "target_node_type": "PhuongThucDaoTao",
+      "target_match": "Trực tiếp",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "DAO_TAO_THEO_PHUONG_THUC",
+      "target_node_type": "PhuongThucDaoTao",
+      "target_match": "Trực tuyến",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "DAO_TAO_THEO_PHUONG_THUC",
+      "target_node_type": "PhuongThucDaoTao",
+      "target_match": "Trực tiếp",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO",
+      "target_node_type": "DoiTuongTuyenSinh",
+      "target_match": "- Người có bằng tốt nghiệp Trung học phổ thông hoặc tương đương; - Người đã tốt nghiệp trình độ cao đẳng liên thông lên trình độ đại học hình thức chính quy (người tốt nghiệp cao đẳng nghề không thuộc đối tượng này). - Người đã tốt nghiệp trình độ đại học, học liên thông để nhận thêm một bằng tốt nghiệp đại học hình thức chính quy.",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "YEU_CAU",
+      "target_node_type": "DieuKienTotNghiep",
+      "target_match": "- Tích lũy đủ các học phần và số tín chỉ quy định trong chương trình đào tạo; điểm trung bình chung tích lũy của toàn khóa học đạt từ 2,0 trở lên (theo thang điểm 4); đạt chuẩn đầu ra chương trình đào tạo (kể cả chuẩn đầu ra về ngoại ngữ và công nghệ thông tin). - Hoàn thành các học phần điều kiện. Ngoài ra, điểm trung bình chung các học phần Giáo dục quốc phòng và An ninh phải đạt từ 5,0 trở lên (theo thang điểm 10); - Tại thời điểm xét tốt nghiệp không bị truy cứu trách nhiệm hình sự, không bị kỷ luật ở mức đình chỉ học tập.",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức giáo dục đại cương",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức cơ sở ngành",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức chuyên ngành",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức Giáo dục đại cương",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức giáo dục đại cương",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức cơ sở ngành",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức chuyên ngành",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO_KHOI_KIEN_THUC",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức Giáo dục đại cương",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "QP010E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "QP011E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "QP012",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "QP013",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "TC100",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH023",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH024",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH025",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH031",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH032",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH033",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL001",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL002",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL003",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL007",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL008",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "FL009",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML014",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML016",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML018",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML019",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML021",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "KL001E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ML007",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH028",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH011",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH012",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "XH014",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "KN001E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "KN002E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "TN001",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "TN002",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "TN010",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "TN012",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT100",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT200",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT172",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT101",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT177",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT175",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT174",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT180",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT173",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT178",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT112",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT176",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT296",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT182",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT179",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT188",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT190",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT335",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT428",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT294",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT197",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT211",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT485",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT297",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT486",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT228",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT212",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT127",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT344",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT225",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT221",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT274",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT279",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT098",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT488",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT489",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT490",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT491E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT492E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT493E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT556E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT520E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT338",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT232",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT233",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT207",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT223",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT235",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT467",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT251",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT206",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT230",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT238",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT482",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT332",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CT273",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "BAN_HANH_THEO",
+      "target_node_type": "VanBanPhapLy",
+      "target_match": "2606/QĐ-ĐHCT",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "DUOC_BAN_HANH_THEO",
+      "target_node_type": "VanBanPhapLy",
+      "target_match": "2606/QĐ-ĐHCT",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "QP010E",
+      "evidence": "Giáo dục quốc phòng và An ninh 1 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "QP011E",
+      "evidence": "Giáo dục quốc phòng và An ninh 2 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "QP012",
+      "evidence": "Giáo dục quốc phòng và An ninh 3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "QP013",
+      "evidence": "Giáo dục quốc phòng và An ninh 4 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "TC100",
+      "evidence": "Giáo dục thể chất 1+2+3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH023",
+      "evidence": "Anh văn căn bản 1 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH024",
+      "evidence": "Anh văn căn bản 2 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH025",
+      "evidence": "Anh văn căn bản 3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH031",
+      "evidence": "Anh văn tăng cường 1 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH032",
+      "evidence": "Anh văn tăng cường 2 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH033",
+      "evidence": "Anh văn tăng cường 3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL001",
+      "evidence": "Pháp văn căn bản 1 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL002",
+      "evidence": "Pháp văn căn bản 2 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL003",
+      "evidence": "Pháp văn căn bản 3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL007",
+      "evidence": "Pháp văn tăng cường 1 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL008",
+      "evidence": "Pháp văn tăng cường 2 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL009",
+      "evidence": "Pháp văn tăng cường 3 (*)"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML014",
+      "evidence": "Triết học Mác - Lênin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML016",
+      "evidence": "Kinh tế chính trị Mác - Lênin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML018",
+      "evidence": "Chủ nghĩa xã hội khoa học"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML019",
+      "evidence": "Lịch sử Đảng Cộng sản Việt Nam"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML021",
+      "evidence": "Tư tưởng Hồ Chí Minh"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "KL001E",
+      "evidence": "Pháp luật đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML007",
+      "evidence": "Logic học đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH028",
+      "evidence": "Xã hội học đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH011",
+      "evidence": "Cơ sở văn hóa Việt Nam"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH012",
+      "evidence": "Tiếng Việt thực hành"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH014",
+      "evidence": "Văn bản và lưu trữ học đại cương"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "KN001E",
+      "evidence": "Kỹ năng mềm"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "KN002E",
+      "evidence": "Đổi mới sáng tạo và khởi nghiệp"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "TN001",
+      "evidence": "Vi - Tích phân A1"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "TN002",
+      "evidence": "Vi - Tích phân A2"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "TN010",
+      "evidence": "Xác suất thống kê"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "TN012",
+      "evidence": "Đại số tuyến tính và hình học"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT100",
+      "evidence": "Kỹ năng học đại học"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức giáo dục đại cương",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT200",
+      "evidence": "Nền tảng công nghệ thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT172",
+      "evidence": "Toán rời rạc"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT101",
+      "evidence": "Lập trình căn bản A"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT177",
+      "evidence": "Cấu trúc dữ liệu"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT175",
+      "evidence": "Lý thuyết đồ thị"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT174",
+      "evidence": "Phân tích và thiết kế thuật toán"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT180",
+      "evidence": "Cơ sở dữ liệu"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT173",
+      "evidence": "Kiến trúc máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT178",
+      "evidence": "Nguyên lý hệ điều hành"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT112",
+      "evidence": "Mạng máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT176",
+      "evidence": "Lập trình hướng đối tượng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT296",
+      "evidence": "Phân tích và thiết kế hệ thống thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT182",
+      "evidence": "Ngôn ngữ mô hình hóa"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT179",
+      "evidence": "Quản trị hệ thống"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT188",
+      "evidence": "Nhập môn lập trình Web"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức cơ sở ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT190",
+      "evidence": "Nhập môn trí tuệ nhân tạo"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT335",
+      "evidence": "Thiết kế và cài đặt mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT428",
+      "evidence": "Lập trình Web"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT294",
+      "evidence": "Máy học ứng dụng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT197",
+      "evidence": "Cơ sở lý thuyết mật mã"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT211",
+      "evidence": "An ninh mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT485",
+      "evidence": "Các kỹ thuật tấn công mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT297",
+      "evidence": "Pháp y máy tính"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT486",
+      "evidence": "Phát hiện và phân tích mã độc"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT228",
+      "evidence": "Tường lửa"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT212",
+      "evidence": "Quản trị mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT127",
+      "evidence": "Lý thuyết thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT344",
+      "evidence": "Giải quyết sự cố mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT225",
+      "evidence": "Lập trình Python"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT221",
+      "evidence": "Lập trình mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT274",
+      "evidence": "Lập trình cho thiết bị di động"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT279",
+      "evidence": "Blockchain"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT098",
+      "evidence": "Phát triển ứng dụng IoT"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT488",
+      "evidence": "Bảo mật hệ thống IoT"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT489",
+      "evidence": "Luật an ninh mạng và đạo đức trong lĩnh vực CNTT"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT490",
+      "evidence": "An ninh Web"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT491E",
+      "evidence": "Niên luận cơ sở an toàn thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT492E",
+      "evidence": "Niên luận an toàn thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT493E",
+      "evidence": "Thực tập doanh nghiệp - An toàn thông tin"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT556E",
+      "evidence": "Luận văn tốt nghiệp - ATTT"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT520E",
+      "evidence": "Tiểu luận tốt nghiệp - ATTT"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT338",
+      "evidence": "Mạng không dây và di động"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT232",
+      "evidence": "Đánh giá hiệu năng mạng"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT233",
+      "evidence": "Điện toán đám mây"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT207",
+      "evidence": "Phát triển phần mềm mã nguồn mở"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT223",
+      "evidence": "Quản lý dự án phần mềm"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT235",
+      "evidence": "Quản trị mạng trên MS Windows"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT467",
+      "evidence": "Quản trị dữ liệu"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT251",
+      "evidence": "Phát triển ứng dụng trên Windows"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT206",
+      "evidence": "Phát triển ứng dụng trên Linux"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT230",
+      "evidence": "Phát triển ứng dụng hướng dịch vụ"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT238",
+      "evidence": "Phân lớp dữ liệu lớn"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT482",
+      "evidence": "Xử lý dữ liệu lớn"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT332",
+      "evidence": "Trí tuệ nhân tạo"
+    },
+    {
+      "source_node_type": "KhoiKienThuc",
+      "source_match": "Khối kiến thức chuyên ngành",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT273",
+      "evidence": "Giao diện người - máy"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO_YEU_CAU_TU_CHON",
+      "target_node_type": "HinhThucDaoTao",
+      "target_match": "Chính quy",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO_YEU_CAU_TU_CHON",
+      "target_node_type": "PhuongThucDaoTao",
+      "target_match": "Trực tuyến",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO_YEU_CAU_TU_CHON",
+      "target_node_type": "PhuongThucDaoTao",
+      "target_match": "Trực tiếp",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "CO_YEU_CAU_TU_CHON",
+      "target_node_type": "DoiTuongTuyenSinh",
+      "target_match": "- Người có bằng tốt nghiệp Trung học phổ thông hoặc tương đương; - Người đã tốt nghiệp trình độ cao đẳng liên thông lên trình độ đại học hình thức chính quy (người tốt nghiệp cao đẳng nghề không thuộc đối tượng này). - Người đã tốt nghiệp trình độ đại học, học liên thông để nhận thêm một bằng tốt nghiệp đại học hình thức chính quy.",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức giáo dục đại cương",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức cơ sở ngành",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức chuyên ngành",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "Khối kiến thức Giáo dục đại cương",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "QP010E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "QP011E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "QP012",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "QP013",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "TC100",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH023",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH024",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH025",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH031",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH032",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH033",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL001",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL002",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL003",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL007",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL008",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "FL009",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML014",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML016",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML018",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML019",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML021",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "KL001E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "ML007",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH028",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH011",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH012",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "XH014",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "KN001E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "KN002E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "TN001",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "TN002",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "TN010",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "TN012",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT100",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT200",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT172",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT101",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT177",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT175",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT174",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT180",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT173",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT178",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT112",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT176",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT296",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT182",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT179",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT188",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT190",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT335",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT428",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT294",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT197",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT211",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT485",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT297",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT486",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT228",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT212",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT127",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT344",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT225",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT221",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT274",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT279",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT098",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT488",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT489",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT490",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT491E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT492E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT493E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT556E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT520E",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT338",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT232",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT233",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT207",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT223",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT235",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT467",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT251",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT206",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT230",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT238",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT482",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT332",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "7480202",
+      "rel_type": "GOM_HOC_PHAN",
+      "target_node_type": "HocPhan",
+      "target_match": "CT273",
+      "evidence": "auto"
+    }
+  ],
+  "admin_review": {
+    "approved": false,
+    "reviewed_by": null,
+    "reviewed_at": null,
+    "notes": ""
+  }
+}

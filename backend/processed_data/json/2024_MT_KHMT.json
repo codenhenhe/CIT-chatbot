@@ -1,267 +1,293 @@
 {
   "source": "2024_MT_KHMT.pdf",
+  "status": "pending_admin_review",
+  "created_at": "2026-04-14T09:01:37.748876+00:00",
   "parser_output": {
-    "source": "2024_MT_KHMT.pdf",
-    "section_count": 4
+    "text_chars": 14118,
+    "preview": "CHƯƠNG TRÌNH ĐÀO TẠO CỬ NHÂN KHÓA 2024\n\n16/05/2025\n\nBACHELOR PROGRAM - YEAR 2024\n\nKHOA: KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH\n\nFACULTY OF COMPUTER SCIENCE AND ENGINEERING\n\n(Ban hành kèm theo quyết định số 460/QĐ-ĐHBK - ngày 18 tháng 02 năm 2025)\n\nNgành: Khoa học Máy tính -\n\nMajor: Computer Science -\n\nChuyên ngành: Khoa học Máy tính -\n\nSpeciality: Computer Science -\n\nChuyên ngành: Công nghệ dữ liệu và dữ liệu lớn -\n\nSpeciality: Data Engineering and Big Data -\n\nChuyên ngành: Công nghệ Phần mềm -\n\nSpeciality: Advanced Software Engineering -\n\nChuyên ngành: An ninh hệ thống và mạng -\n\nSpeciality: System and Network Security-\n\nChuyên ngành: Trí tuệ nhân tạo -\n\nSpeciality: Artificial Intelligence -\n\nI. Cấu trúc CTĐT ( Program Structure ) Ghi chú (notes): TQ: Tiên quyết (Prerequisite); SH: Song hành (Co-requisite Courses); KN: Khuyến nghị (Recommended-Courses) x - cốt lõi tài năng (H\n\nSTT | Mã học phần | Tên học phần | Tín chỉ | Học phần tiên quyết/song hành | Ghi chú ; No. | (Course ID) | (Course Title) | (Credits) | (Prerequisites) | (Notes) ; A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB] | 30 ; 1 | MT1003 | Giải tích 1 | 4 ; Calculus 1 ; 2 | MT1005 | Giải tích 2 | 4 | MT100"
   },
   "table_output": {
     "table_count": 7,
-    "table_preview": [
-      {
-        "page": 1,
-        "table_index": 1,
-        "text": "STT | Mã học phần | Tên học phần | Tín chỉ | Học phần tiên quyết/song hành | Ghi chú ; No. | (Course ID) | (Course Title) | (Credits) | (Prerequisites) | (Notes) ; A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB] | 30 ; 1 | MT1003 | Giải tích 1 | 4 ; Calculus 1 ; 2 | MT1005 | Giải "
-      },
-      {
-        "page": 2,
-        "table_index": 1,
-        "text": "5 | SP1037 | Tư tưởng Hồ Chí Minh | 2 | SP1039(KN) ; Ho Chi Minh Ideology ; 6 | SP1039 | Lịch sử Đảng Cộng sản Việt Nam | 2 | SP1035(KN) ; History of VieTNamese Communist Party ; B.2 . Giáo dục chung khác (Other general education) [BB] | 9 ; B.2.1. Nhập môn (Introduction) [BB] | 3 ; 1 | CO1005 | Nhậ"
-      },
-      {
-        "page": 3,
-        "table_index": 1,
-        "text": "E. . Tự chọn ngành (Elective Major Courses) [BB] | 2 ; E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB] | 1 ; 1 | CO3101 | Đồ án Tổng hợp - Hướng Trí tuệ Nhân tạo | 1 | x ; Programming Intergration Project ; 2 | CO3103 | Đồ án Tổng hợp - hướng Công nghệ Phần mềm | 1 | x ; Programming In"
-      },
-      {
-        "page": 4,
-        "table_index": 1,
-        "text": "8 | CO3049 | Lập trình Web | 3 ; Web Programming ; 9 | CO3135 | Lập trình cho Trí tuệ nhân tạo và Khoa học dữ liệu | 3 DS) | CO2003(TQ), CO1027(TQ) ; Programming for Artificial Intelligence and Data Science (P4AI- ; F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC] | 15 ; 1 | C"
-      },
-      {
-        "page": 5,
-        "table_index": 1,
-        "text": "29 | CO3133 | Học sâu và Ứng dụng | 3 | CO3061(KN) ; Deep Learning and Its Applications ; 30 | CO3085 | Xử lý Ngôn ngữ Tự nhiên | 3 ; Natural Language Processing ; 31 | CO3057 | Xử lý Ảnh số và Thị giác Máy tính | 3 ; Digital Image Processing and Computer Vision ; 32 | CO3045 | Lập trình Game | 3 ; "
-      }
-    ]
+    "preview": "ROW 1: STT | Mã học phần | Tên học phần | Tín chỉ | Học phần tiên quyết/song hành | Ghi chú\nROW 2: No. | (Course ID) | (Course Title) | (Credits) | (Prerequisites) | (Notes)\nROW 3: A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB] | 30\nROW 4: 1 | MT1003 | Giải tích 1 | 4\nROW 5: Calculus 1\nROW 6: 2 | MT1005 | Giải tích 2 | 4 | MT1003(KN)\nROW 7: Calculus 2\nROW 8: 3 | MT1007 | Đại số Tuyến tính | 3\nROW 9: Linear Algebra\nROW 10: 4 | MT2013 | Xác suất và Thống kê | 4 | MT1007(KN)\nROW 11: Probability and Statistics\nROW 12: 5 | CH1003 | Hóa đại cương | 3\nROW 13: General Chemistry\nROW 14: 6 | PH1003 | Vật lý 1 | 4\nROW 15: General Physics 1\nROW 16: 7 | PH1007 | Thí nghiệm Vật lý | 1\nROW 17: General Physics Labs\nROW 18: 8 | CO1007 | Cấu trúc Rời rạc cho Khoa học Máy tính | 4\nROW 19: Discrete Structures for Computing\nROW 20: 9 | CO2011 | Mô hình hóa Toán học | 3 | CO1007(KN)\nROW 21: MaThematical Modeling\nROW 22: B. Giáo dục chung (General education) [BB] | 30\nROW 23: B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB] | 13\nROW 24: 1 | SP1007 | Pháp luật Việt Nam Đại cương | 2\nROW 25: Introduction to VieTNamese Law\nROW 26: 2 | SP1031 | Triết học Mác - Lênin | 3\n"
   },
-  "batch_plan": [],
   "results": {
+    "VanBanPhapLy": {
+      "node_type": "VanBanPhapLy",
+      "items": [
+        {
+          "so": "460/QĐ-ĐHBK",
+          "ten": "Quyết định số 460/QĐ-ĐHBK",
+          "loai": "Quyết định",
+          "ngay_ban_hanh": "18/02/2025",
+          "co_quan_ban_hanh": null,
+          "noi_dung_goc": "quyết định số 460/QĐ-ĐHBK - ngày 18 tháng 02 năm 2025"
+        }
+      ]
+    },
+    "TrinhDo": {
+      "node_type": "TrinhDo",
+      "items": []
+    },
+    "Nganh": {
+      "node_type": "Nganh",
+      "items": []
+    },
+    "Khoa": {
+      "node_type": "Khoa",
+      "items": []
+    },
+    "BoMon": {
+      "node_type": "BoMon",
+      "items": []
+    },
+    "ChuongTrinhDaoTao": {
+      "node_type": "ChuongTrinhDaoTao",
+      "items": [
+        {
+          "ma_chuong_trinh": null,
+          "khoa": 2024,
+          "he": "Đại trà",
+          "ngon_ngu": "Tiếng Việt",
+          "tong_tin_chi": null,
+          "thoi_gian_dao_tao": null
+        }
+      ]
+    },
+    "LoaiVanBang": {
+      "node_type": "LoaiVanBang",
+      "items": [
+        {
+          "loai_van_bang": "Kỹ sư"
+        }
+      ]
+    },
+    "HinhThucDaoTao": {
+      "node_type": "HinhThucDaoTao",
+      "items": []
+    },
+    "PhuongThucDaoTao": {
+      "node_type": "PhuongThucDaoTao",
+      "items": []
+    },
+    "MucTieuDaoTao": {
+      "node_type": "MucTieuDaoTao",
+      "items": []
+    },
+    "ViTriViecLam": {
+      "node_type": "ViTriViecLam",
+      "items": []
+    },
+    "ChuanThamKhao": {
+      "node_type": "ChuanThamKhao",
+      "items": []
+    },
+    "KhaNangHocTap": {
+      "node_type": "KhaNangHocTap",
+      "items": []
+    },
+    "ChuanDauRa": {
+      "node_type": "ChuanDauRa",
+      "items": []
+    },
     "KhoiKienThuc": {
       "node_type": "KhoiKienThuc",
       "items": [
         {
           "ma_khoi": "A",
-          "ten_khoi": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
+          "ten_khoi": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
           "tong_tin_chi": 30,
-          "tin_chi_bat_buoc": 30,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "B",
-          "ten_khoi": "Giáo dục chung (General education)",
+          "ten_khoi": "B. Giáo dục chung (General education) [BB]",
           "tong_tin_chi": 30,
-          "tin_chi_bat_buoc": 30,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "B.1",
-          "ten_khoi": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
+          "ten_khoi": "B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB]",
           "tong_tin_chi": 13,
-          "tin_chi_bat_buoc": 13,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "B.2",
-          "ten_khoi": "Giáo dục chung khác (Other general education)",
+          "ten_khoi": "B.2 . Giáo dục chung khác (Other general education) [BB]",
           "tong_tin_chi": 9,
-          "tin_chi_bat_buoc": 9,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "B.2.1",
-          "ten_khoi": "Nhập môn (Introduction)",
+          "ten_khoi": "B.2.1. Nhập môn (Introduction) [BB]",
           "tong_tin_chi": 3,
-          "tin_chi_bat_buoc": 3,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "B.2.2",
-          "ten_khoi": "Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills)",
+          "ten_khoi": "B.2.2. Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills) [BB]",
           "tong_tin_chi": 3,
-          "tin_chi_bat_buoc": 3,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "B.2.3",
-          "ten_khoi": "Quản lý (tự chọn 3 tc) (Management)",
+          "ten_khoi": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]",
           "tong_tin_chi": 3,
-          "tin_chi_bat_buoc": 3,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "B.3",
-          "ten_khoi": "Ngoại ngữ (Foreign Languages)",
+          "ten_khoi": "B.3 . Ngoại ngữ (Foreign Languages) [BB]",
           "tong_tin_chi": 8,
-          "tin_chi_bat_buoc": 8,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "C",
-          "ten_khoi": "Cơ sở ngành (Core Courses)",
+          "ten_khoi": "C. Cơ sở ngành (Core Courses) [BB]",
           "tong_tin_chi": 21,
-          "tin_chi_bat_buoc": 21,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "D",
-          "ten_khoi": "Ngành (Compulsory Major Subjects)",
+          "ten_khoi": "D. Ngành (Compulsory Major Subjects) [BB]",
           "tong_tin_chi": 13,
-          "tin_chi_bat_buoc": 13,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "E",
-          "ten_khoi": "Tự chọn ngành (Elective Major Courses)",
+          "ten_khoi": "E. . Tự chọn ngành (Elective Major Courses) [BB]",
           "tong_tin_chi": 2,
-          "tin_chi_bat_buoc": 2,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "E.1",
-          "ten_khoi": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
+          "ten_khoi": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]",
           "tong_tin_chi": 1,
-          "tin_chi_bat_buoc": 1,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "E.2",
-          "ten_khoi": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
+          "ten_khoi": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]",
           "tong_tin_chi": 1,
-          "tin_chi_bat_buoc": 1,
-          "tin_chi_tu_chon": 0
-        },
-        {
-          "ma_khoi": "F",
-          "ten_khoi": "Chuyên ngành (Speciality Courses)",
-          "tong_tin_chi": 15,
-          "tin_chi_bat_buoc": 15,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "F.1",
-          "ten_khoi": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+          "ten_khoi": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
           "tong_tin_chi": 1,
-          "tin_chi_bat_buoc": 1,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "F.2",
-          "ten_khoi": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
+          "ten_khoi": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
           "tong_tin_chi": 15,
-          "tin_chi_bat_buoc": 15,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "F.3",
-          "ten_khoi": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
+          "ten_khoi": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
           "tong_tin_chi": 15,
-          "tin_chi_bat_buoc": 15,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "F.4",
-          "ten_khoi": "Chuyên ngành: An ninh hệ thống và mạng (Specialty: System and Network Security)",
+          "ten_khoi": "F.4. Chuyên ngành: An ninh hệ thống và mạng (Specialty: System and Network Security)",
           "tong_tin_chi": 15,
-          "tin_chi_bat_buoc": 15,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "F.5",
-          "ten_khoi": "Chuyên ngành: Trí tuệ nhân tạo (Specialty: Artificial Intelligence)",
+          "ten_khoi": "F.5. Chuyên ngành: Trí tuệ nhân tạo (Specialty: Artificial Intelligence) [TC]",
           "tong_tin_chi": 15,
-          "tin_chi_bat_buoc": 15,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "G",
-          "ten_khoi": "Tự chọn tự do (Free elective courses)",
+          "ten_khoi": "G. Tự chọn tự do (Free elective courses) [BB]",
           "tong_tin_chi": 9,
-          "tin_chi_bat_buoc": 9,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "H",
-          "ten_khoi": "Học phần tốt nghiệp (Graduation module courses)",
+          "ten_khoi": "H. Học phần tốt nghiệp (Graduation module courses) [BB]",
           "tong_tin_chi": 8,
-          "tin_chi_bat_buoc": 8,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "I",
-          "ten_khoi": "Giáo dục quốc phòng (National defense education)",
+          "ten_khoi": "I. Giáo dục quốc phòng (National defense education) [BB]",
           "tong_tin_chi": 0,
-          "tin_chi_bat_buoc": 0,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "J",
-          "ten_khoi": "Giáo dục thể chất (Physical education)",
+          "ten_khoi": "J. Giáo dục thể chất (Physical education) [BB]",
           "tong_tin_chi": 0,
-          "tin_chi_bat_buoc": 0,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "J.1",
-          "ten_khoi": "Giáo dục thể chất học phần 1 (Physical education part 1)",
+          "ten_khoi": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
           "tong_tin_chi": 0,
-          "tin_chi_bat_buoc": 0,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "J.2",
-          "ten_khoi": "Giáo dục thể chất học phần 2 (Physical education part 2)",
+          "ten_khoi": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
           "tong_tin_chi": 0,
-          "tin_chi_bat_buoc": 0,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         },
         {
           "ma_khoi": "K",
-          "ten_khoi": "Điều kiện tốt nghiệp (Graduation requirements)",
+          "ten_khoi": "K. Điều kiện tốt nghiệp (Graduation requirements) [BB]",
           "tong_tin_chi": 0,
-          "tin_chi_bat_buoc": 0,
-          "tin_chi_tu_chon": 0
+          "tin_chi_bat_buoc": null,
+          "tin_chi_tu_chon": null
         }
       ]
     },
     "YeuCauTuChon": {
       "node_type": "YeuCauTuChon",
-      "items": [
-        {
-          "noi_dung_yeu_cau": "Quản lý",
-          "so_tin_chi_yeu_cau": 3
-        },
-        {
-          "noi_dung_yeu_cau": "Tự chọn ngành",
-          "so_tin_chi_yeu_cau": 2
-        },
-        {
-          "noi_dung_yeu_cau": "Tự chọn ngành- nhóm A",
-          "so_tin_chi_yeu_cau": 1
-        },
-        {
-          "noi_dung_yeu_cau": "Tự chọn ngành- nhóm B",
-          "so_tin_chi_yeu_cau": 1
-        },
-        {
-          "noi_dung_yeu_cau": "Tự chọn tự do",
-          "so_tin_chi_yeu_cau": 9
-        }
-      ]
+      "items": []
     },
     "NhomHocPhanTuChon": {
       "node_type": "NhomHocPhanTuChon",
-      "items": [
-        {
-          "ten_nhom": "A"
-        },
-        {
-          "ten_nhom": "B"
-        }
-      ]
+      "items": []
     },
     "HocPhan": {
       "node_type": "HocPhan",
       "items": [
+        {
+          "ma_hp": "MÃHỌCPHẦN",
+          "ten_hp": "Tên học phần",
+          "so_tin_chi": null,
+          "so_tiet_ly_thuyet": null,
+          "so_tiet_thuc_hanh": null,
+          "bat_buoc": false
+        },
         {
           "ma_hp": "(COURSEID)",
           "ten_hp": "(Course Title)",
@@ -284,7 +310,7 @@
           "so_tin_chi": 4,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "MT1007",
@@ -300,7 +326,7 @@
           "so_tin_chi": 4,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CH1003",
@@ -340,7 +366,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "SP1007",
@@ -364,7 +390,7 @@
           "so_tin_chi": 2,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "SP1035",
@@ -372,7 +398,7 @@
           "so_tin_chi": 2,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "SP1037",
@@ -380,7 +406,7 @@
           "so_tin_chi": 2,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "SP1039",
@@ -388,7 +414,7 @@
           "so_tin_chi": 2,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO1005",
@@ -404,7 +430,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "IM1013",
@@ -476,7 +502,7 @@
           "so_tin_chi": 2,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "LA1007",
@@ -484,7 +510,7 @@
           "so_tin_chi": 2,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "LA1009",
@@ -492,7 +518,7 @@
           "so_tin_chi": 2,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO1023",
@@ -516,7 +542,7 @@
           "so_tin_chi": 4,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO2007",
@@ -524,7 +550,7 @@
           "so_tin_chi": 4,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO2013",
@@ -556,7 +582,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO3005",
@@ -564,7 +590,7 @@
           "so_tin_chi": 4,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO3093",
@@ -644,7 +670,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO3027",
@@ -668,7 +694,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO3115",
@@ -684,7 +710,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO4033",
@@ -700,7 +726,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO4037",
@@ -732,7 +758,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO3011",
@@ -764,7 +790,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO3017",
@@ -788,7 +814,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO3049",
@@ -804,7 +830,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO3089",
@@ -868,7 +894,7 @@
           "so_tin_chi": 3,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO3085",
@@ -940,7 +966,7 @@
           "so_tin_chi": 2,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "CO4337",
@@ -948,7 +974,7 @@
           "so_tin_chi": 4,
           "so_tiet_ly_thuyet": null,
           "so_tiet_thuc_hanh": null,
-          "bat_buoc": false
+          "bat_buoc": true
         },
         {
           "ma_hp": "MI1003",
@@ -1159,1588 +1185,2022 @@
           "bat_buoc": null
         }
       ]
-    },
-    "VanBanPhapLy": {
-      "node_type": "VanBanPhapLy",
-      "items": [
-        {
-          "so": "460/QĐ-ĐHBK",
-          "ten": "Quyết định số 460/QĐ-ĐHBK ngày 18/02/2025",
-          "loai": "Quyết định",
-          "ngay_ban_hanh": "18/02/2025",
-          "co_quan_ban_hanh": "KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH",
-          "noi_dung_goc": "(Ban hành kèm theo quyết định số 460/QĐ-ĐHBK - ngày 18 tháng 02 năm 2025)"
-        }
-      ]
-    },
-    "TrinhDo": {
-      "node_type": "TrinhDo",
-      "items": [
-        {
-          "ten_trinh_do": "Cử nhân"
-        }
-      ]
-    },
-    "Nganh": {
-      "node_type": "Nganh",
-      "items": [
-        {
-          "ma_nganh": null,
-          "ten_nganh_vi": "Khoa học Máy tính",
-          "ten_nganh_en": "Computer Science"
-        }
-      ]
-    },
-    "Khoa": {
-      "node_type": "Khoa",
-      "items": [
-        {
-          "ten_khoa": "KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH"
-        }
-      ]
-    },
-    "LoaiVanBang": {
-      "node_type": "LoaiVanBang",
-      "items": [
-        {
-          "loai_van_bang": "Cử nhân"
-        }
-      ]
-    },
-    "ChuongTrinhDaoTao": {
-      "node_type": "ChuongTrinhDaoTao",
-      "items": [
-        {
-          "ma_chuong_trinh": null,
-          "khoa": 2024,
-          "he": "Đại trà",
-          "ngon_ngu": "Tiếng Việt",
-          "tong_tin_chi": 230,
-          "thoi_gian_dao_tao": null
-        }
-      ]
-    },
-    "MucTieuDaoTao": {
-      "node_type": "MucTieuDaoTao",
-      "items": []
-    },
-    "ViTriViecLam": {
-      "node_type": "ViTriViecLam",
-      "items": []
-    },
-    "ChuanThamKhao": {
-      "node_type": "ChuanThamKhao",
-      "items": []
-    },
-    "KhaNangHocTap": {
-      "node_type": "KhaNangHocTap",
-      "items": []
-    },
-    "ChuanDauRa": {
-      "node_type": "ChuanDauRa",
-      "items": []
-    },
-    "BoMon": {
-      "node_type": "BoMon",
-      "items": []
-    },
-    "HinhThucDaoTao": {
-      "node_type": "HinhThucDaoTao",
-      "items": []
-    },
-    "PhuongThucDaoTao": {
-      "node_type": "PhuongThucDaoTao",
-      "items": []
     }
   },
   "relationships": [
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "evidence": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "evidence": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "MT1003",
       "evidence": "Giải tích 1"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "MT1005",
       "evidence": "Giải tích 2"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "MT1007",
       "evidence": "Đại số Tuyến tính"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "MT2013",
       "evidence": "Xác suất và Thống kê"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CH1003",
       "evidence": "Hóa đại cương"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PH1003",
       "evidence": "Vật lý 1"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PH1007",
       "evidence": "Thí nghiệm Vật lý"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO1007",
       "evidence": "Cấu trúc Rời rạc cho Khoa học Máy tính"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO2011",
       "evidence": "Mô hình hóa Toán học"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Giáo dục chung (General education)",
-      "evidence": "B. Giáo dục chung (General education) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
-      "evidence": "B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
-      "evidence": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "SP1007",
       "evidence": "Pháp luật Việt Nam Đại cương"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "SP1031",
       "evidence": "Triết học Mác - Lênin"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "SP1033",
       "evidence": "Kinh tế Chính trị Mác - Lênin"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "SP1035",
       "evidence": "Chủ nghĩa Xã hội Khoa học"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "SP1037",
       "evidence": "Tư tưởng Hồ Chí Minh"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "SP1039",
       "evidence": "Lịch sử Đảng Cộng sản Việt Nam"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Giáo dục chung khác (Other general education)",
-      "evidence": "B.2 . Giáo dục chung khác (Other general education) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Nhập môn (Introduction)",
-      "evidence": "B.2.1. Nhập môn (Introduction) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Nhập môn (Introduction)",
-      "evidence": "Nhập môn (Introduction)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Nhập môn (Introduction)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.2.1. Nhập môn (Introduction) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO1005",
       "evidence": "Nhập môn Điện toán"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills)",
-      "evidence": "B.2.2. Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills)",
-      "evidence": "Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.2.2. Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO2001",
       "evidence": "Kỹ năng Chuyên nghiệp cho Kỹ sư"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Quản lý (tự chọn 3 tc) (Management)",
-      "evidence": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
-      "rel_type": "CO_YEU_CAU_TU_CHON",
-      "target_node_type": "YeuCauTuChon",
-      "target_match": "Quản lý",
-      "evidence": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Quản lý (tự chọn 3 tc) (Management)",
-      "evidence": "Quản lý (tự chọn 3 tc) (Management)"
-    },
-    {
-      "source_node_type": "KhoiKienThuc",
-      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "IM1013",
-      "evidence": "Kinh tế học Đại cương"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Quản lý",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "IM1013",
       "evidence": "Kinh tế học Đại cương"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "IM1023",
-      "evidence": "Quản lý Sản xuất cho Kỹ sư"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Quản lý",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "IM1023",
       "evidence": "Quản lý Sản xuất cho Kỹ sư"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "IM1025",
-      "evidence": "Quản lý Dự án cho Kỹ sư"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Quản lý",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "IM1025",
       "evidence": "Quản lý Dự án cho Kỹ sư"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "IM1027",
-      "evidence": "Kinh tế Kỹ thuật"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Quản lý",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "IM1027",
       "evidence": "Kinh tế Kỹ thuật"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "IM3001",
-      "evidence": "Quản trị Kinh doanh cho Kỹ sư"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Quản lý",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "IM3001",
       "evidence": "Quản trị Kinh doanh cho Kỹ sư"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "IM1031",
-      "evidence": "Khởi nghiệp và đổi mới sáng tạo"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Quản lý",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "IM1031",
       "evidence": "Khởi nghiệp và đổi mới sáng tạo"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Quản lý (tự chọn 3 tc) (Management)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "ME1019",
       "evidence": "Quản lý năng suất và chất lượng"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Quản lý",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "ME1019",
-      "evidence": "Quản lý năng suất và chất lượng"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Ngoại ngữ (Foreign Languages)",
-      "evidence": "B.3 . Ngoại ngữ (Foreign Languages) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Ngoại ngữ (Foreign Languages)",
-      "evidence": "Ngoại ngữ (Foreign Languages)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Ngoại ngữ (Foreign Languages)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.3 . Ngoại ngữ (Foreign Languages) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "LA1003",
       "evidence": "Anh văn 1"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Ngoại ngữ (Foreign Languages)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.3 . Ngoại ngữ (Foreign Languages) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "LA1005",
       "evidence": "Anh văn 2"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Ngoại ngữ (Foreign Languages)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.3 . Ngoại ngữ (Foreign Languages) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "LA1007",
       "evidence": "Anh văn 3"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Ngoại ngữ (Foreign Languages)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "B.3 . Ngoại ngữ (Foreign Languages) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "LA1009",
       "evidence": "Anh văn 4"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Cơ sở ngành (Core Courses)",
-      "evidence": "C. Cơ sở ngành (Core Courses) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Cơ sở ngành (Core Courses)",
-      "evidence": "Cơ sở ngành (Core Courses)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Cơ sở ngành (Core Courses)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "C. Cơ sở ngành (Core Courses) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO1023",
       "evidence": "Hệ thống số"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Cơ sở ngành (Core Courses)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "C. Cơ sở ngành (Core Courses) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO1027",
       "evidence": "Kỹ thuật Lập trình"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Cơ sở ngành (Core Courses)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "C. Cơ sở ngành (Core Courses) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO2003",
       "evidence": "Cấu trúc Dữ liệu và Giải Thuật"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Cơ sở ngành (Core Courses)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "C. Cơ sở ngành (Core Courses) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO2007",
       "evidence": "Kiến trúc Máy tính"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Cơ sở ngành (Core Courses)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "C. Cơ sở ngành (Core Courses) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO2013",
       "evidence": "Hệ cơ sở Dữ liệu"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Cơ sở ngành (Core Courses)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "C. Cơ sở ngành (Core Courses) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO2039",
       "evidence": "Lập trình Nâng cao"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Ngành (Compulsory Major Subjects)",
-      "evidence": "D. Ngành (Compulsory Major Subjects) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Ngành (Compulsory Major Subjects)",
-      "evidence": "Ngành (Compulsory Major Subjects)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Ngành (Compulsory Major Subjects)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "D. Ngành (Compulsory Major Subjects) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO2017",
       "evidence": "Hệ điều hành"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Ngành (Compulsory Major Subjects)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "D. Ngành (Compulsory Major Subjects) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3001",
       "evidence": "Công nghệ Phần mềm"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Ngành (Compulsory Major Subjects)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "D. Ngành (Compulsory Major Subjects) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3005",
       "evidence": "Nguyên lý Ngôn ngữ Lập trình"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Ngành (Compulsory Major Subjects)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "D. Ngành (Compulsory Major Subjects) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3093",
       "evidence": "Mạng máy tính"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Tự chọn ngành (Elective Major Courses)",
-      "evidence": "E. . Tự chọn ngành (Elective Major Courses) [BB]"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành (Elective Major Courses)",
-      "rel_type": "CO_YEU_CAU_TU_CHON",
-      "target_node_type": "YeuCauTuChon",
-      "target_match": "Tự chọn ngành",
-      "evidence": "E. . Tự chọn ngành (Elective Major Courses) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
-      "evidence": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]"
-    },
-    {
-      "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
-      "rel_type": "CO_YEU_CAU_TU_CHON",
-      "target_node_type": "YeuCauTuChon",
-      "target_match": "Tự chọn ngành- nhóm A",
-      "evidence": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Tự chọn ngành- nhóm A",
-      "rel_type": "CO_NHOM_THANH_PHAN",
-      "target_node_type": "NhomHocPhanTuChon",
-      "target_match": "A",
-      "evidence": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
-      "evidence": "Tự chọn ngành- nhóm A (Elective Courses - Group A )"
-    },
-    {
-      "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3101",
-      "evidence": "Đồ án Tổng hợp - Hướng Trí tuệ Nhân tạo"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Tự chọn ngành- nhóm A",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3101",
-      "evidence": "Đồ án Tổng hợp - Hướng Trí tuệ Nhân tạo"
-    },
-    {
-      "source_node_type": "NhomHocPhanTuChon",
-      "source_match": "A",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3101",
       "evidence": "Đồ án Tổng hợp - Hướng Trí tuệ Nhân tạo"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3103",
-      "evidence": "Đồ án Tổng hợp - hướng Công nghệ Phần mềm"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Tự chọn ngành- nhóm A",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3103",
-      "evidence": "Đồ án Tổng hợp - hướng Công nghệ Phần mềm"
-    },
-    {
-      "source_node_type": "NhomHocPhanTuChon",
-      "source_match": "A",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3103",
       "evidence": "Đồ án Tổng hợp - hướng Công nghệ Phần mềm"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3105",
-      "evidence": "Đồ án Tổng hợp - Hướng Hệ thống Thông tin"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Tự chọn ngành- nhóm A",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3105",
-      "evidence": "Đồ án Tổng hợp - Hướng Hệ thống Thông tin"
-    },
-    {
-      "source_node_type": "NhomHocPhanTuChon",
-      "source_match": "A",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3105",
       "evidence": "Đồ án Tổng hợp - Hướng Hệ thống Thông tin"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3127",
-      "evidence": "Đồ án tổng hợp - hướng kỹ thuật dữ liệu"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Tự chọn ngành- nhóm A",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3127",
-      "evidence": "Đồ án tổng hợp - hướng kỹ thuật dữ liệu"
-    },
-    {
-      "source_node_type": "NhomHocPhanTuChon",
-      "source_match": "A",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3127",
       "evidence": "Đồ án tổng hợp - hướng kỹ thuật dữ liệu"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành- nhóm A (Elective Courses - Group A )",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3119",
       "evidence": "Đồ án Mạng máy tính"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Tự chọn ngành- nhóm A",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3119",
-      "evidence": "Đồ án Mạng máy tính"
-    },
-    {
-      "source_node_type": "NhomHocPhanTuChon",
-      "source_match": "A",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3119",
-      "evidence": "Đồ án Mạng máy tính"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
-      "evidence": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
-      "rel_type": "CO_YEU_CAU_TU_CHON",
-      "target_node_type": "YeuCauTuChon",
-      "target_match": "Tự chọn ngành- nhóm B",
-      "evidence": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Tự chọn ngành- nhóm B",
-      "rel_type": "CO_NHOM_THANH_PHAN",
-      "target_node_type": "NhomHocPhanTuChon",
-      "target_match": "B",
-      "evidence": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
-      "evidence": "Tự chọn ngành- nhóm B (Elective Courses - Group B )"
-    },
-    {
-      "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3107",
-      "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng Trí tuệ Nhân tạo"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Tự chọn ngành- nhóm B",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3107",
-      "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng Trí tuệ Nhân tạo"
-    },
-    {
-      "source_node_type": "NhomHocPhanTuChon",
-      "source_match": "B",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3107",
       "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng Trí tuệ Nhân tạo"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3109",
-      "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng công Nghệ phần mề"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Tự chọn ngành- nhóm B",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3109",
-      "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng công Nghệ phần mề"
-    },
-    {
-      "source_node_type": "NhomHocPhanTuChon",
-      "source_match": "B",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3109",
       "evidence": "Thực tập Đồ án môn học Đa ngành - Hướng công Nghệ phần mề"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn ngành- nhóm B (Elective Courses - Group B )",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3111",
       "evidence": "Thực tập Đồ án môn học Đa ngành - hướng Hệ thống Thông tin"
-    },
-    {
-      "source_node_type": "YeuCauTuChon",
-      "source_match": "Tự chọn ngành- nhóm B",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3111",
-      "evidence": "Thực tập Đồ án môn học Đa ngành - hướng Hệ thống Thông tin"
-    },
-    {
-      "source_node_type": "NhomHocPhanTuChon",
-      "source_match": "B",
-      "rel_type": "GOM_HOC_PHAN",
-      "target_node_type": "HocPhan",
-      "target_match": "CO3111",
-      "evidence": "Thực tập Đồ án môn học Đa ngành - hướng Hệ thống Thông tin"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Chuyên ngành (Speciality Courses)",
-      "evidence": "F.. Chuyên ngành (Speciality Courses) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "evidence": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "evidence": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3021",
       "evidence": "Hệ Quản trị Cơ sở Dữ Liệu"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3027",
       "evidence": "Thương mại Điện tử"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3029",
       "evidence": "Khai phá Dữ liệu"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3033",
       "evidence": "Bảo mật Hệ thống Thông tin"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3115",
       "evidence": "Phân tích và Thiết kế Hệ thống"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO4031",
       "evidence": "Kho dữ Liệu và Hệ hỗ trợ Quyết định"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO4033",
       "evidence": "Phân tích Dữ liệu lớn và Trí tuệ Kinh doanh"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO4035",
       "evidence": "Hệ hoạch Định tài Nguyên tổ chức"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO4037",
       "evidence": "Hệ thống thông tin quản lý"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO4039",
       "evidence": "Bảo mật sinh trắc"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3139",
       "evidence": "Chuyển đổi số"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3137",
       "evidence": "Dữ liệu lớn"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "evidence": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "evidence": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3011",
       "evidence": "Quản lý Dự án Phần mềm"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3129",
       "evidence": "Bảo mật Phần mềm"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3131",
       "evidence": "Công nghệ Phần mềm thế hệ mới"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3015",
       "evidence": "Kiểm tra Phần mềm"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3017",
       "evidence": "Kiến trúc Phần mềm"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3065",
       "evidence": "Công nghệ Phần mềm Nâng cao"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3041",
       "evidence": "Hệ thống Thông minh"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3049",
       "evidence": "Lập trình Web"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3135",
       "evidence": "Lập trình cho Trí tuệ nhân tạo và Khoa học dữ liệu"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "evidence": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "evidence": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3089",
       "evidence": "Những Chủ đề Nâng cao trong Khoa học Máy tính"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3151",
       "evidence": "Quản trị mạng"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3051",
       "evidence": "Hệ thống thiết bị di động"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3069",
       "evidence": "Mật mã và An ninh mạng"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3153",
       "evidence": "Đánh giá an toàn mạng máy tính"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3061",
       "evidence": "Nhập môn Trí tuệ Nhân tạo"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3117",
       "evidence": "Học máy"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3133",
       "evidence": "Học sâu và Ứng dụng"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3085",
       "evidence": "Xử lý Ngôn ngữ Tự nhiên"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3057",
       "evidence": "Xử lý Ảnh số và Thị giác Máy tính"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3045",
       "evidence": "Lập trình Game"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3059",
       "evidence": "Đồ họa Máy tính"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3067",
       "evidence": "Tính toán Song song"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3037",
       "evidence": "Phát triển Ứng dụng Internet of Things"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3043",
       "evidence": "Phát triển Ứng dụng trên Thiết bị Di động"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Chuyên ngành: An ninh hệ thống và mạng (Specialty: System and Network Security)",
-      "evidence": "F.4. Chuyên ngành: An ninh hệ thống và mạng (Specialty: System and Network Security)"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Chuyên ngành: Trí tuệ nhân tạo (Specialty: Artificial Intelligence)",
-      "evidence": "F.5. Chuyên ngành: Trí tuệ nhân tạo (Specialty: Artificial Intelligence) [TC]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Tự chọn tự do (Free elective courses)",
-      "evidence": "G. Tự chọn tự do (Free elective courses) [BB]"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Tự chọn tự do (Free elective courses)",
-      "rel_type": "CO_YEU_CAU_TU_CHON",
-      "target_node_type": "YeuCauTuChon",
-      "target_match": "Tự chọn tự do",
-      "evidence": "G. Tự chọn tự do (Free elective courses) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Học phần tốt nghiệp (Graduation module courses)",
-      "evidence": "H. Học phần tốt nghiệp (Graduation module courses) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Học phần tốt nghiệp (Graduation module courses)",
-      "evidence": "Học phần tốt nghiệp (Graduation module courses)"
-    },
-    {
-      "source_node_type": "KhoiKienThuc",
-      "source_match": "Học phần tốt nghiệp (Graduation module courses)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "H. Học phần tốt nghiệp (Graduation module courses) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO3335",
       "evidence": "Thực tập Ngoài trường"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Học phần tốt nghiệp (Graduation module courses)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "H. Học phần tốt nghiệp (Graduation module courses) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO4029",
       "evidence": "Đồ án Chuyên ngành"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Học phần tốt nghiệp (Graduation module courses)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "H. Học phần tốt nghiệp (Graduation module courses) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "CO4337",
       "evidence": "Đồ án Tốt nghiệp (Khoa học Máy tính)"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Giáo dục quốc phòng (National defense education)",
-      "evidence": "I. Giáo dục quốc phòng (National defense education) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Giáo dục quốc phòng (National defense education)",
-      "evidence": "Giáo dục quốc phòng (National defense education)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục quốc phòng (National defense education)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "I. Giáo dục quốc phòng (National defense education) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "MI1003",
       "evidence": "Giáo dục Quốc phòng"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Giáo dục thể chất (Physical education)",
-      "evidence": "J. Giáo dục thể chất (Physical education) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "evidence": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "evidence": "Giáo dục thể chất học phần 1 (Physical education part 1)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1009",
       "evidence": "Bóng đá (Học phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1011",
       "evidence": "Bóng chuyền (Học phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1013",
       "evidence": "Bóng bàn (Học phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1015",
       "evidence": "Bóng rổ (Học phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1017",
       "evidence": "Cầu lông (Học phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1019",
       "evidence": "Bơi (học Phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1021",
       "evidence": "Aerobic (học Phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1025",
       "evidence": "Điền kinh (Học phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1027",
       "evidence": "Quần vợt (Học phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1053",
       "evidence": "Cờ vua (Học phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1057",
       "evidence": "Bowling (học phần 1)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 1 (Physical education part 1)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1061",
       "evidence": "Pickleball (học phần 1)"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "evidence": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "evidence": "Giáo dục thể chất học phần 2 (Physical education part 2)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1033",
       "evidence": "Bóng đá (Học phần 2)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1035",
       "evidence": "Bóng chuyền (Học phần 2)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1037",
       "evidence": "Bóng bàn (Học phần 2)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1039",
       "evidence": "Bóng rổ (Học phần 2)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1041",
       "evidence": "Cầu lông (Học phần 2)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1043",
       "evidence": "Bơi (học Phần 2)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1045",
       "evidence": "Aerobic (học Phần 2)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1049",
       "evidence": "Điền kinh (học phần 2)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1051",
       "evidence": "Quần vợt (Học phần 2)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1059",
       "evidence": "Bowling (học phần 2)"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Giáo dục thể chất học phần 2 (Physical education part 2)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "PE1063",
       "evidence": "Pickleball (học phần 2)"
     },
     {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Điều kiện tốt nghiệp (Graduation requirements)",
-      "evidence": "K. Điều kiện tốt nghiệp (Graduation requirements) [BB]"
-    },
-    {
-      "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "2024_MT_KHMT.pdf",
-      "rel_type": "CO_KHOI_KIEN_THUC",
-      "target_node_type": "KhoiKienThuc",
-      "target_match": "Điều kiện tốt nghiệp (Graduation requirements)",
-      "evidence": "Điều kiện tốt nghiệp (Graduation requirements)"
-    },
-    {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Điều kiện tốt nghiệp (Graduation requirements)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "K. Điều kiện tốt nghiệp (Graduation requirements) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "SA4001",
       "evidence": "Hoạt động sinh viên"
     },
     {
       "source_node_type": "KhoiKienThuc",
-      "source_match": "Điều kiện tốt nghiệp (Graduation requirements)",
-      "rel_type": "GOM_HOC_PHAN",
+      "source_match": "K. Điều kiện tốt nghiệp (Graduation requirements) [BB]",
+      "rel_type": "GOM",
       "target_node_type": "HocPhan",
       "target_match": "ENG_GC",
       "evidence": "Điều kiện tiếng Anh tốt nghiệp"
     },
     {
       "source_node_type": "ChuongTrinhDaoTao",
-      "source_match": "CHƯƠNG TRÌNH ĐÀO TẠO CỬ NHÂN KHÓA 2024 16/05/2025 BACHELOR PROGRAM - YEAR 2024 KHOA: KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH FACUL",
-      "rel_type": "DAO_TAO_TRINH_DO",
-      "target_node_type": "TrinhDo",
-      "target_match": "Cử nhân",
-      "evidence": "CHƯƠNG TRÌNH ĐÀO TẠO CỬ NHÂN KHÓA 2024 16/05/2025 BACHELOR PROGRAM - YEAR 2024 KHOA: KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH FACUL"
+      "source_match": "CTDT",
+      "rel_type": "CAP",
+      "target_node_type": "LoaiVanBang",
+      "target_match": "Kỹ sư",
+      "evidence": "header"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "A. Toán và Khoa học Tự nhiên (Mathematics and Basic Sciences) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "B. Giáo dục chung (General education) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "B.1. Kinh tế, Chính trị, Xã hội, Luật (Socials and Economics) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "B.2 . Giáo dục chung khác (Other general education) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "B.2.1. Nhập môn (Introduction) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "B.2.2. Kỹ năng nghề nghiệp chuyên nghiệp (Professional career skills) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "B.2.3 . Quản lý (tự chọn 3 tc) (Management) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "B.3 . Ngoại ngữ (Foreign Languages) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "C. Cơ sở ngành (Core Courses) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "D. Ngành (Compulsory Major Subjects) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "E. . Tự chọn ngành (Elective Major Courses) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "E.1. Tự chọn ngành- nhóm A (Elective Courses - Group A ) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "E.2. Tự chọn ngành- nhóm B (Elective Courses - Group B ) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "F.1. Chuyên ngành Công nghệ Dữ liệu và Dữ liệu lớn (Specialty: Data Engineering and Bi",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "F.2. Chuyên ngành: Công nghệ Phần mềm (Specialty: Software Engineering) [TC]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "F.3. Chuyên ngành: Khoa học Máy tính (Specialty: Computer Science) [TC]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "F.4. Chuyên ngành: An ninh hệ thống và mạng (Specialty: System and Network Security)",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "F.5. Chuyên ngành: Trí tuệ nhân tạo (Specialty: Artificial Intelligence) [TC]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "G. Tự chọn tự do (Free elective courses) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "H. Học phần tốt nghiệp (Graduation module courses) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "I. Giáo dục quốc phòng (National defense education) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "J. Giáo dục thể chất (Physical education) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "J.1. Giáo dục thể chất học phần 1 (Physical education part 1) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "J.2. Giáo dục thể chất học phần 2 (Physical education part 2) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "KhoiKienThuc",
+      "target_match": "K. Điều kiện tốt nghiệp (Graduation requirements) [BB]",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "MÃHỌCPHẦN",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "(COURSEID)",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "MT1003",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "MT1005",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "MT1007",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "MT2013",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CH1003",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PH1003",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PH1007",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO1007",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2011",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1007",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1031",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1033",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1035",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1037",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "SP1039",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO1005",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2001",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1013",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1023",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1025",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1027",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "IM3001",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "IM1031",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ME1019",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "LA1003",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "LA1005",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "LA1007",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "LA1009",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO1023",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO1027",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2003",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2007",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2013",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2039",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO2017",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3001",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3005",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3093",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3101",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3103",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3105",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3127",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3119",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3107",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3109",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3111",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3021",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3027",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3029",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3033",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3115",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4031",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4033",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4035",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4037",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4039",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3139",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3137",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3011",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3129",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3131",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3015",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3017",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3065",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3041",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3049",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3135",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3089",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3151",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3051",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3069",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3153",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3061",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3117",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3133",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3085",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3057",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3045",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3059",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3067",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3037",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3043",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO3335",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4029",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "CO4337",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "MI1003",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1009",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1011",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1013",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1015",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1017",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1019",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1021",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1025",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1027",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1053",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1057",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1061",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1033",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1035",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1037",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1039",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1041",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1043",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1045",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1049",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1051",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1059",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "PE1063",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "SA4001",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "GOM",
+      "target_node_type": "HocPhan",
+      "target_match": "ENG_GC",
+      "evidence": "auto"
+    },
+    {
+      "source_node_type": "ChuongTrinhDaoTao",
+      "source_match": "CTDT",
+      "rel_type": "BAN_HANH_THEO",
+      "target_node_type": "VanBanPhapLy",
+      "target_match": "460/QĐ-ĐHBK",
+      "evidence": "auto"
     }
-  ]
+  ],
+  "admin_review": {
+    "approved": false,
+    "reviewed_by": null,
+    "reviewed_at": null,
+    "notes": ""
+  }
 }
