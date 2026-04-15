@@ -7,6 +7,7 @@ from app.services.domain_service import DomainService
 from app.services.entity_service import EntityService
 from app.services.evaluator_service import EvaluatorService
 from app.services.llm_service import LLMService
+from app.services.quyche_service import quyche_service
 from app.services.retrieval_service import RetrievalResult, RetrievalService
 from app.services.strategy_service import StrategyService
 
@@ -57,6 +58,7 @@ class ChatService:
         self.retrieval_service = RetrievalService()
         self.evaluator_service = EvaluatorService()
 
+
     async def handle_query(self, query: str, history: List[Dict[str, Any]]) -> Dict[str, Any]:
         clean_history = _sanitize_history(history or [])
         state = ChatPipelineState(query=(query or "").strip())
@@ -88,21 +90,13 @@ class ChatService:
         logger.info("[chat][step] domain=%s", state.domain)
 
         if state.domain == "quy_che":
-            logger.info("[chat][step] route_to_quy_che_stub")
-            answer = await self.handle_quy_che_stub(state, clean_history)
-            return {"answer": answer, "state": state.__dict__}
+            logger.info("[chat][step] route_to_quy_che")
+            result = await quyche_service.handle_query(state.query, clean_history)
+            return {"answer": result["answer"], "state": state.__dict__}
 
         logger.info("[chat][step] route_to_ctdt_pipeline")
         answer = await self._run_ctdt_pipeline(state, clean_history)
         return {"answer": answer, "state": state.__dict__}
-
-    async def handle_quy_che_stub(self, state: ChatPipelineState, history: List[Dict[str, str]]) -> str:
-        # Stub branch by requirement: can be replaced with dedicated regulation pipeline.
-        _ = history
-        return (
-            "Pipeline Quy chế học vụ đang ở chế độ stub. "
-            "Hiện tại hệ thống đã nhận diện đúng domain và sẽ tích hợp luồng riêng ở bước tiếp theo."
-        )
 
     async def _run_ctdt_pipeline(self, state: ChatPipelineState, history: List[Dict[str, str]]) -> str:
         _ = history
