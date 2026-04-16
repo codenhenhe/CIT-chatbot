@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.118",
+    "@tailwindcss/typography": "^0.5.19",
     "ai": "^6.0.116",
     "lucide-react": "^0.577.0",
     "next": "16.1.6",

@@ -539,14 +539,14 @@ export default function AdminKnowledgeManager() {
   };
 
   const getStatusBadge = (status: ItemStatus) => {
-    if (status === "success") return "bg-green-100 text-green-700";
-    if (status === "stored") return "bg-slate-100 text-slate-700";
-    if (status === "review") return "bg-amber-100 text-amber-700";
-    if (status === "error") return "bg-red-100 text-red-700";
-    if (status === "processing") return "bg-blue-100 text-blue-700";
-    if (status === "queued") return "bg-amber-100 text-amber-700";
-    if (status === "uploading") return "bg-indigo-100 text-indigo-700";
-    return "bg-gray-100 text-gray-700";
+    if (status === "success") return "bg-emerald-50 text-emerald-700 border border-emerald-200";
+    if (status === "stored") return "bg-slate-50 text-slate-600 border border-slate-200";
+    if (status === "review") return "bg-amber-50 text-amber-700 border border-amber-200";
+    if (status === "error") return "bg-rose-50 text-rose-700 border border-rose-200";
+    if (status === "processing") return "bg-cyan-50 text-cyan-700 border border-cyan-200";
+    if (status === "queued") return "bg-amber-50 text-amber-700 border border-amber-200";
+    if (status === "uploading") return "bg-sky-50 text-sky-700 border border-sky-200";
+    return "bg-slate-50 text-slate-600 border border-slate-200";
   };
 
   const getStatusLabel = (status: ItemStatus) => {
@@ -564,7 +564,7 @@ export default function AdminKnowledgeManager() {
     if (syncState === "syncing") {
       return {
         label: "Đang đồng bộ",
-        className: "bg-blue-50 text-blue-700 border-blue-200",
+        className: "bg-sky-50 text-sky-700 border-sky-200",
       };
     }
     if (syncState === "synced") {
@@ -577,28 +577,39 @@ export default function AdminKnowledgeManager() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 p-5 md:p-8 font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 text-slate-900 p-5 md:p-8 font-sans">
       <div className="max-w-6xl mx-auto space-y-8">
-        <header className="flex items-center justify-between pb-5 border-b border-slate-200">
-          <div>
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
-              Nạp dữ liệu cho Neo4j Graph Database
-            </h1>
-            <p className="text-sm md:text-base text-slate-600 mt-2">
-              Giao diện upload nhiều file, theo dõi realtime theo từng job.
-            </p>
+        <header className="flex items-center justify-between pb-5 border-b border-slate-200/60">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-800">
+                Quản lý dữ liệu
+              </h1>
+              <p className="text-sm text-slate-500 mt-1">
+                Nạp tài liệu vào Neo4j Graph Database
+              </p>
+            </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold">L</div>
-            <span className="text-sm font-medium text-slate-700">Admin1</span>
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center text-blue-600">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <span className="text-sm font-medium text-slate-600">Admin</span>
           </div>
         </header>
 
         <main className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <section className="lg:col-span-2 space-y-6">
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-              <h2 className="text-xl font-semibold mb-1 text-slate-900">Thêm tài liệu mới</h2>
-              <p className="text-slate-500 mb-6">Kéo thả nhiều file PDF hoặc nhấn để chọn nhiều file.</p>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-slate-200/60 p-6">
+              <h2 className="text-lg font-semibold mb-1 text-slate-800">Thêm tài liệu mới</h2>
+              <p className="text-slate-500 mb-6 text-sm">Kéo thả nhiều file PDF hoặc nhấn để chọn nhiều file.</p>
 
               <div className="mb-5">
                 <label htmlFor="category-select" className="block text-sm font-semibold text-slate-700 mb-2">
@@ -608,7 +619,7 @@ export default function AdminKnowledgeManager() {
                   id="category-select"
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value as UploadCategory | "")}
-                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                 >
                   <option value="">-- Chọn thể loại --</option>
                   {CATEGORY_OPTIONS.map((option) => (
@@ -624,7 +635,7 @@ export default function AdminKnowledgeManager() {
                 onDragLeave={handleDragLeave}
                 onDrop={onFileDrop}
                 className={`relative border-2 border-dashed rounded-2xl p-10 text-center transition-all ${
-                  dragOver ? "border-blue-500 bg-blue-50" : "border-slate-300 hover:border-slate-400"
+                  dragOver ? "border-blue-400 bg-blue-50" : "border-slate-200 hover:border-blue-300"
                 }`}
               >
                 <svg className={`w-14 h-14 mx-auto mb-4 ${dragOver ? "text-blue-500" : "text-slate-300"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -632,20 +643,20 @@ export default function AdminKnowledgeManager() {
                 </svg>
                 <label htmlFor="file-upload" className="cursor-pointer">
                   <span className="text-lg font-semibold text-blue-600">Kéo thả nhiều file PDF</span>
-                  <span className="text-lg text-slate-600"> hoặc nhấn để chọn</span>
+                  <span className="text-lg text-slate-500"> hoặc nhấn để chọn</span>
                   <input id="file-upload" type="file" multiple accept="application/pdf" onChange={handleFileChange} className="sr-only" />
                 </label>
                 <p className="mt-3 text-sm text-slate-400">Mỗi file tối đa 50MB, có thể upload cùng lúc nhiều file.</p>
               </div>
 
               {pageMessage && (
-                <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                <div className="mt-5 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-700">
                   {pageMessage}
                 </div>
               )}
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-slate-200/60 p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-slate-900">Danh sách file</h3>
                 <span className="text-sm text-slate-500">{uploadItems.length} file</span>
@@ -657,9 +668,9 @@ export default function AdminKnowledgeManager() {
                 </div>
               )}
 
-              <div className="space-y-3 max-h-90 overflow-auto pr-1">
+              <div className="space-y-3 max-h-96 overflow-auto pr-1">
                 {uploadItems.map((item) => (
-                  <div key={item.localId} className="rounded-xl border border-slate-200 bg-white px-4 py-3">
+                  <div key={item.localId} className="rounded-xl border border-slate-200/60 bg-white/60 px-4 py-3 hover:border-sky-200 hover:bg-white/80 transition-all">
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0">
                         <p className="font-medium text-slate-900 break-all leading-snug">{item.file.name}</p>
@@ -678,7 +689,7 @@ export default function AdminKnowledgeManager() {
                           </span>
                         )}
                         {item.status !== "uploading" && item.status !== "queued" && item.status !== "processing" && (
-                          <button onClick={() => handleRemoveItem(item.localId)} className="text-slate-400 hover:text-slate-700" aria-label="Remove file">
+                          <button onClick={() => handleRemoveItem(item.localId)} className="text-slate-400 hover:text-rose-500" aria-label="Remove file">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                           </button>
                         )}
@@ -688,7 +699,7 @@ export default function AdminKnowledgeManager() {
                     <p className="text-xs text-slate-500 mt-2 truncate">{item.message}</p>
 
                     {(item.status === "success" || item.status === "stored" || item.status === "review") && (
-                      <div className="mt-3 rounded-lg border border-slate-200 bg-slate-50 p-3">
+                      <div className="mt-3 rounded-lg border border-slate-200/60 bg-slate-50/50 p-3">
                         <p className="text-[11px] font-semibold text-slate-700 mb-2">Thông tin trích xuất</p>
                         <div className="flex flex-wrap gap-2 text-[11px]">
                           <span className="px-2 py-1 rounded bg-white border border-slate-200 text-slate-700">
@@ -716,7 +727,7 @@ export default function AdminKnowledgeManager() {
                           <button
                             type="button"
                             onClick={() => openItemDetails(item)}
-                            className="text-xs px-3 py-1.5 rounded-md bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
+                            className="text-xs px-3 py-1.5 rounded-md bg-blue-500 text-white hover:bg-blue-600 cursor-pointer transition-all"
                           >
                             Xem chi tiết
                           </button>
@@ -730,8 +741,8 @@ export default function AdminKnowledgeManager() {
           </section>
 
           <aside className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-5">
-              <h3 className="text-lg font-semibold text-slate-900">Bắt đầu xử lý</h3>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-slate-200/60 p-6 space-y-5">
+              <h3 className="text-lg font-semibold text-slate-800">Bắt đầu xử lý</h3>
               <p className="text-sm text-slate-500">Upload nhiều file cùng lúc, backend sẽ xếp hàng xử lý tuần tự.</p>
 
               <button
@@ -739,8 +750,8 @@ export default function AdminKnowledgeManager() {
                 disabled={isBusy || !uploadItems.length}
                 className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-white transition-all ${
                   isBusy || !uploadItems.length
-                    ? "bg-slate-400 cursor-not-allowed"
-                    : "bg-blue-600 hover:bg-blue-700 shadow-sm shadow-blue-200"
+                    ? "bg-slate-300 cursor-not-allowed"
+                    : "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-200"
                 }`}
               >
                 {isBusy ? (
@@ -757,48 +768,53 @@ export default function AdminKnowledgeManager() {
               </button>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-              <h4 className="text-sm font-semibold text-slate-900 mb-4">Tổng quan trạng thái</h4>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-slate-200/60 p-6">
+              <h4 className="text-sm font-semibold text-slate-800 mb-4">Tổng quan trạng thái</h4>
               <div className="grid grid-cols-2 gap-3 text-sm">
-                <div className="rounded-lg bg-slate-50 border border-slate-200 px-3 py-2">
-                  <p className="text-slate-500">Sẵn sàng</p>
-                  <p className="font-semibold text-slate-900">{summary.ready}</p>
+                <div className="rounded-lg bg-slate-50/50 border border-slate-200/50 px-3 py-2">
+                  <p className="text-slate-500 text-xs">Sẵn sàng</p>
+                  <p className="font-semibold text-slate-700">{summary.ready}</p>
                 </div>
-                <div className="rounded-lg bg-slate-50 border border-slate-200 px-3 py-2">
-                  <p className="text-slate-500">Đang upload</p>
-                  <p className="font-semibold text-slate-900">{summary.uploading}</p>
+                <div className="rounded-lg bg-sky-50/50 border border-sky-200/50 px-3 py-2">
+                  <p className="text-sky-600 text-xs">Đang upload</p>
+                  <p className="font-semibold text-sky-700">{summary.uploading}</p>
                 </div>
-                <div className="rounded-lg bg-amber-50 border border-amber-200 px-3 py-2">
-                  <p className="text-amber-700">Đợi xử lý</p>
-                  <p className="font-semibold text-amber-900">{summary.queued}</p>
+                <div className="rounded-lg bg-amber-50/50 border border-amber-200/50 px-3 py-2">
+                  <p className="text-amber-600 text-xs">Đợi xử lý</p>
+                  <p className="font-semibold text-amber-700">{summary.queued}</p>
                 </div>
-                <div className="rounded-lg bg-blue-50 border border-blue-200 px-3 py-2">
-                  <p className="text-blue-700">Đang xử lý</p>
-                  <p className="font-semibold text-blue-900">{summary.processing}</p>
+                <div className="rounded-lg bg-cyan-50/50 border border-cyan-200/50 px-3 py-2">
+                  <p className="text-cyan-600 text-xs">Đang xử lý</p>
+                  <p className="font-semibold text-cyan-700">{summary.processing}</p>
                 </div>
-                <div className="rounded-lg bg-green-50 border border-green-200 px-3 py-2">
-                  <p className="text-green-700">Thành công</p>
-                  <p className="font-semibold text-green-900">{summary.success}</p>
+                <div className="rounded-lg bg-emerald-50/50 border border-emerald-200/50 px-3 py-2">
+                  <p className="text-emerald-600 text-xs">Thành công</p>
+                  <p className="font-semibold text-emerald-700">{summary.success}</p>
                 </div>
-                <div className="rounded-lg bg-slate-50 border border-slate-200 px-3 py-2">
-                  <p className="text-slate-700">Đã lưu</p>
-                  <p className="font-semibold text-slate-900">{summary.stored}</p>
+                <div className="rounded-lg bg-slate-50/50 border border-slate-200/50 px-3 py-2">
+                  <p className="text-slate-500 text-xs">Đã lưu</p>
+                  <p className="font-semibold text-slate-600">{summary.stored}</p>
                 </div>
-                <div className="rounded-lg bg-amber-50 border border-amber-200 px-3 py-2">
-                  <p className="text-amber-700">Chờ xác nhận</p>
-                  <p className="font-semibold text-amber-900">{summary.review}</p>
+                <div className="rounded-lg bg-amber-50/50 border border-amber-200/50 px-3 py-2">
+                  <p className="text-amber-600 text-xs">Chờ xác nhận</p>
+                  <p className="font-semibold text-amber-700">{summary.review}</p>
                 </div>
-                <div className="rounded-lg bg-red-50 border border-red-200 px-3 py-2">
-                  <p className="text-red-700">Lỗi</p>
-                  <p className="font-semibold text-red-900">{summary.error}</p>
+                <div className="rounded-lg bg-rose-50/50 border border-rose-200/50 px-3 py-2">
+                  <p className="text-rose-600 text-xs">Lỗi</p>
+                  <p className="font-semibold text-rose-700">{summary.error}</p>
                 </div>
               </div>
             </div>
           </aside>
         </main>
 
-        <footer className="text-center pt-6 border-t border-slate-200 text-slate-400 text-sm">
-          CIT GraphRAG
+        <footer className="text-center pt-6 border-t border-slate-200/60 text-slate-400 text-sm">
+          <span className="inline-flex items-center gap-1">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            CIT GraphRAG
+          </span>
         </footer>
       </div>
 
@@ -836,7 +852,7 @@ export default function AdminKnowledgeManager() {
                   {jsonEditorInfo && <p className="text-xs text-emerald-700">{jsonEditorInfo}</p>}
                   {jsonEditorError && <p className="text-xs text-red-600">{jsonEditorError}</p>}
                   {jsonConfirmInfo && <p className="text-xs text-blue-700">{jsonConfirmInfo}</p>}
-                  {jsonConfirmError && <p className="text-xs text-red-600">{jsonConfirmError}</p>}
+                  {jsonConfirmError && <p className="text-xs text-rose-600">{jsonConfirmError}</p>}
 
                   {jsonEditorLoading && !jsonEditorText ? (
                     <p className="text-xs text-slate-500">Đang tải JSON...</p>
@@ -852,7 +868,7 @@ export default function AdminKnowledgeManager() {
                           patchItemEverywhere(selectedDetailItem.localId, { syncState: "idle" });
                         }
                       }}
-                      className="w-full min-h-[520px] rounded-md border border-slate-300 p-3 text-xs font-mono text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full min-h-[520px] rounded-md border border-slate-200 bg-slate-50 p-3 text-xs font-mono text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
                       placeholder="JSON sẽ hiển thị ở đây khi job hoàn tất."
                     />
                   )}
@@ -864,8 +880,8 @@ export default function AdminKnowledgeManager() {
                       disabled={jsonEditorLoading || !jsonEditorDirty}
                       className={`text-xs px-3 py-1.5 rounded-md text-white ${
                         jsonEditorLoading || !jsonEditorDirty
-                          ? "bg-slate-400 cursor-not-allowed"
-                          : "bg-emerald-600 hover:bg-emerald-700"
+                          ? "bg-slate-300 cursor-not-allowed"
+                          : "bg-emerald-500 hover:bg-emerald-600"
                       }`}
                     >
                       {jsonEditorLoading ? "Đang lưu..." : "Lưu JSON"}
@@ -876,8 +892,8 @@ export default function AdminKnowledgeManager() {
                       disabled={jsonConfirmLoading || jsonEditorDirty || selectedDetailItem?.status === "success"}
                       className={`text-xs px-3 py-1.5 rounded-md text-white ${
                         jsonConfirmLoading || jsonEditorDirty || selectedDetailItem?.status === "success"
-                          ? "bg-slate-400 cursor-not-allowed"
-                          : "bg-blue-600 hover:bg-blue-700"
+                          ? "bg-slate-300 cursor-not-allowed"
+                          : "bg-blue-500 hover:bg-blue-600"
                       }`}
                     >
                       {jsonConfirmLoading ? "Đang xác nhận..." : "Xác nhận nạp Neo4j"}
@@ -887,30 +903,30 @@ export default function AdminKnowledgeManager() {
 
                 <div className="lg:col-span-5 space-y-4">
                   <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                    <div className="rounded-lg border border-slate-200/60 bg-slate-50/50 p-3">
                       <p className="text-slate-500 text-xs">Trạng thái</p>
-                      <p className="font-semibold text-slate-900">{getStatusLabel(selectedDetailItem.status)}</p>
+                      <p className="font-semibold text-slate-700">{getStatusLabel(selectedDetailItem.status)}</p>
                     </div>
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                    <div className="rounded-lg border border-slate-200/60 bg-slate-50/50 p-3">
                       <p className="text-slate-500 text-xs">Kích thước</p>
-                      <p className="font-semibold text-slate-900">{formatBytes(selectedDetailItem.file.size)}</p>
+                      <p className="font-semibold text-slate-700">{formatBytes(selectedDetailItem.file.size)}</p>
                     </div>
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                    <div className="rounded-lg border border-slate-200/60 bg-slate-50/50 p-3">
                       <p className="text-slate-500 text-xs">Nguồn trích xuất</p>
-                      <p className="font-semibold text-slate-900">{selectedDetailItem.extractionSource ?? "unknown"}</p>
+                      <p className="font-semibold text-slate-700">{selectedDetailItem.extractionSource ?? "unknown"}</p>
                     </div>
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                    <div className="rounded-lg border border-slate-200/60 bg-slate-50/50 p-3">
                       <p className="text-slate-500 text-xs">Số ký tự / Section</p>
-                      <p className="font-semibold text-slate-900">{selectedDetailItem.extractedTextLength ?? 0} / {selectedDetailItem.sectionCount ?? 0}</p>
+                      <p className="font-semibold text-slate-700">{selectedDetailItem.extractedTextLength ?? 0} / {selectedDetailItem.sectionCount ?? 0}</p>
                     </div>
                   </div>
 
-                  <div className="rounded-lg border border-slate-200 bg-white p-3">
+                  <div className="rounded-lg border border-slate-200/60 bg-slate-50/30 p-3">
                     <p className="text-xs text-slate-500 mb-2">Thông báo xử lý</p>
-                    <p className="text-sm text-slate-800 whitespace-pre-wrap">{selectedDetailItem.message}</p>
+                    <p className="text-sm text-slate-700 whitespace-pre-wrap">{selectedDetailItem.message}</p>
                   </div>
 
-                  <div className="rounded-lg border border-slate-200 bg-white p-3">
+                  <div className="rounded-lg border border-slate-200/60 bg-slate-50/30 p-3">
                     <p className="text-xs text-slate-500 mb-2">Nội dung trích xuất (preview)</p>
                     <pre className="text-xs text-slate-800 whitespace-pre-wrap leading-relaxed max-h-[320px] overflow-auto">
 {selectedDetailItem.extractedPreview || "Chưa có dữ liệu preview."}

@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { 
   Send, Loader2, MessageSquare, Plus, User, Bot, 
-  Trash2, Github, Copy, ThumbsUp, RefreshCw, Share2 
+  Trash2, Github, Copy, ThumbsUp, RefreshCw, Share2, Building2, X
 } from "lucide-react"
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -14,14 +14,61 @@ type Message = {
   parts: { type: "text"; text: string }[]
 }
 
+type Conversation = {
+  id: string
+  title: string
+  messages: Message[]
+  createdAt: number
+}
+
+const STORAGE_KEY = "cictbot_conversations"
+
+function loadConversations(): Conversation[] {
+  if (typeof window === "undefined") return []
+  const stored = localStorage.getItem(STORAGE_KEY)
+  if (stored) {
+    try {
+      return JSON.parse(stored)
+    } catch {
+      return []
+    }
+  }
+  return []
+}
+
+function saveConversations(conversations: Conversation[]) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(conversations))
+}
+
 export default function Chat() {
-  const [messages, setMessages] = useState<Message[]>([])
+  const [conversations, setConversations] = useState<Conversation[]>([])
+  const [activeConversationId, setActiveConversationId] = useState<string | null>(null)
   const [input, setInput] = useState("")
   const [status, setStatus] = useState<"idle" | "streaming">("idle")
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+  const activeConversation = conversations.find(c => c.id === activeConversationId)
+  const messages = activeConversation?.messages || []
 
   const scrollRef = useRef<HTMLDivElement>(null)
   const bufferRef = useRef("")
   const flushTimer = useRef<NodeJS.Timeout | null>(null)
+
+  // Load conversations from localStorage on mount
+  useEffect(() => {
+    const loaded = loadConversations()
+    if (loaded.length > 0) {
+      setConversations(loaded)
+      setActiveConversationId(loaded[0].id)
+    }
+  }, [])
+
+  // Save conversations to localStorage whenever they change
+  useEffect(() => {
+    if (conversations.length > 0) {
+      saveConversations(conversations)
+    }
+  }, [conversations])
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -37,18 +84,65 @@ export default function Chat() {
     bufferRef.current = ""
     if (!text) return
 
-    setMessages(prev =>
-      prev.map(m =>
-        m.id === assistantId
-          ? { ...m, parts: [{ type: "text", text: m.parts[0].text + text }] }
-          : m
-      )
-    )
+    setConversations(prev => prev.map(c => {
+      if (c.id !== activeConversationId) return c
+      return {
+        ...c,
+        messages: c.messages.map(m =>
+          m.id === assistantId
+            ? { ...m, parts: [{ type: "text", text: m.parts[0].text + text }] }
+            : m
+        )
+      }
+    }))
+  }
+
+  const createNewConversation = () => {
+    const conversationNumber = conversations.length + 1
+    const newConv: Conversation = {
+      id: Date.now().toString(),
+      title: `Hội thoại ${conversationNumber}`,
+      messages: [],
+      createdAt: Date.now()
+    }
+    setConversations(prev => [newConv, ...prev])
+    setActiveConversationId(newConv.id)
+    setInput("")
+  }
+
+  const switchConversation = (id: string) => {
+    setActiveConversationId(id)
+    setIsSidebarOpen(false)
+  }
+
+  const deleteConversation = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    const newConvs = conversations.filter(c => c.id !== id)
+    setConversations(newConvs)
+    if (activeConversationId === id) {
+      setActiveConversationId(newConvs[0]?.id || null)
+    }
+    saveConversations(newConvs)
   }
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!input.trim() || status === "streaming") return
+
+    // Create new conversation if none exists
+    let currentConvId = activeConversationId
+    if (!currentConvId) {
+      const conversationNumber = conversations.length + 1
+      const newConv: Conversation = {
+        id: Date.now().toString(),
+        title: `Hội thoại ${conversationNumber}`,
+        messages: [],
+        createdAt: Date.now()
+      }
+      setConversations(prev => [newConv, ...prev])
+      currentConvId = newConv.id
+      setActiveConversationId(currentConvId)
+    }
 
     const userMsg: Message = {
       id: Date.now().toString(),
@@ -56,10 +150,21 @@ export default function Chat() {
       parts: [{ type: "text", text: input }]
     }
 
-    const newMessages = [...messages, userMsg]
-    setMessages(newMessages)
+    // Update conversation with user message
+    setConversations(prev => prev.map(c => {
+      if (c.id !== currentConvId) return c
+      return {
+        ...c,
+        messages: [...c.messages, userMsg]
+      }
+    }))
+
     setInput("")
     setStatus("streaming")
+
+    // Get current messages for API call
+    const currentMessages = conversations.find(c => c.id === currentConvId)?.messages || []
+    const newMessages = [...currentMessages, userMsg]
 
     try {
       const response = await fetch("/api/chat", {
@@ -73,10 +178,18 @@ export default function Chat() {
       if (!response.body) throw new Error("No body")
 
       const assistantId = (Date.now() + 1).toString()
-      setMessages(prev => [
-        ...prev,
-        { id: assistantId, role: "assistant", parts: [{ type: "text", text: "" }] }
-      ])
+      
+      // Add assistant message placeholder
+      setConversations(prev => prev.map(c => {
+        if (c.id !== currentConvId) return c
+        return {
+          ...c,
+          messages: [
+            ...c.messages,
+            { id: assistantId, role: "assistant", parts: [{ type: "text", text: "" }] }
+          ]
+        }
+      }))
 
       const reader = response.body.getReader()
       const decoder = new TextDecoder()
@@ -112,42 +225,78 @@ export default function Chat() {
   return (
     <div className="flex h-screen bg-[#F8FAFC] font-sans text-slate-900 selection:bg-blue-100">
       {/* Sidebar - Modern Glassmorphism */}
-      <aside className="hidden md:flex w-80 bg-white/70 backdrop-blur-xl border-r border-slate-200/60 flex-col">
-        <div className="p-6 flex items-center gap-3">
-          <div className="w-10 h-10 bg-linear-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
-            <Bot size={24} />
+      <aside className={`
+        fixed md:relative z-40 w-80 bg-white/70 backdrop-blur-xl border-r border-slate-200/60 flex flex-col
+        h-full transition-transform duration-300 ease-in-out
+        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+      `}>
+        {/* Top section - scrollable */}
+        <div className="flex-1 overflow-y-auto">
+          <div className="p-6 flex items-center gap-3">
+            <div className="w-10 h-10 bg-linear-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
+              <Bot size={24} />
+            </div>
+            <div>
+              <h1 className="font-bold text-slate-800 tracking-tight leading-none">CICTBot</h1>
+              <span className="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Trợ lý ảo Văn phòng Trường CNTT-TT</span>
+            </div>
+            <button 
+              onClick={() => setIsSidebarOpen(false)}
+              className="md:hidden ml-auto p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg"
+            >
+              <X size={20}/>
+            </button>
           </div>
-          <div>
-            <h1 className="font-bold text-slate-800 tracking-tight leading-none">CTU GraphRAG</h1>
-            <span className="text-[10px] text-blue-600 font-bold uppercase tracking-widest">Enterprise Edition</span>
+
+          <div className="p-4">
+            <button 
+              onClick={createNewConversation}
+              className="w-full flex items-center justify-center gap-2 p-3 bg-white text-slate-700 rounded-xl hover:bg-slate-50 transition-all font-semibold border border-slate-200 shadow-sm active:scale-[0.98]"
+            >
+              <Plus size={18}/> Cuộc hội thoại mới
+            </button>
           </div>
+
+          <div className="px-4 py-2 space-y-1">
+          <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-3 mt-4 mb-2">Hội thoại</div>
+          {conversations.length === 0 ? (
+            <div className="text-sm text-slate-400 px-3 py-4 text-center">
+              Chưa có hội thoại nào
+            </div>
+          ) : (
+            conversations.map(conv => (
+              <div 
+                key={conv.id}
+                onClick={() => switchConversation(conv.id)}
+                className={`group flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all text-sm ${
+                  activeConversationId === conv.id
+                    ? "bg-blue-50/50 border border-blue-100/50 text-blue-700 font-medium"
+                    : "text-slate-600 hover:bg-slate-50 border border-transparent"
+                }`}
+              >
+                <MessageSquare size={16} className={activeConversationId === conv.id ? "text-blue-500" : "text-slate-400"}/>
+                <span className="truncate flex-1">{conv.title}</span>
+                <button 
+                  onClick={(e) => deleteConversation(conv.id, e)}
+                  className="opacity-0 group-hover:opacity-100 p-1 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded transition-all"
+                >
+                  <Trash2 size={14}/>
+                </button>
+              </div>
+            ))
+          )}
+        </div>
         </div>
 
-        <div className="p-4">
-          <button 
-            onClick={() => setMessages([])}
-            className="w-full flex items-center justify-center gap-2 p-3 bg-white text-slate-700 rounded-xl hover:bg-slate-50 transition-all font-semibold border border-slate-200 shadow-sm active:scale-[0.98]"
-          >
-            <Plus size={18}/> Cuộc hội thoại mới
-          </button>
-        </div>
-
-        <div className="flex-1 overflow-y-auto px-4 py-2 space-y-1">
-          <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-3 mt-4 mb-2">Lịch sử tư vấn</div>
-          <div className="group flex items-center gap-3 p-3 rounded-xl bg-blue-50/50 border border-blue-100/50 cursor-pointer transition-all text-sm text-blue-700 font-medium">
-            <MessageSquare size={16} className="text-blue-500"/>
-            <span className="truncate flex-1">Tìm hiểu học phần An ninh mạng</span>
-          </div>
-        </div>
-
-        <div className="p-4 border-t border-slate-100 bg-white/50">
+        {/* School Info - Fixed at bottom of sidebar */}
+        <div className="p-4 border-t border-slate-100 bg-white/50 shrink-0">
           <div className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-100/50 transition-all cursor-pointer group">
             <div className="w-10 h-10 bg-linear-to-tr from-slate-100 to-slate-200 rounded-full flex items-center justify-center text-slate-500 group-hover:from-blue-50 group-hover:to-blue-100 group-hover:text-blue-600 transition-all">
-              <User size={20}/>
+              <Building2 size={20}/>
             </div>
             <div className="flex-1 overflow-hidden">
-              <div className="text-sm font-bold truncate text-slate-800">Linh - CTU Student</div>
-              <div className="text-[10px] text-slate-400 font-medium">linh.ctu.edu.vn</div>
+              <div className="text-sm font-bold truncate text-slate-800">Trường CNTT-TT</div>
+              <div className="text-[10px] text-slate-400 font-medium">Đại học Cần Thơ</div>
             </div>
           </div>
         </div>
@@ -158,6 +307,12 @@ export default function Chat() {
         {/* Transparent Header */}
         <header className="h-16 flex items-center justify-between px-8 bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-20">
           <div className="flex items-center gap-4">
+            <button 
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              className="md:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all"
+            >
+              <MessageSquare size={20}/>
+            </button>
             <div className="flex items-center gap-2 px-3 py-1 bg-emerald-50 rounded-full border border-emerald-100">
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
               <span className="text-[11px] font-bold text-emerald-700 uppercase tracking-tight">Hệ thống đang trực tuyến</span>
@@ -170,6 +325,14 @@ export default function Chat() {
           </div>
         </header>
 
+        {/* Mobile Sidebar Overlay */}
+        {isSidebarOpen && (
+          <div 
+            className="fixed inset-0 bg-black/20 z-30 md:hidden"
+            onClick={() => setIsSidebarOpen(false)}
+          />
+        )}
+
         {/* Conversation View */}
         <div ref={scrollRef} className="flex-1 overflow-y-auto">
           <div className="max-w-3xl mx-auto w-full py-10 px-6 space-y-10">
@@ -179,14 +342,14 @@ export default function Chat() {
                   <Bot size={40}/>
                 </div>
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-extrabold text-slate-800 tracking-tight">Trợ lý học vụ CTU</h2>
+                  <h2 className="text-3xl font-extrabold text-slate-800 tracking-tight">CICTBot</h2>
                   <p className="text-slate-500 max-w-sm mx-auto text-sm leading-relaxed">
-                    Tôi là hệ thống GraphRAG được huấn luyện để giải đáp mọi thắc mắc về đào tạo tại Đại học Cần Thơ.
+                    Tôi là trợ lý ảo được huấn luyện để trích xuất và trả lời thông tin văn bản cho Văn phòng Trường CNTT-TT.
                   </p>
                 </div>
-                <div className="flex flex-wrap justify-center gap-2 pt-4">
-                  {["Môn tiên quyết là gì?", "Cấu trúc ngành CNTT", "Quy định thôi học"].map(q => (
-                    <button key={q} onClick={() => setInput(q)} className="px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-semibold text-slate-600 hover:border-blue-400 hover:text-blue-600 hover:shadow-md transition-all">
+                <div className="flex flex-wrap justify-center gap-2 pt-2">
+                  {["Môn tiên quyết là gì?", "Cấu trúc ngành CNTT?", "Điều kiện tốt nghiệp?"].map(q => (
+                    <button key={q} onClick={() => setInput(q)} className="px-3 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-600 hover:border-blue-400 hover:text-blue-600 hover:shadow-sm transition-all">
                       {q}
                     </button>
                   ))}
@@ -195,25 +358,24 @@ export default function Chat() {
             ) : (
               messages.map(m => (
                 <div key={m.id} className={`flex gap-4 ${m.role === "user" ? "flex-row-reverse" : "flex-row"} group animate-in fade-in slide-in-from-bottom-2 duration-300`}>
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 shadow-sm ${
+                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
                     m.role === "user" 
-                      ? "bg-linear-to-br from-blue-600 to-blue-700 text-white" 
+                      ? "bg-blue-600 text-white" 
                       : "bg-white border border-slate-200 text-emerald-600"
                   }`}>
-                    {m.role === "user" ? <User size={20}/> : <Bot size={20}/>}
+                    {m.role === "user" ? <User size={18}/> : <Bot size={18}/>}
                   </div>
                   
                   <div className={`flex flex-col gap-2 max-w-[85%] ${m.role === "user" ? "items-end" : "items-start"}`}>
-                    <div className={`p-4 rounded-2xl text-[15px] leading-7 transition-all ${
+                    <div className={`px-4 py-2.5 rounded-2xl text-[15px] leading-6 transition-all ${
                       m.role === "user" 
-                        ? "bg-blue-600 text-white shadow-blue-100 shadow-lg rounded-tr-none" 
-                        : "bg-white border border-slate-200 text-slate-800 shadow-sm rounded-tl-none hover:border-slate-300"
+                        ? "bg-blue-600 text-white rounded-tr-xl" 
+                        : "bg-white border border-slate-200 text-slate-800 rounded-tl-xl"
                     }`}>
-                      {/* Markdown Rendering for Professional Look */}
                       <article className={`prose prose-sm max-w-none ${m.role === 'user' ? 'prose-invert' : 'prose-slate'}`}>
-                        <div className="whitespace-pre-wrap break-words [&_p]:mb-2">
+                        <div className="whitespace-pre-wrap break-words">
                           <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                            {m.parts?.[0]?.text}
+                            {m.parts?.[0]?.text?.replace(/\n{3,}/g, '\n\n').trim()}
                           </ReactMarkdown>
                         </div>
                       </article>
@@ -233,17 +395,16 @@ export default function Chat() {
             )}
 
             {status === "streaming" && (
-              <div className="flex gap-4 items-start animate-pulse">
-                <div className="w-9 h-9 rounded-xl bg-white border border-emerald-100 text-emerald-500 flex items-center justify-center shadow-sm">
-                  <Bot size={20}/>
+              <div className="flex gap-4 items-start">
+                <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 text-emerald-500 flex items-center justify-center">
+                  <Bot size={18}/>
                 </div>
-                <div className="bg-emerald-50/50 border border-emerald-100/50 p-4 rounded-2xl rounded-tl-none text-emerald-700/70 text-sm font-medium flex items-center gap-3">
+                <div className="bg-slate-50 border border-slate-200 px-4 py-2.5 rounded-2xl rounded-tl-xl text-slate-500 text-[15px] flex items-center gap-2">
                   <div className="flex gap-1">
-                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce"></span>
+                    <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                    <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                    <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
                   </div>
-                  Đang trả lời...
                 </div>
               </div>
             )}
@@ -281,8 +442,8 @@ export default function Chat() {
                 </button>
               </div>
             </div>
-            <p className="text-[10px] text-center text-slate-400 mt-4 font-bold uppercase tracking-widest opacity-60">
-              Powered by CTU GraphRAG Engine • 2026
+            <p className="text-[10px] text-center text-slate-400 mt-4 font-medium opacity-60">
+              Chatbot có thể mắc lỗi. Vui lòng xác nhận thông tin quan trọng từ nguồn chính thức.
             </p>
           </form>
         </footer>
