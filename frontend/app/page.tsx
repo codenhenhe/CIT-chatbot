@@ -370,7 +370,7 @@ export default function Chat() {
                     <div className={`px-4 py-2.5 rounded-2xl text-[15px] leading-6 transition-all ${
                       m.role === "user" 
                         ? "bg-blue-600 text-white rounded-tr-xl" 
-                        : "bg-white border border-slate-200 text-slate-800 rounded-tl-xl"
+                        : "bg-white border border-slate-200 text-white rounded-tl-xl"
                     }`}>
                       <article className={`prose prose-sm max-w-none ${m.role === 'user' ? 'prose-invert' : 'prose-slate'}`}>
                         <div className="whitespace-pre-wrap break-words">
