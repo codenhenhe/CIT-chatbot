@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link"; // Dùng để quay về trang chủ
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +19,7 @@ export default function Login() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:8000/admin/login", {
+      const res = await fetch(`${API_BASE_URL}/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -50,7 +52,7 @@ export default function Login() {
                 <span className="text-white font-bold text-lg">G</span>
               </div>
               <span className="text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-indigo-600">
-                CTU GraphRAG
+                CICTBot
               </span>
             </div>
 

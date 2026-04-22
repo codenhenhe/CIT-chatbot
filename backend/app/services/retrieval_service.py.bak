@@ -1,0 +1,589 @@
+import asyncio
+import json
+import logging
+import os
+import threading
+import time
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Tuple
+import re
+
+from app.db.neo4j import get_driver
+from app.scripts.Embedding import EmbeddingModel
+from app.services.llm_service import call_model_7b, call_model_9b
+
+logger = logging.getLogger("app.retrieval")
+
+# --- SCHEMA CHÍNH THỨC CỦA HỆ THỐNG ---
+GRAPH_SCHEMA = (
+    "Nodes:\n"
+    "- ChuongTrinhDaoTao(ma_chuong_trinh, khoa, he, ngon_ngu, tong_tin_chi, thoi_gian_dao_tao, thang_diem): Thực thể trung tâm quản lý chương trình đào tạo.\n"
+    "- DoiTuongTuyenSinh(noi_dung): Đối tượng tuyển sinh (VD: Tốt nghiệp THPT hoặc tương đương).\n"
+    "- DieuKienTotNghiep(noi_dung): Điều kiện tốt nghiệp (VD: Hoàn thành 120 TC, có điểm trung bình tích lũy tối thiểu 2.0).\n"
+    "- HocPhan(ma_hoc_phan, ten_hoc_phan, so_tin_chi, so_tiet_ly_thuyet, so_tiet_thuc_hanh, tom_tat, dieu_kien, yeu_cau_stc_toi_thieu, bat_buoc): Chi tiết về môn học.\n"
+    "- KhoiKienThuc(ma_khoi, ten_khoi, tong_tin_chi, tin_chi_bat_buoc, tin_chi_tu_chon): Các khối như GD đại cương, Cơ sở ngành.\n"
+    "- ChuanDauRa(ma_chuan, noi_dung, nhom, loai): Các chuẩn PLO phân theo Kiến thức/Kỹ năng/Mức độ tự chủ và trách nhiệm cá nhân. (VD: nhom: \"Kỹ năng cứng\", loai: \"Kỹ năng\")\n"
+    "- VanBanPhapLy(so, ten, loai, ngay_ban_hanh, co_quan_ban_hanh, noi_dung_goc): Quyết định ban hành hoặc văn bản căn cứ.\n"
+    "- Nganh(ma_nganh, ten_nganh_vi, ten_nganh_en): Thông tin ngành đào tạo.\n"
+    "- Khoa(ma_khoa, ten_khoa): Khoa/Trường.\n"
+    "- BoMon(ma_bo_mon, ten_bo_mon): Bộ môn.\n"
+    "- TrinhDo(ma_trinh_do, ten_trinh_do): Cấp bậc đào tạo (Đại học/Cao đẳng/Thạc sĩ/Tiến sĩ).\n"
+    "- LoaiVanBang(ma_loai, loai_van_bang): Danh hiệu văn bằng (Kỹ sư/Cử nhân/Thạc sĩ/Tiến sĩ).\n"
+    "- HinhThucDaoTao(ma_hinh_thuc, ten_hinh_thuc): Hình thức đào tạo (Chính quy/Vừa làm vừa học/Đào tạo từ xa).\n"
+    "- PhuongThucDaoTao(ma_phuong_thuc, ten_phuong_thuc): Phương thức đào tạo (Trực tiếp/Trực tuyến).\n"
+    "- MucTieuDaoTao(loai, noi_dung): Mục tiêu PEOs chung hoặc cụ thể.\n"
+    "- ViTriViecLam(noi_dung): Cơ hội nghề nghiệp sau tốt nghiệp.\n"
+    "- ChuanThamKhao(noi_dung, link, noi_dung_goc): Tài liệu hoặc chuẩn tham chiếu quốc tế.\n"
+    "- DanhGiaKiemDinh(noi_dung): Thông tin về đánh giá và kiểm định chất lượng chương trình đào tạo.\n"
+    "- KhaNangHocTap(noi_dung): Khả năng học tập sau tốt nghiệp.\n"
+    "- NhomHocPhanTuChon(ten_nhom): Nhóm nhỏ môn học trong yêu cầu tự chọn. (VD: AV, PV)\n"
+    "- YeuCauTuChon(noi_dung_yeu_cau, so_tin_chi_yeu_cau): Ràng buộc nhóm học phần tự chọn và số tín chỉ tự chọn (VD:, N1 hoặc N2, Chọn 10 TC).\n\n"
+
+    "Edges:\n"
+    "- (:ChuongTrinhDaoTao)-[:BAN_HANH_THEO]->(:VanBanPhapLy)\n"
+    "- (:ChuongTrinhDaoTao)-[:DAO_TAO]->(:TrinhDo)\n"
+    "- (:ChuongTrinhDaoTao)-[:THUOC_VE]->(:Nganh)\n"
+    "- (:Nganh)-[:THUOC_VE]->(:Khoa|:BoMon)\n"
+    "- (:BoMon)-[:THUOC_VE]->(:Khoa)\n"
+    "- (:ChuongTrinhDaoTao)-[:CAP]->(:LoaiVanBang)\n"
+    "- (:ChuongTrinhDaoTao)-[:CO]->(:HinhThucDaoTao)\n"
+    "- (:ChuongTrinhDaoTao)-[:CO]->(:PhuongThucDaoTao)\n"
+    "- (:ChuongTrinhDaoTao)-[:CO]->(:DoiTuongTuyenSinh)\n"
+    "- (:ChuongTrinhDaoTao)-[:CO]->(:MucTieuDaoTao)\n"
+    "- (:ChuongTrinhDaoTao)-[:CO]->(:DanhGiaKiemDinh)\n"
+    "- (:ChuongTrinhDaoTao)-[:CO]->(:ViTriViecLam)\n"
+    "- (:ChuongTrinhDaoTao)-[:THAM_KHAO]->(:ChuanThamKhao)\n"
+    "- (:ChuongTrinhDaoTao)-[:DAT_DUOC]->(:KhaNangHocTap)\n"
+    "- (:ChuongTrinhDaoTao)-[:CO]->(:ChuanDauRa)\n"
+    "- (:ChuongTrinhDaoTao)-[:YEU_CAU]->(:DieuKienTotNghiep)\n"
+    "- (:ChuongTrinhDaoTao)-[:GOM]->(:KhoiKienThuc)\n"
+    "- (:ChuongTrinhDaoTao)-[:GOM]->(:HocPhan)\n"
+    "- (:KhoiKienThuc)-[:GOM]->(:HocPhan)\n"
+    "- (:YeuCauTuChon)-[:DOI_VOI]->(:NhomHocPhanTuChon)\n"
+    "- (:YeuCauTuChon)-[:GOM]->(:HocPhan)\n"
+    "- (:NhomHocPhanTuChon)-[:GOM]->(:HocPhan)\n"
+    "- (:HocPhan)-[:YEU_CAU_TIEN_QUYET]->(:HocPhan)\n"
+    "- (:HocPhan)-[:CO_THE_SONG_HANH]->(:HocPhan)\n"
+) 
+
+FEW_SHOT_EXAMPLES = """
+User: "Môn Kỹ thuật lập trình bao nhiêu tín chỉ?"
+Cypher: MATCH (h:HocPhan) WHERE toLower(h.ten_hoc_phan) CONTAINS toLower('Kỹ thuật lập trình') RETURN h.ten_hoc_phan, h.so_tin_chi LIMIT 5
+
+User: "Học phần tiên quyết của môn Giải tích 1 là gì?"
+Cypher: MATCH (h_pre:HocPhan)-[:YEU_CAU_TIEN_QUYET]->(h:HocPhan) WHERE toLower(h.ten_hoc_phan) CONTAINS toLower('Giải tích 1') RETURN h_pre.ten_hoc_phan AS hoc_phan_tien_quyet LIMIT 10
+
+User: "Ngành Kỹ thuật phần mềm thuộc khoa nào?"
+Cypher: MATCH (n:Nganh)-[:THUOC_VE]->(k:Khoa) WHERE toLower(n.ten_nganh_vi) CONTAINS toLower('Kỹ thuật phần mềm') RETURN n.ten_nganh_vi, k.ten_khoa LIMIT 5
+
+User: "Khóa 50 có những ngành nào và tổng tín chỉ bao nhiêu?"
+Cypher: MATCH (ctdt:ChuongTrinhDaoTao {khoa: 50})-[:THUOC_VE]->(n:Nganh) RETURN n.ten_nganh_vi, ctdt.tong_tin_chi LIMIT 20
+
+User: "Liệt kê các môn trong khối giáo dục thể chất"
+Cypher: MATCH (k:KhoiKienThuc)-[:GOM]->(h:HocPhan) WHERE toLower(k.ten_khoi) CONTAINS toLower('giáo dục thể chất') RETURN h.ten_hoc_phan, h.so_tin_chi LIMIT 30
+
+User: "Chuẩn đầu ra kỹ năng của ngành Mạng máy tính là gì?"
+Cypher: MATCH (ctdt:ChuongTrinhDaoTao)-[:THUOC_VE]->(n:Nganh), (ctdt)-[:CO]->(cdr:ChuanDauRa) WHERE toLower(n.ten_nganh_vi) CONTAINS toLower('Mạng máy tính') AND toLower(cdr.loai) CONTAINS toLower('kỹ năng') RETURN cdr.noi_dung LIMIT 20
+"""
+
+# --- UTILITIES ---
+_embed_model: Optional[EmbeddingModel] = None
+_embed_model_lock = threading.Lock()
+_embedding_cache: Dict[str, List[float]] = {}
+_source_metrics = {"requests": 0, "graph": 0, "vector": 0, "bm25": 0, "none": 0, "start": time.time()}
+_bm25_index_ready = False
+_bm25_index_lock = threading.Lock()
+_BM25_INDEX_NAME = "ctdt_bm25_index"
+_BM25_INDEX_FIELDS = [
+    "text",
+    "noi_dung",
+    "ten",
+    "ten_hoc_phan",
+    "ten_nganh_vi",
+    "ten_khoa",
+    "ten_bo_mon",
+    "ten_khoi",
+    "ma_hoc_phan",
+    "ma_nganh",
+    "ma_khoa",
+    "ma_chuong_trinh",
+]
+
+
+def _truncate_for_log(text: str, limit: int = 500) -> str:
+    value = (text or "").strip()
+    return value if len(value) <= limit else value[:limit] + "...<truncated>"
+
+
+def _to_log_json(value: Any, limit: int = 4000) -> str:
+    try:
+        text = json.dumps(value, ensure_ascii=False, default=str)
+    except Exception:
+        text = str(value)
+    return _truncate_for_log(text, limit)
+
+def _log_metrics(source: str):
+    _source_metrics["requests"] += 1
+    _source_metrics.setdefault(source, 0)
+    _source_metrics[source] += 1
+    print(f"[retrieval] Source: {source} | Total Req: {_source_metrics['requests']}")
+
+def _get_embed_model() -> EmbeddingModel:
+    global _embed_model
+    if _embed_model is not None:
+        return _embed_model
+
+    with _embed_model_lock:
+        if _embed_model is None:
+            device = os.getenv("EMBEDDING_DEVICE")
+            _embed_model = EmbeddingModel(device=device)
+    return _embed_model
+
+def _is_safe_cypher(cypher: str) -> bool:
+    if not cypher: return False
+    forbidden = ["DELETE", "CREATE", "MERGE", "SET", "REMOVE", "DROP"]
+    return not any(x in cypher.upper() for x in forbidden) and "RETURN" in cypher.upper()
+
+def _humanize_column_name(col_name: str) -> str:
+    """Convert Cypher column names to human-readable Vietnamese labels."""
+    col_lower = col_name.lower()
+    
+    # Exact matches for common column names
+    mappings = {
+        "ten_nganh_vi": "Ngành",
+        "ten_nganh_en": "Major (English)",
+        "loai_hinh": "Loại hình",
+        "ten": "Tên môn học",
+        "so_tin_chi": "Tín chỉ",
+        "so_tiet_ly_thuyet": "Tiết lý thuyết",
+        "so_tiet_thuc_hanh": "Tiết thực hành",
+        "noi_dung": "Nội dung",
+        "ten_khoa": "Khoa/Bộ môn",
+        "ten_bomon": "Bộ môn",
+        "ma_trinh_do": "Cấp độ",
+        "bat_buoc": "Bắt buộc/Tự chọn",
+        "tong_tin_chi": "Tổng tín chỉ",
+        "loai_van_bang": "Loại văn bằng",
+        "ma_chuong_trinh": "Mã chương trình",
+    }
+    
+    # Try exact match
+    for key, val in mappings.items():
+        if col_lower.endswith(key):
+            return val
+    
+    # Strip prefixes and try again
+    stripped = col_name.split(".")[-1] if "." in col_name else col_name
+    for key, val in mappings.items():
+        if stripped.lower() == key:
+            return val
+    
+    # Fallback: improve readability of remaining column names
+    # Remove common prefixes like "ctdt_", "h_", "n_"
+    result = stripped
+    for prefix in ["ctdt_", "h_", "n_", "v_", "k_", "cdr_"]:
+        if result.startswith(prefix):
+            result = result[len(prefix):]
+            break
+    
+    # Convert snake_case to Title Case
+    return " ".join([word.capitalize() for word in result.split("_")])
+
+# --- CORE LOGIC ---
+
+async def generate_cypher_with_llm(question: str) -> str:
+    """Sử dụng 9B để biến ngôn ngữ tự nhiên thành Cypher dựa trên Schema chi tiết."""
+    prompt = f"""
+Bạn là chuyên gia Neo4j cho hệ thống đào tạo Đại học Cần Thơ.
+Dựa trên Schema và các ví dụ đúng schema sau, hãy viết câu lệnh Cypher để trả lời câu hỏi.
+
+SCHEMA:
+{GRAPH_SCHEMA}
+
+VÍ DỤ:
+{FEW_SHOT_EXAMPLES}
+
+HƯỚNG DẪN QUAN TRỌNG:
+1. Chỉ trả về duy nhất câu lệnh Cypher. KHÔNG GIẢI THÍCH GÌ.
+2. LƯU Ý VỀ KIỂU DỮ LIỆU:
+   - Thuộc tính "khoa" là SỐ NGUYÊN (VD: 51, 50, 52) → Không dùng ngoặc đơn. Ví dụ: {{khoa: 51}}
+    - Thuộc tính chuỗi (he, ten_hoc_phan, ten_nganh_vi, ten_khoi...) → Dùng ngoặc đơn.
+3. Luôn sử dụng toLower() cho các thuộc tính tên để tìm kiếm linh hoạt.
+4. Chỉ dùng quan hệ và thuộc tính có trong schema hiện tại.
+5. Không thêm dấu ngoặc nhọn xung quanh câu trả lời.
+
+Câu hỏi: {question}
+Cypher:"""
+    
+    try:
+        # Temperature thấp để tăng tính ổn định của mẫu Cypher.
+        raw_cypher = await call_model_9b(prompt, temperature=0.2)
+        # Làm sạch kết quả trả về từ LLM
+        clean_cypher = raw_cypher.strip().replace("```cypher", "").replace("```", "").split(";")[0]
+        logger.info("[retrieval][cypher] generated len=%s cypher=%s", len(clean_cypher), _truncate_for_log(clean_cypher, 360))
+        return clean_cypher
+    except Exception as e:
+        logger.error(f"Lỗi sinh Cypher: {e}")
+        return ""
+
+def _execute_query(cypher: str) -> List[Dict]:
+    try:
+        driver = get_driver()
+        with driver.session() as session:
+            # Pass empty dict to prevent Neo4j driver from treating {} as format placeholders
+            result = session.run(cypher, {})
+            rows = result.data()
+            logger.info("[retrieval][graph][cypher_raw] %s", _truncate_for_log(cypher, 1200))
+            logger.info("[retrieval][graph][rows_raw] count=%s rows=%s", len(rows), _to_log_json(rows, 8000))
+            return rows
+    except Exception as e:
+        logger.error(f"Lỗi thực thi Cypher: {e}")
+        return []
+
+
+async def _get_vector_context(question: str, top_k: int = 4) -> str:
+    """Tìm kiếm vector dự phòng khi Graph không có kết quả."""
+    model = _get_embed_model()
+    # Chạy embedding trong thread để không block
+    vec = await asyncio.to_thread(model.get_embedding_batch, [question])
+    if not vec: return ""
+    
+    cypher_vector = """
+    CALL db.index.vector.queryNodes('global_knowledge_index', $top_k, $vector)
+    YIELD node, score WHERE score >= 0.65
+    RETURN coalesce(node.text, node.noi_dung, node.ten_hp) as txt, score
+    """
+    rows = await asyncio.to_thread(_execute_query_with_params, cypher_vector, {"vector": vec[0], "top_k": max(top_k, 1)})
+    return "\n".join([f"- {r['txt']}" for r in rows])
+
+def _execute_query_with_params(cypher: str, params: dict):
+    driver = get_driver()
+    with driver.session() as session:
+        rows = session.run(cypher, **params).data()
+        logger.info("[retrieval][vector][cypher_raw] %s", _truncate_for_log(cypher, 800))
+        logger.info("[retrieval][vector][rows_raw] count=%s rows=%s", len(rows), _to_log_json(rows, 4000))
+        return rows
+
+
+def _ensure_bm25_index() -> None:
+    global _bm25_index_ready
+    if _bm25_index_ready:
+        return
+
+    with _bm25_index_lock:
+        if _bm25_index_ready:
+            return
+
+        fields = ", ".join(f"n.{field}" for field in _BM25_INDEX_FIELDS)
+        cypher = f"""
+        CREATE FULLTEXT INDEX {_BM25_INDEX_NAME} IF NOT EXISTS
+        FOR (n:Entity)
+        ON EACH [{fields}]
+        """
+        driver = get_driver()
+        with driver.session() as session:
+            session.run(cypher).consume()
+
+        _bm25_index_ready = True
+
+
+def _get_bm25_context_sync(query: str, top_k: int) -> str:
+    _ensure_bm25_index()
+    cypher = f"""
+    CALL db.index.fulltext.queryNodes('{_BM25_INDEX_NAME}', $bm25_query)
+    YIELD node, score
+    WHERE score > 0
+    RETURN coalesce(node.text, node.noi_dung, node.ten_hoc_phan, node.ten_nganh_vi, node.ten_khoa, node.ten_bo_mon, node.ten_khoi, node.ten, node.ma_hoc_phan, node.ma_nganh, node.ma_khoa, node.ma_chuong_trinh) AS txt, score
+    ORDER BY score DESC
+    LIMIT $top_k
+    """
+    rows = _execute_query_with_params(cypher, {"bm25_query": query, "top_k": max(top_k, 1)})
+    if not rows:
+        return ""
+    return "\n".join([f"- {r['txt']}" for r in rows if r.get("txt")])
+
+# --- MAIN EXPOSED FUNCTION ---
+
+async def retrieve_graph_context(question: str, top_k: int = 4) -> str:
+    """
+    Quy trình:
+    1. Model 9B sinh Cypher dựa trên Schema chi tiết.
+    2. Truy vấn Neo4j.
+    3. Nếu không có data -> Fallback tìm kiếm Vector (BGE-M3).
+    """
+    # 1. Thử với Graph
+    cypher = await generate_cypher_with_llm(question)
+    graph_context = ""
+    logger.info("[retrieval][input] question=%s", _truncate_for_log(question, 220))
+    
+    if _is_safe_cypher(cypher):
+        logger.info(f"Generated Cypher: {cypher}")
+        rows = await asyncio.to_thread(_execute_query, cypher)
+        logger.info("[retrieval][graph] rows=%s", len(rows))
+        if rows:
+            # Format lại dữ liệu để model dễ hiểu hơn
+            formatted_rows = []
+            for idx, row in enumerate(rows[:10], 1):
+                row_items = []
+                for k, v in row.items():
+                    human_label = _humanize_column_name(k)
+                    row_items.append(f"{human_label}: {v}")
+                formatted_rows.append(f"{idx}. {' | '.join(row_items)}")
+            
+            # Extract filter context from Cypher to help model understand the query scope
+            context_hint = ""
+            
+            # Check for khoa (batch/cohort) filter
+            khoa_match = re.search(r'\{khoa:\s*(\d+)\}', cypher)
+            if khoa_match:
+                khoa_num = khoa_match.group(1)
+                context_hint = f"[Khóa {khoa_num}] "
+            
+            # Check for loai_hinh (program type) filter
+            loai_hinh_match = re.search(r"\{loai_hinh:\s*'([^']+)'\}", cypher)
+            if loai_hinh_match:
+                loai_hinh = loai_hinh_match.group(1)
+                context_hint += f"[{loai_hinh}] "
+            
+            graph_context = f"DỮ LIỆU TỪ HỆ THỐNG (Từ Neo4j) {context_hint}:\n" + "\n".join(formatted_rows[: max(top_k, 1)])
+            logger.info("[retrieval][graph] context_len=%s preview=%s", len(graph_context), _truncate_for_log(graph_context))
+    else:
+        logger.warning("[retrieval][cypher] unsafe_or_empty=%s", _truncate_for_log(cypher, 220))
+
+    # 2. Thử với Vector nếu Graph rỗng
+    vector_context = ""
+    if not graph_context:
+        vector_context = await _get_vector_context(question)
+        if vector_context:
+            vector_context = "DỮ LIỆU TỪ THAM KHẢO (Từ Vector Search):\n" + vector_context
+            logger.info("[retrieval][vector] context_len=%s preview=%s", len(vector_context), _truncate_for_log(vector_context))
+
+    # 3. Kết luận nguồn dữ liệu
+    source = "graph" if graph_context else ("vector" if vector_context else "none")
+    _log_metrics(source)
+
+    # Kết hợp context từ cả hai nguồn với dấu ngăn cách rõ ràng
+    final_context = ""
+    if graph_context:
+        final_context += graph_context
+    if vector_context:
+        if final_context:
+            final_context += "\n\n---\n\n"
+        final_context += vector_context
+
+    logger.info(
+        "[retrieval][final] source=%s final_context_len=%s preview=%s",
+        source,
+        len(final_context),
+        _truncate_for_log(final_context),
+    )
+    
+    return final_context.strip()
+
+def warmup_embedding_model() -> bool:
+    """Khởi động model embedding để tránh độ trễ (cold-start) ở request đầu tiên."""
+    logger.info("[retrieval] Bắt đầu warmup embedding model...")
+    try:
+        model = _get_embed_model()
+        # Chạy thử một truy vấn mồi để ép PyTorch/Transformers load weights vào bộ nhớ
+        vectors = model.get_embedding_batch(["warmup_query_ctu"])
+        if vectors:
+            _embedding_cache["warmup_query_ctu"] = vectors[0]
+        logger.info("[retrieval] Warmup embedding model thành công!")
+        return True
+    except Exception as e:
+        logger.error(f"[retrieval] Lỗi khi warmup embedding model: {e}")
+        return False
+
+
+def format_rows_to_context(rows: List[Dict[str, Any]]) -> str:
+    """Chuyển đổi dữ liệu thô từ Neo4j thành context văn bản sạch cho LLM."""
+    if not rows:
+        return ""
+        
+    formatted_rows = []
+    # Chỉ lấy tối đa 10 kết quả chất lượng nhất để tránh tràn ngữ cảnh (context window)
+    for idx, row in enumerate(rows[:10], 1):
+        row_items = []
+        for key, value in row.items():
+            # Chuyển tên cột kỹ thuật (ví dụ: so_tin_chi) thành tên tiếng Việt (Tín chỉ)
+            label = _humanize_column_name(key)
+            row_items.append(f"{label}: {value}")
+        
+        # Ghép các thuộc tính của một node thành một dòng
+        formatted_rows.append(f"{idx}. {' | '.join(row_items)}")
+    
+    return "DỮ LIỆU TỪ HỆ THỐNG ĐÀO TRẠO (Neo4j):\n" + "\n".join(formatted_rows)
+
+async def generate_cypher_and_execute(question: str) -> str:
+    """Quy trình: Sinh Cypher -> Thực thi -> Định dạng kết quả."""
+    # 1. LLM sinh câu lệnh Cypher
+    cypher = await generate_cypher_with_llm(question)
+    
+    # 2. Kiểm tra an toàn bảo mật
+    if not _is_safe_cypher(cypher):
+        return ""
+    
+    # 3. Thực thi truy vấn lên Graph Database
+    logger.info(f"[retrieval] Thực thi Cypher: {cypher}")
+    rows = await asyncio.to_thread(_execute_query, cypher)
+    
+    # 4. Định dạng dữ liệu trả về
+    return format_rows_to_context(rows)
+
+async def _get_bm25_context(question: str, top_k: int = 4) -> str:
+    try:
+        bm25_context = await asyncio.to_thread(_get_bm25_context_sync, question, top_k)
+        if bm25_context:
+            return "DỮ LIỆU TỪ THAM KHẢO (Từ BM25 Search):\n" + bm25_context
+        return ""
+    except Exception as exc:
+        logger.error("[retrieval] bm25 search failed: %s", exc)
+        return ""
+
+
+async def retrieve_hybrid_context_parallel(question: str, top_k: int = 4) -> str:
+    """Thực hiện truy xuất song song để tối ưu tốc độ."""
+    # Chạy đồng thời cả hai nguồn dữ liệu
+    graph_task = asyncio.create_task(generate_cypher_and_execute(question))
+    bm25_task = asyncio.create_task(_get_bm25_context(question, top_k))
+    vector_task = asyncio.create_task(_get_vector_context(question, top_k))
+
+    graph_context, bm25_context, vector_context = await asyncio.gather(graph_task, bm25_task, vector_task)
+
+    # Tổng hợp kết quả
+    parts = []
+    if bm25_context:
+        parts.append(bm25_context)
+    if vector_context:
+        parts.append(f"THÔNG TIN THAM KHẢO THÊM (Vector):\n{vector_context}")
+    if graph_context:
+        parts.append(graph_context)
+
+    if not parts:
+        return "Hệ thống không tìm thấy dữ liệu liên quan."
+
+    return "\n\n---\n\n".join(parts)
+
+@dataclass
+class RetrievalResult:
+    strategy: str
+    context: str
+    sources: List[str]
+
+
+class RetrievalService:
+    """Execute retrieval by strategy. Heavy integrations can be replaced later."""
+
+    def __init__(self) -> None:
+        self.cache_ttl_seconds = int(os.getenv("RETRIEVAL_CACHE_TTL_SECONDS", "180"))
+        self._cache: Dict[str, Tuple[float, RetrievalResult]] = {}
+
+    async def execute(
+        self,
+        strategy: str,
+        query: str,
+        entities: Dict[str, str],
+        top_k: int = 5,
+    ) -> RetrievalResult:
+        strategy = (strategy or "hybrid").lower()
+        cache_key = self._build_cache_key(strategy, query, entities, top_k)
+        cached = self._get_cached(cache_key)
+        if cached:
+            logger.info("[retrieval][cache] hit strategy=%s top_k=%s", strategy, top_k)
+            return cached
+
+        logger.info("[retrieval][step] execute strategy=%s top_k=%s", strategy, top_k)
+
+        if strategy == "vector":
+            context = await self._vector_search(query, entities, top_k)
+            result = RetrievalResult("vector", context, ["vector"])
+            logger.info("[retrieval][result] strategy=vector context_len=%s preview=%s", len(context), _truncate_for_log(context))
+            self._set_cached(cache_key, result)
+            return result
+
+        if strategy == "graph":
+            context = await self._graph_search(query, entities, top_k)
+            result = RetrievalResult("graph", context, ["neo4j"])
+            logger.info("[retrieval][result] strategy=graph context_len=%s preview=%s", len(context), _truncate_for_log(context))
+            self._set_cached(cache_key, result)
+            return result
+
+        if strategy == "bm25":
+            context = await self._bm25_search(query, top_k)
+            result = RetrievalResult("bm25", context, ["bm25"])
+            logger.info("[retrieval][result] strategy=bm25 context_len=%s preview=%s", len(context), _truncate_for_log(context))
+            self._set_cached(cache_key, result)
+            return result
+
+        graph_context = await self._graph_search(query, entities, top_k)
+        vector_context = await self._vector_search(query, entities, top_k)
+        combined = "\n\n".join([part for part in [graph_context, vector_context] if part])
+        result = RetrievalResult("hybrid", combined, ["neo4j", "vector"])
+        logger.info("[retrieval][result] strategy=hybrid context_len=%s preview=%s", len(combined), _truncate_for_log(combined))
+        self._set_cached(cache_key, result)
+        return result
+
+    async def _graph_search(self, query: str, entities: Dict[str, Any], top_k: int) -> str:
+        _ = entities
+        try:
+            context = await retrieve_graph_context(query)
+            return self._limit_lines(context, top_k)
+        except Exception as exc:
+            logger.error("[retrieval] graph search failed: %s", exc)
+            return ""
+
+    async def _vector_search(self, query: str, entities: Dict[str, Any], top_k: int) -> str:
+        # Mock vector retrieval for architecture demo. Replace with real vector DB call.
+        mentions = entities.get("mentions", []) if isinstance(entities, dict) else []
+        mention_text = ", ".join(str(m).strip() for m in mentions if str(m).strip())
+        intent_hint = str(entities.get("intent_hint", "")).strip() if isinstance(entities, dict) else ""
+        snippets = [
+            f"Vector hit 1: thông tin tổng quan phù hợp cho truy vấn '{query}'.",
+            f"Vector hit 2: thực thể liên quan '{mention_text or 'không xác định'}'.",
+            f"Vector hit 3: ý định truy vấn '{intent_hint or 'không xác định'}'.",
+        ]
+        return "\n".join(snippets[: max(top_k, 1)])
+
+    async def _bm25_search(self, query: str, top_k: int) -> str:
+        # Mock BM25 retrieval for architecture demo.
+        lines = [f"BM25 hit {i}: tài liệu text-match cho '{query}'." for i in range(1, max(top_k, 1) + 1)]
+        return "\n".join(lines)
+
+    @staticmethod
+    def _limit_lines(text: str, top_k: int) -> str:
+        if not text:
+            return ""
+        lines = [line for line in text.splitlines() if line.strip()]
+        return "\n".join(lines[: max(top_k, 1)])
+
+    @staticmethod
+    def _build_cache_key(strategy: str, query: str, entities: Dict[str, str], top_k: int) -> str:
+        payload = {
+            "strategy": strategy,
+            "query": (query or "").strip(),
+            "entities": entities or {},
+            "top_k": int(top_k),
+        }
+        return json.dumps(payload, ensure_ascii=False, sort_keys=True)
+
+    def _get_cached(self, key: str) -> Optional[RetrievalResult]:
+        item = self._cache.get(key)
+        if not item:
+            return None
+        ts, value = item
+        if (time.time() - ts) > self.cache_ttl_seconds:
+            self._cache.pop(key, None)
+            return None
+        return value
+
+    def _set_cached(self, key: str, value: RetrievalResult) -> None:
+        self._cache[key] = (time.time(), value)
+        if len(self._cache) > 1000:
+            self._cleanup_cache()
+
+    def _cleanup_cache(self) -> None:
+        now = time.time()
+        expired = [k for k, (ts, _) in self._cache.items() if (now - ts) > self.cache_ttl_seconds]
+        for k in expired:
+            self._cache.pop(k, None)

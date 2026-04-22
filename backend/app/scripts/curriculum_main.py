@@ -1,9 +1,10 @@
 import asyncio
 import json
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 if __package__ in (None, ""):
     backend_root = Path(__file__).resolve().parents[2]
@@ -13,7 +14,7 @@ if __package__ in (None, ""):
     from app.scripts.curriculum_parser import PDFParser
 else:
     from .curriculum_extractor import extract_curriculum_entities, save_json_output
-    from .curriculum_parser import PDFParser
+    from .curriculum_parser import PDFCurriculumParser
 
 
 def _utc_now_iso() -> str:
@@ -25,6 +26,92 @@ def _default_output_json_path(pdf_path: str) -> str:
     output_dir = backend_root / "processed_data" / "json"
     output_dir.mkdir(parents=True, exist_ok=True)
     return str(output_dir / f"{Path(pdf_path).stem}.json")
+
+
+def _clean_text(value: Any) -> str:
+    if value is None:
+        return ""
+    return re.sub(r"\s+", " ", str(value)).strip()
+
+
+def _json_safe(value: Any) -> Any:
+    if value is None:
+        return None
+    if isinstance(value, (str, int, float, bool)):
+        return value
+    if hasattr(value, "item") and callable(getattr(value, "item")):
+        try:
+            return value.item()
+        except Exception:
+            pass
+    if isinstance(value, dict):
+        return {key: _json_safe(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [_json_safe(item) for item in value]
+    if isinstance(value, tuple):
+        return [_json_safe(item) for item in value]
+    return _clean_text(value)
+
+
+def _build_fallback_text(node_type: str, item: Dict[str, Any]) -> str:
+    details: List[str] = []
+    for key, value in item.items():
+        if key in {"text", "embedding"}:
+            continue
+        text_val = _clean_text(value)
+        if text_val:
+            details.append(f"{key}: {text_val}")
+    if details:
+        return f"{node_type} | " + " ; ".join(details)
+    return node_type
+
+
+def _collect_text_targets(payload: Dict[str, Any]) -> Tuple[List[str], List[Dict[str, Any]]]:
+    texts: List[str] = []
+    targets: List[Dict[str, Any]] = []
+
+    results = payload.get("results", {})
+    if not isinstance(results, dict):
+        return texts, targets
+
+    for node_type, block in results.items():
+        if not isinstance(block, dict):
+            continue
+        items = block.get("items", [])
+        if not isinstance(items, list):
+            continue
+
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            text = _clean_text(item.get("text"))
+            if not text:
+                text = _build_fallback_text(node_type, item)
+                item["text"] = text
+            texts.append(text)
+            targets.append(item)
+
+    return texts, targets
+
+
+def _attach_embeddings_to_payload(payload: Dict[str, Any]) -> int:
+    texts, targets = _collect_text_targets(payload)
+    if not texts:
+        return 0
+
+    if __package__ in (None, ""):
+        from app.scripts.Embedding import get_embedding_model
+    else:
+        from .Embedding import get_embedding_model
+
+    embedder = get_embedding_model()
+    embeddings = embedder.get_embedding_batch(texts)
+    if len(embeddings) != len(targets):
+        raise RuntimeError("So luong embedding khong khop so luong node item.")
+
+    for item, emb in zip(targets, embeddings):
+        item["embedding"] = [float(dim) for dim in emb]
+    return len(targets)
 
 
 async def run_curriculum_etl(pdf_path: str, output_json: Optional[str] = None) -> Dict[str, Any]:
@@ -70,6 +157,11 @@ def mark_admin_review(
 ) -> Dict[str, Any]:
     payload = load_admin_json(json_path)
     payload["status"] = "approved" if approved else "rejected"
+
+    embedded_items = 0
+    if approved:
+        embedded_items = _attach_embeddings_to_payload(payload)
+
     payload.setdefault("admin_review", {})
     payload["admin_review"].update(
         {
@@ -77,9 +169,11 @@ def mark_admin_review(
             "reviewed_by": reviewed_by,
             "reviewed_at": _utc_now_iso(),
             "notes": notes,
+            "embedding_generated": approved,
+            "embedded_items": embedded_items,
         }
     )
-    save_json_output(payload, json_path)
+    save_json_output(_json_safe(payload), json_path)
     return payload
 
 

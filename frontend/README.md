@@ -2,6 +2,22 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Backend URL configuration
+
+Create `.env.local` from `.env.example` and set backend URL once:
+
+```bash
+cp .env.example .env.local
+```
+
+Example `.env.local`:
+
+```bash
+NEXT_PUBLIC_BACKEND_URL=http://127.0.0.1:8010
+```
+
+Now all frontend calls use this single value.
+
 First, run the development server:
 
 ```bash

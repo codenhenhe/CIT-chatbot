@@ -1,7 +1,8 @@
 export async function POST(req: Request) {
   const body = await req.json()
+  const backendBaseUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000"
 
-  const response = await fetch("http://127.0.0.1:8000/chat", {
+  const response = await fetch(`${backendBaseUrl}/chat`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

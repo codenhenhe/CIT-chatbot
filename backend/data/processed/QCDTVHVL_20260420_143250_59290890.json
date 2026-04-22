@@ -1,0 +1,1013 @@
+{
+  "metadata": {
+    "ten_file": "QCDTVHVL_20260420_143250_59290890.pdf"
+  },
+  "quyet_dinh_ban_hanh": {
+    "can_cu": [],
+    "cac_dieu": [
+      {
+        "id": "Điều 1",
+        "tieu_de": "Ban hành kèm theo Quyết định này Quy chể đào tạo trình độ đại học hình thức vừa làm vừa học của Trường Đại học Cần Thơ.",
+        "full_path": "Điều 1",
+        "noi_dung": "",
+        "cac_khoan": []
+      },
+      {
+        "id": "Điều 2",
+        "tieu_de": "Quyết định này có hiệu lực thi hành từ học kỳ 2, năm học 2024-2025 và thay thể Quyết định số 3796/QĐ-ĐHCT ngày 06 tháng 10 năm 2021 của Hiệu trưởng Trường Đại học Cần Thơ về việc ban hành Quy chể đào tạo hình thức vừa làm vừa học và trình độ đại học.",
+        "full_path": "Điều 2",
+        "noi_dung": "",
+        "cac_khoan": []
+      },
+      {
+        "id": "Điều 3",
+        "tieu_de": "Giám đốc Trung tâm Liên kết Đào tạo, Thủ trưởng các đơn vị thuộc trực thuộc Trường, viên chức và sinh viên có liên quan chịu trách nhiệm thi hành Quyết định này. Nơi nhận: UCHIEỆU TRƯỞNG - Như Điều 3; - Lưu VT, TTLKĐT. TRƯỜNG GIAO",
+        "full_path": "Điều 3",
+        "noi_dung": " ĐẠI HỌC CẦN THƠ Trần Trung Tỉnh BỘ GIÁO DỤC VÀ ĐÀO TẠO CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM TRƯỜNG ĐẠI HỌC CẦN THƠ Độc lập - Tự do - Hạnh phúc QUY CHÉ Đào tạo trình độ đại học hình thức vừa làm vừa họс (Kèm theo Quyết định số 5%55/QĐ-ĐHCT ngày L() tháng/|\\năm 2024 của Hiệu trưởng Trường Đại học Cân Thơ)",
+        "cac_khoan": []
+      }
+    ]
+  },
+  "quy_dinh_chi_tiet": [
+    {
+      "chuong": "CHƯƠNG I",
+      "ten": "CHƯƠNG I: NHỮNG VẪN ĐỀ CHUNG",
+      "cac_dieu": [
+        {
+          "id": "Điều 1",
+          "tieu_de": "Phạm vi điều chỉnh và đổi tượng áp dụng Quy chế này quy định về công tác học vụ hình thức vừa làm vừa học (VLVH) trình",
+          "full_path": "CHƯƠNG I > Điều 1",
+          "noi_dung": " độ đại học bao gồm: chương trình đào tạo (CTĐT) và thời gian học tập, tô chức đào tạo, đánh giá kêt quả học tập, xét và công nhận tôt nghiệp, những quy định khác đôi với sinh viên (SV). Quy chế này áp dụng đối với SV các ngành, khóa đào tạo trình độ đại học; liên thông từ trung cấp, cao đẳng lên đại học; liên thông đại học đối với người đã tốt nghiệp đại học hình thức VLVH của Trường Đại học Cần Thơ (ĐHCT).",
+          "cac_khoan": []
+        },
+        {
+          "id": "Điều 2",
+          "tieu_de": "Giải thích từ ngữ Trong Quy chế này, những từ ngữ dưới đây được hiều như sau:",
+          "full_path": "CHƯƠNG I > Điều 2",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Sinh viên: SV hình thức VLVH của Trường ĐHCT là những người đã trúng tuyển kỳ thi tuyển sinh hoặc được xét tuyển theo đúng quy chế của Bộ Giáo dục và Đào tạo và có Quyết định thu nhận vào Trường.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Đơn vị quản lý ngành: bao gồm Trường chuyên ngành, Khoa, Viện, Bộ môn trực thuộc của Trường ĐHCT; chịu trách nhiệm quản lý tông thê ngành đào tạo có mở tại Trường ĐHCT hoặc ĐVLK.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Đơn vị quản lý học phần: bao gồm Trường chuyên ngành, Khoa, Viện trực thuộc (được gọi chung là đơn vị) của Trường ĐHCT; chịu trách nhiệm quản lý về chuyên môn của một hoặc một số học phần trong chương trình đào tạo của một ngành đào tạo.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Đơn vị liên kết (ĐVLK): là các cơ sở giáo dục đại học, trường cao đăng, trường trung cấp, trung tậm giáo dục thường xuyên cấp tỉnh; trường đào tạo, bôi dưỡng của cơ quan Nhà nước, tổ chức chính trị, tô chức chính trị - xã hội, lực lượng vũ trang nhân dân có thực hiện liên kêt đào tạo với Trường.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "Học phần: là lượng kiến thức tương đối trọn vẹn được dạy hết trong 1 học kỳ. Mỗi học phần có tên gọi riêng và được ký hiệu bằng một mã số. Học phần gồm có các loại sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Học phần bắt buộc là học phần SV phải tích lũy."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Học phần tự chọn là học phần SV tự lựa chọn để tích lũy."
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Học phần tiên quyết của học phần A là học phần B thì SV phải tích lũy học phần B mới được đăng kí học phần A."
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Học phần song hành của học phần A là học phần B thì SV có thể học học phần B trước hoặc cùng lúc với học phần A."
+                },
+                {
+                  "ky_hieu": "đ",
+                  "noi_dung": "Học phần điều kiện (bao gồm các học phần điều kiện bao gồm: Giáo dục quốc phòng – An ninh, Giáo dục thể chất, Ngoại ngữ căn bản, Tin học căn bản) là những học phần mà SV phải hoàn thành nhưng kết quả đánh giá học phần không dùng để tính điểm trung bình chung tích lũy (ĐTBCTL); Ngoài ra, điểm học phần Giáo dục thể chất không dùng để tính điểm trung bình chung học kỳ (ĐTBCНK)."
+                }
+              ]
+            },
+            {
+              "so": "6",
+              "noi_dung": "Tín chỉ (TC): được sử dụng để tính khối lượng học tập của sinh viên. Kiến thức của mỗi học phân và toàn khóa học được đo lường băng TC:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "1 TC được tính tương đương 50 giờ học tập định mức của SV, bao gôm cả thời gian dự giờ giảng, giờ học có hướng dân, tự học, nghiên cứu, trải nghiệm và dự kiêm tra, đánh giá. Đối với hoạt động dạy học trên lớp, một tín chỉ yêu cầu thực hiện tối thiểu 15 giờ giảng trên lớp (và 30 giờ tự học, chuẩn bị cá nhân có hướng dẫn) hoặc 30 giờ thực hành, thí nghiệm, thảo luận (và 15 giờ tự học, chuẩn bị cá nhân có hướng dẫn). Ngoài ra, một tín chỉ yêu cầu thực hiện tối thiểu 45 giờ cho các hoạt động thực tập tại cơ sở, làm tiểu luận, bài tập lớn, đồ án, niên luận, tiểu luận tốt nghiệp, luận văn tôt nghiệp."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Giờ giảng trên lớp (sau đây gọi là tiết học) Tiết học: là đơn vị đo lường thời gian thực hiện giảng dạy lý thuyết hoặc thực hành, thực tập và tự học của SV. Một tiết học được tính bằng 50 phút."
+                }
+              ]
+            },
+            {
+              "so": "7",
+              "noi_dung": "Lớp học: là lớp được hình thành từ đầu khóa học cho đến cuối khóa học, lớp được tổ chức để học tập, sinh hoạt đoàn thể, lao động, phỗ biền những thông tin của Trường, ĐVLK đến SV. Mỗi lớp được cấp một mã số riêng để quản lý.",
+              "cac_diem": []
+            },
+            {
+              "so": "8",
+              "noi_dung": "Kế hoạch học tập chuẩn toàn khóa: là kể hoạch mà Trường đã bố trí các học phần theo học kì, năm học trong thời gian thiết kế của CTĐT, nhằm định hướng kế hoạch học tập cá nhân của SV theo học.",
+              "cac_diem": []
+            },
+            {
+              "so": "9",
+              "noi_dung": "Kế hoạch học tập toàn khóa: Trên cơ sở kể hoạch học tập chuân toàn khóa, Trường xây dựng kể hoạch học tập toàn khóa cho phù hợp với từng nhóm đôi tượng người học. Kế hoạch học tập toàn khóa có thể bao gồm tất cả các học phần trong CTĐT hoặc một phần danh sách các học phần CTĐT sau khi công nhận giá trị chuyển đổi hoặc miễn trừ một số học phần mà người học đã học ở một CTĐT khác.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 3",
+          "tieu_de": "Quyền và nghĩa vụ cơ bản của sinh viên",
+          "full_path": "CHƯƠNG I > Điều 3",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Mỗi SV sẽ được cấp một mã số SV, thẻ SV, một tài khoản để đăng nhập hệ thống quản lý đào tạo và địa chi thư điện tử (email) để sử dụng trong suốt quá trình theo học tại Trường. Ngoài ra, SV được tạo điều kiện để truy cập nguồn tài liệu điện tử của Trường ĐНСТ.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Sinh viên phải tuân thủ các quy định của pháp luật; chấp hành nội quy, quy định của Trường ĐHCT, các đơn vị thuộc Trường và ĐVLK.|",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Sinh viên có trách nhiệm tìm hiểu, nghiên cứu năm vững chương trình đào tạo và những quy định của Trường ĐHCT và ĐVLK; liên hệ (trực tiêp hoặc qua email) với cán bộ quản lý lớp chuyên ngành tại ĐVLK hoặc Trợ lý công tác VLVH tại đơn vị quản lý ngành để được hỗ trợ trong quá trình đào tạo.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 4",
+          "tieu_de": "Chương trình đào tạo và thời gian học tập",
+          "full_path": "CHƯƠNG I > Điều 4",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Chương trình đào tạo (CTĐT) của mỗi ngành học được xây dựng theo đơn vị TC, cấu trúc từ các học phần (thuộc khối kiến thức giáo dục đại cương, khổi kiển thức cơ sở ngành và chuyên ngành), trong đó có đủ các học phần bắt buộc và đáp ứng chuần CTĐT theo quy định hiện hành của Bộ Giáo dục và Đào tạo. SV phải tích lũy đủ các học phân và khối lượng TC tôi thiều theo yêu câu của CTĐT đê được xét cấp bằng tôt nghiệp.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Bản mô tả CTĐT và bản mô tả chương trình dạy học của mỗi CTĐT hình thức VLVH áp dụng chung với CTĐT tương ứng của hình thức chính quy tại Trường và có thời gian theo kế hoạch học tập chuẩn toàn khóa dài hơn tổi thiểu 20% so với hình thức chính quy.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Kế hoạch học tập toàn khóa cho đổi tượng liên thông từ trung cấp, cao đăng lên đại học; liên thông đại học đôi với người đã tôt nghiệp đại học được xác định trên cơ sở công nhận, hoặc chuyên đổi TC đã tích lũy và miễn trừ các học phần trong CTĐT đã học theo Quy định xét miễn và công nhận điểm học phần trong CTĐT trình độ đại học hình thức VLVH của Trường. Khối lượng TC tối đa được công nhận, chuyển đổi không vượt quá 50% khối lượng học tập tổi thiểu của CTĐT.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Thời gian thiết kể cho một Kể hoạch học tập toàn khóa tùy theo bậc/ngành học. Thời gian học tập tối đa cho phép để hoàn thành Kê hoạch học tập được xác định cụ thể theo bảng dưới đây: Đối tượng người học Đại học (tốt nghiệp THPT hoặc tương đương) Liên thông Trung cấp lên Đại học (*) Liên thông Cao đăng lên Đại học, liên thông Đại học đổi với người đã (*) tôt nghiệp đại học (*) Thời gian thiết kế Thời gian học tập tối đa 5 năm 10 năm 5,5 năm 11 năm 6 năm 12 năm Từ 3- 3,5 năm Từ 6-7 năm Từ 2,5–3 năm Từ 5-6 năm Thời gian học tập của các Kế hoạch học tập toàn khóa cho đối tượng liên thông được xác định cụ thể sau khi xét công nhận, chuyễn đổi khối lượng TC.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 5",
+          "tieu_de": "Học kỳ",
+          "full_path": "CHƯƠNG I > Điều 5",
+          "noi_dung": " 1.Mỗi năm học được tổ chức thành 03 HK gọi là Học kỷ 1, Học kỳ 2 và Học kỳ 3. 2.Mỗi học kỳ kéo dài 15 tuần, trong đó gồm có 12 tuần dạy và học, 01 tuần dự trữ, 02 tuần tổ chức thi và xử lý kết quả học phần. 3.Học kỳ 1 bắt đầu từ tuấn thứ 37 đến tuần thứ 51 của năm; Học kỳ 2 bắt đầu từ tuần thứ 01 đến tuần thứ 17 của năm (bao gồm 2 tuần nghỉ Tết Nguyên Đán); Học kỳ 3 bắt đầu từ tuần thứ 20 đến tuần thứ 34 của năm. Tuần nghỉ giữa các học kỳ là tuần thứ 18, 19, 35, 36, 52 và tuẩn thứ 53 (nều có) của năm.",
+          "cac_khoan": []
+        },
+        {
+          "id": "Điều 6",
+          "tieu_de": "Học phí và thời hạn nộp học phí",
+          "full_path": "CHƯƠNG I > Điều 6",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Mức học phí do Hiệu trưởng quyết định. Cuổi năm dương lịch, trường ĐHCT công bố mức học phí ở năm tiếp theo (nếu có điều chỉnh so với năm trước) đến SV và ĐVLK. định.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "SV thực hiện nộp học phí từng HK theo thời hạn do trường ĐHCT và ĐVLK quy Hết thời hạn trên, SV không nộp học phí sẽ bị cấm thi hoặc hủy kết quả thi kết thúc học phần của HK đó (nếu học phần đã tổ chức thi); đồng thời phải nộp học phí nợ cùng lúc với học phí của HK tiếp theo.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "SV không thực hiện nộp học phí 2 HK liên tiệp hoặc 1 HK đôi với SV học liên thông từ cao đẳng lên đại học, liên thông đại học đồi với người đã tôt nghiệp đại học hoặc SV còn nợ học phí HK cuối mà không có lý do chính đáng sẽ được xem như tự ý bỏ học và xử lý theo quy định tại khoản 3 Điều 12 Quy chế này.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 7",
+          "tieu_de": "Bảo hiểm y tế, bảo hiểm tai nạn và tín dụng sinh viên",
+          "full_path": "CHƯƠNG I > Điều 7",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Bảo hiểm y tế: SV phải nộp phí Bảo hiểm y tế theo các quy định hiện hành của pháp luật và các văn bản hướng dân có liên quan.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Bảo hiểm tai nạn: Trường khuyến khích SV tham gia bảo hiếm tai nạn.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Tín dụng SV: SV có thể xin xác nhận vay vốn học tập ở các ngân hàng tổ chức tín dụng và tổ chức khác theo chính sách, chủ trương của nhà nước. Trường sẽ cấp mẫu xác nhận để SV bổ sung hồ sơ vay vốn.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 8",
+          "tieu_de": "Chuyển cơ sở đào tạo, chuyển ngành, chuyến địa điểm đào tạo và chuyển hình thức học. Trao đổi sinh viên và hợp tác trong đào tạo",
+          "full_path": "CHƯƠNG I > Điều 8",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Sinh viên Trường ĐHCT được xem xét chuyển sang cơ sở đào tạo khác khi có đủ các điều kiện sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Không đang là SV trình độ năm thứ nhất hoặc năm cuối khóa, không thuộc diện bị xem xét buộc thôi học và còn đủ thời gian học tập theo quy định tại Điêu 4 của Quy chể này."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Sinh viên đạt điều kiện trúng tuyển của ngành đào tạo cùng khóa tuyển sinh tại nơi chuyển đến."
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Nơi chuyển đến có đủ các điều kiện bảo đảm chất lượng, chưa vượt quá năng lực đào tạo đôi với ngành đào tạo đó theo quy định hiện hành của Bộ Giáo dục và Đào tạo."
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Được sự đồng ý của hiệu trưởng cơ sở đào tạo xin chuyển đi và hiệu trưởng cơ sở đào tạo xin chuyên đên."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "Sinh viên từ năm tuyển sinh 2021 được xem xét chuyển sang học một ngành đào tạo khác, hoặc địa điểm đào tạo khác của Trường ĐHCT khi có đủ các điều kiện sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Không đang là SV trình độ năm thứ nhất hoặc năm cuổi khóa, không thuộc diện bị xem xét buộc thôi học và còn đủ thời gian học tập theo quy định tại Điều 4 của Quy chê này. sinh."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Sinh viên đạt điều kiện trúng tuyển của ngành đào tạo trong cùng khóa tuyển"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Ngành đào tạo đáp ứng đủ các điều kiện bảo đảm chất lượng, chưa vượt quá năng lực đào tạo theo quy định hiện hành của Bộ Giáo dục và Đào tạo."
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Được sự đồng ý của trưởng đơn vị quản lý ngành đào tạo (đổi với trường hợp chuyên ngành), thủ trưởng đơn vị liên kêt đào tạo và của Hiệu trưởng Trường ĐHCТ."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Sinh viên được xem xét chuyển từ đào tạo theo hình thức VLVH sang hình thức đào tạo từ xa của Trường nều còn đủ thời gian học tập theo quy định đồi với hình thức chuyển đến và được sự đông ý của Hiệu trưởng Trường ĐHCT.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Trao đổi sinh viên và hợp tác trong đào tạo.",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Trong hợp tác đào tạo giữa Trường và cơ sở đào tạo khác, nếu được hiệu trưởng của hai cơ sở đào tạo đồng ý, SV có thể đăng ký thực hiện học một số học phần tại cơ sở đào tạo khác."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Số lượng TC mà SV tích lũy tại cơ sở đào tạo khác (nếu có) không vượt quá 25% tổng khối lượng của CTĐT."
+                }
+              ]
+            },
+            {
+              "so": "5",
+              "noi_dung": "Sinh viên chuyển cơ sở đào tạo, chuyển chương trình, ngành đào tạo hoặc chuyển hình thức học; SV trao đổi được xem xét công nhận kết quả học tập hoặc chuyển đổi TС đã tích lũy. Quy trình, thủ tục, thẩm quyền xử lý các nội dung trong Điều này và việc S công nhận kết quả học tập hoặc chuyển đổi TC đã tích lũy thực hiện theo quy định hiện hành của Trường đổi với hình thức VLVH.",
+              "cac_diem": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chuong": "CHƯƠNG II",
+      "ten": "CHƯƠNG II: TỎ CHỨC ĐÀO TẠO",
+      "cac_dieu": [
+        {
+          "id": "Điều 9",
+          "tieu_de": "Trách nhiệm trong công tác đào tạo",
+          "full_path": "CHƯƠNG II > Điều 9",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Trách nhiệm của đơn vị quản lý ngành",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Xây dựng, công bố chương trình đào tạo, chương trình dạy học, kê hoạch giảng dạy từng học kỳ cho SV ở đầu khóa học."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Cuối mỗi học kỳ, trên cơ sở chương trình dạy học từng ngành, phối hợp với TTLKĐT xây dựng danh mục học phần mở trong học kỳ kế tiếp; gửi cho đơn vị quản lý học phần đề nghị phân công giảng viên (GV) theo đúng thời gian quy định của kể hoạch học kỳ, năm học."
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Xây dựng thời khóa biểu (TKB) cho cả học kỳ; gửi đơn vị quản lý học phần và TTLKĐT để quản lý, gửi đến ĐVLK và công bố trên website chậm nhất là 07 ngày trước khi bắt đầu giảng dạy học kỳ."
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Kết hợp với các ĐVLK quản lý việc thực hiện thời khóa biểu của GV do đơn vị quản lý hoặc mời giảng; báo cho TTLKĐT và ĐVLK những trường hợp điều chỉnh TKB hoặc không thực hiện giảng dạy theo kê hoạch. ₫) Phối hợp TTLKĐT thực hiện công tác xét tốt nghiệp cho SV."
+                },
+                {
+                  "ky_hieu": "e",
+                  "noi_dung": "Cử Trợ lý công tác VLVH để theo dõi công tác đào tạo và hỗ trợ SV trong suốt quá trình học tập."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "Trách nhiệm của đơn vị quản lý học phần",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Phân công GV các học phần theo danh mục đề nghị và phản hồi đơn vị quản lý ngành đúng hạn quy định của kế hoạch học kỳ (kèm theo các đề nghị cụ thể về xếp TKB - nều có)."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Xem xét, quyết định mời GV ở các ĐVLK để đưa vào danh sách phân công giảng dạy trong từng học kỳ."
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Xử lý các khiếu nại liên quan đến kết quả học tập của học phần."
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Ban hành quy định và Tổ chức lưu trữ bài thi kết thúc học phần."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Trách nhiệm của Trung tâm Liên kết Đào tạo",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Phối hợp cùng các đơn vị trực thuộc Trường xây dựng kể hoạch đào tạo theo năm tài chính để áp dụng cho hình thức VLVH."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Tiếp nhận TKB của các đơn vị trực thuộc gửi cho ĐVLK và công bổ trên website."
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Phối với các ĐVLK theo dõi tiến trình thực hiện kế hoạch học kỳ của GV; kết hợp với đơn vị quản lý ngành, đơn vị quản lý học phần xử lý kịp thời những tình huống phát sinh."
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Xử lý kịp thời các công tác sự vụ liên quan đến quyền lợi và nghĩa vụ của SV trong quá trình đào tạo."
+                },
+                {
+                  "ky_hieu": "đ",
+                  "noi_dung": "Tiếp nhận đề thi, bài thi, điểm thị từ các GV, ĐVLK, đơn vị trong trường và chuyển cho các đơn vị có liên quan để tổ chức thi kết thúc học phần, chấm thi và lưu trữ."
+                },
+                {
+                  "ky_hieu": "e",
+                  "noi_dung": "Xét tốt nghiệp cho SV; lập quyết định công nhận tốt nghiệp và cấp bằng tốt nghiệp cho SV."
+                },
+                {
+                  "ky_hieu": "g",
+                  "noi_dung": "Chủ trì và phối hợp với các đơn vị liên quan tổ chức tuyển sinh hàng năm đúng theo quy chể của Bộ Giáo dục và Đào tạo."
+                },
+                {
+                  "ky_hieu": "h",
+                  "noi_dung": "Phối hợp với phòng Tài chính xây dựng định mức học phí ký kết và thanh lý hợp đồng liên kết đào tạo với ĐVLK."
+                }
+              ]
+            },
+            {
+              "so": "4",
+              "noi_dung": "Trách nhiệm của Đơn vị liên kêt",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Cuối mỗi học kỳ, gửi danh sách GV đủ điều kiện tham gia giảng dạy ở học kỳ tiếp theo cho đơn vị quản lý học phân; khi được đơn vị quản lý học phân chập thuận và phân công giảng dạy, thực hiện đúng quy định đối với GV."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Theo dõi việc thực hiện thời khóa biểu của GV, báo cho TTLKĐT và đơn vị quản lý ngành những trường hợp thay đổi TKB hoặc bỏ giờ để kịp thời xử lý."
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Phối hợp với TTLKĐT xử lý các công tác sự vụ liên quan đến quyền lợi và nghĩa vụ của SV trong quá trình đào tạo. Phổ biển các thông báo của Trường ĐHCT, TTLKĐT và các đơn vị nhăm giải quyêt kịp thời các vân đê liên quan; thực hiện các công việc theo hợp đồng liên kết đào tạo và thanh lý hợp đồng với Trường ĐHCT đúng thời gian quy định."
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Thực hiện công tác SV theo quy chể của Bộ Giáo dục và Đào tạo; cử cán bộ quản lý lớp chuyên ngành đê hỗ trợ SV trong quá trình đào tạo."
+                },
+                {
+                  "ky_hieu": "đ",
+                  "noi_dung": "Tổ chức thực hiện công tác đánh giá học phần trong mỗi học kỳ; bài thi gửi về TTLKĐT chậm nhất là 7 ngày sau khi thi; phối hợp với GV trong việc bảo đảm bí mật đề thi, sao chép để thi khi có yêu cấu; triển khai công tác giáo trình, tài liệu học tập đên SV."
+                }
+              ]
+            },
+            {
+              "so": "5",
+              "noi_dung": "Trách nhiệm của Cán bộ giảng dạy Giảng viên cơ hữu của ĐHCT và GV mời giảng phải có bài giảng; sử dụng giáo trình và các tài liệu tham khảo đã được Trường ĐHCT phê duyệt; thực hiện giảng dạy đúng để cương chi tiết học phần đã công bồ; Phải thực hiện đúng TKB đã xếp; mọi điều chỉnh đột xuất về TKB giảng dạy (với lý do chính đáng) phải báo cáo cho đơn vị quản lý ngành chậm nhất là 3 ngày trước khi thực hiện. Trong tuẩn lễ kết thúc học phần, GV gửi đề thi cho ĐVLK hoặc TTLKĐT (photocopy đủ số lượng SV); tiếp nhận, chấm bài, nhập điểm thi và công bố kết quả thi đúng thời gian quy định.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 10",
+          "tieu_de": "Số tín chỉ, thời khóa biểu trong một học kỳ - Để đảm bảo tiến độ thời gian hoàn thành khóa học và đảm bảo chất lượng học tập, mỗi học kỳ được bổ trí tối đa 16 TС. - Đầu mỗi học kỳ, Trường sẽ công bố thời khóa biêu giảng dạy học kỳ cho SV theo học trong suốt học kỳ. Tùy theo điều kiện thực tế, trường có thể tổ chức một số học phân học theo hình thức trực tuyên nhưng không vượt 30% tông khôi lượng của chương trình",
+          "full_path": "CHƯƠNG II > Điều 10",
+          "noi_dung": " đào tạo.",
+          "cac_khoan": []
+        },
+        {
+          "id": "Điều 11",
+          "tieu_de": "Đăng ký học lại và bảo lưu kết quả học phần",
+          "full_path": "CHƯƠNG II > Điều 11",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Các học phần có điểm F sẽ không được tích lũy trong kết quả học tập toàn khóa. Nếu là học phần bắt buộc SV phải đăng ký học lại học phần này; nều là học phần tự chọn SV có thể đăng ký học lại hoặc chọn học phần tự chọn khác. Nếu học phần bắt buộc của CTĐT không còn còn tổ chức giảng dạy thì SV phải đăng ký học học phân thay thể.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Đối với một học phần đã tích lũy, SV có thể đăng ký học lại cùng với những khóa để cải thiện kết quả. Điểm cao nhất trong các lần học sẽ là điểm tích lũy của sau học phần đó.|",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "SV đăng ký cải thiện điểm và học lại phải nộp học phí theo số TC đã đăng ký, số TC đăng ký tối đa sau khi cộng với số TC học theo kế hoạch của lớp không quá 20 TC.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Sinh viên đã học một trường đại học, cao đăng, trung cấp được xem xét bảo lưu kết quả một số học phần có cùng trình độ, nội dung, thời lượng với học phần đã học và đạt từ 5 điểm hoặc từ điểm D trở lên. Việc xét miễn và công nhận điêm học phân thực hiện theo quy định của Hiệu trưởng Trường ĐHCT ban hành.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 12",
+          "tieu_de": "Nghỉ học tạm thời, đình chỉ học tập, buộc thôi học",
+          "full_path": "CHƯƠNG II > Điều 12",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Sinh viên được xin nghỉ học tạm thời trong các trường hợp sau đây:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Được điều động vào lực lượng vũ trang;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Được cơ quan có thẩm quyền điều động, đại diện quốc gia tham dự các kỳ thi, giải đấu quốc tế;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Bị ổm, thai sản hoặc, tai nạn phải điều trị trong thời gian dài có chứng nhận của cơ sở khám bệnh, chữa bệnh có thẩm quyền theo quy định của Bộ Y tế;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Được điều động thuyên chuyền công tác;"
+                },
+                {
+                  "ky_hieu": "đ",
+                  "noi_dung": "Vì lý do cá nhân. Trường hợp này chỉ giải quyết khi SV đã học ít nhất 1 HK, không rơi vào tình trạng bị buộc thôi học hoặc xem xét kỷ luật. Thời gian nghỉ học tạm thời trong trường hợp này được tính vào thời gian học tập đê hoàn thành CTĐT theo quy định tại Điều 4 của Quy chê này. Đơn vị liên kết chịu trách nhiệm phát hành mẫu hồ sơ, tiếp nhận, có ý kiến cụ thể và chuyển về Trường ĐHCT, kèm theo giấy tờ chứng minh lý do đề nghị nghỉ học tạm thời. Nếu được chấp thuận, SV sẽ nhận được quyết định cho phép nghỉ học tạm thời của Hiệu trưởng. Khi hết thời gian nghỉ học tạm thời và chậm nhật là 14 ngày trước khi HK mới bắt đầu, SV phải nộp hồ sơ để nghị tiếp tục việc học cho ĐVLK để chuyển hoặc nộp trực tiếp cho TTLKĐT của Trường ĐHCT. Nều đủ điều kiện, Trường sẽ quyết định thu nhận SV tiệp tục việc học."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "Sinh viên bị đình chỉ học tập 1 năm trong trường hợp bị kỷ luật ở mức đình chỉ học tập.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Sinh viên bị buộc thôi học khi vi phạm một trong các trường hợp sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Bị kỷ luật ở mức buộc thôi học;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Nghỉ học tạm thời quá thời hạn cho phép;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Tự ý bỏ học từ 2 HK trở lên không có lý do chính đáng - kể cả SV chậm tiển độ;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Các trường hợp được quy định tại khoản 3 Điều 6 Quy chể này;"
+                },
+                {
+                  "ky_hieu": "đ",
+                  "noi_dung": "Đã hết thời gian học tập tối đa được phép học của một chương trình đào tạo;"
+                },
+                {
+                  "ky_hieu": "e",
+                  "noi_dung": "Người học sử dụng hồ sơ, văn bằng, chứng chỉ giả làm điều kiện trúng tuyển hoặc điều kiện tốt nghiệp; văn bằng tốt nghiệp nếu đã được cấp sẽ bị thu hồi, huỷ bỏ. Những trường hợp bị buộc thôi học vì lý do học tập hoặc hết thời gian theo học (quy định tại điểm a và đ), SV có thể xin xét chuyển sang các chương trình do Trường đào tạo ở hình thức đào tạo từ xa. ĐVLK gửi thông báo về cơ quan và gia đình những SV vi phạm (bị xử lý kỷ luật, bị buộc thôi học,...)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Điều 13",
+          "tieu_de": "Giờ lên lớp Sinh viên phải dự 100% số giờ đồi với các học phân thực hành, thí nghiệm, thực tập ngoài trường, Giáo dục quốc phòng - an ninh, Giáo dục thể chất; phải tham dự tối thiểu 80% số giờ đối với các học phần lý thuyết. SV vắng lên lớp nhiều hơn thời gian quy",
+          "full_path": "CHƯƠNG II > Điều 13",
+          "noi_dung": " định sẽ bị cấm thi. GV học phần đề nghị đơn vị quản lý học phần duyệt danh sách SV bị cầm thi và cho điêm F vào bảng điêm. Vào buổi học đầu tiên, GV thông báo cho SV biết nội dung học phần, phương pháp giảng dạy, hình thức kiểm tra đánh giá, thời điểm đánh giá (sau khi kết thúc học phân hoặc cuối HK), cách tính điểm và những thông tin khác liên quan đến việc giảng dạy và học tập của học phân. Thời gian tổ chức hoạt động giảng dạy linh hoạt trong ngày, trong tuần và được phân bố như bảng dưới đây: BUÔI HỌC TIỆT GIƠ HỌC THỜI GIAN NGHÍ 07:00 -07:50 Không 07:50-08:40 SÁNG 08:50- 09:40 10 phút 10 phút 09:50 - 10:40 Không 10:40-11:30 13:30-14:20 Không 14:20-15:10 10 phút CHIỀU 15:20-16:10 10 phút 16:10 – 17:00 Không 17h00 - 17h50 18:20 -19:10 Không TỐI 19:10-20:00 10 phút 20:10-21:00",
+          "cac_khoan": []
+        }
+      ]
+    },
+    {
+      "chuong": "CHƯƠNG III",
+      "ten": "CHƯƠNG III: ĐÁNH GIÁ KẾT QUẢ HỌC TẬP",
+      "cac_dieu": [
+        {
+          "id": "Điều 14",
+          "tieu_de": "Đánh giá học phần",
+          "full_path": "CHƯƠNG III > Điều 14",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Học phần lý thuyết hoặc học phần lý thuyết kết hợp thực hành: Điểm học phần được đánh giá thông qua tối thiểu hai điểm thành phần như: điểm bài tập, điểm kiểm tra giữa kỳ, điểm thực hành, điểm đồ án, điểm đánh giá nhận thức, điểm tham gia thảo luận, điểm chuyên cần,... và điểm thi kết thúc học phần. Thi kết thúc học phần là bắt buộc. Phương pháp đánh giá học phần được công bố trong đề cương chi tiết học phần. Tổ chức kỳ thi kết thúc học phần; để thi và đáp án đê thi kết thúc học phấn thực hiện theo hướng dân và quy định hiện hành của Trường ĐHСТ.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Học phần thực hành: điểm học phần được tính bằng điểm trung bình của các bài thực hành.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Đối với các học phần có khối lượng nhỏ hơn 02 TC có thể chỉ có điểm của một loại hình đánh giá.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Hình thức đánh giá trực tuyển được áp dụng khi đảm bảo trung thực, công bằng và khách quan như đánh giá trực tiếp, đồng thời đóng góp không quá 50% trọng sô tông điểm học phần; riêng việc tổ chức bảo vệ và đánh giá luận văn tốt nghiệp được thực hiện trực tuyến với trọng số cao hơn khi đáp ứng thêm các điều kiện sau đây:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Việc đánh giá được thực hiện thông qua một hội đồng chuyên môn gồm ít nhất 3 thành viên;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Hình thức bảo vệ và đánh giá trực tuyến được sự đồng thuận của các thành viên hội đồng và người học;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Diễn biến của buổi bảo vệ trực tuyến được ghi hình, ghi âm đầy đủ và lưu trữ theo quy định;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Việc tổ chức đánh giá luận văn tốt nghiệp theo hình thức trực tuyển được thực hiện theo quy định hiện hành của Trường về việc đánh giá luận văn tốt nghiệp theo hình thức trực tuyến. Phương pháp đánh giá, hình thức đánh giá học phần, trọng số các điểm thành phần do GV đề xuất, trưởng bộ môn (thuộc khoa, viện hoặc trung tâm), hoặc trưởng khoa (thuộc trường chuyên ngành), trưởng đơn vị đào tạo quản lý học phân duyệt và công bổ trong để cương chi tiết học phân tại trang thông tin điện tử của Trường ĐHCT."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Điều 15",
+          "tieu_de": "Điểm học phần",
+          "full_path": "CHƯƠNG III > Điều 15",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Điểm đánh giá thành phần và điểm thi kết thúc học phần được chấm theo thang điểm 10 (từ 0 đến 10), làm tròn đến một chữ số thập phân.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Điểm học phần là tổng số điểm của tất cả các điểm đánh giá thành phần của học phần nhân với trọng số tương ứng. Điểm học phần được tính theo thang điểm 10 và làm tròn đến một chữ số thập phân. GV phụ trách học phần nhập điểm vào hệ thống quản lý trực tuyến, hệ thống quy đổi sang điểm chữ và điểm số theo thang điểm 4. Cách quy đối điểm được thực hiện theo bảng dưới đây: Điểm số Điểm chữ theo thang điểm 10 Điểm số theo thang điểm 4 9,0-10,0 A 4,0 8,0-8,9 B+ 3,5 7,0-7,9 B 3,0 6,5-6,9 C+ 2,5 5,5-6,4 C 2,0 5,0-5,4 D+ 1,5 4,0-4,9 D 1,0 nhỏ hơn 4,0 F 0,0",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Học phần chỉ được tính tích lũy khi đạt từ điêm D trở lên.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Điểm học phần sẽ được công bố và ghi nhận với điểm số theo thang điểm 10 và điểm chữ. Điểm chữ được quy đổi sang điểm số theo thang điểm 4 để tính ĐTBCHK và ĐTBCTL.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "Các điểm học phân khác:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Điểm M (tương đương điểm R của Thông tư 08/2021/TT-BGDĐT): dùng để xác nhận học phần SV được miễn học do đã tích lũy được bằng các hình thức khác. Điểm M không tính vào ĐTBCHK và ĐTBCTL. Để nhận điểm M, SV làm đơn kèm giấy tờ hợp lệ, có ý kiên của ĐVLK và chuyên cho Trường ĐHCT xem xét."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Điểm I: Dành cho các trường hợp chưa tham gia đánh giá kết thúc học phần và được GV phụ trách học phần chấp nhận cho bố sung. - Điều kiện để SV có thể xin nhận điểm I: SV đã dự học, dự các lần kiểm tra giữa HK, các hoạt động liên quan đến học phần như thí nghiệm, thực hành nhưng vì lý do bất khả kháng (như ốm đau, tai nạn,...) đã văng mặt trong buổi thi kết thúc học phần. - Thủ tục xin điểm I: SV phải làm đơn đề nghị xét điểm I kèm theo giấy tờ chứng minh lý do hợp lệ, trình bày với GV học phần. Căn cứ vào ý kiến của GV, lãnh đạo đơn vị quản lý học phân xét duyệt. - Thời hạn bô sung các yêu câu của học phân đã được ghi điêm I do GV quy định, nhưng không quá 1 năm kể từ ngày thi lần trước. GV có thể cho phép SV dự thi kết thúc học phần cùng lớp học phần của hình thức VLVH hoặc hình thức chính quy do GV đó phụ trách hoặc GV khác nếu có sự đồng ý của GV cho điểm I. Quá thời hạn trên, nếu SV không hoàn thành bài thi kêt thúc học phân thì sẽ bị điêm F."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Điều 16",
+          "tieu_de": "Số lần thi, tổ chức thi và vắng thi",
+          "full_path": "CHƯƠNG III > Điều 16",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Kỳ thi kết thúc học phần được tổ chức 1 lần.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Đơn vị liên kết bố trí lịch thi đối với các học phần đã nhận đề thi của GV. Lịch thi kết thúc học phần phải được thông báo cho TTLKĐT và SV chậm nhất 7 ngày trước ngày thi. Trường hợp GV tự tổ chức thi ngay sau khi kêt thúc học phân, phải báo cho ĐVLK và SV khi bắt đầu giảng dạy học phân.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Trong thời gian thi kết thúc học phần, nếu SV có lý do chính đáng không thể dự thi và được GV học phẩn đó chấp thuận thì sẽ được cho phép văng thi nhận điểm I. Trường hợp này, SV phải thực hiện các thủ tục theo quy định tại điểm b khoản 5 Điều 15 Quy chê này.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 17",
+          "tieu_de": "Điểm trung bình chung học kỳ, trung bình chung tích lũy",
+          "full_path": "CHƯƠNG III > Điều 17",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Học phần đã tích lũy: là học phần có kết quả đạt từ điểm D trở lên. Các học phần có điểm F sẽ không được tích lũy.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Sổ TC tích lũy: là tổng số TC của các học phần đã tích lũy.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "ĐTBCHK: là trung bình có trọng số của điểm các học phần mà SV đã học trong HK (kể cả các học phần bị điểm F và học phần điều kiện trừ học phần GDTC), với trọng số là số TC của các học phần đó. ĐTBCHK là cơ sở để đánh giá kết quả học tập. ĐTBCHK được tính theo công thức sau: ĐTBCHK = ΣαΧ Σα Trong đó: X : là điểm học phần thứ i; a,: là số TC của học phần thứ i; n: là số học phần SV đăng ký học trong HK.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "ĐTBCTL: là trung bình có trọng số của điểm các học phần đã tích lũy tính đến thời điểm xét (không bao gồm các học phần điều kiện, và các học phần bị điểm F). Cách tính ĐTBCTL tương tự như tính ĐТBСHК. ĐТBCTL là cơ sở để đánh giá kết quả học tập trong suốt thời gian học, xếp hạng học lực, xếp hạng tốt nghiệp và cảnh báo học vụ sau mỗi HК.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 18",
+          "tieu_de": "Quy định về thi và kiểm tra Sinh viên có trách nhiệm chấp hành các quy định về thi và kiểm tra, cụ thể như sau:",
+          "full_path": "CHƯƠNG III > Điều 18",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Thực hiện đúng lịch kiểm tra và thi của trường, của đơn vị trực thuộc trường, của ĐVLK. Phải có mặt đúng giờ. Nếu đến trễ 15 phút sau khi mở đề SV sẽ không được dự thi và xem như vắng thi không lý do, sẽ nhận điểm 0 của lần thi/kiểm tra đó, hoặc bị điểm F cho học phần đó nếu là lần thi kết thúc học phần.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Phải mang bảng tên hoặc thẻ SV (hoặc giấy tờ khác có dán ảnh và thông tin cá nhân do cơ quan có thẩm quyền cấp, còn giá trị sử dụng để chứng minh về nhân thân như: chứng minh nhân dân, căn cước công dân, hộ chiểu, giảy phép lái xe,...) khi vào phòng thi. Tuyệt đổi chấp hành sự kiểm tra, quản lý và hướng dẫn của cán bộ coi thi (CBCТ). Các vật dụng không được sử dụng trong quá trình thi phải đê tập trung đúng nơi quy định.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Trong thời gian thi, SV chỉ được ra ngoài phòng thi nêu có lý do chính đáng, được CBCT đông ý và lập biên bản.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Bài thi phải làm trên mẫu giấy thi thống nhất, viết rõ ràng, sạch sẽ. Được sử dụng bút mực hoặc bút bi màu xanh dương, đen hoặc tím; thước kẻ; thước tính; máy tính điện tử không có thẻ nhớ và không soạn thảo được văn bản hoặc theo quy định của đề thi; giấy thỉ và giấy nháp có chữ ký của CBСТ.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "Trong giờ thi SV phải giữ trật tự, nghiêm túc làm bài và bảo vệ bài làm của mình, không để người khác xem bài của mình. Nếu có thắc mắc phải hỏi công khai. Nếu có tình huống bất thường phải báo cáo để CBCT giải quyết.",
+              "cac_diem": []
+            },
+            {
+              "so": "6",
+              "noi_dung": "Những bài thi sau đây là không hợp lệ và không được chầm điểm:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Làm bài trên giấy thi khác với giấy thi quy định;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Không có chữ ký của CBCT;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Viết bằng bút chì, mực đỏ (trừ hình vẽ có thể dùng bút chì);"
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Các bài làm giống nhau;"
+                },
+                {
+                  "ky_hieu": "đ",
+                  "noi_dung": "Vẽ bậy, viết bậy trong bài thi."
+                }
+              ]
+            },
+            {
+              "so": "7",
+              "noi_dung": "Hết giờ làm bài, SV phải ngừng viết, để bài làm trước mặt và im lặng chờ CBCТ thu bài. Khi nộp bài phải ghi rõ số tờ giấy thi đã nộp và ký tên vào danh sách dự thi. Sinh viên vi phạm các quy định trên đây sẽ bị CBCT lập biên bản về hành vi vi phạm và bị xử lý kỷ luật theo quy định tại Điều 19 Quy chế này.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 19",
+          "tieu_de": "Các hình thức xử lý sinh viên vi phạm quy định về thi và kiểm tra",
+          "full_path": "CHƯƠNG III > Điều 19",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Khiển trách khi SV vi phạm một trong các lỗi:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Nhìn bài của người khác."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Trao đồi, thảo luận với người khác. Sinh viên bị khiển trách sẽ bị trừ 25% điểm số của lần thi/kiểm tra đó. SV bị khiển trách 2 lần trong một năm học sẽ bị kỷ luật cảnh cáo toàn đơn vị đào tạo nơi quản lý SV Khoa."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "noi_dung": "Cảnh cáo khi SV vi phạm một trong các lỗi sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Đã bị khiển trách một lần nhưng vẫn tiếp tục vi phạm trong một buổi thi."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Trao đổi giấy nháp cho nhau nhưng chưa sử dụng (xử lý cả 2 SV)."
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Chép bài của người khác hoặc đê cho người khác chép bài của mình."
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Không chấp hành phụe tùng sự quản lý, nhắc nhở của CBCT hoặc có thái độ thiểu tôn trọng, vô lễ đổi với CBCТ. Sinh viên bị cảnh cáo sẽ bị trừ 50% điểm số của lần thi/kiểm tra đó. SV bị cảnh cáo thi 2 lần trong một năm học sẽ bị kỷ luật cảnh cáo toàn Trường ĐHСТ."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Đình chỉ thi khi SV vi phạm một trong các lỗi sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Đã bị cảnh cáo một lần nhưng vẫn tiếp tục vi phạm trong một buổi thi."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Sau khi mở đề thi bị phát hiện vẫn còn mang theo người (hoặc nơi ngồi của mình) những vật dụng không được phép mang vào phòng thi."
+                },
+                {
+                  "ky_hieu": "c",
+                  "noi_dung": "Sử dụng giây nháp hoặc bài làm của người khác (xử lý cả 2 SV)."
+                },
+                {
+                  "ky_hieu": "d",
+                  "noi_dung": "Đưa để thi ra ngoài nhờ người khác làm hộ hoặc nhận bài giải từ ngoài vào phòng thi."
+                },
+                {
+                  "ky_hieu": "đ",
+                  "noi_dung": "Có hành động gây rồi hoặc đe dọa CBCT hoặc SV khác. Sinh viên bị đình chỉ thi bị nhận điểm 0 cho lần thi/kiểm tra đó. SV bị đình chỉ thi 2 lần trong một năm học sẽ bị đình chỉ học tập 1 năm sau đó. Nếu tái phạm sẽ bị buộc thôi học. -"
+                }
+              ]
+            },
+            {
+              "so": "4",
+              "noi_dung": "Xử lý thi hộ: áp dụng cho cả người thi hộ và người nhờ thi hộ",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Vi phạm lần thứ nhất: Người nhờ thi hộ: nhận điểm 0 học phần đó, đình chỉ học tập 1 năm. - Người thi hộ: đình chỉ học tập 1 năm."
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Vi phạm lần thứ hai (trong cả khóa học): buộc thôi học. Các trường hợp vi phạm khác tùy mức độ sẽ do Hội đồng kỷ luật của ĐVLK và Trường ĐHCT xử lý."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Điều 20",
+          "tieu_de": "Thông báo kết quả học tập",
+          "full_path": "CHƯƠNG III > Điều 20",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Giảng viên chịu trách nhiệm: thông báo kết quả đánh giá, giải đáp thắc mắc (nếu có) của SV về kết quả học tập của học phần; nhập điểm học phần vào hệ thống quản lý trực tuyển và in hai (02) bản điểm, ký tên, gửi đơn vị quản lý học phần. Đơn vị quản lý học phần lưu một (01) bản và gửi về TLKĐT một (01) bản chậm nhất là 15 ngày kể từ ngày TTLKĐT giao bài cho đơn vị quản lý học phân. Trưởng đơn vị quản lý học phần ký duyệt bảng điểm và xử lý tất cả khiếu nại liên quan đến kết quả học tập của học phần do đơn vị quản lý và chỉ tiếp nhận các khiểu nại trong thời gian 07 ngày làm việc kể từ ngày công bổ điểm. Quy trình xử lý khiều nại, phúc khảo điểm do đơn vị quản lý học phân quy định.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Đơn vị quản lý học phần chịu trách nhiệm, lưu giữ các bài thi viết, tiểu luận ít nhất là 05 năm kể từ ngày thi hoặc ngày nộp tiểu luận.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Cuối mỗi HK, TTLKĐT xử lý ĐTBCHK và ĐTBCTL và công bố trên website hệ thống quản lý.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Trong quá trình học tập, SV có thể đề nghị cấp bảng điểm cá nhân theo nhu cầu riêng (SV nộp chỉ phí theo quy định).",
+              "cac_diem": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chuong": "CHƯƠNG IV",
+      "ten": "CHƯƠNG IV: XÉT VÀ CÔNG NHẬN TỐT NGHIỆP",
+      "cac_dieu": [
+        {
+          "id": "Điều 21",
+          "tieu_de": "Luận văn, tiểu luận tốt nghiệp, tích lũy tín chỉ tốt nghiệp Tùy theo tính chất của ngành đào tạo SV được hướng dẫn thực hiện một trong 3 hình thức sau:",
+          "full_path": "CHƯƠNG IV > Điều 21",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Luận văn tốt nghiệp (LVTN): Sau khi hoàn tất, SV phải bảo vệ LVTN trước hội đồng gồm 3 thành viên, trong đó có cán bộ hướng dẫn. Điểm LVTN là trung bình cộng điểm của 3 thành viên. Thành phần hội đồng chẩm LVTN do đơn vị quản lý ngành xem xét và ban hành quyết định. Trường hợp không thể tổ chức đánh giá tập trung tại Trường, việc tổ chức bảo vệ và đánh giá LVTN được thực hiện trực tuyền (xem khoản 4 Điều 14 Quy chể này).",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Tiểu luận tốt nghiệp (TLTN): TLTN do cán bộ hướng dẫn và 1 cán bộ khác chấm. Điểm TLTN là trung bình cộng điểm của 2 thành viên. Cán bộ chẩm TLTN do đơn vị quản lý ngành xem xét và ban hành quyết định.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Tích lũy TC tốt nghiệp: Nếu không được thực hiện LVTN, SV phải học thêm các học phần tự chọn để đạt đủ số TC theo yêu cầu của CTĐT. Để được nhận đề tài LVTN hoặc TLTN, SV phải thỏa mãn các điều kiện do đơn vị quản lý ngành quy định. Cuối mỗi HK, đơn vị quản lý ngành xét và công bố hình thức thực hiện cuổi khóa cho SV ở HK tiếp theo. Sinh viên nhận điểm F của LVTN hay TLTN phải đăng ký làm lại hoặc đăng ký các học phần thay thể để hoàn thành CTĐT.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 22",
+          "tieu_de": "Điều kiện tốt nghiệp và công nhận tốt nghiệp",
+          "full_path": "CHƯƠNG IV > Điều 22",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Sinh viên có đủ các điều kiện sau đây được xét công nhận tốt nghiệp: - Tích lũy đủ các học phần và số TC quy định trong CTĐT; ĐTBCTL của các học phần đạt từ 2,00 trở lên (theo thang điểm 4); đạt chuẩn đầu ra của chương trình đào tạo (kể cả chuẩn đầu ra về ngoại ngữ và công nghệ thông tin); - Hoàn thành các học phần điều kiện. Ngoài ra, điểm trung bình chung các học phần GDQP&AN phải đạt từ 5,0 trở lên (theo thang điểm 10); - Tại thời điểm xét tốt nghiệp không bị truy cứu trách nhiệm hình sự, không đang trong thời gian bị kỷ luật ở mức đình chỉ học tập; - Hoàn thành đầy đủ các nghĩa vụ của SV đối Trường ĐHCT và ĐVLK như học phí, hoàn trả sách, phí kí túc xá và các nghĩa vụ khác (nều có).",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Sinh viên tốt nghiệp không đúng tiến độ phải làm đơn để nghị xét công nhận tốt nghiệp nộp tại ĐVLK để chuyển hoặc nộp trực tiếp cho Trung tâm Liên kêt Đào tạo của Trường ĐНСТ.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Hội đồng xét tốt nghiệp bao gồm đại diện Ban giám hiệu, đơn vị quản lý ngành, TTLKĐT chịu trách nhiệm xét công nhận tốt nghiệp và lập danh sách SV đủ điều kiện tổt nghiệp.",
+              "cac_diem": []
+            },
+            {
+              "so": "4",
+              "noi_dung": "Căn cứ biên bản đề nghị của Hội đồng xét tốt nghiệp TTLKĐT trình Hiệu trưởng ký quyết định công nhận tốt nghiệp cho những SV đủ điều kiện tốt nghiệp.",
+              "cac_diem": []
+            },
+            {
+              "so": "5",
+              "noi_dung": "SV được công nhận tốt nghiệp sẽ được nhận: quy t định công nhận tốt nghiệp, bằng tốt nghiệp và phụ lục văn bằng tốt nghiệp. Sinh viên có nhu câu cấp bản sao phải nộp chi phí thực hiện câp bản sao theo quy định của Trường.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 23",
+          "tieu_de": "Xử lý sinh viên quá hạn thời gian đào tạo",
+          "full_path": "CHƯƠNG IV > Điều 23",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Trường sẽ quyết định xóa tên những sinh viên không đủ điều kiện tốt nghiệp khi hết thời gian tối đa được phép học. Sinh viên không tốt nghiệp sẽ được cấp bảng điểm chứng nhận các học phân đã học.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Sinh viên đã hết thời gian tối đa được phép học, nhưng còn nợ các học phần điều kiện (Giáo dục quốc phòng, Giáo dục thể chất, Ngoại ngữ không chuyên, Tin học căn bản); trong thời gian 3 năm (đổi với các SV trúng tuyển trước tháng 7 năm 2021 là 5 năm) tính từ ngày hêt thời gian học tôi đa, được trở vê Trường đê hoàn thiện các điêu kiện còn thiều và đề nghị xét tốt nghiệp.",
+              "cac_diem": []
+            },
+            {
+              "so": "3",
+              "noi_dung": "Sinh viên hết thời gian học hình thức VLVH được chuyển qua học hình thức hình thức đào tạo từ xa tương ứng (nếu có) của Trường ĐHCT nếu còn trong thời gian học tập theo quy định đối với hình thức đào tạo chuyên đên.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 24",
+          "tieu_de": "Bằng tốt nghiệp, phân loại tốt nghiệp",
+          "full_path": "CHƯƠNG IV > Điều 24",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Bằng tốt nghiệp đại học được cấp theo ngành đào tạo.",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Hạng tôt nghiệp được xác định căn cứ vào ĐTBCTL theo các mức như sau: Loại Xuất sắc ĐTBCTL từ 3,60 đến 4,00 Loại Giỏi ĐTBCTL từ 3,20 đền 3,59 Loại Khá ĐTBCTL từ 2,50 đến 3,19 Loại Trung bình ĐTBCTL từ 2,00 đến 2,49 Hạng tốt nghiệp xuất sắc và giỏi sẽ bị giảm một mức nếu rơi vào một trong các trường hợp sau:",
+              "cac_diem": [
+                {
+                  "ky_hieu": "a",
+                  "noi_dung": "Có khối lượng các học phần bị điểm F vượt quá 5% tổng số TC của СТĐТ (không tính khối lượng học phần cải thiện bị điểm F);"
+                },
+                {
+                  "ky_hieu": "b",
+                  "noi_dung": "Đã bị kỷ luật từ mức cảnh cáo cấp Trường trở lên trong thời gian học."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "noi_dung": "Hàng năm, Trường ĐHCT có tổ chức lễ trao bằng tốt nghiệp 2 đợt tại Trường hoặc phối hợp tổ chức tại ĐVLK khi có đề nghị của ĐVLK. SV sẽ nhận bằng tốt nghiệp trực tiêp tại TTLKĐT.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 25",
+          "tieu_de": "Khen thưởng tốt nghiệp",
+          "full_path": "CHƯƠNG IV > Điều 25",
+          "noi_dung": "",
+          "cac_khoan": [
+            {
+              "so": "1",
+              "noi_dung": "Đối tượng khen thưởng: Tất cả SV tốt nghiệp có kết quả xếp hạng xuất sắc hoặc SV đạt kêt quả xêp hạng giỏi có ĐTBCTL cao nhật của một ngành học, khóa học tại ĐVLK (nểu kết quả xếp loại học tập bằng nhau thì xét thêm kết quả hoạt động phong trào của từng cá nhân).",
+              "cac_diem": []
+            },
+            {
+              "so": "2",
+              "noi_dung": "Thủ tục khen thưởng: - Căn cứ kết quả xét tốt nghiệp và hoạt động phong trào của SV, các ĐVLK có văn bản đề nghị gửi về TTLKĐT chậm nhất 15 ngày trước khi tổ chức lễ trao bằng tốt nghiệp. - TTLKĐT tổng hợp các để nghị, kiểm tra và làm thủ tục khen thưởng theo các quy định và quy chê hiện hành.",
+              "cac_diem": []
+            }
+          ]
+        },
+        {
+          "id": "Điều 26",
+          "tieu_de": "Quản lý bằng tốt nghiệp Bằng tốt nghiệp chỉ cấp một lần. Trường hợp bằng tốt nghiệp bị mất hoặc bị hỏng, sinh viên có thể nộp đơn cho Trường thông qua TTLKĐT đề nghị cấp bản sao bằng tốt nghiệp theo quy định hiện hành của Trường./. G'4O",
+          "full_path": "CHƯƠNG IV > Điều 26",
+          "noi_dung": " DUC HIỆU TRƯƠNG TRƯỜNG ĐẠI HỌC CẦN THО- Trần Trung Tỉnh",
+          "cac_khoan": []
+        }
+      ]
+    }
+  ]
+}

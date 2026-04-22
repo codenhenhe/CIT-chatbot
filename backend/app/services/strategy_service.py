@@ -9,7 +9,7 @@ class StrategyService:
             return "hybrid"
 
         mapping = {
-            "factual": "vector",
+            "factual": "graph",
             "relational": "graph",
             "rule": "hybrid",
         }

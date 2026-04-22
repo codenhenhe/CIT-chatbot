@@ -37,3 +37,7 @@ def extract_curriculum(pdf_path):
     if all_rows:
         return pd.DataFrame(all_rows[1:], columns=all_rows[0])
     return None
+pdf_path = "data/pdf/ChuyenNganh_DaoTao/pdf/k51/K51_CTDT_NGANH_HE_THONG_THONG_TIN_CTCLC.pdf"
+df = extract_curriculum(pdf_path)
+df.to_excel("table.xlsx", index=False)
+# print(df)

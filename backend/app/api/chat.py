@@ -3,10 +3,10 @@ from pydantic import BaseModel
 from typing import List, Optional
 import json
 from fastapi.responses import StreamingResponse
-from app.services.chat_service import chat_handler
+from app.services.chat_service import ChatService
 
 router = APIRouter()
-
+chat_service = ChatService()
 
 class MessagePart(BaseModel):
     type: str = "text"
@@ -44,11 +44,14 @@ async def chat(req: ChatRequest):
             if content:
                 history.append({"role": m.role, "content": content})
 
-    answer = await chat_handler(message, history)
+    result = await chat_service.handle_query(message, history)
+    answer_text = str(result.get("answer", "")).strip()
+    if not answer_text:
+        answer_text = "Xin loi, he thong chua tao duoc cau tra loi."
 
     async def stream_results():
         # Vercel AI data stream format: each text chunk starts with "0:".
-        yield f"0:{json.dumps(answer)}\n"
+        yield f"0:{json.dumps(answer_text)}\n"
 
     return StreamingResponse(
         stream_results(),

@@ -17,7 +17,6 @@ if __package__ in (None, ""):
 
 KEY_FIELDS: Dict[str, List[str]] = {
 	"VanBanPhapLy": ["so", "ten"],
-	"TrinhDo": ["ten_trinh_do"],
 	"Nganh": ["ma_nganh", "ten_nganh_vi", "ten_nganh_en"],
 	"Khoa": ["ten_khoa"],
 	"BoMon": ["ten_bo_mon"],
@@ -25,6 +24,7 @@ KEY_FIELDS: Dict[str, List[str]] = {
 	"LoaiVanBang": ["loai_van_bang"],
 	"HinhThucDaoTao": ["ten_hinh_thuc"],
 	"PhuongThucDaoTao": ["ten_phuong_thuc"],
+	"TrinhDo": ["ma_trinh_do", "ten_trinh_do"],
 	"DoiTuongTuyenSinh": ["noi_dung"],
 	"DieuKienTotNghiep": ["noi_dung"],
 	"MucTieuDaoTao": ["noi_dung"],
@@ -36,7 +36,22 @@ KEY_FIELDS: Dict[str, List[str]] = {
 	"KhoiKienThuc": ["ma_khoi", "ten_khoi"],
 	"YeuCauTuChon": ["noi_dung_yeu_cau"],
 	"NhomHocPhanTuChon": ["ten_nhom"],
-	"HocPhan": ["ma_hp", "ten_hp"],
+	"HocPhan": ["ma_hoc_phan", "ten_hoc_phan", "dieu_kien", "yeu_cau_stc_toi_thieu"],
+}
+
+ID_FIELDS: Dict[str, List[str]] = {
+	"VanBanPhapLy": ["so"],
+	"TrinhDo": ["ma_trinh_do"],
+	"Nganh": ["ma_nganh"],
+	"Khoa": ["ma_khoa"],
+	"BoMon": ["ma_bo_mon"],
+	"ChuongTrinhDaoTao": ["ma_chuong_trinh"],
+	"LoaiVanBang": ["ma_loai"],
+	"HinhThucDaoTao": ["ma_hinh_thuc"],
+	"PhuongThucDaoTao": ["ma_phuong_thuc"],
+	"ChuanDauRa": ["ma_chuan"],
+	"KhoiKienThuc": ["ma_khoi"],
+	"HocPhan": ["ma_hoc_phan"],
 }
 
 NODE_TYPE_ALIASES: Dict[str, str] = {
@@ -72,6 +87,10 @@ def _slugify(value: str) -> str:
 	return text.strip("_").upper() or "UNKNOWN"
 
 
+def _node_type_token(node_type: str) -> str:
+	return _slugify(node_type)
+
+
 def _default_json_path_from_pdf(pdf_path: str) -> str:
 	backend_root = Path(__file__).resolve().parents[2]
 	output_dir = backend_root / "processed_data" / "json"
@@ -85,21 +104,47 @@ def _load_extracted_json(json_path: str) -> Dict[str, Any]:
 
 
 def _make_node_id(node_type: str, item: Dict[str, Any], index: int, program_hint: str) -> str:
-	for field in KEY_FIELDS.get(node_type, []):
+	for field in ID_FIELDS.get(node_type, []):
 		value = _clean_text(item.get(field))
 		if value:
-			return _slugify(f"{node_type}_{value}")
-	return _slugify(f"{node_type}_{program_hint}_{index + 1}")
+			return _slugify(value)
+
+	program_token = _slugify(program_hint)
+	return f"{program_token}_{_node_type_token(node_type)}_{index + 1}"
+
+
+def _is_empty_item(item: Dict[str, Any]) -> bool:
+	for value in item.values():
+		if value is None:
+			continue
+		if isinstance(value, bool):
+			return False
+		if isinstance(value, (int, float)):
+			return False
+		if _clean_text(value):
+			return False
+	return True
 
 
 def _build_text_for_node(node_type: str, item: Dict[str, Any]) -> str:
+	existing_text = _clean_text(item.get("text"))
+	if existing_text:
+		return existing_text
+
 	if node_type == "HocPhan":
-		return (
-			f"Hoc phan {_clean_text(item.get('ma_hp'))} - {_clean_text(item.get('ten_hp'))}. "
-			f"So tin chi: {_clean_text(item.get('so_tin_chi'))}. "
-			f"So tiet LT: {_clean_text(item.get('so_tiet_ly_thuyet'))}. "
-			f"So tiet TH: {_clean_text(item.get('so_tiet_thuc_hanh'))}."
-		)
+		dieu_kien = _clean_text(item.get('dieu_kien')).lower()
+		yeu_cau_stc = _clean_text(item.get('yeu_cau_stc_toi_thieu'))
+		parts = [
+			f"Hoc phan {_clean_text(item.get('ma_hoc_phan'))} - {_clean_text(item.get('ten_hoc_phan'))}.",
+			f"So tin chi: {_clean_text(item.get('so_tin_chi'))}.",
+			f"So tiet LT: {_clean_text(item.get('so_tiet_ly_thuyet'))}.",
+			f"So tiet TH: {_clean_text(item.get('so_tiet_thuc_hanh'))}.",
+		]
+		if dieu_kien not in {'false', '0', ''}:
+			parts.append("Co dieu kien hoc truoc.")
+		if yeu_cau_stc:
+			parts.append(f"Yeu cau STC toi thieu: {yeu_cau_stc}.")
+		return " ".join(parts)
 	if node_type == "KhoiKienThuc":
 		return (
 			f"Khoi kien thuc {_clean_text(item.get('ten_khoi'))} "
@@ -110,7 +155,11 @@ def _build_text_for_node(node_type: str, item: Dict[str, Any]) -> str:
 		link = _clean_text(item.get("link"))
 		return f"Chuan tham khao: {base}. Link: {link}." if link else f"Chuan tham khao: {base}."
 
-	details = [f"{k}: {_clean_text(v)}" for k, v in item.items() if _clean_text(v)]
+	details = [
+		f"{k}: {_clean_text(v)}"
+		for k, v in item.items()
+		if k not in {"text", "embedding"} and _clean_text(v)
+	]
 	detail_text = "; ".join(details)
 	return f"{node_type}: {detail_text}" if detail_text else node_type
 
@@ -123,6 +172,20 @@ def _build_nodes_from_results(results: Dict[str, Any], source_name: str) -> Tupl
 	program_hint = _clean_text(ctdt_items[0].get("ma_chuong_trinh")) if ctdt_items else Path(source_name).stem
 	if not program_hint:
 		program_hint = Path(source_name).stem
+
+	fallback_counts: Dict[str, int] = {}
+	for node_type, payload in results.items():
+		items = payload.get("items", []) if isinstance(payload, dict) else []
+		if not isinstance(items, list):
+			continue
+		count = 0
+		for item in items:
+			if not isinstance(item, dict):
+				continue
+			has_code = any(_clean_text(item.get(field)) for field in ID_FIELDS.get(node_type, []))
+			if not has_code:
+				count += 1
+		fallback_counts[node_type] = count
 
 	for node_type, payload in results.items():
 		items = payload.get("items", []) if isinstance(payload, dict) else []
@@ -139,10 +202,23 @@ def _build_nodes_from_results(results: Dict[str, Any], source_name: str) -> Tupl
 					if isinstance(item, dict) and "khoa" in _normalize_token(item.get("ten_khoa"))
 				]
 
+		fallback_index = 0
 		for idx, item in enumerate(items):
 			if not isinstance(item, dict):
 				continue
-			node_id = _make_node_id(node_type, item, idx, program_hint)
+			if _is_empty_item(item):
+				continue
+			has_code = any(_clean_text(item.get(field)) for field in ID_FIELDS.get(node_type, []))
+			if has_code:
+				node_id = _make_node_id(node_type, item, idx, program_hint)
+			else:
+				fallback_index += 1
+				program_token = _slugify(program_hint)
+				node_token = _node_type_token(node_type)
+				if fallback_counts.get(node_type, 0) > 1:
+					node_id = f"{program_token}_{node_token}_{fallback_index}"
+				else:
+					node_id = f"{program_token}_{node_token}"
 			text = _build_text_for_node(node_type, item)
 			properties = dict(item)
 			properties["text"] = text
@@ -270,26 +346,9 @@ def _infer_core_edges(index_map: Dict[str, List[Dict[str, Any]]], existing_edges
 	faculty_ids = _node_ids(index_map, "Khoa")
 	dept_ids = _node_ids(index_map, "BoMon")
 
-	# Theo XuLyChuongTrinhDaoTao: CTDT -> Nganh, Nganh -> Don vi quan ly.
+	# Theo ETL: CTDT -> Nganh, Nganh -> Khoa/BoMon.
 	_add_relation(program_ids, "THUOC_VE", major_ids)
 	_add_relation(major_ids, "THUOC_VE", faculty_ids + dept_ids)
-
-	# Bo sung chieu nguoc nhung GIU NGUYEN ten rel co dinh: THUOC_VE.
-	_add_relation(major_ids, "THUOC_VE", program_ids)
-	_add_relation(faculty_ids + dept_ids, "THUOC_VE", major_ids)
-
-	# Cac quan he cot loi cua CTDT den cac node noi dung.
-	_add_relation(program_ids, "CO_MUC_TIEU_DAO_TAO", _node_ids(index_map, "MucTieuDaoTao"))
-	_add_relation(program_ids, "THAM_CHIEU", _node_ids(index_map, "ChuanThamKhao"))
-	_add_relation(program_ids, "DAT_CHUAN_DAU_RA", _node_ids(index_map, "ChuanDauRa"))
-	_add_relation(program_ids, "CO_CO_HOI_VIEC_LAM", _node_ids(index_map, "ViTriViecLam"))
-	_add_relation(program_ids, "TAO_NEN_TANG", _node_ids(index_map, "KhaNangHocTap"))
-	_add_relation(program_ids, "CO_KHOI_KIEN_THUC", _node_ids(index_map, "KhoiKienThuc"))
-	_add_relation(program_ids, "CO_LOAI_VAN_BANG", _node_ids(index_map, "LoaiVanBang"))
-	_add_relation(program_ids, "DAO_TAO_TRINH_DO", _node_ids(index_map, "TrinhDo"))
-	_add_relation(program_ids, "DAO_TAO_THEO_HINH_THUC", _node_ids(index_map, "HinhThucDaoTao"))
-	_add_relation(program_ids, "DAO_TAO_THEO_PHUONG_THUC", _node_ids(index_map, "PhuongThucDaoTao"))
-	_add_relation(program_ids, "DUOC_BAN_HANH_THEO", _node_ids(index_map, "VanBanPhapLy"))
 
 	return inferred
 

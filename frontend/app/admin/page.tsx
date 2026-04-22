@@ -60,7 +60,7 @@ const CATEGORY_LABEL_MAP: Record<UploadCategory, string> = {
   thong_bao_ke_hoach: "Thông báo kế hoạch",
 };
 
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
 
 // Hàm tiện ích để định dạng kích thước file
 const formatBytes = (bytes: number, decimals = 2) => {
@@ -341,7 +341,7 @@ export default function AdminKnowledgeManager() {
       const jsonText = JSON.stringify(payload.data ?? {}, null, 2);
       setJsonEditorText(jsonText);
       setJsonEditorInfo(`Đã tải JSON từ: ${payload.json_path}`);
-      setJsonConfirmInfo(item.status === "review" ? "JSON đã sẵn sàng. Sửa xong thì lưu, rồi bấm xác nhận để nạp Neo4j." : "JSON đã sẵn sàng để xem hoặc lưu lại.");
+      setJsonConfirmInfo(item.status === "review" ? "JSON đã sẵn sàng. Sau khi chỉnh sửa xong, hãy lưu lại rồi bấm xác nhận để nạp vào Neo4j." : "JSON đã sẵn sàng để xem hoặc lưu lại.");
 
       patchItemEverywhere(item.localId, { jsonPath: payload.json_path });
     } catch (error) {
@@ -608,7 +608,7 @@ export default function AdminKnowledgeManager() {
                   id="category-select"
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value as UploadCategory | "")}
-                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full cursor-pointer rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">-- Chọn thể loại --</option>
                   {CATEGORY_OPTIONS.map((option) => (
@@ -690,22 +690,11 @@ export default function AdminKnowledgeManager() {
                     {(item.status === "success" || item.status === "stored" || item.status === "review") && (
                       <div className="mt-3 rounded-lg border border-slate-200 bg-slate-50 p-3">
                         <p className="text-[11px] font-semibold text-slate-700 mb-2">Thông tin trích xuất</p>
-                        <div className="flex flex-wrap gap-2 text-[11px]">
-                          <span className="px-2 py-1 rounded bg-white border border-slate-200 text-slate-700">
-                            Nguồn: {item.extractionSource ?? "unknown"}
-                          </span>
-                          <span className="px-2 py-1 rounded bg-white border border-slate-200 text-slate-700">
-                            Ký tự: {item.extractedTextLength ?? 0}
-                          </span>
-                          <span className="px-2 py-1 rounded bg-white border border-slate-200 text-slate-700">
-                            Sections: {item.sectionCount ?? 0}
-                          </span>
-                        </div>
 
-                        {item.extractedPreview && (
+                        {jsonEditorText && (
                           <div className="mt-2 text-[11px] text-slate-600 bg-white border border-slate-200 rounded p-2">
                             <p className="font-medium mb-1">Preview:</p>
-                            <p className="line-clamp-3">{item.extractedPreview}</p>
+                            <p className="line-clamp-3">{jsonEditorText}</p>
                           </div>
                         )}
 
@@ -737,7 +726,7 @@ export default function AdminKnowledgeManager() {
               <button
                 onClick={handleIngest}
                 disabled={isBusy || !uploadItems.length}
-                className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-white transition-all ${
+                className={`w-full flex items-center justify-center gap-2 py-3.5 cursor-pointer rounded-xl font-semibold text-white transition-all ${
                   isBusy || !uploadItems.length
                     ? "bg-slate-400 cursor-not-allowed"
                     : "bg-blue-600 hover:bg-blue-700 shadow-sm shadow-blue-200"
@@ -808,13 +797,12 @@ export default function AdminKnowledgeManager() {
           onClick={() => setSelectedDetailItem(null)}
         >
           <div
-            className="w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-200"
+            className="w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-3xl bg-white shadow-2xl border border-slate-200"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200">
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900">Chi tiết trích xuất</h3>
-                <p className="text-xs text-slate-500 mt-0.5 break-all leading-snug">{selectedDetailItem.file.name}</p>
+            <div className="flex items-start justify-between gap-4 px-5 py-4 border-b border-slate-200 bg-slate-50/80">
+              <div className="min-w-0">
+                <h3 className="text-lg font-semibold text-slate-900">CHI TIẾT TRÍCH XUẤT</h3>
               </div>
               <button
                 type="button"
@@ -828,15 +816,21 @@ export default function AdminKnowledgeManager() {
 
             <div className="p-5 overflow-y-auto max-h-[calc(90vh-70px)]">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-                <div className="lg:col-span-7 rounded-lg border border-slate-200 bg-white p-3 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <p className="text-xs text-slate-500">JSON trích xuất (có thể chỉnh sửa)</p>
+                <div className="lg:col-span-8 rounded-2xl border border-slate-200 bg-white p-4 space-y-3 shadow-sm">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <p className="text-lg font-bold text-red-500">Vui lòng kiểm tra lại dữ liệu trước khi xác nhận nạp dữ liệu vào đồ thị</p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 text-[11px]">
+                      <span className="px-2 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                        {jsonEditorDirty ? "Đang có thay đổi" : "Đã đồng bộ"}
+                      </span>
+                      <span className="px-2 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                        {jsonEditorText ? `${jsonEditorText.length.toLocaleString()} ký tự` : "Chưa tải JSON"}
+                      </span>
+                    </div>
                   </div>
 
-                  {jsonEditorInfo && <p className="text-xs text-emerald-700">{jsonEditorInfo}</p>}
-                  {jsonEditorError && <p className="text-xs text-red-600">{jsonEditorError}</p>}
-                  {jsonConfirmInfo && <p className="text-xs text-blue-700">{jsonConfirmInfo}</p>}
-                  {jsonConfirmError && <p className="text-xs text-red-600">{jsonConfirmError}</p>}
 
                   {jsonEditorLoading && !jsonEditorText ? (
                     <p className="text-xs text-slate-500">Đang tải JSON...</p>
@@ -852,69 +846,93 @@ export default function AdminKnowledgeManager() {
                           patchItemEverywhere(selectedDetailItem.localId, { syncState: "idle" });
                         }
                       }}
-                      className="w-full min-h-[520px] rounded-md border border-slate-300 p-3 text-xs font-mono text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full min-h-[500px] rounded-2xl border border-slate-300 bg-slate-50 p-4 text-xs font-mono leading-6 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="JSON sẽ hiển thị ở đây khi job hoàn tất."
                     />
                   )}
 
-                  <div className="flex items-center justify-end gap-2">
-                    <button
-                      type="button"
-                      onClick={saveJsonEdits}
-                      disabled={jsonEditorLoading || !jsonEditorDirty}
-                      className={`text-xs px-3 py-1.5 rounded-md text-white ${
-                        jsonEditorLoading || !jsonEditorDirty
-                          ? "bg-slate-400 cursor-not-allowed"
-                          : "bg-emerald-600 hover:bg-emerald-700"
-                      }`}
-                    >
-                      {jsonEditorLoading ? "Đang lưu..." : "Lưu JSON"}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={confirmNeo4jImport}
-                      disabled={jsonConfirmLoading || jsonEditorDirty || selectedDetailItem?.status === "success"}
-                      className={`text-xs px-3 py-1.5 rounded-md text-white ${
-                        jsonConfirmLoading || jsonEditorDirty || selectedDetailItem?.status === "success"
-                          ? "bg-slate-400 cursor-not-allowed"
-                          : "bg-blue-600 hover:bg-blue-700"
-                      }`}
-                    >
-                      {jsonConfirmLoading ? "Đang xác nhận..." : "Xác nhận nạp Neo4j"}
-                    </button>
-                  </div>
                 </div>
 
-                <div className="lg:col-span-5 space-y-4">
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                      <p className="text-slate-500 text-xs">Trạng thái</p>
-                      <p className="font-semibold text-slate-900">{getStatusLabel(selectedDetailItem.status)}</p>
+                <div className="lg:col-span-4 space-y-4">
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm space-y-4">
+                    <div>
+                      <p className="text-xs font-medium text-slate-500 mb-3">Thông tin file</p>
+                      <div className="rounded-xl border border-slate-200 bg-white px-3 py-3 space-y-2">
+                        <div>
+                          <p className="text-[11px] uppercase tracking-wide text-slate-400">Tên file</p>
+                          <p className="font-semibold text-slate-900 break-all leading-snug">{selectedDetailItem.file.name}</p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 text-sm">
+                          <div>
+                            <p className="text-[11px] uppercase tracking-wide text-slate-400">Kích thước</p>
+                            <p className="font-semibold text-slate-900">{formatBytes(selectedDetailItem.file.size)}</p>
+                          </div>
+                          <div>
+                            <p className="text-[11px] uppercase tracking-wide text-slate-400">Trạng thái</p>
+                            <p className="font-semibold text-slate-900">{getStatusLabel(selectedDetailItem.status)}</p>
+                          </div>
+                          <div>
+                            <p className="text-[11px] uppercase tracking-wide text-slate-400">Job ID</p>
+                            <p className="font-semibold text-slate-900 break-all">{selectedDetailItem.jobId ? selectedDetailItem.jobId.slice(0, 12) : "chưa có"}</p>
+                          </div>
+                          {/* <div>
+                            <p className="text-[11px] uppercase tracking-wide text-slate-400">JSON</p>
+                            <p className="font-semibold text-slate-900">{selectedDetailItem.jsonPath ? "Có sẵn" : "Chưa có"}</p>
+                          </div> */}
+                        </div>
+                      </div>
                     </div>
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                      <p className="text-slate-500 text-xs">Kích thước</p>
-                      <p className="font-semibold text-slate-900">{formatBytes(selectedDetailItem.file.size)}</p>
-                    </div>
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                      <p className="text-slate-500 text-xs">Nguồn trích xuất</p>
-                      <p className="font-semibold text-slate-900">{selectedDetailItem.extractionSource ?? "unknown"}</p>
-                    </div>
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                      <p className="text-slate-500 text-xs">Số ký tự / Section</p>
-                      <p className="font-semibold text-slate-900">{selectedDetailItem.extractedTextLength ?? 0} / {selectedDetailItem.sectionCount ?? 0}</p>
-                    </div>
-                  </div>
 
-                  <div className="rounded-lg border border-slate-200 bg-white p-3">
-                    <p className="text-xs text-slate-500 mb-2">Thông báo xử lý</p>
-                    <p className="text-sm text-slate-800 whitespace-pre-wrap">{selectedDetailItem.message}</p>
-                  </div>
+                    {/* <div>
+                      <p className="text-xs font-medium text-slate-500 mb-2">Thông báo xử lý</p>
+                      <p className="text-sm text-slate-800 whitespace-pre-wrap leading-relaxed rounded-xl border border-slate-200 bg-white px-3 py-3">
+                        {selectedDetailItem.message}
+                      </p>
+                    </div> */}
 
-                  <div className="rounded-lg border border-slate-200 bg-white p-3">
-                    <p className="text-xs text-slate-500 mb-2">Nội dung trích xuất (preview)</p>
-                    <pre className="text-xs text-slate-800 whitespace-pre-wrap leading-relaxed max-h-[320px] overflow-auto">
-{selectedDetailItem.extractedPreview || "Chưa có dữ liệu preview."}
-                    </pre>
+                    <div className={`rounded-xl border px-3 py-3 text-sm ${jsonEditorError || jsonConfirmError ? "border-red-200 bg-red-50 text-red-700" : jsonConfirmLoading || jsonEditorInfo || jsonConfirmInfo ? "border-blue-200 bg-blue-50 text-blue-700" : "border-slate-200 bg-white text-slate-600"}`}>
+                      <p className="text-[11px] uppercase tracking-wide font-medium mb-1 text-inherit">Trạng thái nạp dữ liệu</p>
+                      <p className="whitespace-pre-wrap leading-relaxed">
+                        {jsonConfirmLoading ? "⏳ Đang nạp dữ liệu vào Neo4j..." : (jsonConfirmError || jsonEditorError || jsonConfirmInfo || jsonEditorInfo || "Chưa có thông báo mới.")}
+                      </p>
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm mb-3">
+                      <p className="text-xs font-medium text-slate-500 mb-2">💡 Gợi ý khi duyệt JSON</p>
+                      <ul className="space-y-1 text-xs text-slate-700">
+                        <li>• Kiểm tra cấu trúc tổng quan trước, rồi mới sửa từng trường nhỏ.</li>
+                        <li>• Giữ JSON ở dạng hợp lệ để tránh lỗi khi lưu hoặc xác nhận nạp Neo4j.</li>
+                        <li>• Chỉ lưu sau khi kiểm tra kỹ. Nút xác nhận sẽ bị khóa nếu còn thay đổi chưa lưu.</li>
+                        <li>• Nếu cần đối chiếu dữ liệu, dùng job ID ở đầu modal để tra cứu nhanh.</li>
+                      </ul>
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-end gap-2 pt-1 border-t border-slate-200">
+                      <button
+                        type="button"
+                        onClick={saveJsonEdits}
+                        disabled={jsonEditorLoading || !jsonEditorDirty}
+                        className={`text-xs px-3 py-1.5 rounded-md text-white ${
+                          jsonEditorLoading || !jsonEditorDirty
+                            ? "bg-slate-400 cursor-not-allowed"
+                            : "bg-emerald-600 hover:bg-emerald-700"
+                        }`}
+                      >
+                        {jsonEditorLoading ? "Đang lưu..." : "Lưu JSON"}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={confirmNeo4jImport}
+                        disabled={jsonConfirmLoading || jsonEditorDirty || selectedDetailItem?.status === "success"}
+                        className={`text-xs px-3 py-1.5 rounded-md text-white ${
+                          jsonConfirmLoading || jsonEditorDirty || selectedDetailItem?.status === "success"
+                            ? "bg-slate-400 cursor-not-allowed"
+                            : "bg-blue-600 hover:bg-blue-700"
+                        }`}
+                      >
+                        {jsonConfirmLoading ? "Đang nạp dữ liệu..." : "Xác nhận nạp Neo4j"}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from app.api.deps import require_admin
 from app.scripts.curriculum_graph import import_json_to_neo4j
 from app.scripts.neo4j_class import Neo4jConnector
-from app.scripts.curriculum_main import run_curriculum_etl
+from app.scripts.curriculum_main import mark_admin_review, run_curriculum_etl
 from app.scripts.run import process_quy_che_hoc_vu
 
 router = APIRouter()
@@ -74,7 +74,7 @@ class ChuyenNganhDaoTaoProcessor(BaseCategoryProcessor):
             raw_preview = json.dumps(extracted, ensure_ascii=False)[:12000]
 
         return {
-            "message": "Da trich xuat JSON, cho admin xac nhan truoc khi nap Neo4j",
+            "message": "Đã trích xuất JSON, chờ admin xác nhận trước khi nạp vào Neo4j",
             "ingestion_applied": False,
             "json_path": json_path,
             "section_count": parser_output.get("section_count"),
@@ -325,6 +325,15 @@ async def confirm_json_and_import(job_id: str, user=Depends(require_admin)):
         raise HTTPException(status_code=400, detail="Category does not support Neo4j confirmation import")
 
     path = _get_job_json_path(job)
+
+    reviewer = user.get("sub", "admin") if isinstance(user, dict) else "admin"
+    mark_admin_review(
+        json_path=str(path),
+        approved=True,
+        reviewed_by=reviewer,
+        notes="Confirmed by admin for Neo4j import",
+    )
+
     import_summary = await import_json_to_neo4j(str(path))
 
     current_result = job.get("result") or {}

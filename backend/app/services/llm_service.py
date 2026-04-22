@@ -5,7 +5,7 @@ import os
 import re
 import time
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 from dotenv import load_dotenv
 
@@ -36,6 +36,13 @@ MODEL_AUX_7B = _get_env("QWEN2_5_MODEL_7B", "OLLAMA_MODEL_7B", default="qwen2.5-
 MODEL_AUX_4B = _get_env("QWEN3_5_MODEL_4B", "OLLAMA_MODEL_4B", default="qwen3.5:4b")
 
 logger = logging.getLogger("app.llm")
+_loaded_models: set[str] = set()
+
+
+def _mark_model_used(model: str) -> None:
+    name = (model or "").strip()
+    if name:
+        _loaded_models.add(name)
 
 
 def _extract_json_object(text: str) -> Dict[str, Any]:
@@ -66,7 +73,7 @@ def _extract_json_object(text: str) -> Dict[str, Any]:
     return {}
 
 
-async def call_model(model: str, prompt: str, temperature: float = 0.3):
+async def call_model(model: str, prompt: str, temperature: float = 0.3, keep_alive: str = "1h"):
     async with httpx.AsyncClient(timeout=DEFAULT_TIMEOUT_SECONDS) as client:
         try:
             # Preferred endpoint for prompt-style calls.
@@ -79,6 +86,7 @@ async def call_model(model: str, prompt: str, temperature: float = 0.3):
                     "temperature": temperature,
                     "top_p": 0.9,
                     "top_k": 40,
+                    "keep_alive": keep_alive,
                 },
             )
             if res.status_code == 404:
@@ -87,6 +95,7 @@ async def call_model(model: str, prompt: str, temperature: float = 0.3):
             payload = res.json()
             if "response" not in payload:
                 raise RuntimeError(f"Invalid Ollama response: {payload}")
+            _mark_model_used(model)
             return payload["response"]
         except httpx.HTTPStatusError as e:
             # Fallback for runtimes exposing /api/chat but not /api/generate.
@@ -106,6 +115,7 @@ async def call_model(model: str, prompt: str, temperature: float = 0.3):
                 content = (chat_payload.get("message", {}) or {}).get("content")
                 if not content:
                     raise RuntimeError(f"Invalid Ollama chat response: {chat_payload}")
+                _mark_model_used(model)
                 return content
             raise
 
@@ -135,6 +145,66 @@ async def call_model_4b_json(prompt: str) -> Dict[str, Any]:
 
 async def call_model_9b(prompt: str, temperature: float = 0.3):
     return await call_model(MODEL_PRIMARY_9B, prompt, temperature=temperature)
+
+
+async def warmup_llm_model() -> bool:
+    """
+    Khởi động model 9b khi backend startup và giữ nó trong GPU memory.
+    Gửi một query test với keep_alive cao để ép Ollama giữ model.
+    """
+    logger.info("[llm] Bắt đầu warmup model 9b...")
+    try:
+        # Test prompt tối thiểu để trigger model load
+        # keep_alive="1h" báo cho Ollama giữ model trong 1 giờ
+        warmup_prompt = "Xin chào"
+        response = await call_model(
+            MODEL_PRIMARY_9B, 
+            warmup_prompt, 
+            temperature=0.1,
+            keep_alive="1h"  # Giữ model trong 1 giờ sau warmup
+        )
+        if response:
+            logger.info(f"[llm] Warmup model 9b thành công! Model kept alive. Response length: {len(response)}")
+            return True
+        else:
+            logger.warning("[llm] Warmup model 9b nhận response rỗng")
+            return False
+    except Exception as e:
+        logger.error(f"[llm] Lỗi khi warmup model 9b: {e}")
+        return False
+
+
+async def unload_llm_models() -> bool:
+    """
+    Giải phóng models khi backend shutdown.
+    Gửi request với keep_alive=0 để báo cho Ollama unload model từ GPU.
+    """
+    logger.info("[llm] Bắt đầu unload LLM models...")
+    models_to_unload = sorted(_loaded_models)
+    if not models_to_unload:
+        logger.info("[llm] Không có model nào đã dùng trong runtime, bỏ qua unload")
+        return True
+    
+    async with httpx.AsyncClient(timeout=10) as client:
+        for model in models_to_unload:
+            try:
+                # Gửi request với keep_alive=0 để force unload model
+                await client.post(
+                    OLLAMA_GENERATE_URL,
+                    json={
+                        "model": model,
+                        "prompt": " ",  # Minimal valid prompt
+                        "stream": False,
+                        "keep_alive": 0,  # Force unload after this request
+                    },
+                    timeout=5,
+                )
+                logger.info(f"[llm] Unload signal sent for {model}")
+            except Exception as e:
+                logger.warning(f"[llm] Couldn't unload {model}: {e}")
+    
+    logger.info("[llm] Unload completed")
+    return True
 
 
 class LLMService:
@@ -182,9 +252,9 @@ class LLMService:
             f"\nHistory: {history or '[empty]'}"
             f"\nQuery: {query}"
         )
-        data = await call_model_json(MODEL_AUX_4B, prompt)
+        data = await call_model_json(MODEL_AUX_7B, prompt)
         if not data:
-            data = await call_model_json(MODEL_AUX_7B, prompt)
+            data = await call_model_json(MODEL_AUX_4B, prompt)
         if not data:
             return {"need_query": True, "reason": "fallback_true"}
 
@@ -273,8 +343,8 @@ class LLMService:
             - KHÔNG thêm kiến thức bên ngoài
             - KHÔNG suy đoán
             - Nếu Context KHÔNG đủ:
-            - Nói rõ là chưa đủ thông tin
-            - Gợi ý người dùng hỏi rõ hơn
+                + Nói rõ là chưa đủ thông tin
+                + Gợi ý người dùng hỏi rõ hơn
 
             ## Cách trả lời
             - Trả lời trực tiếp vào câu hỏi
@@ -380,6 +450,66 @@ class LLMService:
         result = str(data.get("intent", "factual")).strip().lower()
         self._set_cache(cache_key, result)
         return result
+
+    async def analyze_all_in_one(self, query: str, history: str = "") -> Dict[str, Any]:
+        prompt = f"""
+            Bạn là chuyên gia phân tích ngôn ngữ cho Chatbot Đại học Cần Thơ (CTU).
+            Nhiệm vụ: Chuyển đổi câu hỏi người dùng thành dữ liệu cấu trúc JSON để truy vấn Database.
+
+            ### 1. BẢNG TRA CỨU VIẾT TẮT (BẮT BUỘC SỬ DỤNG):
+            Khi viết lại câu hỏi (rewritten_query), PHẢI chuyển từ viết tắt sang tên đầy đủ sau:
+            - KHMT -> Khoa học máy tính
+            - KTPM -> Kỹ thuật phần mềm
+            - CNTT -> Công nghệ thông tin
+            - HTTT -> Hệ thống thông tin
+            - MMT & TTDL -> Mạng máy tính và Truyền thông dữ liệu
+            - ATTT -> An toàn thông tin
+            - TTNT -> Trí tuệ nhân tạo
+            - KHDL -> Khoa học dữ liệu
+            - TC/Tín -> Tín chỉ
+            - HP -> Học phần
+            - CTDT -> Chương trình đào tạo
+            - QCHV -> Quy chế học vụ
+            - HK -> Học kỳ
+
+            ### 2. PHÂN LOẠI INTENT:
+            - factual: Hỏi thông số cụ thể (VD: "Môn A mấy tín?", "Tổng tín chỉ ngành B").
+            - relational: Hỏi về sự liên kết (VD: "Môn tiên quyết của A", "Môn B thuộc khối nào").
+            - rule: Hỏi về quy định/điều kiện (VD: "Điều kiện xét tốt nghiệp", "Cách đăng ký học cải thiện").
+
+            ### 3. YÊU CẦU CHO REWRITTEN_QUERY:
+            - PHẢI sử dụng Tiếng Việt chuẩn, có dấu.
+            - PHẢI sử dụng tên ngành/môn học ĐẦY ĐỦ theo bảng viết tắt trên để khớp với Database.
+            - KHÔNG được thay đổi ý nghĩa gốc của người dùng.
+
+            ### 4. QUY TẮC QUYẾT ĐỊNH TRUY VẤN (need_query):
+            - need_query = false: Khi câu hỏi là xã giao, chào hỏi, cảm ơn, khen ngợi hoặc các câu nói không chứa thực thể học vụ (VD: "Chào bot", "Bạn khỏe không?", "Cảm ơn nhé").
+            - need_query = true: Khi câu hỏi cần thông tin về môn học, ngành học, chương trình đào tạo, quy chế học vụ hoặc bất kỳ thực thể nào của CTU.
+
+            ### 5. PHÂN LOẠI DOMAIN (QUY TẮC QUYẾT ĐỊNH):
+            - "ctdt": Khi câu hỏi tập trung vào THỰC THỂ CỤ THỂ của một ngành hoặc môn học.
+                + Dấu hiệu: Tên ngành (KHMT, CNTT...), Mã học phần (CT101, CT173...), Tên môn học, Tín chỉ của môn, Môn tiên quyết, Mô tả học phần, Kế hoạch học tập từng kỳ của ngành.
+            - "quy_che": Khi câu hỏi tập trung vào QUY ĐỊNH CHUNG áp dụng cho toàn bộ sinh viên hoặc quy trình hành chính.
+                + Dấu hiệu: Đăng ký học phần, học cải thiện, học bù, cảnh báo học vụ, xét tốt nghiệp (điều kiện chung), thang điểm, xếp loại học lực, các chứng chỉ ngoại ngữ/tin học bắt buộc (chuẩn đầu ra chung).
+
+            DỮ LIỆU ĐẦU VÀO:
+            - Lịch sử chat: {history[-500:]}
+            - Câu hỏi hiện tại: "{query}"
+
+            YÊU CẦU OUTPUT JSON (DUY NHẤT):
+            {{
+                "domain": "ctdt" | "quy_che",
+                "intent": "factual" | "relational" | "rule",
+                "entities": {{ "mentions": ["tên đầy đủ thực thể"], "intent_hint": "từ khóa hành động" }},
+                "rewritten_query": "câu hỏi đã được chuẩn hóa tên đầy đủ",
+                "need_query": true/false
+            }}
+        """
+        return await call_model_json(MODEL_PRIMARY_9B, prompt)
+
+    async def call_model_4b_json(self, prompt: str) -> Dict[str, Any]:
+        """Compatibility wrapper for services expecting instance-level JSON calls."""
+        return await call_model_4b_json(prompt)
 
     async def extract_entities(self, query: str) -> Dict[str, Any]:
         cache_key = self._cache_key("extract_entities", {"query": query})

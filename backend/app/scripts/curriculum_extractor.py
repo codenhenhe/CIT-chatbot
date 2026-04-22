@@ -5,9 +5,21 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 if __package__ in (None, ""):
-    from app.scripts.term_dictionary import normalize_token, slugify_token
+    from app.scripts.term_dictionary import (
+        matches_property_key,
+        matches_table_label,
+        normalize_token,
+        resolve_property_key,
+        slugify_token,
+    )
 else:
-    from .term_dictionary import normalize_token, slugify_token
+    from .term_dictionary import (
+        matches_property_key,
+        matches_table_label,
+        normalize_token,
+        resolve_property_key,
+        slugify_token,
+    )
 
 
 NODE_PROPERTIES: Dict[str, Tuple[str, ...]] = {
@@ -29,6 +41,8 @@ NODE_PROPERTIES: Dict[str, Tuple[str, ...]] = {
         "so_tiet_ly_thuyet",
         "so_tiet_thuc_hanh",
         "tom_tat",
+        "dieu_kien",
+        "yeu_cau_stc_toi_thieu",
         "bat_buoc",
     ),
     "KhoiKienThuc": (
@@ -64,6 +78,8 @@ PLO_RE = re.compile(r"\((PLO\d{1,3})\)", re.IGNORECASE)
 CREDIT_RE = re.compile(r"(\d{1,3})\s*(?:tín chỉ|TC)", re.IGNORECASE)
 COURSE_CODE_RE = re.compile(r"\b[A-Z]{1,5}\s*\d{2,}[A-Z0-9]*\b")
 BULLET_RE = re.compile(r"^(?:[-*]|[a-z]\.|[a-z]\)|\d+\.)\s*(.+)$", re.IGNORECASE)
+ELECTIVE_GROUP_RE = re.compile(r"\b(?:AV|PV|N\d+)\b", re.IGNORECASE)
+MIN_STC_RE = re.compile(r"(?:>=|≥)\s*(\d{1,3})\s*TC\b", re.IGNORECASE)
 
 KHOA_CODE_RULES: Dict[str, str] = {
     "mang may tinh va truyen thong": "MMT",
@@ -114,6 +130,34 @@ def _parse_float(value: Any) -> Optional[float]:
     text = _clean_text(value).replace(",", ".")
     m = re.search(r"-?\d+(?:\.\d+)?", text)
     return float(m.group(0)) if m else None
+
+
+def _parse_training_duration_years(value: Any) -> Optional[float]:
+    text = _clean_text(value)
+    if not text:
+        return None
+
+    normalized = _normalize(text)
+
+    # Prefer explicit duration phrases, e.g. "thoi gian dao tao: 4.5 nam".
+    explicit = re.search(r"thoi gian dao tao\D{0,30}(\d{1,2}(?:[\.,]\d+)?)\s*nam\b", normalized)
+    if explicit:
+        return float(explicit.group(1).replace(",", "."))
+
+    # Generic "x năm" fallback with sanity bounds to ignore years in dates.
+    for match in re.finditer(r"(\d{1,2}(?:[\.,]\d+)?)\s*(?:nam|năm)\b", text, re.IGNORECASE):
+        years = float(match.group(1).replace(",", "."))
+        if 2.0 <= years <= 8.0:
+            return years
+
+    # Some files encode duration by semesters instead of years.
+    semester_match = re.search(r"(\d{1,2})\s*(?:hoc\s*ky|học\s*kỳ)", normalized)
+    if semester_match:
+        semesters = int(semester_match.group(1))
+        if 4 <= semesters <= 16:
+            return semesters / 2.0
+
+    return None
 
 
 def _compact(value: str) -> str:
@@ -178,6 +222,229 @@ def _resolve_khoa_code(khoa_name: str) -> str:
     return slugify_token(khoa_name)
 
 
+def _extract_min_stc_requirement(text: str) -> Optional[str]:
+    match = MIN_STC_RE.search(_clean_text(text))
+    if not match:
+        return None
+    return f"≥ {match.group(1)} TC"
+
+
+def _extract_course_codes(text: str) -> List[str]:
+    return [code.replace(" ", "") for code in COURSE_CODE_RE.findall(_clean_text(text))]
+
+
+def _text_or_none(value: Any) -> Optional[str]:
+    text = _clean_text(value)
+    return text if text else None
+
+
+def _sentences(*parts: Optional[str]) -> str:
+    cleaned: List[str] = []
+    for part in parts:
+        if not part:
+            continue
+        sentence = _clean_text(part)
+        if not sentence:
+            continue
+        sentence = sentence.rstrip(";,: ")
+        if sentence[-1] not in ".!?":
+            sentence = f"{sentence}."
+        cleaned.append(sentence)
+    return " ".join(cleaned).strip()
+
+
+def _compose_node_text(node_type: str, payload: Dict[str, Any]) -> str:
+    if node_type == "ChuongTrinhDaoTao":
+        ma = _text_or_none(payload.get("ma_chuong_trinh")) or "UNKNOWN"
+        khoa = _text_or_none(payload.get("khoa"))
+        he = _text_or_none(payload.get("he"))
+        ngon_ngu = _text_or_none(payload.get("ngon_ngu"))
+        tong_tc = _text_or_none(payload.get("tong_tin_chi"))
+        thoi_gian = _text_or_none(payload.get("thoi_gian_dao_tao"))
+        thang_diem = _text_or_none(payload.get("thang_diem"))
+        return _sentences(
+            f"Chương trình đào tạo có mã {ma}",
+            f"Khóa tuyển sinh là {khoa}" if khoa else None,
+            f"Hệ đào tạo là {he}" if he else None,
+            f"Ngôn ngữ giảng dạy là {ngon_ngu}" if ngon_ngu else None,
+            f"Tổng số tín chỉ toàn chương trình là {tong_tc}" if tong_tc else None,
+            f"Thời gian đào tạo dự kiến là {thoi_gian} năm" if thoi_gian else None,
+            f"Thang điểm đánh giá sử dụng là {thang_diem}" if thang_diem else None,
+        )
+
+    if node_type == "Nganh":
+        ma = _text_or_none(payload.get("ma_nganh"))
+        ten_vi = _text_or_none(payload.get("ten_nganh_vi"))
+        ten_en = _text_or_none(payload.get("ten_nganh_en"))
+        return _sentences(
+            f"Ngành đào tạo là {ten_vi}" if ten_vi else "Đây là một ngành đào tạo",
+            f"Mã ngành là {ma}" if ma else None,
+            f"Tên ngành bằng tiếng Anh là {ten_en}" if ten_en else None,
+        )
+
+    if node_type == "Khoa":
+        ma = _text_or_none(payload.get("ma_khoa"))
+        ten = _text_or_none(payload.get("ten_khoa"))
+        return _sentences(
+            f"Khoa quản lý là {ten}" if ten else "Khoa quản lý chưa được xác định",
+            f"Mã khoa là {ma}" if ma else None,
+        )
+
+    if node_type == "BoMon":
+        ma = _text_or_none(payload.get("ma_bo_mon"))
+        ten = _text_or_none(payload.get("ten_bo_mon"))
+        return _sentences(
+            f"Bộ môn phụ trách là {ten}" if ten else "Bộ môn phụ trách chưa được xác định",
+            f"Mã bộ môn là {ma}" if ma else None,
+        )
+
+    if node_type == "TrinhDo":
+        ten = _text_or_none(payload.get("ten_trinh_do"))
+        ma = _text_or_none(payload.get("ma_trinh_do"))
+        return _sentences(
+            f"Trình độ đào tạo là {ten}" if ten else "Trình độ đào tạo chưa xác định",
+            f"Mã trình độ là {ma}" if ma else None,
+        )
+
+    if node_type == "LoaiVanBang":
+        loai = _text_or_none(payload.get("loai_van_bang"))
+        ma = _text_or_none(payload.get("ma_loai"))
+        return _sentences(
+            f"Loại văn bằng được cấp là {loai}" if loai else "Loại văn bằng chưa xác định",
+            f"Mã loại văn bằng là {ma}" if ma else None,
+        )
+
+    if node_type == "HinhThucDaoTao":
+        ten = _text_or_none(payload.get("ten_hinh_thuc"))
+        ma = _text_or_none(payload.get("ma_hinh_thuc"))
+        return _sentences(
+            f"Hình thức đào tạo là {ten}" if ten else "Hình thức đào tạo chưa xác định",
+            f"Mã hình thức đào tạo là {ma}" if ma else None,
+        )
+
+    if node_type == "PhuongThucDaoTao":
+        ten = _text_or_none(payload.get("ten_phuong_thuc"))
+        ma = _text_or_none(payload.get("ma_phuong_thuc"))
+        return _sentences(
+            f"Phương thức đào tạo là {ten}" if ten else "Phương thức đào tạo chưa xác định",
+            f"Mã phương thức đào tạo là {ma}" if ma else None,
+        )
+
+    if node_type == "VanBanPhapLy":
+        ten = _text_or_none(payload.get("ten"))
+        so = _text_or_none(payload.get("so"))
+        ngay = _text_or_none(payload.get("ngay_ban_hanh"))
+        co_quan = _text_or_none(payload.get("co_quan_ban_hanh"))
+        return _sentences(
+            f"Văn bản pháp lý tham chiếu là {ten}" if ten else "Văn bản pháp lý tham chiếu chưa xác định",
+            f"Số hiệu văn bản là {so}" if so else None,
+            f"Ngày ban hành là {ngay}" if ngay else None,
+            f"Cơ quan ban hành là {co_quan}" if co_quan else None,
+        )
+
+    if node_type == "DoiTuongTuyenSinh":
+        noi_dung = _text_or_none(payload.get("noi_dung"))
+        return _sentences(f"Đối tượng tuyển sinh là {noi_dung}" if noi_dung else "Đối tượng tuyển sinh chưa xác định")
+
+    if node_type == "DieuKienTotNghiep":
+        noi_dung = _text_or_none(payload.get("noi_dung"))
+        return _sentences(f"Điều kiện tốt nghiệp gồm: {noi_dung}" if noi_dung else "Điều kiện tốt nghiệp chưa xác định")
+
+    if node_type == "MucTieuDaoTao":
+        loai = _text_or_none(payload.get("loai"))
+        noi_dung = _text_or_none(payload.get("noi_dung"))
+        return _sentences(
+            f"Đây là mục tiêu đào tạo loại {loai}" if loai else "Đây là mục tiêu đào tạo",
+            noi_dung,
+        )
+
+    if node_type == "ChuanDauRa":
+        ma = _text_or_none(payload.get("ma_chuan"))
+        nhom = _text_or_none(payload.get("nhom"))
+        loai = _text_or_none(payload.get("loai"))
+        noi_dung = _text_or_none(payload.get("noi_dung"))
+        return _sentences(
+            f"Chuẩn đầu ra {ma} thuộc nhóm {nhom} và loại {loai}" if (ma and nhom and loai) else None,
+            f"Chuẩn đầu ra thuộc nhóm {nhom} và loại {loai}" if (not ma and nhom and loai) else None,
+            f"Chuẩn đầu ra có mã {ma}" if (ma and not nhom and not loai) else None,
+            "Đây là một chuẩn đầu ra của chương trình" if (not ma and not nhom and not loai) else None,
+            noi_dung,
+        )
+
+    if node_type == "ViTriViecLam":
+        noi_dung = _text_or_none(payload.get("noi_dung"))
+        return _sentences(f"Vị trí việc làm sau tốt nghiệp bao gồm: {noi_dung}" if noi_dung else "Vị trí việc làm chưa xác định")
+
+    if node_type == "ChuanThamKhao":
+        noi_dung = _text_or_none(payload.get("noi_dung"))
+        link = _text_or_none(payload.get("link"))
+        return _sentences(
+            f"Chuẩn tham khảo là {noi_dung}" if noi_dung else "Chuẩn tham khảo",
+            f"Liên kết tham khảo: {link}" if link else None,
+        )
+
+    if node_type == "DanhGiaKiemDinh":
+        noi_dung = _text_or_none(payload.get("noi_dung"))
+        return _sentences(f"Thông tin đánh giá kiểm định: {noi_dung}" if noi_dung else "Thông tin đánh giá kiểm định chưa xác định")
+
+    if node_type == "KhaNangHocTap":
+        noi_dung = _text_or_none(payload.get("noi_dung"))
+        return _sentences(f"Khả năng học tập nâng cao sau tốt nghiệp: {noi_dung}" if noi_dung else "Khả năng học tập nâng cao chưa xác định")
+
+    if node_type == "KhoiKienThuc":
+        ma = _text_or_none(payload.get("ma_khoi"))
+        ten = _text_or_none(payload.get("ten_khoi"))
+        tong = _text_or_none(payload.get("tong_tin_chi"))
+        bb = _text_or_none(payload.get("tin_chi_bat_buoc"))
+        tc = _text_or_none(payload.get("tin_chi_tu_chon"))
+        return _sentences(
+            f"Khối kiến thức là {ten}" if ten else "Khối kiến thức chưa xác định",
+            f"Mã khối kiến thức là {ma}" if ma else None,
+            f"Tổng số tín chỉ của khối là {tong}" if tong else None,
+            f"Số tín chỉ bắt buộc là {bb}" if bb else None,
+            f"Số tín chỉ tự chọn là {tc}" if tc else None,
+        )
+
+    if node_type == "HocPhan":
+        ma = _text_or_none(payload.get("ma_hoc_phan"))
+        ten = _text_or_none(payload.get("ten_hoc_phan"))
+        so_tc = _text_or_none(payload.get("so_tin_chi"))
+        so_lt = _text_or_none(payload.get("so_tiet_ly_thuyet"))
+        so_th = _text_or_none(payload.get("so_tiet_thuc_hanh"))
+        tom_tat = _text_or_none(payload.get("tom_tat"))
+        bat_buoc = payload.get("bat_buoc")
+        dieu_kien = payload.get("dieu_kien")
+        yeu_cau_stc = _text_or_none(payload.get("yeu_cau_stc_toi_thieu"))
+        bat_buoc_text = None
+        if isinstance(bat_buoc, bool):
+            bat_buoc_text = "Đây là học phần bắt buộc" if bat_buoc else "Đây là học phần tự chọn"
+
+        return _sentences(
+            f"Học phần {ma} có tên là {ten}" if (ma and ten) else (f"Học phần có tên là {ten}" if ten else "Học phần"),
+            f"Số tín chỉ của học phần là {so_tc}" if so_tc else None,
+            f"Số tiết lý thuyết là {so_lt}" if so_lt else None,
+            f"Số tiết thực hành là {so_th}" if so_th else None,
+            "Học phần này có điều kiện học trước" if dieu_kien else None,
+            f"Yêu cầu tín chỉ tối thiểu: {yeu_cau_stc}" if yeu_cau_stc else None,
+            bat_buoc_text,
+            f"Mô tả tóm tắt học phần: {tom_tat}" if tom_tat else None,
+        )
+
+    if node_type == "NhomHocPhanTuChon":
+        ten = _text_or_none(payload.get("ten_nhom"))
+        return _sentences(f"Nhóm học phần tự chọn là {ten}" if ten else "Nhóm học phần tự chọn chưa xác định")
+
+    if node_type == "YeuCauTuChon":
+        noi_dung = _text_or_none(payload.get("noi_dung_yeu_cau"))
+        so_tc = _text_or_none(payload.get("so_tin_chi_yeu_cau"))
+        return _sentences(
+            f"Yêu cầu tự chọn: {noi_dung}" if noi_dung else "Yêu cầu tự chọn",
+            f"Số tín chỉ tự chọn cần đạt là {so_tc}" if so_tc else None,
+        )
+
+    return node_type
+
+
 class GraphState:
     def __init__(self) -> None:
         self.results: Dict[str, Dict[str, Any]] = {
@@ -202,7 +469,13 @@ class GraphState:
     def add_node(self, node_type: str, values: Dict[str, Any]) -> Dict[str, Any]:
         props = NODE_PROPERTIES[node_type]
         payload = {prop: values.get(prop) for prop in props}
-        signature = json.dumps(payload, ensure_ascii=False, sort_keys=True, default=str)
+        custom_text = _clean_text(values.get("text"))
+        payload["text"] = custom_text if custom_text else _compose_node_text(node_type, payload)
+        signature_payload = dict(payload)
+        dedupe_key = _clean_text(values.get("_dedupe_key"))
+        if dedupe_key:
+            signature_payload["_dedupe_key"] = dedupe_key
+        signature = json.dumps(signature_payload, ensure_ascii=False, sort_keys=True, default=str)
         if signature in self._node_signatures[node_type]:
             return payload
         self._node_signatures[node_type].add(signature)
@@ -266,6 +539,11 @@ def _find_section(state: GraphState, keyword: str) -> Optional[Dict[str, Any]]:
     return None
 
 
+def _is_framework_section_title(title: str) -> bool:
+    norm_title = _normalize(title)
+    return "khung chuong trinh dao tao" in norm_title
+
+
 def _section_text_recursive(section: Dict[str, Any]) -> str:
     src = section.get("source") or {}
     chunks = []
@@ -282,6 +560,24 @@ def _table_rows(table: Dict[str, Any]) -> List[Dict[str, Any]]:
     return [r for r in records if isinstance(r, dict)]
 
 
+def _table_raw_rows(table: Dict[str, Any]) -> List[Dict[str, Any]]:
+    raw_rows = table.get("raw_rows") or []
+    if raw_rows:
+        converted: List[Dict[str, Any]] = []
+        for row in raw_rows:
+            if isinstance(row, dict):
+                converted.append(row)
+            elif isinstance(row, (list, tuple)):
+                converted.append({f"col_{index + 1}": value for index, value in enumerate(row)})
+
+        # Align raw rows with records (records usually exclude the header row).
+        records = _table_rows(table)
+        if records and len(converted) == len(records) + 1:
+            converted = converted[1:]
+        return converted
+    return _table_rows(table)
+
+
 def _table_columns(table: Dict[str, Any]) -> List[str]:
     cols = []
     for col in table.get("columns") or []:
@@ -291,9 +587,14 @@ def _table_columns(table: Dict[str, Any]) -> List[str]:
 
 def _row_value_by_label(table: Dict[str, Any], row: Dict[str, Any], contains: str) -> str:
     cols = _table_columns(table)
+    for idx, label in enumerate(cols, start=1):
+        if matches_table_label(label, contains):
+            return _clean_text(row.get(f"col_{idx}", ""))
+
+    # Backward-compatible fallback for ad-hoc lookups.
     target = _normalize(contains)
     for idx, label in enumerate(cols, start=1):
-        if target in _normalize(label):
+        if target and target in _normalize(label):
             return _clean_text(row.get(f"col_{idx}", ""))
     return ""
 
@@ -308,28 +609,134 @@ def _build_info_map(state: GraphState) -> None:
             key = _clean_text(row.get("col_1", ""))
             val = _clean_text(row.get("col_2", ""))
             if key and val:
-                state.info_map[_normalize(key)] = val
+                norm_key = _normalize(key)
+                state.info_map[norm_key] = val
+                canonical_key = resolve_property_key(key)
+                if canonical_key:
+                    state.info_map[canonical_key] = val
+
+
+def _info_get(state: GraphState, *canonical_keys: str) -> Optional[str]:
+    for canonical in canonical_keys:
+        value = state.info_map.get(canonical)
+        if value:
+            return value
+
+    for key, value in state.info_map.items():
+        if not value:
+            continue
+        for canonical in canonical_keys:
+            if matches_property_key(key, canonical):
+                return value
+    return None
+
+
+def _info_get_training_duration(state: GraphState) -> Optional[str]:
+    direct = state.info_map.get("thoi_gian_dao_tao")
+    if direct and _parse_training_duration_years(direct) is not None:
+        return direct
+
+    # OCR can corrupt labels; prefer any "thoi gian"-like key whose value parses as duration.
+    candidates: List[str] = []
+    for key, value in state.info_map.items():
+        if not value:
+            continue
+        key_norm = _normalize(key)
+        value_clean = _clean_text(value)
+        if not value_clean:
+            continue
+
+        looks_like_duration_key = (
+            "thoi gian dao tao" in key_norm
+            or ("thoi gian" in key_norm and ("dao tao" in key_norm or "khoa hoc" in key_norm or "chuong trinh" in key_norm))
+            or matches_property_key(key, "thoi_gian_dao_tao")
+        )
+        if looks_like_duration_key and _parse_training_duration_years(value_clean) is not None:
+            candidates.append(value_clean)
+
+    if candidates:
+        # Prefer the first candidate from info table order.
+        return candidates[0]
+
+    # Last-resort fallback in info map only: key mentions "thoi gian" and value parses.
+    for key, value in state.info_map.items():
+        key_norm = _normalize(key)
+        if "thoi gian" not in key_norm:
+            continue
+        value_clean = _clean_text(value)
+        if _parse_training_duration_years(value_clean) is not None:
+            return value_clean
+    return None
+
+
+def _extract_major_name_from_text(full_text: str) -> Optional[str]:
+    text = _clean_text(full_text)
+    if not text:
+        return None
+    match = re.search(
+        r"\bNgành\s*:\s*([^\n:]+?)(?:\s*\(|\s+Mã\s*ngành\s*:|\n|$)",
+        text,
+        re.IGNORECASE,
+    )
+    if not match:
+        return None
+    return _clean_text(match.group(1))
+
+
+def _extract_major_code_from_text(full_text: str) -> Optional[str]:
+    text = _clean_text(full_text)
+    if not text:
+        return None
+    match = re.search(r"\bMã\s*ngành\s*:\s*(\d{6,10})\b", text, re.IGNORECASE)
+    if match:
+        return match.group(1)
+    return None
+
+
+def _extract_total_credits_from_text(full_text: str) -> Optional[int]:
+    text = _clean_text(full_text)
+    if not text:
+        return None
+    match = re.search(r"\bSố\s*lượng\s*tín\s*chỉ\s*:\s*(\d{2,3})\b", text, re.IGNORECASE)
+    if not match:
+        return None
+    return int(match.group(1))
+
+
+def _extract_training_duration_text(full_text: str) -> Optional[str]:
+    text = _clean_text(full_text)
+    if not text:
+        return None
+    match = re.search(
+        r"\bThời\s*gian\s*đào\s*tạo\s*:\s*([^\n]+?)(?=\s+Loại\s+văn\s+bằng\s*:|\n|$)",
+        text,
+        re.IGNORECASE,
+    )
+    if not match:
+        return None
+    return _clean_text(match.group(1))
 
 
 def extract_node_chuong_trinh_dao_tao(state: GraphState, source: Optional[str]) -> None:
     ma_nganh = None
-    ten_vi = None
-    tong_tc = None
-    thoi_gian = None
-    thang_diem = None
+    ten_vi = _info_get(state, "ten_nganh_vi")
+    if not ten_vi:
+        ten_vi = _extract_major_name_from_text(state.full_text)
+    tong_tc = _parse_int(_info_get(state, "tong_tin_chi") or "")
+    if tong_tc is None:
+        tong_tc = _extract_total_credits_from_text(state.full_text)
+    raw_thoi_gian = _info_get_training_duration(state) or ""
+    if not raw_thoi_gian:
+        raw_thoi_gian = _extract_training_duration_text(state.full_text) or ""
+    thoi_gian = _parse_training_duration_years(raw_thoi_gian)
+    thang_diem = _parse_float(_info_get(state, "thang_diem") or "")
 
-    for key, value in state.info_map.items():
-        if "ma so nganh" in key:
-            m = re.search(r"\d{4,10}", _clean_text(value))
-            ma_nganh = m.group(0) if m else None
-        elif "ten chuong trinh tieng viet" in key:
-            ten_vi = value
-        elif "so tin chi" in key:
-            tong_tc = _parse_int(value)
-        elif "thoi gian dao tao" in key:
-            thoi_gian = _parse_float(value)
-        elif "thang diem" in key:
-            thang_diem = _parse_float(value)
+    value_ma_nganh = _info_get(state, "ma_nganh")
+    if not value_ma_nganh:
+        value_ma_nganh = _extract_major_code_from_text(state.full_text)
+    if value_ma_nganh:
+        m = re.search(r"\d{4,10}", _clean_text(value_ma_nganh))
+        ma_nganh = m.group(0) if m else None
 
     # Determine he: default Dai tra unless chat luong cao appears.
     full_text_norm = _normalize(state.full_text)
@@ -410,17 +817,15 @@ def extract_node_van_ban_phap_ly(state: GraphState) -> None:
 
 
 def extract_node_nganh(state: GraphState) -> None:
-    ten_vi = None
-    ten_en = None
-    ma_nganh = None
-
-    for key, value in state.info_map.items():
-        if "ten chuong trinh tieng viet" in key:
-            ten_vi = value
-        elif "ten chuong trinh tieng anh" in key:
-            ten_en = value
-        elif "ma so nganh" in key:
-            ma_nganh = _parse_int(value)
+    ten_vi = _info_get(state, "ten_nganh_vi")
+    if not ten_vi:
+        ten_vi = _extract_major_name_from_text(state.full_text)
+    
+    ten_en = _info_get(state, "ten_nganh_en")
+    
+    ma_nganh = _parse_int(_info_get(state, "ma_nganh") or "")
+    if ma_nganh is None:
+        ma_nganh = _parse_int(_extract_major_code_from_text(state.full_text) or "")
 
     item = state.add_node(
         "Nganh",
@@ -435,12 +840,11 @@ def extract_node_nganh(state: GraphState) -> None:
 
 
 def extract_node_khoa(state: GraphState) -> None:
-    management_unit = None
+    management_unit = _info_get(state, "don_vi_quan_ly")
     khoa_from_info = None
     for key, value in state.info_map.items():
-        if "don vi quan ly" in key:
-            management_unit = value
-        elif key.startswith("khoa"):
+        norm_key = _normalize(key)
+        if norm_key.startswith("khoa") and not matches_property_key(key, "khoa"):
             khoa_from_info = value
     if not management_unit:
         cover_section = _find_section(state, "Trang bìa")
@@ -478,11 +882,7 @@ def extract_node_khoa(state: GraphState) -> None:
 
 
 def extract_node_bo_mon(state: GraphState) -> None:
-    bo_mon_name = None
-    for key, value in state.info_map.items():
-        if "bo mon" in key:
-            bo_mon_name = _clean_text(value)
-            break
+    bo_mon_name = _clean_text(_info_get(state, "bo_mon") or "")
 
     if not bo_mon_name:
         cover_section = _find_section(state, "Trang bìa")
@@ -494,7 +894,9 @@ def extract_node_bo_mon(state: GraphState) -> None:
                 break
 
     if not bo_mon_name:
-        state.add_node("BoMon", {"ma_bo_mon": None, "ten_bo_mon": None})
+        return
+
+    if _normalize(bo_mon_name) in {"bo mon", "bo mon phu trach", "bo mon phu trach la"}:
         return
 
     bo_mon = state.add_node(
@@ -509,11 +911,7 @@ def extract_node_bo_mon(state: GraphState) -> None:
 
 
 def extract_node_trinh_do(state: GraphState) -> None:
-    value = None
-    for key, val in state.info_map.items():
-        if "trinh do dao tao" in key:
-            value = val
-            break
+    value = _info_get(state, "trinh_do_dao_tao")
     if not value:
         return
 
@@ -522,11 +920,7 @@ def extract_node_trinh_do(state: GraphState) -> None:
 
 
 def extract_node_loai_van_bang(state: GraphState) -> None:
-    value = None
-    for key, val in state.info_map.items():
-        if "ten goi van bang" in key:
-            value = val
-            break
+    value = _info_get(state, "ten_goi_van_bang")
     if not value:
         return
 
@@ -541,11 +935,7 @@ def extract_node_loai_van_bang(state: GraphState) -> None:
 
 
 def extract_node_hinh_thuc_dao_tao(state: GraphState) -> None:
-    value = None
-    for key, val in state.info_map.items():
-        if "hinh thuc dao tao" in key:
-            value = val
-            break
+    value = _info_get(state, "hinh_thuc_dao_tao")
     if not value:
         return
 
@@ -582,11 +972,7 @@ def extract_node_phuong_thuc_dao_tao(state: GraphState) -> None:
 
 
 def extract_node_doi_tuong_tuyen_sinh(state: GraphState) -> None:
-    value = None
-    for key, val in state.info_map.items():
-        if "doi tuong tuyen sinh" in key:
-            value = val
-            break
+    value = _info_get(state, "doi_tuong_tuyen_sinh")
     if not value:
         sec = _find_section(state, "Tiêu chí tuyển sinh")
         value = _section_text_recursive(sec) if sec else None
@@ -603,11 +989,7 @@ def extract_node_doi_tuong_tuyen_sinh(state: GraphState) -> None:
 
 
 def extract_node_dieu_kien_tot_nghiep(state: GraphState) -> None:
-    value = None
-    for key, val in state.info_map.items():
-        if "dieu kien tot nghiep" in key:
-            value = val
-            break
+    value = _info_get(state, "dieu_kien_tot_nghiep")
     if not value:
         m = re.search(r"(Hoàn thành|Tích lũy).{30,300}", state.full_text, re.IGNORECASE)
         value = _clean_text(m.group(0)) if m else None
@@ -750,11 +1132,7 @@ def extract_node_chuan_dau_ra(state: GraphState) -> None:
 
 
 def extract_node_vi_tri_viec_lam(state: GraphState) -> None:
-    value = None
-    for key, val in state.info_map.items():
-        if "vi tri viec lam" in key:
-            value = val
-            break
+    value = _info_get(state, "vi_tri_viec_lam")
     if not value:
         sec = _find_section(state, "Vị trí việc làm")
         value = _section_text_recursive(sec) if sec else None
@@ -790,11 +1168,7 @@ def extract_node_chuan_tham_khao(state: GraphState) -> None:
 
 
 def extract_node_danh_gia_kiem_dinh(state: GraphState) -> None:
-    value = None
-    for key, val in state.info_map.items():
-        if "danh gia kiem dinh" in key:
-            value = val
-            break
+    value = _info_get(state, "danh_gia_kiem_dinh")
 
     if not value:
         sec = _find_section(state, "Phương pháp đánh giá") or _find_section(state, "kiểm định")
@@ -835,10 +1209,11 @@ def extract_node_khoi_kien_thuc(state: GraphState) -> None:
     for m in pattern.finditer(text):
         name = _clean_text(m.group(1))
         ten_khoi = f"Khối kiến thức {name}"
+        program_code = _clean_text(state.program_id or "") or "UNKNOWN"
         item = state.add_node(
             "KhoiKienThuc",
             {
-                "ma_khoi": slugify_token(ten_khoi),
+                "ma_khoi": f"{program_code}_{slugify_token(ten_khoi)}",
                 "ten_khoi": ten_khoi,
                 "tong_tin_chi": int(m.group(2)),
                 "tin_chi_bat_buoc": int(m.group(3)),
@@ -850,56 +1225,65 @@ def extract_node_khoi_kien_thuc(state: GraphState) -> None:
         state.add_rel("ChuongTrinhDaoTao", state.ctdt_match, "GOM", "KhoiKienThuc", item["ten_khoi"], m.group(0))
 
 
-def _extract_course_rows(state: GraphState) -> List[Tuple[Dict[str, Any], Dict[str, Any], str]]:
-    rows: List[Tuple[Dict[str, Any], Dict[str, Any], str]] = []
+def _extract_course_rows(state: GraphState) -> List[Tuple[Dict[str, Any], Dict[str, Any], str, int]]:
+    rows: List[Tuple[Dict[str, Any], Dict[str, Any], str, int]] = []
     for sec in state.flat_sections:
         title_norm = _normalize(sec.get("title", ""))
         if "khung chuong trinh dao tao" not in title_norm and "ke hoach day hoc" not in title_norm and "mo ta tom tat" not in title_norm:
             continue
         for table in sec.get("tables", []):
-            for row in _table_rows(table):
-                rows.append((table, row, sec.get("title", "")))
+            for row_index, row in enumerate(_table_rows(table)):
+                rows.append((table, row, sec.get("title", ""), row_index))
     return rows
 
 
 def extract_node_hoc_phan(state: GraphState) -> None:
     pending_rel: List[Tuple[str, str, str, str]] = []
     current_khoi: Optional[str] = None
+    current_scope: Optional[Tuple[str, int]] = None
 
     # Group raw rows by course identity first to avoid duplicate HocPhan nodes.
     grouped: Dict[str, Dict[str, Any]] = {}
 
-    for table, row, section_title in _extract_course_rows(state):
+    for table, row, section_title, row_index in _extract_course_rows(state):
+        in_framework_section = _is_framework_section_title(section_title)
+        scope = (_clean_text(section_title), id(table))
+        if scope != current_scope:
+            current_scope = scope
+            current_khoi = None
+
         row_text = " | ".join(_clean_text(v) for v in row.values() if _clean_text(v))
         if not row_text:
             continue
 
-        if "khối kiến thức" in _normalize(row_text):
+        if "khoi kien thuc" in _normalize(row_text):
             for khoi_key, khoi_name in state.khoi_by_norm.items():
                 if khoi_key in _normalize(row_text):
                     current_khoi = khoi_name
                     break
             continue
 
-        ma_hp = _row_value_by_label(table, row, "Mã số") or _row_value_by_label(table, row, "Mã số HP") or row.get("col_2", "")
+        ma_hp = _row_value_by_label(table, row, "ma_hoc_phan") or row.get("col_2", "")
         ma_hp = _clean_text(ma_hp).replace(" ", "")
         if ma_hp and not COURSE_CODE_RE.search(ma_hp):
             ma_hp = ""
 
-        ten_hp = _row_value_by_label(table, row, "Tên học") or row.get("col_3", "")
+        ten_hp = _row_value_by_label(table, row, "ten_hoc_phan") or row.get("col_3", "")
         ten_hp = _clean_text(ten_hp)
         if not ten_hp:
             continue
 
-        so_tc = _parse_int(_row_value_by_label(table, row, "Số tín chỉ") or row.get("col_4", ""))
-        so_lt = _parse_int(_row_value_by_label(table, row, "LT") or row.get("col_7", ""))
-        so_th = _parse_int(_row_value_by_label(table, row, "TH") or row.get("col_8", ""))
-        tom_tat = _row_value_by_label(table, row, "Mô tả tóm tắt")
+        so_tc = _parse_int(_row_value_by_label(table, row, "so_tin_chi") or row.get("col_4", ""))
+        so_lt = _parse_int(_row_value_by_label(table, row, "ly_thuyet") or row.get("col_7", ""))
+        so_th = _parse_int(_row_value_by_label(table, row, "thuc_hanh") or row.get("col_8", ""))
+        tom_tat = _row_value_by_label(table, row, "mo_ta_tom_tat")
+        hp_tq = _row_value_by_label(table, row, "tien_quyet")
+        min_stc = _extract_min_stc_requirement(hp_tq or "")
 
         bat_buoc = None
-        if _parse_int(_row_value_by_label(table, row, "Bắt buộc") or row.get("col_5", "")):
+        if _parse_int(_row_value_by_label(table, row, "bat_buoc") or row.get("col_5", "")):
             bat_buoc = True
-        elif _parse_int(_row_value_by_label(table, row, "Tự chọn") or row.get("col_6", "")):
+        elif _parse_int(_row_value_by_label(table, row, "tu_chon") or row.get("col_6", "")):
             bat_buoc = False
 
         if ma_hp:
@@ -915,6 +1299,8 @@ def extract_node_hoc_phan(state: GraphState) -> None:
                 "so_tc": {},
                 "so_lt": {},
                 "so_th": {},
+                "dieu_kien": False,
+                "yeu_cau_stc_toi_thieu": {},
                 "tom_tat": {},
                 "bat_buoc": {},
                 "sections": set(),
@@ -931,6 +1317,10 @@ def extract_node_hoc_phan(state: GraphState) -> None:
             group["so_lt"][so_lt] = group["so_lt"].get(so_lt, 0) + 1
         if so_th is not None:
             group["so_th"][so_th] = group["so_th"].get(so_th, 0) + 1
+        if "*" in ten_hp:
+            group["dieu_kien"] = True
+        if min_stc:
+            group["yeu_cau_stc_toi_thieu"][min_stc] = group["yeu_cau_stc_toi_thieu"].get(min_stc, 0) + 1
         if tom_tat:
             group["tom_tat"][tom_tat] = group["tom_tat"].get(tom_tat, 0) + 1
         if bat_buoc is not None:
@@ -940,11 +1330,15 @@ def extract_node_hoc_phan(state: GraphState) -> None:
         if current_khoi:
             group["khoi"].add(current_khoi)
 
-        for g in re.findall(r"\b(?:AV|PV|N\d+)\b", row_text, re.IGNORECASE):
-            group["elective_groups"].add(g.upper())
+        # Elective groups are only extracted from framework curriculum tables.
+        if in_framework_section:
+            group_source = _row_value_by_label(table, row, "bat_buoc") or row.get("col_5", "")
+            for g in ELECTIVE_GROUP_RE.findall(_clean_text(group_source)):
+                group_display = _clean_text(group_source or g)
+                if group_display:
+                    group["elective_groups"].add((group_display, _normalize(group_display)))
 
-        hp_tq = _row_value_by_label(table, row, "tiên quyết")
-        hp_sh = _row_value_by_label(table, row, "song hành")
+        hp_sh = _row_value_by_label(table, row, "song_hanh")
         for code in COURSE_CODE_RE.findall(hp_tq or ""):
             group["raw_rel"].append(("YEU_CAU_TIEN_QUYET", code.replace(" ", ""), hp_tq))
         for code in COURSE_CODE_RE.findall(hp_sh or ""):
@@ -955,8 +1349,17 @@ def extract_node_hoc_phan(state: GraphState) -> None:
             return None
         return max(counter.items(), key=lambda x: x[1])[0]
 
+    def pick_course_name(counter: Dict[str, int], prefer_starred: bool) -> Optional[str]:
+        if not counter:
+            return None
+        if prefer_starred:
+            starred = [name for name in counter if "*" in name]
+            if starred:
+                return max(starred, key=lambda name: counter[name])
+        return pick_most_common(counter)
+
     for _, group in grouped.items():
-        ten_hp = pick_most_common(group["name_counts"])
+        ten_hp = pick_course_name(group["name_counts"], bool(group["dieu_kien"]))
         item = state.add_node(
             "HocPhan",
             {
@@ -966,6 +1369,8 @@ def extract_node_hoc_phan(state: GraphState) -> None:
                 "so_tiet_ly_thuyet": pick_most_common(group["so_lt"]),
                 "so_tiet_thuc_hanh": pick_most_common(group["so_th"]),
                 "tom_tat": pick_most_common(group["tom_tat"]),
+                "dieu_kien": group["dieu_kien"],
+                "yeu_cau_stc_toi_thieu": pick_most_common(group["yeu_cau_stc_toi_thieu"]),
                 "bat_buoc": pick_most_common(group["bat_buoc"]),
             },
         )
@@ -982,8 +1387,14 @@ def extract_node_hoc_phan(state: GraphState) -> None:
         for rel_type, target_code, evidence in group["raw_rel"]:
             pending_rel.append((course_match, rel_type, target_code, evidence))
 
-        for group_name in sorted(group["elective_groups"]):
-            group_item = state.add_node("NhomHocPhanTuChon", {"ten_nhom": group_name})
+        for group_name, group_key in sorted(group["elective_groups"]):
+            group_item = state.add_node(
+                "NhomHocPhanTuChon",
+                {
+                    "ten_nhom": group_name,
+                    "_dedupe_key": group_key,
+                },
+            )
             state.add_rel("NhomHocPhanTuChon", group_item["ten_nhom"], "GOM", "HocPhan", course_match, group_name)
 
     for source_match, rel_type, target_code, evidence in pending_rel:
@@ -992,23 +1403,174 @@ def extract_node_hoc_phan(state: GraphState) -> None:
 
 
 def extract_node_yeu_cau_tu_chon(state: GraphState) -> None:
-    for sec in state.flat_sections:
-        text = _section_text_recursive(sec)
-        for line in text.splitlines():
-            line = _clean_text(line)
-            if not line or "tự chọn" not in _normalize(line):
+    seen: set = set()
+
+    def parse_groups(*chunks: str) -> List[str]:
+        merged = " ".join(_clean_text(chunk) for chunk in chunks if _clean_text(chunk))
+        groups = ELECTIVE_GROUP_RE.findall(merged)
+        deduped: List[str] = []
+        group_seen = set()
+        for group in groups:
+            token = group.upper()
+            if token in group_seen:
                 continue
-            credit = _parse_int(CREDIT_RE.search(line).group(1)) if CREDIT_RE.search(line) else None
-            req = state.add_node("YeuCauTuChon", {"noi_dung_yeu_cau": line, "so_tin_chi_yeu_cau": credit})
+            group_seen.add(token)
+            deduped.append(token)
+        return deduped
 
-            for khoi_name in state.khoi_by_norm.values():
-                if _normalize(khoi_name) in _normalize(line):
-                    state.add_rel("KhoiKienThuc", khoi_name, "CO", "YeuCauTuChon", req["noi_dung_yeu_cau"], line)
+    def parse_credit(*chunks: str) -> Optional[int]:
+        for chunk in chunks:
+            text = _clean_text(chunk)
+            if not text:
+                continue
+            m_credit = CREDIT_RE.search(text)
+            if m_credit:
+                return _parse_int(m_credit.group(1))
+            if re.fullmatch(r"\d{1,3}", text):
+                return int(text)
+        return None
 
-            for group in re.findall(r"\b(?:AV|PV|N\d+)\b", line, re.IGNORECASE):
-                group = group.upper()
-                state.add_node("NhomHocPhanTuChon", {"ten_nhom": group})
-                state.add_rel("YeuCauTuChon", req["noi_dung_yeu_cau"], "DOI_VOI", "NhomHocPhanTuChon", group, line)
+    def add_requirement(
+        value_text: str,
+        evidence: str,
+        context_text: str,
+        groups: Sequence[str],
+        credit: Optional[int],
+        from_course_row: bool,
+        khoi_matches: Sequence[str],
+        course_codes: Sequence[str],
+    ) -> None:
+        value_text = _clean_text(value_text)
+        evidence = _clean_text(evidence)
+        context_text = _clean_text(context_text)
+        if not value_text:
+            return
+
+        value_norm = _normalize(value_text)
+
+        normalized_groups = tuple(sorted(set(groups)))
+        signature = json.dumps(
+            {
+                "value": value_norm,
+                "groups": normalized_groups,
+                "credit": credit,
+            },
+            ensure_ascii=False,
+            sort_keys=True,
+        )
+        if signature in seen:
+            return
+        seen.add(signature)
+
+        req = state.add_node(
+            "YeuCauTuChon",
+            {
+                "noi_dung_yeu_cau": value_text,
+                "so_tin_chi_yeu_cau": credit,
+            },
+        )
+
+        linked_courses: List[str] = []
+        if from_course_row:
+            for code in course_codes:
+                course_match = state.hoc_phan_by_code.get(_normalize(code), code)
+                if course_match and course_match not in linked_courses:
+                    linked_courses.append(course_match)
+
+        for group in normalized_groups:
+            group_item = state.add_node(
+                "NhomHocPhanTuChon",
+                {
+                    "ten_nhom": group,
+                    "_dedupe_key": _normalize(group),
+                },
+            )
+            state.add_rel(
+                "YeuCauTuChon",
+                req["noi_dung_yeu_cau"],
+                "DOI_VOI",
+                "NhomHocPhanTuChon",
+                group_item["ten_nhom"],
+                evidence,
+            )
+
+        for course_match in linked_courses:
+            state.add_rel(
+                "YeuCauTuChon",
+                req["noi_dung_yeu_cau"],
+                "GOM",
+                "HocPhan",
+                course_match,
+                evidence or value_text,
+            )
+
+    for sec in state.flat_sections:
+        section_title = _clean_text(sec.get("title", ""))
+        if not _is_framework_section_title(section_title):
+            continue
+
+        section_text = _section_text_recursive(sec)
+        section_context = _compact(f"{section_title} {section_text}")
+
+        for table in sec.get("tables", []):
+            current_khoi: Optional[str] = None
+            cols = _table_columns(table)
+            tu_chon_idx = next((idx for idx, label in enumerate(cols, start=1) if matches_table_label(label, "tu_chon")), None)
+            bat_buoc_idx = next((idx for idx, label in enumerate(cols, start=1) if matches_table_label(label, "bat_buoc")), None)
+            ma_hp_idx = next(
+                (
+                    idx
+                    for idx, label in enumerate(cols, start=1)
+                    if matches_table_label(label, "ma_hoc_phan")
+                ),
+                None,
+            )
+
+            if not tu_chon_idx:
+                continue
+
+            # Use normalized records so merged cells are propagated consistently across rows.
+            for row in _table_rows(table):
+                elective_value = _clean_text(row.get(f"col_{tu_chon_idx}", ""))
+                if not elective_value:
+                    continue
+
+                row_text = " | ".join(_clean_text(v) for v in row.values() if _clean_text(v))
+                row_norm = _normalize(row_text)
+
+                if "khoi kien thuc" in row_norm:
+                    for khoi_key, khoi_name in state.khoi_by_norm.items():
+                        if khoi_key in row_norm:
+                            current_khoi = khoi_name
+                            break
+
+                code_value = _clean_text(row.get(f"col_{ma_hp_idx}", "")) if ma_hp_idx else ""
+                from_course_row = bool(COURSE_CODE_RE.search(code_value or row_text))
+                course_codes = _extract_course_codes(code_value) if code_value else []
+
+                # Business rule: take groups from "Bắt buộc" column when it has alphabetic tokens.
+                group_source = _clean_text(row.get(f"col_{bat_buoc_idx}", "")) if bat_buoc_idx else ""
+                groups = parse_groups(group_source)
+                if not groups:
+                    # Fallback for files that encode group inside elective text.
+                    groups = parse_groups(elective_value)
+                groups = [_clean_text(g) for g in groups if _clean_text(g)]
+                credit = parse_credit(elective_value)
+                context_text = _compact(f"{section_context} {row_text}")
+                khoi_matches: List[str] = []
+                if current_khoi:
+                    khoi_matches.append(current_khoi)
+
+                add_requirement(
+                    value_text=elective_value,
+                    evidence=row_text or elective_value,
+                    context_text=context_text,
+                    groups=groups,
+                    credit=credit,
+                    from_course_row=from_course_row,
+                    khoi_matches=[],
+                    course_codes=course_codes,
+                )
 
 
 def _build_base_context(parser_sections: Any, parser_text: str, table_text: str) -> GraphState:
